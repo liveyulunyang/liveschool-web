@@ -1,0 +1,13 @@
+.button-main {
+  background: #000000;
+  color: white;
+}
+.button-verified {
+  background: #808080;
+  color: white;
+}
+
+/* background */
+.bg-gray-900 {
+  background: #666666;
+}
