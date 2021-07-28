@@ -118,7 +118,7 @@
             <Button class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
               編輯模板
             </Button>
-            <Button class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
+            <Button @click="addClass" class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
               + 新增課程
             </Button>
           </div>
@@ -248,6 +248,9 @@
     computed: {
     },
     methods: {
+      addClass () {
+        this.$router.push({ name: 'addTalkClass' })
+      }
       // edit() {
       //   // eslint-disable-next-line no-console
       //   console.log('edit manage');

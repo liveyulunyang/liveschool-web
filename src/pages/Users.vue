@@ -170,7 +170,7 @@
     },
     methods: {
       toManage () {
-        this.$router.push({ name: 'account_manage' })
+        this.$router.push({ name: 'account_add' })
       }
     }
   }

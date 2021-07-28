@@ -28,9 +28,19 @@ const router = new Router({
         },
         // 帳號管理
         {
-            path: '/account_manage',
-            name: 'account_manage',
+            path: '/account/add',
+            name: 'account_add',
             component: () => import('./pages/Manage.vue')
+        },
+        {
+            path: '/account/edit/:id',
+            name: 'account_edit',
+            component: () => import('./pages/Manage.vue')
+        },
+        {
+            path: '/talk_class/add',
+            name: 'addTalkClass',
+            component: () => import('./pages/AddClass.vue')
         }
         // {
         //     path: '/analytics',
