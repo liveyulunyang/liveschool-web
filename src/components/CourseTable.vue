@@ -66,13 +66,13 @@
               <img src="@/assets/img/icons/file.svg" alt="" class="h-6 object-contain noData">
               <img src="@/assets/img/icons/file_active.svg" alt="" class="h-6 object-contain hasData">
             </Button>
-            <Button
+            <Button @click.native="toPreview"
               class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
               rounded>
               <img src="@/assets/img/icons/before_test.svg" alt="" class="h-6 object-contain noData">
               <img src="@/assets/img/icons/before_test_active.svg" alt="" class="h-6 object-contain hasData">
             </Button>
-            <Button
+            <Button @click.native="toReview"
               class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1 isActive"
               rounded>
               <img src="@/assets/img/icons/after_test.svg" alt="" class="h-6 object-contain noData">
@@ -165,6 +165,16 @@
             )
           }
         })
+      },
+      toPreview () {
+        // eslint-disable-next-line no-console
+        console.log('d')
+        this.$router.push({ path: '/ctl_class/preview' })
+      },
+      toReview () {
+        // eslint-disable-next-line no-console
+        console.log('d')
+        this.$router.push({ path: '/ctl_class/review' })
       }
     }
   }

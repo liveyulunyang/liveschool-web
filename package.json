@@ -13,6 +13,7 @@
     "core-js": "^3.1.2",
     "leaflet": "^1.5.1",
     "postcss-import": "^12.0.1",
+    "postcss-loader": "^6.1.1",
     "vue": "^2.6.10",
     "vue-chartjs": "^3.5.0",
     "vue-image-crop-upload": "^3.0.3",

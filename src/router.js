@@ -41,6 +41,11 @@ const router = new Router({
             path: '/talk_class/add',
             name: 'addTalkClass',
             component: () => import('./pages/AddClass.vue')
+        },
+        {
+            path: '/ctl_class/:type',
+            name: 'ctl_class',
+            component: () => import('./pages/AddPreReviewClass.vue')
         }
         // {
         //     path: '/analytics',
