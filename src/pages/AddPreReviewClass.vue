@@ -24,9 +24,9 @@
           </li>
         </ul>
 
-        <ul class='flex cursor-pointer text-sm' v-if="tag === 1">
+        <ul class='flex cursor-pointer text-sm'>
           <li class='py-2 mr-1'>
-            <Button @click="$router.back(-1)" class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
+            <Button class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
               <i class="fas fa-plus"></i>新增章節
             </Button>
           </li>
@@ -35,177 +35,20 @@
       <div v-if="isData">
         <form action="javascript:void(0);" class="text-NotoSansRegular textColorblack mx-auto">
 
-          <!-- Chapter -->
-          <div class="w-full bg-white py-2 lg:py-3 flex flex-col justify-between leading-normal mb-1">
-            <div class="flex flex-wrap textColorblack">
-
-              <div class="w-full px-3 py-3 md:flex mb-2">
-                <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2" for="email">
-                  Chapter 1
-                </label>
-                <div>
-                </div>
-                <div class="w-full md:w-8/12 flex items-center flex-wrap">
-                  <div class="w-full md:w-1/2 px-1">
-                    <input class="w-full appearance-none block text-sm border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-900" spellcheck="false"
-                      id="email" type="email" placeholder="章節標題">
-                  </div>
-
-                  <div class="w-full md:w-1/2 px-1">
-                    <input class="w-full appearance-none block text-sm border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-900" spellcheck="false"
-                      id="email" type="email" placeholder="副標題">
-                  </div>
-                </div>
-                <!-- <div class="w-full md:w-3/12 flex items-center justify-center md:pl-2">
-                  <button class="button-verified py-2 px-2 rounded w-full text-sm whitespace-no-wrap md:mx-1">
-                    儲存</button>
-                  <button class="button-verified py-2 px-2 rounded w-full text-sm whitespace-no-wrap md:mx-1">
-                    <i class="fas fa-times"></i>取消修改</button>
-                </div> -->
-                <div class="w-full md:w-3/12 flex items-center justify-center md:pl-2">
-                  <button class="button-verified py-2 px-2 rounded w-full text-sm whitespace-no-wrap md:mx-1">
-                    <i class="fas fa-plus"></i>新增單元
-                  </button>
-                  <button class="button-verified py-2 px-2 rounded w-full text-sm whitespace-no-wrap md:mx-1">
-                    <i class="fas fa-edit"></i>
-                  </button>
-                  <button class="button-verified py-2 px-2 rounded w-full text-sm whitespace-no-wrap md:mx-1">
-                    <i class="fas fa-trash-alt"></i>
-                  </button>
-                  <a href="" class="block px-1">
-                    <i class="fas fa-bars mb-0"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Unit -->
-          <div class="w-full bg-white py-2 lg:py-3 flex flex-col justify-between leading-normal">
-            <div class="flex flex-wrap textColorblack">
-
-              <div class="w-full px-3 py-3 md:flex mb-2">
-                <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2" for="email">
-                  Unit 1
-                </label>
-                <div>
-                </div>
-                <div class="w-full md:w-9/12 flex items-center flex-wrap">
-                  <div class="w-full md:w-2/5 px-1">
-                    <input class="w-full appearance-none block text-sm border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-900" spellcheck="false"
-                      id="email" type="email" placeholder="章節標題">
-                  </div>
-
-                  <div class="w-full md:w-3/5 px-1 md:flex items-center">
-
-                    <div>
-                      <p class="text-xs whitespace-no-wrap mx-1 my-1 text-left">課程日期</p>
-                      <date-picker
-                        v-model="value1"
-                        format="YYYY-MM-DD"
-                        type="date"
-                        placeholder="Select date"
-                      ></date-picker>
-                    </div>
-
-                    <div class="flex flex-wrap ml-2">
-                      <p class="text-xs whitespace-no-wrap mx-1 my-1 text-left">課程時間</p>
-                      <div class="flex">
-                        <p class="text-xs whitespace-no-wrap mx-1 my-1 text-left">從</p>
-                        <date-picker
-                        class="w-1/2"
-                          v-model="value"
-                          :minute-step="30"
-                          :hour-options="hours"
-                          format="HH:mm"
-                          value-type="format"
-                          type="time"
-                          placeholder="HH:mm"
-                        ></date-picker>
-
-                        <p class="text-xs whitespace-no-wrap mx-1 my-1">到</p>
-
-                        <date-picker
-                        class="w-1/2"
-                          v-model="value"
-                          :minute-step="30"
-                          :hour-options="hours"
-                          format="HH:mm"
-                          value-type="format"
-                          type="time"
-                          placeholder="HH:mm"
-                        ></date-picker>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-                <div class="w-full md:w-2/12 flex items-center justify-center md:pl-2">
-                  <button class="button-verified py-2 px-2 rounded w-full text-sm whitespace-no-wrap md:mx-1">
-                    <i class="fas fa-check"></i>儲存</button>
-                  <button class="button-verified py-2 px-2 rounded w-full text-sm whitespace-no-wrap md:mx-1">
-                    <i class="fas fa-times"></i>取消修改</button>
-                </div>
-                <!-- <div class="w-full md:w-1/5 flex items-center justify-center md:pl-2">
-                  <button class="button-verified py-2 px-2 rounded w-full text-sm whitespace-no-wrap md:mx-1">
-                    <i class="fas fa-plus"></i>新增單元
-                  </button>
-                  <button class="button-verified py-2 px-2 rounded w-full text-sm whitespace-no-wrap md:mx-1">
-                    <i class="fas fa-edit"></i>
-                  </button>
-                  <button class="button-verified py-2 px-2 rounded w-full text-sm whitespace-no-wrap md:mx-1">
-                    <i class="fas fa-trash-alt"></i>
-                  </button>
-                  <a href="" class="block px-1">
-                    <i class="fas fa-bars mb-0"></i>
-                  </a>
-                </div> -->
-              </div>
-            </div>
-          </div>
+          <!-- 新增學習內容 -->
+          <TypeContent class="mb-2" />
 
           <!-- 新增單字 -->
-          <Word />
+          <Word class="mb-2" />
 
           <!-- 新增片語 -->
-          <Phrase />
+          <Phrase class="mb-2" />
 
           <!-- 新增句子重組 -->
-          <Reorganization />
+          <Reorganization class="mb-2" />
 
           <!-- 新增選擇題 -->
-          <Choice />
-
-          <!-- 新增學習內容 -->
-          <div class="w-full bg-white py-2 lg:py-3 flex flex-col justify-between leading-normal border-t border-gray-1">
-            <div class="flex flex-wrap textColorblack">
-              <div class="w-full px-3 py-3 md:flex mb-2">
-                <label class="md:pt-2 md:w-1/5 tracking-wide text-sm mb-2" for="email">
-                  新增學習內容
-                </label>
-                <div>
-                </div>
-                <div class="w-full md:w-4/5 flex items-center">
-                  <button class="class__type_btn py-2 px-3 text-lg whitespace-no-wrap mx-1 font-semibold">
-                    影片
-                  </button>
-                  <button class="class__type_btn py-2 px-3 text-lg whitespace-no-wrap mx-1 font-semibold">
-                    單字
-                  </button>
-                  <button class="class__type_btn py-2 px-3 text-lg whitespace-no-wrap mx-1 font-semibold">
-                    片語
-                  </button>
-                  <button class="class__type_btn py-2 px-3 text-lg whitespace-no-wrap mx-1 font-semibold">
-                    必備句
-                  </button>
-                  <button class="class__type_btn py-2 px-3 text-lg whitespace-no-wrap mx-1 font-semibold">
-                    選擇題
-                  </button>
-                </div>
-
-              </div>
-            </div>
-          </div>
+          <Choice class="mb-2" />
 
         </form>
       </div>
@@ -213,27 +56,30 @@
       <NoData v-else />
 
     </section>
+
 	</main>
 </template>
 
 <script>
 /* eslint-disable no-console */
-  import DatePicker from 'vue2-datepicker';
+  // import DatePicker from 'vue2-datepicker';
   import 'vue2-datepicker/index.css';
   import NoData from '@/components/NoData'
   import Word from '@/components/ctl_class/Word'
   import Choice from '@/components/ctl_class/Choice'
   import Reorganization from '@/components/ctl_class/Reorganization'
   import Phrase from '@/components/ctl_class/Phrase'
+  import TypeContent from '@/components/ctl_class/TypeContent'
   export default {
     name: "AddTalkClass",
     components: {
-      DatePicker,
+      // DatePicker,
       NoData,
       Word,
       Choice,
       Phrase,
-      Reorganization
+      Reorganization,
+      TypeContent
     },
     data() {
       return {
