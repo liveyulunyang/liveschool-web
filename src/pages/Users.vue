@@ -77,7 +77,7 @@
 </template>
 
 <script>
-  import Table from "../components/UserTable";
+  import Table from "@/components/tables/User";
   import Multiselect from 'vue-multiselect'
   import DatePicker from 'vue2-datepicker';
   import 'vue2-datepicker/index.css';

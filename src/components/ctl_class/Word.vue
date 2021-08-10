@@ -6,7 +6,7 @@
 
       <div class="w-full px-3 py-3 md:flex">
         <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2" for="email">
-          單字 1.
+          單字
         </label>
         <div class="w-full md:w-9/12 flex items-center flex-wrap">
           <div class="w-full md:w-2/5 px-1 flex items-center">

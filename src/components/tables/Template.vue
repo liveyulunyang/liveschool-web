@@ -6,38 +6,32 @@
           <th v-for="column in columns" :key="column.name" class="whitespace-no-wrap text-center">{{ column.label }}</th>
         </tr>
         <tr v-for="item in data" :key="item.id">
-          <td data-th="帳號(信箱)">
-            {{ item.id }}
+          <td data-th="課程種類">
+            {{ item.type }}
           </td>
-          <td data-th="姓名/英文姓名">
+          <td data-th="課程名稱">
             {{ item.name }}
           </td>
-          <td data-th="CTL帳號">
-            {{ item.CTL }}
-          </td>
-          <td data-th="行動電話">
-            {{ item.mobile }}
-          </td>
-          <td data-th="點數">
-            {{ item.point }}
-          </td>
-          <td data-th="角色">
-            {{ item.role }}
-          </td>
-          <td data-th="來源">
-            {{ item.source }}
-          </td>
-          <td data-th="縣市">
-            {{ item.source }}
-          </td>
-          <td data-th="分校">
-            {{ item.branch }}
-          </td>
-          <td data-th="班級">
-            {{ item.class }}
-          </td>
-          <td data-th="建立時間">
-            {{ item.time }}
+          <td data-th="補充教材">
+            <Button
+              class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
+              rounded>
+              <img src="@/assets/img/icons/file.svg" alt="" class="h-6 object-contain noData">
+              <img src="@/assets/img/icons/file_active.svg" alt="" class="h-6 object-contain hasData">
+            </Button>
+            <Button @click.native="toPreview"
+              class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
+              rounded>
+              <img src="@/assets/img/icons/before_test.svg" alt="" class="h-6 object-contain noData">
+              <img src="@/assets/img/icons/before_test_active.svg" alt="" class="h-6 object-contain hasData">
+            </Button>
+            <Button @click.native="toReview"
+              class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1 isActive"
+              rounded>
+              <img src="@/assets/img/icons/after_test.svg" alt="" class="h-6 object-contain noData">
+              <img src="@/assets/img/icons/after_test_active.svg" alt="" class="h-6 object-contain hasData">
+            </Button>
+            <!-- {{ item.materials }} -->
           </td>
           <td data-th="執行動作">
             <Button
@@ -47,15 +41,16 @@
             </Button>
             <Button
               class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
-
-              rounded>
-              <img src="@/assets/img/icons/more.svg" alt="" class="w-6 object-contain">
-            </Button>
-            <Button
-              class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
-              @click.native="del"
+              @click="del"
               rounded>
               <img src="@/assets/img/icons/delete.svg" alt="" class="w-6 object-contain">
+            </Button>
+          </td>
+          <td>
+            <Button
+              class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
+              rounded>
+              + 開課
             </Button>
           </td>
         </tr>
@@ -66,10 +61,10 @@
 
 <script>
   // import Avatar from "./Avatar";
-  import Button from "./Button";
+  import Button from "@/components/Button";
 
   export default {
-    name: "Table",
+    name: "Template",
     components: {
       // Avatar,
       Button
@@ -127,6 +122,16 @@
             )
           }
         })
+      },
+      toPreview () {
+        // eslint-disable-next-line no-console
+        console.log('d')
+        this.$router.push({ path: '/ctl_class/preview' })
+      },
+      toReview () {
+        // eslint-disable-next-line no-console
+        console.log('d')
+        this.$router.push({ path: '/ctl_class/review' })
       }
     }
   }
@@ -216,10 +221,10 @@
   .rwd-table td {
     text-align: left;
   }
-.rwd-table th,
-.rwd-table td {
-  padding: .5em 1em;
-}
+  .rwd-table th,
+  .rwd-table td {
+    padding: .5em 1em;
+  }
 
 }
 @media screen and (min-width: 1025px) {
@@ -295,6 +300,13 @@ h3:after {
   75%   { transform: translateX(10px)}
   100%  { transform: translateX(0)}
 }
-
-
+.hasData {
+  display: none;
+}
+.isActive .noData {
+  display: none;
+}
+.isActive .hasData {
+  display: block;
+}
 </style>

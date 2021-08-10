@@ -104,7 +104,7 @@
 
 <script>
   // import Avatar from "./Avatar";
-  import Button from "./Button";
+  import Button from "@/components/Button";
 
   export default {
     name: "Table",
