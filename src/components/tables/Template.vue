@@ -60,13 +60,11 @@
 </template>
 
 <script>
-  // import Avatar from "./Avatar";
   import Button from "@/components/Button";
 
   export default {
     name: "Template",
     components: {
-      // Avatar,
       Button
     },
     props: {

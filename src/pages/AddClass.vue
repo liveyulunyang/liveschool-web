@@ -701,9 +701,9 @@
     },
     data() {
       return {
-        isData: false,
+        isData: true,
 
-        tag: 1,
+        tag: 0,
         time: null,
         value1: null,
         value2: null,

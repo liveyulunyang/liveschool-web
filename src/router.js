@@ -41,10 +41,53 @@ const router = new Router({
       name: 'ctl_class',
       component: () => import('./pages/AddPreReviewClass.vue')
     },
+    // 模板
     {
       path: '/course_template',
       name: 'course_template',
       component: () => import('./pages/CourseTemplate.vue')
+    },
+    {
+      path: '/live_class',
+      name: 'live_class',
+      component: () => import('./pages/Live_class.vue')
+    },
+    {
+      path: '/classification',
+      name: 'classification',
+      component: () => import('./pages/Classification.vue')
+    },
+    {
+      path: '/learn_record',
+      name: 'learn_record',
+      component: () => import('./pages/Learn_record.vue')
+    },
+    {
+      path: '/teach_record',
+      name: 'teach_record',
+      component: () => import('./pages/Teach_record.vue')
+    },
+
+
+    {
+      path: '/point',
+      name: 'point',
+      component: () => import('./pages/Point.vue')
+    },
+    {
+      path: '/serial_number',
+      name: 'serial_number',
+      component: () => import('./pages/Serial_number.vue')
+    },
+    {
+      path: '/announce',
+      name: 'announce',
+      component: () => import('./pages/Announce.vue')
+    },
+    {
+      path: '/info',
+      name: 'info',
+      component: () => import('./pages/Info.vue')
     }
     // {
     //     path: '/analytics',

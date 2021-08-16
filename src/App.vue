@@ -65,7 +65,6 @@
     components: {
       Nav,
       Button,
-      // Avatar,
       SideBar
     },
     data () {
@@ -83,6 +82,54 @@
             icon: "fa-comments",
             title: "課程管理",
             url: "/courses"
+          },
+          {
+            id: 2,
+            icon: "fa-film",
+            title: "Live Class",
+            url: "/live_class"
+          },
+          {
+            id: 3,
+            icon: "fa-list-ul",
+            title: "分類管理",
+            url: "/classification"
+          },
+          {
+            id: 4,
+            icon: "fa-quran",
+            title: "學習紀錄",
+            url: "/learn_record"
+          },
+          {
+            id: 5,
+            icon: "fa-address-card",
+            title: "授課紀錄",
+            url: "/teach_record"
+          },
+          {
+            id: 6,
+            icon: "fa-credit-card",
+            title: "點數管理",
+            url: "/point"
+          },
+          {
+            id: 7,
+            icon: "fa-key",
+            title: "序號管理",
+            url: "/serial_number"
+          },
+          {
+            id: 8,
+            icon: "fa-bell",
+            title: "公告",
+            url: "/announce"
+          },
+          {
+            id: 9,
+            icon: "fa-info",
+            title: "系統資訊",
+            url: "/info"
           }
           // {
           //   id: 0,

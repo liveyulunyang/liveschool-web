@@ -115,7 +115,7 @@
             <Button class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
               批次匯入
             </Button>
-            <Button class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
+            <Button @click="toEdit" class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
               編輯模板
             </Button>
             <Button @click="addClass" class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
@@ -250,6 +250,9 @@
     methods: {
       addClass () {
         this.$router.push({ name: 'addTalkClass' })
+      },
+      toEdit () {
+        this.$router.push({ name: 'course_template' })
       }
       // edit() {
       //   // eslint-disable-next-line no-console
