@@ -3,13 +3,7 @@
     <div class="flex flex-col w-full">
         <div class="mb-4 flex justify-between items-center flex-wrap">
           <div class="flex">
-            <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">LiveTalk課程管理</h1>
-          </div>
-          <div class="flex text-xs flex-wrap">
-            <h5 class="mr-3 whitespace-no-wrap">已結束<span class="bg-white rounded-lg px-2 py-1 mx-1">999</span>課</h5>
-            <h5 class="mr-3 whitespace-no-wrap">已取消<span class="bg-white rounded-lg px-2 py-1 mx-1">915</span>課</h5>
-            <h5 class="mr-3 whitespace-no-wrap">進行中<span class="bg-white rounded-lg px-2 py-1 mx-1">9</span>課</h5>
-            <h5 class="mr-3 whitespace-no-wrap">未結束<span class="bg-white rounded-lg px-2 py-1 mx-1">99</span>課</h5>
+            <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">預約課程審核列表</h1>
           </div>
         </div>
         <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row">
@@ -24,46 +18,7 @@
               :clear-on-select="false"
               :show-labels="false"
               track-by="name" label="name"
-              placeholder="教室">
-            </Multiselect>
-          </div>
-          <div class="mr-1">
-            <Multiselect
-              class=""
-              v-model="classTopicVal"
-              :options="classTopicOptions"
-              :multiple="false"
-              :close-on-select="true"
-              :clear-on-select="false"
-              :show-labels="false"
-              track-by="name" label="name"
-              placeholder="課程主題">
-            </Multiselect>
-          </div>
-          <div class="mr-1">
-            <Multiselect
-              class=""
-              v-model="topicCategoryVal"
-              :options="topicCategoryOptions"
-              :multiple="false"
-              :close-on-select="true"
-              :clear-on-select="false"
-              :show-labels="false"
-              track-by="name" label="name"
-              placeholder="主題分類">
-            </Multiselect>
-          </div>
-          <div class="mr-1">
-            <Multiselect
-              class="role"
-              v-model="branchVal"
-              :options="branchOptions"
-              :multiple="false"
-              :close-on-select="true"
-              :clear-on-select="false"
-              :show-labels="false"
-              track-by="name" label="name"
-              placeholder="站別">
+              placeholder="狀態">
             </Multiselect>
           </div>
           <div class="mr-1">
@@ -111,17 +66,6 @@
             </a>
           </div>
           </div>
-          <div class="flex justify-end items-center">
-            <Button class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
-              批次匯入
-            </Button>
-            <Button @click="toEdit" class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
-              編輯模板
-            </Button>
-            <Button @click="addClass" class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
-              + 新增課程
-            </Button>
-          </div>
         </div>
         <Table :columns="vehiclesList.columns"
           :actions="vehiclesList.actions"
@@ -137,7 +81,7 @@
   import DatePicker from 'vue2-datepicker';
   import 'vue2-datepicker/index.css';
   export default {
-    name: "Courses",
+    name: "Book_course",
     components: {
       Table,
       Multiselect,

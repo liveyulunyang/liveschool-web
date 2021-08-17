@@ -97,7 +97,13 @@
           },
           {
             id: 4,
-            icon: "fa-quran",
+            icon: "fa-book",
+            title: "預約課程",
+            url: "/book_course"
+          },
+          {
+            id: 4,
+            icon: "fa-history",
             title: "學習紀錄",
             url: "/learn_record"
           },

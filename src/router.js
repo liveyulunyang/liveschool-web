@@ -67,7 +67,11 @@ const router = new Router({
       name: 'teach_record',
       component: () => import('./pages/Teach_record.vue')
     },
-
+    {
+      path: '/book_course',
+      name: 'book_course',
+      component: () => import('./pages/Book_course.vue')
+    },
 
     {
       path: '/point',
