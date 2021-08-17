@@ -166,15 +166,12 @@
         this.$router.push({ name: 'addTalkClass' })
       }
       // edit() {
-      //   // eslint-disable-next-line no-console
       //   console.log('edit manage');
       // },
       // open() {
-      //   // eslint-disable-next-line no-console
       //   console.log('open manage');
       // },
       // del() {
-      //   // eslint-disable-next-line no-console
       //   console.log('del manage');
       // }
     }

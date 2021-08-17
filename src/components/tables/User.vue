@@ -102,11 +102,11 @@
     },
     methods: {
       edit() {
-        // eslint-disable-next-line no-console
+        
         console.log('edit manage');
       },
       open() {
-        // eslint-disable-next-line no-console
+        
         console.log('open manage');
       },
       del() {

@@ -95,11 +95,11 @@
     },
     methods: {
       edit() {
-        // eslint-disable-next-line no-console
+        
         console.log('edit manage');
       },
       open() {
-        // eslint-disable-next-line no-console
+        
         console.log('open manage');
       },
       del() {
@@ -122,12 +122,12 @@
         })
       },
       toPreview () {
-        // eslint-disable-next-line no-console
+        
         console.log('d')
         this.$router.push({ path: '/ctl_class/preview' })
       },
       toReview () {
-        // eslint-disable-next-line no-console
+        
         console.log('d')
         this.$router.push({ path: '/ctl_class/review' })
       }

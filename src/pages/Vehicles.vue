@@ -456,8 +456,7 @@
     },
     methods: {
       manageVehicles() {
-        // eslint-disable-next-line no-console
-        console.log('Vehicle manage');
+        console.log('Vehicle manage')
       }
     }
   }

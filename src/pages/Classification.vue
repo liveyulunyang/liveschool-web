@@ -83,7 +83,6 @@
 				console.log('field: ' + field);
 			},
 			cropUploadFail(status, field){
-				// eslint-disable-next-line no-console
 				console.log('-------- upload fail --------')
 				console.log(status)
 				console.log('field: ' + field)

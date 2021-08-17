@@ -123,16 +123,18 @@
             </Button>
           </div>
         </div>
-        <Table :columns="vehiclesList.columns"
-          :actions="vehiclesList.actions"
-          :data="vehiclesList.datas">
-        </Table>
+      <Table :columns="vehiclesList.columns"
+        :actions="vehiclesList.actions"
+        :data="vehiclesList.datas">
+      </Table>
+      <pagination />
     </div>
   </main>
 </template>
 
 <script>
   import Table from "@/components/tables/Course";
+  import pagination from "@/components/pagination";
   import Multiselect from 'vue-multiselect'
   import DatePicker from 'vue2-datepicker';
   import 'vue2-datepicker/index.css';
@@ -141,7 +143,8 @@
     components: {
       Table,
       Multiselect,
-      DatePicker
+      DatePicker,
+      pagination
     },
     data() {
       return {
@@ -255,15 +258,12 @@
         this.$router.push({ name: 'course_template' })
       }
       // edit() {
-      //   // eslint-disable-next-line no-console
       //   console.log('edit manage');
       // },
       // open() {
-      //   // eslint-disable-next-line no-console
       //   console.log('open manage');
       // },
       // del() {
-      //   // eslint-disable-next-line no-console
       //   console.log('del manage');
       // }
     }
