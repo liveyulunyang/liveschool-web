@@ -102,37 +102,37 @@
             url: "/book_course"
           },
           {
-            id: 4,
+            id: 5,
             icon: "fa-history",
             title: "學習紀錄",
             url: "/learn_record"
           },
           {
-            id: 5,
+            id: 6,
             icon: "fa-address-card",
             title: "授課紀錄",
             url: "/teach_record"
           },
           {
-            id: 6,
+            id: 7,
             icon: "fa-credit-card",
             title: "點數管理",
             url: "/point"
           },
           {
-            id: 7,
+            id: 8,
             icon: "fa-key",
             title: "序號管理",
             url: "/serial_number"
           },
           {
-            id: 8,
+            id: 9,
             icon: "fa-bell",
             title: "公告",
             url: "/announce"
           },
           {
-            id: 9,
+            id: 10,
             icon: "fa-info",
             title: "系統資訊",
             url: "/info"

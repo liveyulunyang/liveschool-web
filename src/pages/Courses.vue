@@ -127,14 +127,14 @@
         :actions="vehiclesList.actions"
         :data="vehiclesList.datas">
       </Table>
-      <pagination />
+      <Pagination />
     </div>
   </main>
 </template>
 
 <script>
   import Table from "@/components/tables/Course";
-  import pagination from "@/components/pagination";
+  import Pagination from "@/components/modules/Pagination";
   import Multiselect from 'vue-multiselect'
   import DatePicker from 'vue2-datepicker';
   import 'vue2-datepicker/index.css';
@@ -144,7 +144,7 @@
       Table,
       Multiselect,
       DatePicker,
-      pagination
+      Pagination
     },
     data() {
       return {

@@ -23,7 +23,7 @@
         </ul>
       </div>
       <div v-if="isData">
-        <form action="javascript:void(0);" class="text-NotoSansRegular textColorblack mx-auto">
+        <div class="text-NotoSansRegular textColorblack mx-auto">
           <div class="w-full flex flex-wrap leading-normal mb-1">
             <div class="w-full px-3 py-3 md:flex mb-2 md:mb-3 bg-white" v-for="n in 10" :key="n">
               <div class="md:w-9/12 md:pt-2">
@@ -44,7 +44,8 @@
               </div>
             </div>
           </div>
-        </form>
+        </div>
+        <Pagination />
       </div>
 
       <NoData v-else />
@@ -57,10 +58,12 @@
 /* eslint-disable no-console */
   import 'vue2-datepicker/index.css';
   import NoData from '@/components/NoData'
+  import Pagination from "@/components/modules/Pagination";
   export default {
     name: "Classification",
     components: {
-      NoData
+      NoData,
+      Pagination
     },
     data() {
       return {

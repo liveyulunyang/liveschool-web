@@ -15,7 +15,7 @@
               v-for="(button, key) in props.buttons"
               :key="key"
               v-bind="button"
-              :class="{'bg-primary-normal': button.active}"
+              :class="{'bg-yellow-dark': button.active}"
               @page-change="page = button.page"
               @range-change="start = button.start; end = button.end"
           />
@@ -47,14 +47,14 @@ export default {
     },
 
     methods: {
-        pageChange (page) {
-          this.page = page
-        },
-        rangeChange (start, end) {
-          console.log(start, end)
-        },
-    },
-};
+      pageChange (page) {
+        this.page = page
+      },
+      rangeChange (start, end) {
+        console.log(start, end)
+      },
+    }
+}
 </script>
 <style>
 .vue-ads-pr-2 {

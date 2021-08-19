@@ -72,6 +72,7 @@
         :actions="vehiclesList.actions"
         :data="vehiclesList.datas">
       </Table>
+      <Pagination />
     </div>
   </main>
 </template>
@@ -81,12 +82,14 @@
   import Multiselect from 'vue-multiselect'
   import DatePicker from 'vue2-datepicker';
   import 'vue2-datepicker/index.css';
+  import Pagination from "@/components/modules/Pagination";
   export default {
     name: "User",
     components: {
       Table,
       Multiselect,
-      DatePicker
+      DatePicker,
+      Pagination
     },
     data() {
       return {

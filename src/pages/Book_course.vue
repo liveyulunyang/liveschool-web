@@ -67,7 +67,8 @@
           </div>
           </div>
         </div>
-        <Table :columns="vehiclesList.columns"
+        <Table
+          :columns="vehiclesList.columns"
           :actions="vehiclesList.actions"
           :data="vehiclesList.datas">
         </Table>
@@ -76,7 +77,7 @@
 </template>
 
 <script>
-  import Table from "@/components/tables/Course";
+  import Table from "@/components/tables/Booking";
   import Multiselect from 'vue-multiselect'
   import DatePicker from 'vue2-datepicker';
   import 'vue2-datepicker/index.css';
@@ -123,67 +124,50 @@
 
         vehiclesList: {
           columns: [
-            { name: 'id', label: 'ID', required: true },
-            { name: 'classroom', label: '教室', required: true },
+            // { name: 'id', label: 'ID', required: true },
+            { name: 'setTime', label: '建立時間', required: true },
+            { name: 'BranchChool', label: '分校', required: true },
             { name: 'classname', label: '課程名稱', required: true },
-            { name: 'teacher', label: '老師', required: true },
+            { name: 'classtype', label: '課程種類', required: true },
+            { name: 'teacherProject', label: '教師專案', required: true },
+            { name: 'teacher', label: '安排教師', required: true },
             { name: 'number', label: '人數', required: true, sortable: false},
             { name: 'point', label: '點數', required: true },
-            { name: 'classtime', label: '開課時間', required: true },
-            { name: 'classtype', label: '課程種類', required: true },
-            { name: 'isPublic', label: '是否公開', required: true },
-            { name: 'branch', label: '站別', required: true },
-            { name: 'record', label: '紀錄', required: true },
-            { name: 'materials', label: '補充教材', required: true },
-            { name: 'actions', label: '執行動作', required: true
-            },
-            { name: 'status', label: '狀態', required: true }
+            { name: 'bookingTime', label: '預約時間', required: true },
+            { name: 'classtime', label: '實際開課時間', required: true },
+            { name: 'status', label: '狀態', required: true },
+            { name: 'actions', label: '動作', required: true }
           ],
           datas: [
             {
               id: '282638',
-              classroom: 'ROOM1',
-              classname: 'CTL測試課程',
-              teacher: 'Peggy',
-              number: '0/0',
-              point: 88,
-              classtime: '2021-06-22 22:00-23:00',
+              setTime: '2021.08.08',
+              BranchChool: '總公司',
+              classname: 'B1 U1-U3 Class 2',
               classtype: 'CTL口說班',
-              isPublic: '是',
-              branch: 'XX站',
-              record: 'C8',
-              materials: 'C8',
-              status: '準備中'
+              teacherProject: '菲常厲害優惠專案',
+              teacher: 'Peggy',
+              number: 'CTL口說班',
+              point: 88,
+              bookingTime: '2021-06-22 22:00-23:00',
+              classtime: 'C8',
+              status: '審核中',
+              actions: ''
             },
             {
-              id: '2825638',
-              classroom: 'ROOM1',
-              classname: 'CTL測試課程',
+              id: '282638',
+              setTime: '2021.08.08',
+              BranchChool: '總公司',
+              classname: 'B1 U1-U3 Class 2',
+              classtype: 'CTL口說班',
+              teacherProject: '菲常厲害優惠專案',
               teacher: 'Peggy',
               number: '0/0',
               point: 88,
+              bookingTime: '2021-06-22 22:00-23:00',
               classtime: '2021-06-22 22:00-23:00',
-              classtype: 'CTL口說班',
-              isPublic: '是',
-              branch: 'XX站',
-              record: 'C8',
-              materials: 'C8',
-              status: '準備中'
-            },
-            {
-              id: '282658',
-              classroom: 'ROOM1',
-              classname: 'CTL測試課程',
-              teacher: 'Peggy',
-              number: '0/0',
-              point: 88,
-              classtime: '2021-06-22 22:00-23:00',
-              classtype: 'CTL口說班',
-              isPublic: '是',
-              branch: 'XX站',
-              record: 'C8',
-              materials: 'C8',
-              status: '準備中'
+              status: '審核中',
+              actions: ''
             }
           ]
         }
