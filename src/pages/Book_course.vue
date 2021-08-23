@@ -152,10 +152,10 @@
               bookingTime: '2021-06-22 22:00-23:00',
               classtime: 'C8',
               status: '審核中',
-              actions: ''
+              actions: true
             },
             {
-              id: '282638',
+              id: '282639',
               setTime: '2021.08.08',
               BranchChool: '總公司',
               classname: 'B1 U1-U3 Class 2',
@@ -167,7 +167,7 @@
               bookingTime: '2021-06-22 22:00-23:00',
               classtime: '2021-06-22 22:00-23:00',
               status: '審核中',
-              actions: ''
+              actions: false
             }
           ]
         }

@@ -6,9 +6,6 @@
           <th v-for="column in columns" :key="column.name" class="whitespace-no-wrap text-center">{{ column.label }}</th>
         </tr>
         <tr v-for="item in data" :key="item.id">
-          <!-- <td data-th="ID">
-            {{ item.id }}
-          </td> -->
           <td data-th="建立時間">
             {{ item.setTime }}
           </td>
@@ -19,12 +16,7 @@
             {{ item.classname }}
           </td>
           <td data-th="課程種類">
-            <!-- <div class="flex md:flex-col items-center"> -->
-              <!-- <Avatar v-if="item.img" type="simple" :size="avatarSize"
-                      :img="item.img" class="mr-3"></Avatar>
-              <Avatar v-else type="simple" :size="avatarSize"></Avatar> -->
             {{ item.classtype }}
-            <!-- </div> -->
           </td>
           <td data-th="教師專案">
             {{ item.teacherProject }}
@@ -45,65 +37,39 @@
           <td data-th="實際開課時間">
             {{ item.classtime }}
           </td>
-          <!-- <td data-th="狀態">
-            <Button
-              class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
-              rounded>
-              <img src="@/assets/img/icons/list.svg" alt="" class="h-6 object-contain noData">
-            </Button>
-            <Button
-              class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
-              rounded>
-              <img src="@/assets/img/icons/film.svg" alt="" class="h-6 object-contain noData">
-              <img src="@/assets/img/icons/film_active.svg" alt="" class="h-6 object-contain hasData">
-            </Button>
-          </td> -->
-          <!-- <td data-th="補充教材">
-            <Button
-              class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
-              rounded>
-              <img src="@/assets/img/icons/file.svg" alt="" class="h-6 object-contain noData">
-              <img src="@/assets/img/icons/file_active.svg" alt="" class="h-6 object-contain hasData">
-            </Button>
-            <Button @click.native="toPreview"
-              class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
-              rounded>
-              <img src="@/assets/img/icons/before_test.svg" alt="" class="h-6 object-contain noData">
-              <img src="@/assets/img/icons/before_test_active.svg" alt="" class="h-6 object-contain hasData">
-            </Button>
-            <Button @click.native="toReview"
-              class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1 isActive"
-              rounded>
-              <img src="@/assets/img/icons/after_test.svg" alt="" class="h-6 object-contain noData">
-              <img src="@/assets/img/icons/after_test_active.svg" alt="" class="h-6 object-contain hasData">
-            </Button>
-          </td> -->
-
           <td data-th="執行動作">
             {{ item.status }}
           </td>
           <td data-th="狀態">
-            <Button
-              class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
+            <Button v-if="item.actions"
+              class="mx-1 btnAudit px-2 py-1" @click.native="openModal"
               rounded>
-              審核
+              審核<i class="fas fa-arrow-right ml-1"></i>
+            </Button>
+            <Button v-if="!item.actions"
+              class="mx-1 btnCheck px-2 py-1" @click.native="openModal"
+              rounded>
+              查看<i class="far fa-folder-open ml-1"></i>
             </Button>
           </td>
         </tr>
       </tbody>
     </table>
+    <BookingModal :showfirstModal="showfirstModal" v-on:closeModal="closeModal" />
   </div>
+
 </template>
 
 <script>
   // import Avatar from "./Avatar";
   import Button from "@/components/Button";
-
+  import BookingModal from '@/components/modules/BookingModal'
   export default {
     name: "Table",
     components: {
       // Avatar,
-      Button
+      Button,
+      BookingModal
     },
     props: {
       columns: {
@@ -116,7 +82,7 @@
       data: Array,
       filterKey: String
     },
-    data() {
+    data () {
       let sortOrders = {};
       this.columns.forEach((column) => {
         sortOrders[column.name] = 1
@@ -126,49 +92,48 @@
         sortOrders: sortOrders,
         avatarSize: 8,
         nbVehiclesToShow: 8,
-        vehiclesShown: 8
+        vehiclesShown: 8,
+
+        showfirstModal: false
       }
     },
     computed: {
     },
     methods: {
-      edit() {
-        
-        console.log('edit manage');
+      openModal () {
+        console.log('open')
+        this.showfirstModal = true
       },
-      open() {
-        
-        console.log('open manage');
-      },
-      del() {
-        this.$swal.fire({
-          title: '確認要刪除此筆資料?',
-          icon: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: '刪除',
-          cancelButtonText: '取消'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            this.$swal.fire(
-              'Deleted!',
-              'Your file has been deleted.',
-              'success'
-            )
-          }
-        })
-      },
-      toPreview () {
-        
-        console.log('d')
-        this.$router.push({ path: '/ctl_class/preview' })
-      },
-      toReview () {
-        
-        console.log('d')
-        this.$router.push({ path: '/ctl_class/review' })
+      closeModal (closeModal) {
+
+        console.log(closeModal)
+        this.showfirstModal = closeModal
       }
+      // edit() {
+      //   console.log('edit manage')
+      // },
+      // open() {
+      //   console.log('open manage')
+      // },
+      // del() {
+      //   this.$swal.fire({
+      //     title: '確認要刪除此筆資料?',
+      //     icon: 'warning',
+      //     showCancelButton: true,
+      //     confirmButtonColor: '#3085d6',
+      //     cancelButtonColor: '#d33',
+      //     confirmButtonText: '刪除',
+      //     cancelButtonText: '取消'
+      //   }).then((result) => {
+      //     if (result.isConfirmed) {
+      //       this.$swal.fire(
+      //         'Deleted!',
+      //         'Your file has been deleted.',
+      //         'success'
+      //       )
+      //     }
+      //   })
+      // }
     }
   }
 </script>
@@ -177,22 +142,22 @@
 .title {
   color: #808080;
 }
-  .c-table table { border-spacing: 0 1rem;  }
+.c-table table { border-spacing: 0 1rem;  }
 
-  .c-btn-sortable svg { transition: transform .15s ease-in; }
-  .c-btn-sortable .is-asc { transform: rotateZ(0deg); }
-  .c-btn-sortable .is-dsc { transform: rotateZ(180deg); }
+.c-btn-sortable svg { transition: transform .15s ease-in; }
+.c-btn-sortable .is-asc { transform: rotateZ(0deg); }
+.c-btn-sortable .is-dsc { transform: rotateZ(180deg); }
 
-  .c-expand-section { @apply flex justify-center items-center; }
-  .c-expand-section::before, .c-expand-section::after {
-      @apply block bg-black-4;
-      height: 1px;
-      content: "";
-      -webkit-box-flex: 1;
-      flex: auto;
-      background-clip: content-box;
-  }
-  .table-row-move { transition: transform 1s; }
+.c-expand-section { @apply flex justify-center items-center; }
+.c-expand-section::before, .c-expand-section::after {
+    @apply block bg-black-4;
+    height: 1px;
+    content: "";
+    -webkit-box-flex: 1;
+    flex: auto;
+    background-clip: content-box;
+}
+.table-row-move { transition: transform 1s; }
 
 /* test */
 
@@ -344,5 +309,17 @@ h3:after {
 }
 .isActive .hasData {
   display: block;
+}
+
+
+.btnAudit {
+  color: white;
+  background: black;
+  border: 1px solid black;
+}
+.btnCheck {
+  /* color: white; */
+  background: white;
+  border: 1px solid black;
 }
 </style>
