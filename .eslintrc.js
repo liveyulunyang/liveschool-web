@@ -10,6 +10,7 @@ module.exports = {
     // ],
     extends: ['plugin:vue/essential'],
     rules: {
+      'parser': 'babel-eslint',
       'no-console': 'off',
       'no-debugger': 'off',
       'no-unneeded-ternary': [1, {
