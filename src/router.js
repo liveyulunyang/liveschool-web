@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-Vue.use(Router);
+Vue.use(Router)
 
 const router = new Router({
   mode: 'history',
@@ -91,6 +91,11 @@ const router = new Router({
       path: '/info',
       name: 'info',
       component: () => import('./pages/Info.vue')
+    },
+    {
+      path: '/myClass',
+      name: 'myClass',
+      component: () => import('./pages/MyClass.vue')
     }
     // {
     //     path: '/analytics',

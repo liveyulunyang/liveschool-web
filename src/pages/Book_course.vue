@@ -150,7 +150,7 @@
               number: 'CTL口說班',
               point: 88,
               bookingTime: '2021-06-22 22:00-23:00',
-              classtime: 'C8',
+              classtime: '',
               status: '審核中',
               actions: true
             },
@@ -166,7 +166,7 @@
               point: 88,
               bookingTime: '2021-06-22 22:00-23:00',
               classtime: '2021-06-22 22:00-23:00',
-              status: '審核中',
+              status: '通過',
               actions: false
             }
           ]

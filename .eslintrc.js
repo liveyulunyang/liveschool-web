@@ -4,10 +4,6 @@ module.exports = {
       node: true,
       jquery: true
     },
-    // 'extends': [
-    //   'plugin:vue/essential',
-    //   '@vue/standard'
-    // ],
     extends: ['plugin:vue/essential'],
     rules: {
       'parser': 'babel-eslint',
@@ -15,6 +11,9 @@ module.exports = {
       'no-debugger': 'off',
       'no-unneeded-ternary': [1, {
         'defaultAssignment': false
-        }]
+      }]
+    },
+    parserOptions: {
+      parser: 'babel-eslint'
     }
   }

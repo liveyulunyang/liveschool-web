@@ -22,9 +22,9 @@
         <ul>
           <li class="c-nav__menuitem" v-for="item in menuListItem" :key="item.id">
             <router-link :to="item.url"
-                  :class="{'active': item.isActive}"
-                  class="flex items-center py-4 px-6 text-gray-1 hover:border-l-3 hover:border-solid hover:border-primary-normal hover:bg-primary-light hover:text-primary-normal">
-              <i class="fas" :class="item.icon"></i>
+                :class="{'active': item.isActive}"
+                class="flex items-center py-4 px-6 text-gray-1 hover:border-l-3 hover:border-solid hover:border-primary-normal hover:bg-primary-light hover:text-primary-normal">
+              <i :class="item.icon"></i>
               <span class="ml-3 text-sm font-bold">{{ item.title }}</span>
             </router-link>
           </li>

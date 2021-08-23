@@ -73,76 +73,82 @@
         menuListItems: [
           {
             id: 0,
-            icon: "fa-users",
+            icon: "fas fa-users",
             title: "使用者管理",
             url: "/"
           },
           {
             id: 1,
-            icon: "fa-comments",
+            icon: "fas fa-comments",
             title: "課程管理",
             url: "/courses"
           },
           {
             id: 2,
-            icon: "fa-film",
+            icon: "fab fa-youtube",
             title: "Live Class",
             url: "/live_class"
           },
           {
             id: 3,
-            icon: "fa-list-ul",
+            icon: "fas fa-list-ul",
             title: "分類管理",
             url: "/classification"
           },
           {
             id: 4,
-            icon: "fa-book",
+            icon: "fas fa-book",
             title: "預約課程",
             url: "/book_course"
           },
           {
             id: 5,
-            icon: "fa-history",
+            icon: "fas fa-history",
             title: "學習紀錄",
             url: "/learn_record"
           },
           {
             id: 6,
-            icon: "fa-address-card",
+            icon: "fas fa-address-card",
             title: "授課紀錄",
             url: "/teach_record"
           },
           {
             id: 7,
-            icon: "fa-credit-card",
+            icon: "fas fa-credit-card",
             title: "點數管理",
             url: "/point"
           },
           {
             id: 8,
-            icon: "fa-key",
+            icon: "fas fa-key",
             title: "序號管理",
             url: "/serial_number"
           },
           {
             id: 9,
-            icon: "fa-bell",
+            icon: "fas fa-bell",
             title: "公告",
             url: "/announce"
           },
           {
             id: 10,
-            icon: "fa-info",
+            icon: "fas fa-info",
             title: "系統資訊",
             url: "/info"
+          },
+          {
+            id: 11,
+            icon: "far fa-calendar-alt",
+            title: "我的課程",
+            url: "/myClass"
           }
           // {
           //   id: 0,
           //   icon: "#c-icon-dashboard",
           //   title: "Overview",
           //   url: "/"
-          // },
+          // },s
           // {
           //   id: 1,
           //   icon: "#c-icon-analytics",
