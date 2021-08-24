@@ -96,6 +96,11 @@ const router = new Router({
       path: '/myClass',
       name: 'myClass',
       component: () => import('./pages/MyClass.vue')
+    },
+    {
+      path: '/students',
+      name: 'students',
+      component: () => import('./pages/Students.vue')
     }
     // {
     //     path: '/analytics',

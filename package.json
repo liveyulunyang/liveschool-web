@@ -19,6 +19,7 @@
     "leaflet": "^1.5.1",
     "postcss-import": "^12.0.1",
     "postcss-loader": "^6.1.1",
+    "v-calendar": "^2.3.2",
     "vue": "^2.6.10",
     "vue-ads-pagination": "^2.1.7",
     "vue-chartjs": "^3.5.0",

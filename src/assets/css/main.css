@@ -11,3 +11,8 @@
 .bg-gray-900 {
   background: #666666;
 }
+
+/* border */
+.borderGreen {
+  border-color: #55ACB8;
+}

@@ -1,14 +1,20 @@
 
 <template>
-  <div class="w-full flex justify-center items-center h-64">
-    <p class="noDataText">目前還未建立任何內容喔!</p>
+  <div class="w-full flex justify-center items-center mt-32 mb-4">
+    <p class="noDataText">{{ text }}!</p>
   </div>
 </template>
 
 <script>
 /* eslint-disable no-console */
   export default {
-    name: "NoData"
+    name: "NoData",
+    props: {
+      text: {
+        type: String,
+        default: '目前還未建立任何內容喔'
+      }
+    }
   }
 </script>
 <style>

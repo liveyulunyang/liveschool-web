@@ -262,10 +262,10 @@
 
 <script>
 /* eslint-disable no-console */
-  import myUpload from "vue-image-crop-upload/upload-2.vue";
+  import myUpload from 'vue-image-crop-upload/upload-2.vue';
   import Multiselect from 'vue-multiselect'
   export default {
-    name: "Manage",
+    name: 'Manage',
     components: {
       Multiselect,
       myUpload
