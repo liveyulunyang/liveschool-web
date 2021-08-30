@@ -13,7 +13,7 @@
               <a @click="isCalemder = true" class="block px-1 py-1 btn-toggle cursor-pointer" :class="{ isType: isCalemder }"><i class="fas fa-border-all text-4xl"></i></a>
               <a @click="isCalemder = false" class="block px-1 py-1 btn-toggle cursor-pointer" :class="{ isType: !isCalemder }"><i class="fas fa-list-alt text-4xl"></i></a>
             </div>
-            <div class="flex items-center" v-if="!isCalemder">
+            <div class="flex items-center">
               <section style="background: none; border: none; box-shadow: none;" class="flex items-center mx-2">
                 <div class="roundedOne personal">
                   <input type="checkbox" value="None" id="personal" name="check" checked="">
@@ -65,10 +65,16 @@
                 <input type="text" placeholder="輸入關鍵字搜尋" name="search" class="py-2 px-2 border-0 focus:outline-none w-32">
                 <button type="submit" class="px-2"><i class="fa fa-search"></i></button>
               </div>
+              <a href="" class="block ml-1">
+                <img src="@/assets/img/icons/re.svg" alt="" class="w-8">
+              </a>
             </div>
           </div>
 
-          <Calemder v-if="isCalemder" />
+          <div v-if="isCalemder">
+            <Calender class="hidden md:block" />
+            <CalenderDot class="md:hidden" />
+          </div>
           <section v-if="!isCalemder">
             <!-- <div v-if="!data">
               <NoData :text="'目前還未擁有任何課程喔'" />
@@ -99,15 +105,18 @@
 </template>
 
 <script>
-import Calemder from '@/components/modules/Calemder'
+import Calender from '@/components/modules/Calemder'
+// import Calender from '@/components/modules/CalenderSimple'
+import CalenderDot from '@/components/modules/CalenderDot'
 import DatePicker from 'vue2-datepicker'
 import 'vue2-datepicker/index.css'
 // import NoData from '@/components/NoData'
   export default {
     name: "MyClass",
     components: {
-      Calemder,
-      DatePicker
+      Calender,
+      DatePicker,
+      CalenderDot
       // NoData
     },
     data() {

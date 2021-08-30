@@ -2,11 +2,11 @@
   <nav class="c-nav bg-white" :class="{ 'is-closed': isClosed }">
     <div class="c-nav__header">
       <button @click="isClosed = !isClosed" class="focus:outline-none">
-          <svg xmlns="http://www.w3.org/2000/svg"
-              xmlns:xlink="http://www.w3.org/1999/xlink"
-              height="24" width="24">
-              <use xlink:href="#c-icon-menu"></use>
-          </svg>
+        <svg xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          height="24" width="24">
+          <use xlink:href="#c-icon-menu"></use>
+        </svg>
       </button>
     </div>
       <!-- <div class="c-nav__user hidden md:block">
@@ -21,7 +21,7 @@
     <div class="c-nav__menu flex flex-col justify-between" :class="[ mode === 'mobile' ? 'is-mobile' : '' ]">
         <ul>
           <li class="c-nav__menuitem" v-for="item in menuListItem" :key="item.id">
-            <router-link :to="item.url"
+            <router-link :to="item.url" @click.native="isClosed = true"
                 :class="{'active': item.isActive}"
                 class="flex items-center py-4 px-6 text-gray-1 hover:border-l-3 hover:border-solid hover:border-primary-normal hover:bg-primary-light hover:text-primary-normal">
               <i :class="item.icon"></i>

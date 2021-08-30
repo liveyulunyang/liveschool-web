@@ -11,6 +11,9 @@
 .bg-gray-900 {
   background: #666666;
 }
+.bg-gray-btn {
+  background: #333333;
+}
 
 /* border */
 .borderGreen {

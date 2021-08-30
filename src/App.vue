@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="min-h-screen overflow-auto">
     <Nav class="hidden md:block" :menu-list-item="menuListItems" :user="user"></Nav>
-    <header class="bg-white flex justify-between px-2 lg:px-20 border-b border-gray-3 border-solid">
+    <header class="bg-white flex justify-between px-2 lg:px-20 border-b border-gray-3 border-solid h-20">
       <Nav class="md:hidden" mode="mobile" :menu-list-item="menuListItems" :user="user"></Nav>
       <router-link class="flex items-center" to="/">
         <img alt="Velocity" src="./assets/logo.png" class="w-24 md:w-48 h-auto">
@@ -142,6 +142,12 @@
             icon: "far fa-calendar-alt",
             title: "我的課程",
             url: "/myClass"
+          },
+          {
+            id: 12,
+            icon: "fas fa-users",
+            title: "學生管理",
+            url: "/students"
           }
           // {
           //   id: 0,
@@ -218,7 +224,7 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    display: grid;
+    display: block;
     background-color: #F4F6FC;
     grid-template-columns: 100%;
     grid-template-rows: 1fr;
@@ -234,6 +240,7 @@
 
   @media (min-width: 768px) {
     #app {
+      display: grid;
       grid-template-columns: auto 1fr;
       grid-template-rows: 80px 1fr ;
       grid-template-areas: "nav head"

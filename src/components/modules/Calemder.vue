@@ -1,5 +1,6 @@
 <template>
-  <v-calendar
+  <div id="calendar-month">
+    <v-calendar
     class="custom-calendar max-w-full"
     :masks="masks"
 
@@ -7,24 +8,25 @@
     disable-page-swipe
     is-expanded
     locale="en"
-  >
-    <template v-slot:day-content="{ day, attributes }">
-      <div class="flex flex-col h-full z-10 overflow-hidden">
-        <span class="day-label text-sm text-gray-900 text-right">{{ day.day }}</span>
-        <div class="flex-grow overflow-y-auto overflow-x-auto">
-          <p
-            v-for="attr in attributes"
-            :key="attr.key"
-            class="text-xs leading-tight rounded-sm p-1 mt-0 mb-1 text-left border-l-2"
-            :class="attr.customData.class"
-          >
-            {{ attr.customData.time }}<br/>
-            {{ attr.customData.title }}
-          </p>
+    >
+      <template v-slot:day-content="{ day, attributes }">
+        <div class="flex flex-col h-full z-10 overflow-hidden">
+          <span class="day-label text-sm text-gray-900 text-right">{{ day.day }}</span>
+          <div class="flex-grow overflow-y-auto overflow-x-auto">
+            <p
+              v-for="attr in attributes"
+              :key="attr.key"
+              class="text-xs leading-tight rounded-sm p-1 mt-0 mb-1 text-left border-l-2"
+              :class="attr.customData.class"
+            >
+              {{ attr.customData.time }}<br/>
+              {{ attr.customData.title }}
+            </p>
+          </div>
         </div>
-      </div>
-    </template>
-  </v-calendar>
+      </template>
+    </v-calendar>
+  </div>
 </template>
 
 <script>
@@ -125,50 +127,46 @@ export default {
 }
 </script>
 
-<style lang="postcss">
-.is-today {
-  --tw-bg-opacity: 1;
-  background-color: rgba(255, 251, 235, var(--tw-bg-opacity)) !important;
-}
-.bg-gray-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
-}
-::-webkit-scrollbar {
-  width: 0px;
-}
-::-webkit-scrollbar-track {
-  display: none;
-}
-.custom-calendar.vc-container {
-  --day-border: 1px solid #d1d6db;
-  --day-border-highlight: 1px solid #b8c2cc;
-  --day-width: 90px;
-  --day-height: 90px;
-  --weekday-bg: #f8fafc;
-  --weekday-border: 1px solid #eaeaea;
-  border-radius: 0;
-  width: 100%;
-}
+<style>
+  .is-today {
+    --tw-bg-opacity: 1;
+    background-color: rgba(255, 251, 235, var(--tw-bg-opacity)) !important;
+  }
+  .bg-gray-400 {
+    --tw-bg-opacity: 1;
+    background-color: rgba(229, 231, 235, var(--tw-bg-opacity));
+  }
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
+  ::-webkit-scrollbar-track {
+    display: none;
+  }
+  .custom-calendar.vc-container {
+    --day-border: 1px solid #d1d6db;
+    --day-border-highlight: 1px solid #b8c2cc;
+    --day-width: 90px;
+    --day-height: 90px;
+    --weekday-bg: #f8fafc;
+    --weekday-border: 1px solid #eaeaea;
+    border-radius: 0;
+    width: 100%;
+  }
   .vc-header {
-    /* background-color: #f1f5f8; */
     padding: 10px 0;
   }
   .vc-weeks {
     padding: 0;
   }
   .vc-weekday {
-    /* background-color: var(--weekday-bg); */
     border-bottom: var(--weekday-border);
     border-top: var(--weekday-border);
     padding: 5px 0;
     color: black !important;
-    /* text-align: right !important; */
   }
-  .vc-day {
+  #calendar-month .vc-day {
     padding: 0 5px 3px 5px;
     text-align: left;
-    /* height: var(--day-height); */
     min-height: 90px !important;
     min-width: var(--day-width);
     background-color: white;

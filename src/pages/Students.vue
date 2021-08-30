@@ -3,38 +3,18 @@
     <div class="flex flex-col w-full">
       <div class="mb-4 flex justify-between items-center flex-wrap">
         <div class="flex">
-          <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">使用者管理</h1>
+          <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">學生管理</h1>
         </div>
-        <div class="flex text-xs flex-wrap">
+        <!-- <div class="flex text-xs flex-wrap">
           <h5 class="mr-3 whitespace-no-wrap">管理者<span class="bg-white rounded-lg px-2 py-1 mx-1">2</span>人</h5>
           <h5 class="mr-3 whitespace-no-wrap">主任 / HR<span class="bg-white rounded-lg px-2 py-1 mx-1">915</span>人</h5>
           <h5 class="mr-3 whitespace-no-wrap">督導<span class="bg-white rounded-lg px-2 py-1 mx-1">9</span>人</h5>
           <h5 class="mr-3 whitespace-no-wrap">老師<span class="bg-white rounded-lg px-2 py-1 mx-1">99</span>人</h5>
           <h5 class="whitespace-no-wrap">學生<span class="bg-white rounded-lg px-2 py-1 mx-1">9999</span>人</h5>
-        </div>
+        </div> -->
       </div>
-      <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row">
+      <div class="flex items-center justify-between w-full flex-wrap">
         <div class="flex items-center justify-start flex-wrap">
-
-          <Multiselect
-            class="mr-1"
-            v-model="identityVal"
-            :options="identityOptions"
-            :multiple="false"
-            :close-on-select="true"
-            :clear-on-select="false"
-            :show-labels="false"
-            track-by="name" label="name"
-
-            placeholder="全部">
-          </Multiselect>
-
-          <date-picker
-            class="mr-1"
-            v-model="timeInterval"
-            type="date" range placeholder="選擇時間區間"
-            :input-class="'mx-input'">
-          </date-picker>
 
           <Multiselect
             class="mr-1"
@@ -57,14 +37,16 @@
           <a href="" class="block mr-1">
             <img src="@/assets/img/icons/re.svg" alt="" class="w-8">
           </a>
-
+          <Button class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
+            <i class="fas fa-arrow-down"></i> 匯出資料
+          </Button>
         </div>
         <div class="flex justify-end items-center">
           <Button class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
-            + 匯入帳號
+            + 匯入學生清單
           </Button>
           <Button @click="toManage" class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
-            + 新增帳號
+            + 新增學生
           </Button>
         </div>
       </div>
@@ -78,9 +60,8 @@
 </template>
 
 <script>
-  import Table from "@/components/tables/User";
+  import Table from "@/components/tables/Student";
   import Multiselect from 'vue-multiselect'
-  import DatePicker from 'vue2-datepicker';
   import 'vue2-datepicker/index.css';
   import Pagination from "@/components/modules/Pagination";
   export default {
@@ -88,7 +69,6 @@
     components: {
       Table,
       Multiselect,
-      DatePicker,
       Pagination
     },
     data() {
@@ -118,15 +98,10 @@
           columns: [
             { name: 'id', label: '帳號(信箱)', required: true, sortable: true },
             { name: 'name', label: '姓名/英文姓名', required: true, sortable: true },
-            { name: 'CTL', label: 'CTL帳號', required: true, sortable: true },
-            { name: 'mobile', label: '行動電話', required: true, sortable: true },
+            { name: 'mobile', label: '電話', required: true, sortable: true },
             { name: 'point', label: '點數', required: true, sortable: false},
-            { name: 'role', label: '角色', required: true, sortable: true },
-            { name: 'source', label: '來源', required: true, sortable: true },
-            { name: 'city', label: '縣市', required: true, sortable: true },
             { name: 'branch', label: '分校', required: true, sortable: true },
             { name: 'class', label: '班級', required: true, sortable: true },
-            { name: 'time', label: '建立時間', required: true, sortable: true },
 
             { name: 'actions', label: '執行動作',
               actions: [
@@ -173,7 +148,7 @@
     },
     methods: {
       toManage () {
-        this.$router.push({ name: 'account_add' })
+        this.$router.push({ name: 'studentsAdd' })
       }
     }
   }
