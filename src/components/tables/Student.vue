@@ -80,7 +80,7 @@
       data: Array,
       filterKey: String
     },
-    data() {
+    data () {
       let sortOrders = {};
       this.columns.forEach((column) => {
         sortOrders[column.name] = 1

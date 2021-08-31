@@ -17,7 +17,7 @@
     name: "Live_class",
     components: {
     },
-    data() {
+    data () {
       return {
       }
     },

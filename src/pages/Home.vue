@@ -144,7 +144,7 @@
       LCircle,
       TodoList
     },
-    data() {
+    data () {
       return {
         operatingCard: {
           img: {

@@ -17,7 +17,7 @@
     name: "Serial_number",
     components: {
     },
-    data() {
+    data () {
       return {
       }
     },

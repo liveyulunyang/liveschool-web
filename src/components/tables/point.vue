@@ -6,95 +6,29 @@
           <th v-for="column in columns" :key="column.name" class="whitespace-no-wrap text-center">{{ column.label }}</th>
         </tr>
         <tr v-for="item in data" :key="item.id">
-          <td data-th="ID">
+          <td data-th="交易日期">
             {{ item.id }}
           </td>
-          <td data-th="教室">
+          <td data-th="點數異動/課程名稱">
             {{ item.classroom }}
           </td>
-          <td data-th="課程名稱">
+          <td data-th="異動帳號">
             {{ item.classname }}
           </td>
-          <td data-th="老師">
-            <!-- <div class="flex md:flex-col items-center"> -->
-              <!-- <Avatar v-if="item.img" type="simple" :size="avatarSize"
-                      :img="item.img" class="mr-3"></Avatar>
-              <Avatar v-else type="simple" :size="avatarSize"></Avatar> -->
-            <i class="fas fa-user-circle text-2xl text-black-3"></i>
+          <td data-th="異動類別">
             {{ item.teacher }}
-            <!-- </div> -->
-          </td>
-          <td data-th="人數">
-            {{ item.number }}
           </td>
           <td data-th="點數">
+            {{ item.number }}
+          </td>
+          <td data-th="來源">
             {{ item.point }}
           </td>
-          <td data-th="開課時間">
-            <!-- {{ item.classtime }} -->
-            2021-06-22
-            22:00-23:00
+          <td data-th="異動原因">
+            成功預約
           </td>
-          <td data-th="課程種類">
+          <td data-th="執行帳號">
             {{ item.classtype }}
-          </td>
-          <td data-th="是否公開">
-            {{ item.isPublic }}
-          </td>
-          <td data-th="站別">
-            {{ item.branch }}
-          </td>
-          <td data-th="紀錄">
-            <!-- {{ item.record }} -->
-            <Button
-              class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
-              rounded>
-              <img src="@/assets/img/icons/list.svg" alt="" class="h-6 object-contain noData">
-              <!-- <img src="@/assets/img/icons/film_active.svg" alt="" class="h-6 object-contain hasData"> -->
-            </Button>
-            <Button
-              class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
-              rounded>
-              <img src="@/assets/img/icons/film.svg" alt="" class="h-6 object-contain noData">
-              <img src="@/assets/img/icons/film_active.svg" alt="" class="h-6 object-contain hasData">
-            </Button>
-          </td>
-          <td data-th="補充教材">
-            <Button
-              class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
-              rounded>
-              <img src="@/assets/img/icons/file.svg" alt="" class="h-6 object-contain noData">
-              <img src="@/assets/img/icons/file_active.svg" alt="" class="h-6 object-contain hasData">
-            </Button>
-            <Button @click.native="toPreview"
-              class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
-              rounded>
-              <img src="@/assets/img/icons/before_test.svg" alt="" class="h-6 object-contain noData">
-              <img src="@/assets/img/icons/before_test_active.svg" alt="" class="h-6 object-contain hasData">
-            </Button>
-            <Button @click.native="toReview"
-              class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1 isActive"
-              rounded>
-              <img src="@/assets/img/icons/after_test.svg" alt="" class="h-6 object-contain noData">
-              <img src="@/assets/img/icons/after_test_active.svg" alt="" class="h-6 object-contain hasData">
-            </Button>
-            <!-- {{ item.materials }} -->
-          </td>
-          <td data-th="執行動作">
-            <Button
-              class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
-              rounded>
-              <img src="@/assets/img/icons/edit.svg" alt="" class="w-6 object-contain">
-            </Button>
-            <Button
-              class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
-              @click="del"
-              rounded>
-              <img src="@/assets/img/icons/delete.svg" alt="" class="w-6 object-contain">
-            </Button>
-          </td>
-          <td data-th="狀態">
-            {{ item.status }}
           </td>
         </tr>
       </tbody>
@@ -103,14 +37,9 @@
 </template>
 
 <script>
-  // import Avatar from "./Avatar";
-  import Button from "@/components/Button";
-
   export default {
     name: "Table",
     components: {
-      // Avatar,
-      Button
     },
     props: {
       columns: {
@@ -140,12 +69,10 @@
     },
     methods: {
       edit() {
-        
-        console.log('edit manage');
+        console.log('edit manage')
       },
       open() {
-        
-        console.log('open manage');
+        console.log('open manage')
       },
       del() {
         this.$swal.fire({
@@ -167,13 +94,9 @@
         })
       },
       toPreview () {
-        
-        console.log('d')
         this.$router.push({ path: '/ctl_class/preview' })
       },
       toReview () {
-        
-        console.log('d')
         this.$router.push({ path: '/ctl_class/review' })
       }
     }

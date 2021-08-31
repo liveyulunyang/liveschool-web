@@ -270,7 +270,7 @@
       Multiselect,
       myUpload
     },
-    data() {
+    data () {
       return {
         identityVal: null,
         identityOptions: [

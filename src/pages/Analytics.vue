@@ -99,7 +99,7 @@
       Icon,
       LineChart
     },
-    data() {
+    data () {
       return {
         trips: [
           {

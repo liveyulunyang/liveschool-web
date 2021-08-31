@@ -81,7 +81,7 @@
       Reorganization,
       TypeContent
     },
-    data() {
+    data () {
       return {
         isData: true,
 

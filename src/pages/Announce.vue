@@ -17,7 +17,7 @@
     name: "Announce",
     components: {
     },
-    data() {
+    data () {
       return {
       }
     },

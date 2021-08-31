@@ -65,7 +65,7 @@
       NoData,
       Pagination
     },
-    data() {
+    data () {
       return {
         isData: true,
 

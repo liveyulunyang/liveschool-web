@@ -32,7 +32,7 @@
 <script>
 export default {
   name: 'Calemder',
-  data() {
+  data () {
     const month = new Date().getMonth()
     const year = new Date().getFullYear()
     return {
@@ -127,7 +127,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+#calendar-month {
   .is-today {
     --tw-bg-opacity: 1;
     background-color: rgba(255, 251, 235, var(--tw-bg-opacity)) !important;
@@ -164,7 +165,7 @@ export default {
     padding: 5px 0;
     color: black !important;
   }
-  #calendar-month .vc-day {
+  .vc-day {
     padding: 0 5px 3px 5px;
     text-align: left;
     min-height: 90px !important;
@@ -187,4 +188,5 @@ export default {
   .vc-day-dots {
     margin-bottom: 5px;
   }
+}
 </style>

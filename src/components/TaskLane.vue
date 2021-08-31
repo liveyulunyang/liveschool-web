@@ -30,7 +30,7 @@
             draggable: Draggable
         },
         props: ['items', 'title', 'id'],
-        data() {
+        data () {
             return {
                 dragOptions: {
                     animation: 200,

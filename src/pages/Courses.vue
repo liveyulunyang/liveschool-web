@@ -123,9 +123,9 @@
             </Button>
           </div>
         </div>
-      <Table :columns="vehiclesList.columns"
-        :actions="vehiclesList.actions"
-        :data="vehiclesList.datas">
+      <Table :columns="tableList.columns"
+        :actions="tableList.actions"
+        :data="tableList.datas">
       </Table>
       <Pagination />
     </div>
@@ -146,7 +146,7 @@
       DatePicker,
       Pagination
     },
-    data() {
+    data () {
       return {
         periodTime: null,
 
@@ -180,7 +180,7 @@
           { name: '來源', value: 'all' }
         ],
 
-        vehiclesList: {
+        tableList: {
           columns: [
             { name: 'id', label: 'ID', required: true },
             { name: 'classroom', label: '教室', required: true },

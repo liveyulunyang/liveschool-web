@@ -93,7 +93,7 @@
       data: Array,
       filterKey: String
     },
-    data() {
+    data () {
       let sortOrders = {};
       this.columns.forEach((column) => {
         sortOrders[column.name] = 1
@@ -107,7 +107,7 @@
       }
     },
     computed: {
-      formatedData() {
+      formateddata () {
         let sortKey = this.sortKey;
         let filterKey = this.filterKey && this.filterKey.toLowerCase();
         let order = this.sortOrders[sortKey] || 1;

@@ -178,7 +178,7 @@
     components: {
       Multiselect,
     },
-    data() {
+    data () {
       return {
         identityVal: null,
         identityOptions: [

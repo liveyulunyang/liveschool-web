@@ -8,7 +8,7 @@
     export default {
         name: "Slider",
         props: ['minValue', 'maxValue', 'value'],
-        data() {
+        data () {
             return { inputVal: this.value }
         },
         watch: {

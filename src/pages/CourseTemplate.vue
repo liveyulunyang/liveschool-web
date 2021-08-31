@@ -89,9 +89,9 @@
             </Button>
           </div>
         </div>
-        <Table :columns="vehiclesList.columns"
-          :actions="vehiclesList.actions"
-          :data="vehiclesList.datas">
+        <Table :columns="tableList.columns"
+          :actions="tableList.actions"
+          :data="tableList.datas">
         </Table>
     </div>
   </main>
@@ -109,7 +109,7 @@
       Multiselect,
       DatePicker
     },
-    data() {
+    data () {
       return {
         periodTime: null,
 
@@ -143,7 +143,7 @@
           { name: '來源', value: 'all' }
         ],
 
-        vehiclesList: {
+        tableList: {
           columns: [
             { name: 'type', label: '課程種類', required: true },
             { name: 'name', label: '課程名稱', required: true },

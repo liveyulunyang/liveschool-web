@@ -119,7 +119,7 @@ import 'vue2-datepicker/index.css'
       CalenderDot
       // NoData
     },
-    data() {
+    data () {
       return {
         isCalemder: true,
         periodTime: null,
@@ -134,7 +134,7 @@ import 'vue2-datepicker/index.css'
   }
 </script>
 <style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
-<style>
+<style lang="scss">
 .text-xs {
   font-size: 12px !important;
 }

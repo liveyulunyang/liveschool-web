@@ -17,7 +17,7 @@
     name: "Teach_record",
     components: {
     },
-    data() {
+    data () {
       return {
       }
     },

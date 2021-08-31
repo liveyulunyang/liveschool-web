@@ -87,7 +87,7 @@
             LCircle,
             TaskLane
         },
-        data() {
+        data () {
             // eslint-disable-next-line no-unused-vars
             let smallRadius = 15;
             // eslint-disable-next-line no-unused-vars

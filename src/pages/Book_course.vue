@@ -68,9 +68,9 @@
           </div>
         </div>
         <Table
-          :columns="vehiclesList.columns"
-          :actions="vehiclesList.actions"
-          :data="vehiclesList.datas">
+          :columns="tableList.columns"
+          :actions="tableList.actions"
+          :data="tableList.datas">
         </Table>
     </div>
   </main>
@@ -88,7 +88,7 @@
       Multiselect,
       DatePicker
     },
-    data() {
+    data () {
       return {
         periodTime: null,
 
@@ -122,7 +122,7 @@
           { name: '來源', value: 'all' }
         ],
 
-        vehiclesList: {
+        tableList: {
           columns: [
             // { name: 'id', label: 'ID', required: true },
             { name: 'setTime', label: '建立時間', required: true },

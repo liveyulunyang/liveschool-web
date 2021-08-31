@@ -11,8 +11,8 @@
             <i class="fas fa-chevron-left"></i>返回
           </Button>
         </li>
-        <li class="py-2 px-6 tag flex items-center justify-center mx-1" :class="{ tagActive: tag === 0 }" @click="tag = 0">課程基本資料</li>
-        <li class="py-2 px-6 tag flex items-center justify-center mx-1" :class="{ tagActive: tag === 1 }" @click="tag = 1">課程章節</li>
+        <li class="py-2 px-6 tag flex items-center justify-center mx-1" :class="{ tagAct: tag === 0 }" @click="tag = 0">課程基本資料</li>
+        <li class="py-2 px-6 tag flex items-center justify-center mx-1" :class="{ tagAct: tag === 1 }" @click="tag = 1">課程章節</li>
       </ul>
 
       <ul class="flex cursor-pointer text-sm" v-if="tag === 1">
@@ -699,7 +699,7 @@
       DatePicker,
       NoData
     },
-    data() {
+    data () {
       return {
         isData: true,
 
@@ -755,7 +755,6 @@
 				console.log('field: ' + field);
 			},
 			cropUploadFail(status, field){
-				
 				console.log('-------- upload fail --------')
 				console.log(status)
 				console.log('field: ' + field)
@@ -772,7 +771,7 @@
     background: #CCCCCC;
     color: #808080;
   }
-  .tagActive {
+  .tagAct {
     background: white;
     color: black;
   }

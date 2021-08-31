@@ -68,9 +68,9 @@
           </Button>
         </div>
       </div>
-      <Table :columns="vehiclesList.columns"
-        :actions="vehiclesList.actions"
-        :data="vehiclesList.datas">
+      <Table :columns="tableList.columns"
+        :actions="tableList.actions"
+        :data="tableList.datas">
       </Table>
       <Pagination />
     </div>
@@ -91,7 +91,7 @@
       DatePicker,
       Pagination
     },
-    data() {
+    data () {
       return {
         timeInterval: null,
 
@@ -114,7 +114,7 @@
           { name: '來源', value: 'all' }
         ],
 
-        vehiclesList: {
+        tableList: {
           columns: [
             { name: 'id', label: '帳號(信箱)', required: true, sortable: true },
             { name: 'name', label: '姓名/英文姓名', required: true, sortable: true },

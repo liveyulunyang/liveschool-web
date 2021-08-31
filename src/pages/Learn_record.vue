@@ -17,7 +17,7 @@
     name: "Learn_record",
     components: {
     },
-    data() {
+    data () {
       return {
       }
     },

@@ -17,7 +17,7 @@
     name: "Info",
     components: {
     },
-    data() {
+    data () {
       return {
       }
     },

@@ -45,7 +45,7 @@
       'minValue',
       'maxValue'
     ],
-    data() {
+    data () {
       return { inputVal: this.value }
     },
     watch: {

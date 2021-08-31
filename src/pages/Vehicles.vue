@@ -53,7 +53,7 @@
       Icon,
       Table
     },
-    data() {
+    data () {
       return {
         vehiclesList: {
           columns: [
