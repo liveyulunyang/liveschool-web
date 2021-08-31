@@ -61,9 +61,9 @@ export default {
 }
 </script>
 <style lang="scss">
-#calender-dots {
-  .vc-weeks {
-    min-width: 90vw !important;
+  #calender-dots {
+    .vc-weeks {
+      min-width: 80vw !important;
+    }
   }
-}
 </style>

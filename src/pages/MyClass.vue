@@ -13,27 +13,30 @@
               <a @click="isCalemder = true" class="block px-1 py-1 btn-toggle cursor-pointer" :class="{ isType: isCalemder }"><i class="fas fa-border-all text-4xl"></i></a>
               <a @click="isCalemder = false" class="block px-1 py-1 btn-toggle cursor-pointer" :class="{ isType: !isCalemder }"><i class="fas fa-list-alt text-4xl"></i></a>
             </div>
-            <div class="flex items-center">
+            <div class="flex items-center flex-1 justify-between sm:justify-start">
               <section style="background: none; border: none; box-shadow: none;" class="flex items-center mx-2">
                 <div class="roundedOne personal">
                   <input type="checkbox" value="None" id="personal" name="check" checked="">
                   <label for="personal"></label>
                 </div>
-                <span class="text-sm ml-1 whitespace-no-wrap">個人課程</span>
+                <span class="text-sm ml-1 whitespace-no-wrap md:hidden">個人</span>
+                <span class="text-sm ml-1 whitespace-no-wrap hidden md:block">個人課程</span>
               </section>
               <section style="background: none; border: none; box-shadow: none;" class="flex items-center mx-2">
                 <div class="roundedOne booking">
                   <input type="checkbox" value="None" id="booking" name="check" checked="">
                   <label for="booking"></label>
                 </div>
-                <span class="text-sm ml-1 whitespace-no-wrap">預約課程</span>
+                <span class="text-sm ml-1 whitespace-no-wrap md:hidden">預約</span>
+                <span class="text-sm ml-1 whitespace-no-wrap hidden md:block">預約課程</span>
               </section>
               <section style="background: none; border: none; box-shadow: none;" class="flex items-center mx-2">
                 <div class="roundedOne finish">
                   <input type="checkbox" value="None" id="finish" name="check" checked="">
                   <label for="finish"></label>
                 </div>
-                <span class="text-sm ml-1 whitespace-no-wrap">已結束課程</span>
+                <span class="text-sm ml-1 whitespace-no-wrap md:hidden">已結束</span>
+                <span class="text-sm ml-1 whitespace-no-wrap hidden md:block">已結束課程</span>
               </section>
             </div>
             <div class="flex items-center text-xs flex-wrap" v-if="!isCalemder">
@@ -74,18 +77,48 @@
           <div v-if="isCalemder">
             <Calender class="hidden md:block" />
             <div class="md:hidden">
-              <CalenderDot />
-              <div class="w-full flex flex-wrap items-center">
+              <CalenderDot class="mb-4" />
+              <div class="mb-4 w-full flex justify-between items-center">
+                <div class="relative text-sm w-full sm:w-auto">
+                  <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="invoice"
+                  >
+                    <option value="s">課程狀態</option>
+                  </select>
+                    <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                  </div>
+                </div>
+                <div class="relative text-sm hidden sm:block w-full sm:w-auto">
+                  <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="invoice"
+                  >
+                    <option value="">選擇搜尋欄位</option>
+                  </select>
+                    <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                  </div>
+                </div>
+                <div class="mx-1 bg-white hidden sm:flex">
+                  <input type="text" placeholder="Search.." name="search" class="py-2 px-2 border-0 focus:outline-none">
+                  <button type="submit" class="px-2"><i class="fa fa-search"></i></button>
+                </div>
+                <div class="hidden sm:block">
+                  <a href="" class="block">
+                    <img src="@/assets/img/icons/re.svg" alt="" class="w-8">
+                  </a>
+                </div>
+
+              </div>
+              <div class="w-full flex flex-wrap items-center border-l-3 border-gray-900 bg-white py-2 pr-3 mb-2" v-for="n in 5" :key="n">
                 <div class="w-7/12 sm:flex">
-                  <p class="sm:w-1/2 font-bold mr-1">22:00-23:00</p>
-                  <p class="sm:w-1/2">Class2</p>
+                  <p class="sm:w-1/2 font-bold sm:mr-1">22:00-23:00</p>
+                  <p class="">Class2</p>
                 </div>
                 <div class="w-2/12">
-                  <button class="button-verified px-3 py-2 rounded text-sm whitespace-no-wrap">
+                  <button class="bg-gray-900 px-3 py-2 rounded text-sm whitespace-no-wrap">
                     <i class="fas fa-folder-open text-white"></i></button>
                 </div>
                 <div class="w-3/12">
-                  <a href="" class="flex whitespace-no-wrap items-center text-white bg-gray-btn text-sm py-2 px-2">
+                  <a href="" class="flex whitespace-no-wrap items-center text-white bg-gray-900 text-sm py-2 px-2">
                     前往上課<i class="fas fa-arrow-right ml-1"></i>
                   </a>
                 </div>
