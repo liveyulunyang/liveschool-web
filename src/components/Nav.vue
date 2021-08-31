@@ -109,7 +109,7 @@
 
     /* Actve state */
     .c-nav__menuitem a.is-active {
-      @apply border-l-3 border-solid border-primary-normal bg-primary-light text-primary-normal;
+      @apply border-l-2 border-solid;
     }
 
     @media (min-width: 768px) {

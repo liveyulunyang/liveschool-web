@@ -57,7 +57,7 @@
 </script>
 
 <style>
-    .multiselect { @apply text-primary-normal; }
+    /* .multiselect { @apply text-primary-normal; }
     .multiselect__select::before { @apply text-gray-1; }
     .multiselect__tags { @apply border-gray-1; }
     .multiselect__tag,
@@ -67,5 +67,5 @@
     .multiselect__tag-icon:focus, .multiselect__tag-icon:hover { @apply bg-black-1 text-white; }
     .multiselect__content-wrapper { @apply border-gray-1; }
     .multiselect__option--highlight { @apply bg-primary-normal text-white; }
-    .multiselect__option--highlight::after { @apply bg-primary-normal text-white; }
+    .multiselect__option--highlight::after { @apply bg-primary-normal text-white; } */
 </style>

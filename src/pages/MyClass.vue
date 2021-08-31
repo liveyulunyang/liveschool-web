@@ -73,7 +73,24 @@
 
           <div v-if="isCalemder">
             <Calender class="hidden md:block" />
-            <CalenderDot class="md:hidden" />
+            <div class="md:hidden">
+              <CalenderDot />
+              <div class="w-full flex flex-wrap items-center">
+                <div class="w-7/12 sm:flex">
+                  <p class="sm:w-1/2 font-bold mr-1">22:00-23:00</p>
+                  <p class="sm:w-1/2">Class2</p>
+                </div>
+                <div class="w-2/12">
+                  <button class="button-verified px-3 py-2 rounded text-sm whitespace-no-wrap">
+                    <i class="fas fa-folder-open text-white"></i></button>
+                </div>
+                <div class="w-3/12">
+                  <a href="" class="flex whitespace-no-wrap items-center text-white bg-gray-btn text-sm py-2 px-2">
+                    前往上課<i class="fas fa-arrow-right ml-1"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
           <section v-if="!isCalemder">
             <!-- <div v-if="!data">

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-calendar
+    <v-calendar id="calender-dots"
       :from-date="new Date()"
       :attributes="attributes"
       />
@@ -22,7 +22,7 @@ export default {
             new Date(2021, 7, 22),
             new Date(2021, 7, 6),
             new Date(2021, 7, 16),
-          ],
+          ]
         },
         // {
         //   dot: {
@@ -60,3 +60,10 @@ export default {
   }
 }
 </script>
+<style lang="scss">
+#calender-dots {
+  .vc-weeks {
+    min-width: 90vw !important;
+  }
+}
+</style>

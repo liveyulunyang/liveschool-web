@@ -142,15 +142,6 @@
   .c-btn-sortable .is-asc { transform: rotateZ(0deg); }
   .c-btn-sortable .is-dsc { transform: rotateZ(180deg); }
 
-  .c-expand-section { @apply flex justify-center items-center; }
-  .c-expand-section::before, .c-expand-section::after {
-      @apply block bg-black-4;
-      height: 1px;
-      content: "";
-      -webkit-box-flex: 1;
-      flex: auto;
-      background-clip: content-box;
-  }
   .table-row-move { transition: transform 1s; }
 
 /* test */
