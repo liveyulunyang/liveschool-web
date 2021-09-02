@@ -6,7 +6,7 @@ Vue.use(Vuex)
 /* eslint-disable no-param-reassign */
 export default new Vuex.Store({
   state: {
-    userRole: 'admin',
+    userRole: 'student', // admin director supervise student
     items: {
         needed: [
             {
@@ -71,13 +71,22 @@ export default new Vuex.Store({
   getters: {
     userRole: state => state.userRole
   },
-  mutations: {
-    addItem(state, item) {
-      state.items.todo.push(Object.assign(item, { id: state.nextId }));
-      state.nextId += 1;
-    },
-    updateItems(state, { items, id }) {
-      state.items[id] = items;
+  actions: {
+    setRole: (context, data) => {
+      console.log(data)
+      context.commit('SETROLE', data)
     }
+  },
+  mutations: {
+    SETROLE (state, data) {
+      state.userRole = data
+    }
+    // addItem(state, item) {
+    //   state.items.todo.push(Object.assign(item, { id: state.nextId }));
+    //   state.nextId += 1;
+    // },
+    // updateItems(state, { items, id }) {
+    //   state.items[id] = items;
+    // }
   }
 })

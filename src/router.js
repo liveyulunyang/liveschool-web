@@ -111,7 +111,12 @@ const router = new Router({
       path: '/students/add',
       name: 'studentsAdd',
       component: () => import('@/pages/ManageStudent.vue')
-    }
+    },
+    {
+      path: '/branch',
+      name: 'branch',
+      component: () => import('@/pages/Branch.vue')
+    },
     // {
     //     path: '/analytics',
     //     name: 'analytics',

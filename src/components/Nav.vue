@@ -20,7 +20,7 @@
       </div> -->
     <div class="c-nav__menu flex flex-col justify-between" :class="[ mode === 'mobile' ? 'is-mobile' : '' ]">
         <ul>
-          <li class="c-nav__menuitem" v-for="item in menuListItem" :key="item.id">
+          <li class="c-nav__menuitem" v-for="(item, index) in menuListItem" :key="index">
             <router-link :to="item.url" @click.native="isClosed = true"
                 :class="{'active': item.isActive}"
                 class="flex items-center py-4 px-6 text-gray-1 hover:border-l-3 hover:border-solid hover:border-primary-normal hover:bg-primary-light hover:text-primary-normal">

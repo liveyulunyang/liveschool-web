@@ -51,6 +51,13 @@
     </header>
     <router-view class="min-h-full" @click.native="outside" />
     <SideBar :is-visible="isOpenSideBar" @click="outside"></SideBar>
+
+    <div class="fixed fiex flex-wrap bottom-0 left-0 w-full flex z-40 cursor-pointer bg-blue-500 text-white">
+      <div class="w-1/4 border py-3" @click="$store.dispatch('setRole', 'admin')">管理者</div>
+      <div class="w-1/4 border py-3" @click="$store.dispatch('setRole', 'director')">主任</div>
+      <div class="w-1/4 border py-3" @click="$store.dispatch('setRole', 'student')">學生</div>
+      <div class="w-1/4 border py-3" @click="$store.dispatch('setRole', 'supervise')">督導</div>
+    </div>
   </div>
 </template>
 
@@ -72,95 +79,88 @@
         isOpenUser: false,
         menuListItems: [
           {
-            id: 0,
             icon: "fas fa-users",
             title: "使用者管理",
             url: "/",
             role: ['admin']
           },
           {
-            id: 1,
             icon: "fas fa-comments",
             title: "課程管理",
             url: "/courses",
             role: ['admin']
           },
           {
-            id: 2,
             icon: "fab fa-youtube",
             title: "Live Class",
             url: "/live_class",
             role: ['admin']
           },
           {
-            id: 3,
             icon: "fas fa-list-ul",
             title: "分類管理",
             url: "/classification",
             role: ['admin']
           },
           {
-            id: 4,
             icon: "fas fa-book",
             title: "預約課程",
             url: "/book_course",
             role: ['admin', 'director']
           },
           {
-            id: 5,
             icon: "fas fa-history",
             title: "學習紀錄",
             url: "/learn_record",
             role: ['admin']
           },
           {
-            id: 6,
             icon: "fas fa-address-card",
             title: "授課紀錄",
             url: "/teach_record",
             role: ['admin']
           },
           {
-            id: 7,
             icon: "fas fa-money-bill",
             title: "點數管理",
             url: "/point",
             role: ['admin', 'director']
           },
           {
-            id: 8,
             icon: "fas fa-key",
             title: "序號管理",
             url: "/serial_number",
             role: ['admin']
           },
           {
-            id: 9,
             icon: "fas fa-bell",
             title: "公告",
             url: "/announce",
             role: ['admin']
           },
           {
-            id: 10,
             icon: "fas fa-info",
             title: "系統資訊",
             url: "/info",
-            role: ['admin', 'student']
+            role: ['admin']
           },
           {
-            id: 11,
             icon: "far fa-calendar-alt",
             title: "我的課程",
             url: "/myClass",
             role: ['director', 'student']
           },
           {
-            id: 12,
             icon: "fas fa-users",
             title: "學生管理",
             url: "/students",
             role: ['director']
+          },
+          {
+            icon: "fas fa-users",
+            title: "分校管理",
+            url: "/branch",
+            role: ['supervise']
           }
           // {
           //   id: 0,
