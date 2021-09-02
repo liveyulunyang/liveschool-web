@@ -56,62 +56,65 @@
 
 <style>
     .c-nav {
-        grid-area: nav;
-        width: 215px;
-        transition: width .25s cubic-bezier(0.4,0.0,0.2,1);
-        overflow: hidden;
+      grid-area: nav;
+      width: 215px;
+      transition: width .25s cubic-bezier(0.4,0.0,0.2,1);
+      overflow: hidden;
     }
     .c-nav.is-closed { width: 80px; }
 
     .c-nav__header {
-        padding: 30px;
-        display: flex;
-        justify-content: left
+      padding: 30px;
+      display: flex;
+      justify-content: left;
     }
 
     .c-nav__user {
-        height: 100px;
-        padding: 30px
+      height: 100px;
+      padding: 30px;
     }
 
     .c-nav__menu.is-mobile {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-color: #FFF;
-        z-index: 10000;
-        transition: opacity .15s ease, transform .3s ease;
-        opacity: 1;
-        transform: translateX(0);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: #FFF;
+      z-index: 10000;
+      transition: opacity .15s ease, transform .3s ease;
+      opacity: 1;
+      transform: translateX(0);
     }
     .c-nav.is-closed .c-nav__menu.is-mobile {
-        opacity: 0;
-        transform: translateX(-100%);
+      opacity: 0;
+      transform: translateX(-100%);
     }
     .c-nav__menuitem a {
-        width: 100%;
-        transition: border .10s linear,
-                    width .25s cubic-bezier(0.4,0.0,0.2,1),
-                    background-color .25s cubic-bezier(0.4,0.0,0.2,1),
-                    color .25s cubic-bezier(0.4,0.0,0.2,1);
+      width: 100%;
+      transition: border .10s linear,
+        width .25s cubic-bezier(0.4,0.0,0.2,1),
+        background-color .25s cubic-bezier(0.4,0.0,0.2,1),
+        color .25s cubic-bezier(0.4,0.0,0.2,1);
     }
     .c-nav__menuitem a svg {
-        width: 24px;
-        height: 24px;
+      width: 24px;
+      height: 24px;
     }
     .c-nav .c-nav__menuitem a span { transition: visibility .10s .25s cubic-bezier(0.4,0.0,0.2,1); }
     .c-nav.is-closed .c-nav__menuitem a span {
-        visibility: hidden;
-        transition: visibility .25s cubic-bezier(0.4,0.0,0.2,1);
+      visibility: hidden;
+      transition: visibility .25s cubic-bezier(0.4,0.0,0.2,1);
     }
 
     /* Actve state */
     .c-nav__menuitem a.is-active {
-      @apply border-l-2 border-solid;
+      border-left-width: 3px;
+      border-style: solid;
+      border-color: #2e5bff;
+      background-color: rgba(46,91,255,.2);
+      color: #2e5bff;
     }
-
     @media (min-width: 768px) {
       .c-nav__menuitem a { width: 215px; }
     }

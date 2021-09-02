@@ -4,14 +4,14 @@
 		<h1 class="text-xl ading-none text-black-1 mr-2 font-bold">課程分類管理</h1>
 
     <section class="w-full mt-2 min-h-screen px-3 lg:px-6 py-4">
-      <div class="flex justify-between">
+      <div class="flex justify-between mb-4">
         <ul class='flex cursor-pointer text-sm'>
           <li class='py-2 mr-1'>
             <Button @click="$router.back(-1)" class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
               <i class="fas fa-chevron-left"></i>回上層
             </Button>
           </li>
-          <li class='py-2 px-4 flex items-center justify-center mx-1'>LiveTalk 直播課 / 課程主題 </li>
+          <!-- <li class='py-2 px-4 flex items-center justify-center mx-1'>LiveTalk 直播課 / 課程主題 </li> -->
         </ul>
 
         <ul class='flex cursor-pointer text-sm'>
@@ -27,18 +27,18 @@
           <div class="w-full flex flex-wrap leading-normal mb-1">
             <div class="w-full px-3 py-3 md:flex mb-2 md:mb-3 bg-white" v-for="n in 10" :key="n">
               <div class="md:w-9/12 md:pt-2">
-                <p class="text-left tracking-wide text-sm mb-2 md:mb-0" for="email">
+                <p class="text-left tracking-wide text-lg mb-2 md:mb-0" for="email">
                   Come to Live
                 </p>
               </div>
-              <div class="w-full md:w-3/12 flex items-center justify-center md:pl-2">
-                <button class="button-verified py-2 px-2 rounded w-full text-sm whitespace-no-wrap mx-1">
+              <div class="w-full md:w-3/12 flex items-center justify-end md:pl-2">
+                <button class="bg-gray-900 text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1">
                   <i class="fas fa-folder-open"></i>
                 </button>
-                <button class="button-verified py-2 px-2 rounded w-full text-sm whitespace-no-wrap mx-1">
+                <button class="bg-gray-900 text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1">
                   <i class="fas fa-edit"></i>
                 </button>
-                <button class="button-verified py-2 px-2 rounded w-full text-sm whitespace-no-wrap mx-1">
+                <button class="bg-gray-900 text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1">
                   <i class="fas fa-trash-alt"></i>
                 </button>
               </div>

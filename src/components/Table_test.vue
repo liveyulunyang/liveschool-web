@@ -12,9 +12,9 @@
                                 round
                                 @click.native="sortBy(column.name)">
                             <svg xmlns="http://www.w3.org/2000/svg"
-                                 xmlns:xlink="http://www.w3.org/1999/xlink"
-                                 class="fill-current w-6 h-6"
-                                 :class="sortOrders[column.name] > 0 ? 'is-asc' : 'is-dsc'"
+                                xmlns:xlink="http://www.w3.org/1999/xlink"
+                                class="fill-current w-6 h-6"
+                                :class="sortOrders[column.name] > 0 ? 'is-asc' : 'is-dsc'"
                             >
                                 <use xlink:href="#c-icon-keyboard_arrow_down"></use>
                             </svg>
@@ -163,7 +163,7 @@
 </script>
 
 <style scoped>
-    .c-table table { border-spacing: 0 1rem;  }
+    .c-table table { border-spacing: 0 1rem; }
 
     .c-btn-sortable svg { transition: transform .15s ease-in; }
     .c-btn-sortable .is-asc { transform: rotateZ(0deg); }

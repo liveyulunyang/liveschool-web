@@ -5,10 +5,10 @@
         </h3>
         <div class="h-full mt-3">
             <draggable class="h-full"
-                       v-model="draggables"
-                       :options="dragOptions"
-                       @start="drag = true"
-                       @end="drag = false">
+                    v-model="draggables"
+                    :options="dragOptions"
+                    @start="drag = true"
+                    @end="drag = false">
                 <transition-group style="display: block; min-height: 115px; padding-bottom: 115px;" type="transition" :name="!drag ? 'flip-list' : null">
                     <div class="mb-3" v-for="item in items" :key="item.id">
                         <item :item="item" :group="id"></item>

@@ -6,7 +6,7 @@ Vue.use(Vuex)
 /* eslint-disable no-param-reassign */
 export default new Vuex.Store({
   state: {
-    role: 'admin',
+    userRole: 'admin',
     items: {
         needed: [
             {
@@ -67,6 +67,9 @@ export default new Vuex.Store({
         ]
     },
     nextId: 1
+  },
+  getters: {
+    userRole: state => state.userRole
   },
   mutations: {
     addItem(state, item) {

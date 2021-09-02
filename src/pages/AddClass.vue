@@ -694,7 +694,7 @@
   import 'vue2-datepicker/index.css';
   import NoData from '@/components/NoData'
   export default {
-    name: "AddTalkClass",
+    name: 'AddTalkClass',
     components: {
       DatePicker,
       NoData
@@ -762,7 +762,7 @@
     }
   }
 </script>
-<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
+<style src='vue-multiselect/dist/vue-multiselect.min.css'></style>
 <style>
   #fileInput {
     display: none !important;

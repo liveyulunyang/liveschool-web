@@ -6,70 +6,52 @@
           <th v-for="column in columns" :key="column.name" class="whitespace-no-wrap text-center">{{ column.label }}</th>
         </tr>
         <tr v-for="item in data" :key="item.id">
-          <td data-th="建立時間">
-            {{ item.setTime }}
+          <td data-th="課程時間">
+            {{ item.time }}
           </td>
-          <td data-th="分校">
-            {{ item.BranchChool }}
-          </td>
-          <td data-th="課程名稱">
-            {{ item.classname }}
-          </td>
-          <td data-th="課程種類">
-            {{ item.classtype }}
-          </td>
-          <td data-th="教師專案">
-            {{ item.teacherProject }}
-          </td>
-          <td data-th="安排教師">
-            <i class="fas fa-user-circle text-2xl text-black-3"></i>
-            {{ item.teacher }}
-          </td>
-          <td data-th="人數">
-            {{ item.number }}
-          </td>
-          <td data-th="點數">
-            {{ item.point }}
-          </td>
-          <td data-th="預約時間">
-            {{ item.bookingTime }}
-          </td>
-          <td data-th="實際開課時間">
-            {{ item.classtime }}
-          </td>
-          <td data-th="執行動作">
+          <td data-th="課程狀態">
             {{ item.status }}
           </td>
-          <td data-th="狀態">
-            <Button v-if="item.actions"
-              class="mx-1 btnAudit px-2 py-1" @click.native="openModal"
-              rounded>
-              審核<i class="fas fa-arrow-right ml-1"></i>
-            </Button>
-            <Button v-if="!item.actions"
-              class="mx-1 btnCheck px-2 py-1" @click.native="openModal"
-              rounded>
-              查看<i class="far fa-folder-open ml-1"></i>
-            </Button>
+          <td data-th="課程點數">
+            {{ item.point }}
+          </td>
+          <td data-th="主題">
+            {{ item.topic }}
+          </td>
+          <td data-th="主題分類">
+            {{ item.classification }}
+          </td>
+          <td data-th="名稱">
+            {{ item.name }}
+          </td>
+          <td data-th="其他">
+            <button class="bg-gray-900 text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1">
+              問券調查
+            </button>
+            <button class="bg-gray-900 text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1">
+              老師評語
+            </button>
+          </td>
+          <td data-th="課程詳情">
+            <button class="bg-gray-900 text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1">
+              <i class="fas fa-folder-open"></i>
+            </button>
           </td>
         </tr>
       </tbody>
     </table>
-    <BookingModal :showfirstModal="showfirstModal" v-on:closeModal="closeModal" />
   </div>
 
 </template>
 
 <script>
   // import Avatar from "./Avatar";
-  import Button from "@/components/Button";
-  import BookingModal from '@/components/modules/BookingModal'
+  // import Button from "@/components/Button";
   export default {
     name: "Table",
     components: {
       // Avatar,
-      Button,
-      BookingModal
+      // Button,
     },
     props: {
       columns: {
@@ -139,13 +121,25 @@
 </script>
 
 <style scoped>
-  .btnAudit {
-    color: white;
-    background: black;
-    border: 1px solid black;
-  }
-  .btnCheck {
-    background: white;
-    border: 1px solid black;
-  }
+.hasData {
+  display: none;
+}
+.isActive .noData {
+  display: none;
+}
+.isActive .hasData {
+  display: block;
+}
+
+
+.btnAudit {
+  color: white;
+  background: black;
+  border: 1px solid black;
+}
+.btnCheck {
+  /* color: white; */
+  background: white;
+  border: 1px solid black;
+}
 </style>

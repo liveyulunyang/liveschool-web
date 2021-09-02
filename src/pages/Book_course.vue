@@ -6,7 +6,7 @@
             <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">預約課程審核列表</h1>
           </div>
         </div>
-        <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row">
+        <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row mb-4">
           <div class="flex items-center justify-start flex-wrap">
           <div class="mr-1">
             <Multiselect

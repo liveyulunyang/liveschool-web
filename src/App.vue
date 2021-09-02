@@ -1,8 +1,8 @@
 <template>
   <div id="app" class="min-h-screen overflow-auto">
-    <Nav class="hidden md:block" :menu-list-item="menuListItems" :user="user"></Nav>
+    <Nav class="hidden md:block" :menu-list-item="roleMenu" :user="user"></Nav>
     <header class="bg-white flex justify-between px-2 lg:px-20 border-b border-gray-3 border-solid h-20">
-      <Nav class="md:hidden" mode="mobile" :menu-list-item="menuListItems" :user="user"></Nav>
+      <Nav class="md:hidden" mode="mobile" :menu-list-item="roleMenu" :user="user"></Nav>
       <router-link class="flex items-center" to="/">
         <img alt="Velocity" src="./assets/logo.png" class="w-24 md:w-48 h-auto">
       </router-link>
@@ -59,7 +59,7 @@
   import Button from "./components/Button"
   // import Avatar from "./components/Avatar"
   import SideBar from "./components/SideBar"
-
+  import { mapGetters } from 'vuex'
   export default {
     name: 'app',
     components: {
@@ -75,79 +75,92 @@
             id: 0,
             icon: "fas fa-users",
             title: "使用者管理",
-            url: "/"
+            url: "/",
+            role: ['admin']
           },
           {
             id: 1,
             icon: "fas fa-comments",
             title: "課程管理",
-            url: "/courses"
+            url: "/courses",
+            role: ['admin']
           },
           {
             id: 2,
             icon: "fab fa-youtube",
             title: "Live Class",
-            url: "/live_class"
+            url: "/live_class",
+            role: ['admin']
           },
           {
             id: 3,
             icon: "fas fa-list-ul",
             title: "分類管理",
-            url: "/classification"
+            url: "/classification",
+            role: ['admin']
           },
           {
             id: 4,
             icon: "fas fa-book",
             title: "預約課程",
-            url: "/book_course"
+            url: "/book_course",
+            role: ['admin', 'director']
           },
           {
             id: 5,
             icon: "fas fa-history",
             title: "學習紀錄",
-            url: "/learn_record"
+            url: "/learn_record",
+            role: ['admin']
           },
           {
             id: 6,
             icon: "fas fa-address-card",
             title: "授課紀錄",
-            url: "/teach_record"
+            url: "/teach_record",
+            role: ['admin']
           },
           {
             id: 7,
-            icon: "fas fa-credit-card",
+            icon: "fas fa-money-bill",
             title: "點數管理",
-            url: "/point"
+            url: "/point",
+            role: ['admin', 'director']
           },
           {
             id: 8,
             icon: "fas fa-key",
             title: "序號管理",
-            url: "/serial_number"
+            url: "/serial_number",
+            role: ['admin']
           },
           {
             id: 9,
             icon: "fas fa-bell",
             title: "公告",
-            url: "/announce"
+            url: "/announce",
+            role: ['admin']
           },
           {
             id: 10,
             icon: "fas fa-info",
             title: "系統資訊",
-            url: "/info"
+            url: "/info",
+            role: ['admin', 'student']
           },
           {
             id: 11,
             icon: "far fa-calendar-alt",
             title: "我的課程",
-            url: "/myClass"
+            url: "/myClass",
+            role: ['director', 'student']
           },
           {
             id: 12,
             icon: "fas fa-users",
             title: "學生管理",
-            url: "/students"
+            url: "/students",
+            role: ['director']
           }
           // {
           //   id: 0,
@@ -205,6 +218,17 @@
       }
     },
     mounted () {
+    },
+    computed: {
+      ...mapGetters([
+        'userRole'
+      ]),
+      roleMenu () {
+        var filterEmpty = this.menuListItems.filter((item, index, array) => {
+          return item.role.indexOf(this.userRole) > -1
+        })
+        return filterEmpty
+      }
     },
     methods: {
       openSideBar () {

@@ -122,12 +122,10 @@
         })
       },
       toPreview () {
-        
         console.log('d')
         this.$router.push({ path: '/ctl_class/preview' })
       },
       toReview () {
-        
         console.log('d')
         this.$router.push({ path: '/ctl_class/review' })
       }

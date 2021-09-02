@@ -12,7 +12,7 @@
             <h5 class="mr-3 whitespace-no-wrap">未結束<span class="bg-white rounded-lg px-2 py-1 mx-1">99</span>課</h5>
           </div>
         </div>
-        <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row">
+        <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row mb-4">
           <div class="flex items-center justify-start flex-wrap">
           <div class="mr-1">
             <Multiselect
@@ -133,13 +133,13 @@
 </template>
 
 <script>
-  import Table from "@/components/tables/Course";
-  import Pagination from "@/components/modules/Pagination";
+  import Table from '@/components/tables/Course'
+  import Pagination from '@/components/modules/Pagination'
   import Multiselect from 'vue-multiselect'
-  import DatePicker from 'vue2-datepicker';
-  import 'vue2-datepicker/index.css';
+  import DatePicker from 'vue2-datepicker'
+  import 'vue2-datepicker/index.css'
   export default {
-    name: "Courses",
+    name: 'Courses',
     components: {
       Table,
       Multiselect,
@@ -269,7 +269,7 @@
     }
   }
 </script>
-<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
+<style src='vue-multiselect/dist/vue-multiselect.min.css'></style>
 <style>
   .role {
     width: 6em !important;

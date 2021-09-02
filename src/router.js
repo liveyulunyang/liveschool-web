@@ -62,6 +62,11 @@ const router = new Router({
       component: () => import('@/pages/Learn_record.vue')
     },
     {
+      path: '/learn_record/:id',
+      name: 'learn_record_student',
+      component: () => import('@/pages/Learn_record_student.vue')
+    },
+    {
       path: '/teach_record',
       name: 'teach_record',
       component: () => import('@/pages/Teach_record.vue')

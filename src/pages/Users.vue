@@ -13,7 +13,7 @@
           <h5 class="whitespace-no-wrap">學生<span class="bg-white rounded-lg px-2 py-1 mx-1">9999</span>人</h5>
         </div>
       </div>
-      <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row">
+      <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row mb-4">
         <div class="flex items-center justify-start flex-wrap">
 
           <Multiselect
