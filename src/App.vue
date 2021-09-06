@@ -52,11 +52,19 @@
     <router-view class="min-h-full" @click.native="outside" />
     <SideBar :is-visible="isOpenSideBar" @click="outside"></SideBar>
 
-    <div class="fixed fiex flex-wrap bottom-0 left-0 w-full flex z-40 cursor-pointer bg-blue-500 text-white">
-      <div class="w-1/4 border py-3" @click="$store.dispatch('setRole', 'admin')">管理者</div>
-      <div class="w-1/4 border py-3" @click="$store.dispatch('setRole', 'director')">主任</div>
-      <div class="w-1/4 border py-3" @click="$store.dispatch('setRole', 'student')">學生</div>
-      <div class="w-1/4 border py-3" @click="$store.dispatch('setRole', 'supervise')">督導</div>
+    <div class="fixed bottom-0 right-0 z-40 cursor-pointer">
+      <div class="relative w-auto mx-1">
+        <select class="block appearance-none py-3 px-4 pr-8 rounded leading-tight focus:outline-none border" id="setRole"
+          @change="setRole($event)" v-model="$store.state.userRole">
+          <option value="admin">管理者</option>
+          <option value="director">主任</option>
+          <option value="student">學生</option>
+          <option value="supervise">督導</option>
+        </select>
+        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
+          <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -76,6 +84,7 @@
     },
     data () {
       return {
+        role: 'admin',
         isOpenUser: false,
         menuListItems: [
           {
@@ -115,13 +124,13 @@
             role: ['admin']
           },
           {
-            icon: "fas fa-address-card",
+            icon: "fas fa-id-card",
             title: "授課紀錄",
             url: "/teach_record",
             role: ['admin']
           },
           {
-            icon: "fas fa-money-bill",
+            icon: "fas fa-ticket-alt",
             title: "點數管理",
             url: "/point",
             role: ['admin', 'director']
@@ -162,6 +171,12 @@
             url: "/branch",
             role: ['supervise']
           }
+          // {
+          //   icon: "fas fa-school",
+          //   title: "分校管理",
+          //   url: "/branch",
+          //   role: ['admin', 'director', 'student', 'supervise']
+          // }
           // {
           //   id: 0,
           //   icon: "#c-icon-dashboard",
@@ -237,6 +252,9 @@
       outside () {
         this.isOpenSideBar = false
         this.isOpenUser = false
+      },
+      setRole (event) {
+        this.$store.dispatch('setRole', event.target.value)
       }
     }
   }
