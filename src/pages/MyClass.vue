@@ -28,7 +28,7 @@
                   <label for="booking"></label>
                 </div>
                 <span class="text-sm ml-1 whitespace-no-wrap md:hidden">預約</span>
-                <span class="text-sm ml-1 whitespace-no-wrap hidden md:block">預約課程</span>
+                <span class="text-sm ml-1 whitespace-no-wrap hidden md:block">分校預約課程</span>
               </section>
               <section style="background: none; border: none; box-shadow: none;" class="flex items-center mx-2">
                 <div class="roundedOne finish">
@@ -492,7 +492,7 @@
 </template>
 
 <script>
-import Calender from '@/components/modules/Calemder'
+import Calender from '@/components/modules/Calender'
 // import Calender from '@/components/modules/CalenderSimple'
 import CalenderDot from '@/components/modules/CalenderDot'
 import DatePicker from 'vue2-datepicker'

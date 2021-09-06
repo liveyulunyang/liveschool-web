@@ -166,6 +166,12 @@
             role: ['director']
           },
           {
+            icon: "fas fa-seedling",
+            title: "能力剖面圖",
+            url: "/sectional_drawing",
+            role: ['director', 'student', 'teacher']
+          },
+          {
             icon: "fas fa-users",
             title: "分校管理",
             url: "/branch",

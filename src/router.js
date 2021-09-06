@@ -117,6 +117,11 @@ const router = new Router({
       name: 'branch',
       component: () => import('@/pages/Branch.vue')
     },
+    {
+      path: '/sectional_drawing',
+      name: 'SectionalDrawing',
+      component: () => import('@/pages/Sectional_drawing.vue')
+    }
     // {
     //     path: '/analytics',
     //     name: 'analytics',

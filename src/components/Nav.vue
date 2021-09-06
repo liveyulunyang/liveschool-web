@@ -23,7 +23,7 @@
           <a href="https://store.liveabc.com/" target="_blank"
               class="flex items-center py-4 px-6 text-gray-1 hover:border-l-3 hover:border-solid hover:border-primary-normal hover:bg-primary-light hover:text-primary-normal">
             <i class="fas fa-school"></i>
-            <span class="ml-3 text-sm font-bold">live Class</span>
+            <span class="ml-3 text-sm font-bold">Live Class</span>
           </a>
         </li>
       </ul>

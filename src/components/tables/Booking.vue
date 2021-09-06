@@ -67,7 +67,6 @@
   export default {
     name: "Table",
     components: {
-      // Avatar,
       Button,
       BookingModal
     },
@@ -101,12 +100,9 @@
     },
     methods: {
       openModal () {
-        console.log('open')
         this.showfirstModal = true
       },
       closeModal (closeModal) {
-
-        console.log(closeModal)
         this.showfirstModal = closeModal
       }
       // edit() {
