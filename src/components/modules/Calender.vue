@@ -33,7 +33,7 @@
 <script>
 import CalenderModel from '@/components/modules/CalenderModel'
 export default {
-  name: 'Calemder',
+  name: 'Calender',
   components: {
     CalenderModel
   },

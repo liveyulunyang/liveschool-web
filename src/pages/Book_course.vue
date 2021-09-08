@@ -1,13 +1,14 @@
 <template>
   <main class="flex items-start p-6">
     <div class="flex flex-col w-full">
-        <div class="mb-4 flex justify-between items-center flex-wrap">
-          <div class="flex">
-            <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">預約課程審核列表</h1>
-          </div>
+      <div class="mb-4 flex justify-between items-center flex-wrap">
+        <div class="flex">
+          <h1 class="text-xl ading-none text-black-1 mr-2 font-bold" v-if="$store.state.userRole === 'admin'">預約課程審核列表</h1>
+          <h1 class="text-xl ading-none text-black-1 mr-2 font-bold" v-if="$store.state.userRole === 'director'">預約課程清單</h1>
         </div>
-        <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row mb-4">
-          <div class="flex items-center justify-start flex-wrap">
+      </div>
+      <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row mb-4">
+        <div class="flex items-center justify-start flex-wrap">
           <div class="mr-1">
             <Multiselect
               class="role"
@@ -65,13 +66,21 @@
               <img src="@/assets/img/icons/re.svg" alt="" class="w-8">
             </a>
           </div>
-          </div>
+          <button v-if="$store.state.userRole === 'director'" class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
+            ↓ 匯出資料
+          </button>
         </div>
-        <Table
-          :columns="tableList.columns"
-          :actions="tableList.actions"
-          :data="tableList.datas">
-        </Table>
+        <div class="flex justify-end items-center"  v-if="$store.state.userRole === 'director'">
+          <button @click="addBook" class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
+            + 新增預約
+          </button>
+        </div>
+      </div>
+      <Table
+        :columns="tableList.columns"
+        :actions="tableList.actions"
+        :data="tableList.datas">
+      </Table>
     </div>
   </main>
 </template>
@@ -81,6 +90,7 @@
   import Multiselect from 'vue-multiselect'
   import DatePicker from 'vue2-datepicker';
   import 'vue2-datepicker/index.css';
+  import Button from '../components/Button.vue';
   export default {
     name: "Book_course",
     components: {
@@ -181,6 +191,9 @@
       },
       toEdit () {
         this.$router.push({ name: 'course_template' })
+      },
+      addBook () {
+        this.$router.push({ name: 'AddBooking' })
       }
       // edit() {
       //   console.log('edit manage');

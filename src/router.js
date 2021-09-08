@@ -121,12 +121,17 @@ const router = new Router({
       path: '/sectional_drawing',
       name: 'SectionalDrawing',
       component: () => import('@/pages/Sectional_drawing.vue')
-    }
-    // {
-    //     path: '/analytics',
-    //     name: 'analytics',
-    //     component: () => import('./pages/Analytics.vue')
-    // },
+    },
+    {
+      path: '/booking/add',
+      name: 'AddBooking',
+      component: () => import('@/pages/AddBooking.vue')
+    },
+    {
+        path: '/analytics',
+        name: 'analytics',
+        component: () => import('./pages/Analytics.vue')
+    },
     // {
     //     path: '/vehicles',
     //     name: 'vehicles',

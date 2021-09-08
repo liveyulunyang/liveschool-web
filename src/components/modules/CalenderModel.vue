@@ -1,229 +1,54 @@
 <template>
-  <Modal :based-on="showfirstModal" title="預約資料審核" :modalClass="'modal-outer'" @close="$emit('closeModal', false)">
-    <form novalidate>
-      <div class="w-full px-3 mb-2 md:mb-4 md:flex">
-        <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2 text-right px-2" for="booker">
-          預約者
-        </label>
-        <div class="w-full md:w-8/12 flex items-center">
-          <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-            id="booker" type="text" placeholder="">
+  <Modal :based-on="showfirstModal" :modalClass="'modal-outer'" @close="$emit('closeModal', false)">
+    <div>
+      <div class="flex flex-wrap">
+        <div class="w-full md:w-1/6 mb-4">
+          <img src="@/assets/img/classImg.png" alt="" class="object-contain max-w-full">
         </div>
-        <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2 text-right px-2" for="point">
-          當前點數
-        </label>
-        <div class="w-full md:w-2/12 flex items-center">
-          <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-            id="point" type="text" placeholder="">
+        <div class="w-full md:w-5/6 mb-4 px-3 pt-4 pb-3 flex flex-col justify-between font-bold">
+          <p class="text-xl">生活英語 / 兒童生活英語</p>
+          <p class="text-2xl">	B1 U1-U3 Class 2</p>
         </div>
-      </div>
-      <div class="w-full px-3 mb-2 md:mb-4 md:flex">
-        <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2 text-right px-2" for="branch">
-          分校
-        </label>
-        <div class="w-full md:w-11/12 flex items-center">
-          <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-            id="branch" type="text" placeholder="">
+        <div class="w-full md:w-1/6 text-xl md:mb-4 md:border-r-2 border-gray-900 px-3 text-left md:text-right py-2 font-semibold">
+          <h4>課程目標</h4>
         </div>
-      </div>
-      <div class="w-full px-3 mb-2 md:mb-4 md:flex">
-        <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2 text-right px-2" for="type">
-          課程類型
-        </label>
-        <div class="w-full md:w-11/12 flex items-center">
-          <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-            id="type" type="text" placeholder="">
+        <div  class="w-full md:w-5/6 mb-4 px-3 py-2 text-lg">
+          <p>1.有關姓名、問候以及家庭成員的單字。 2.可以做基本的問候對話和認識家庭成員的單字。</p>
         </div>
-      </div>
-      <div class="w-full px-3 mb-2 md:mb-4 md:flex">
-        <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2 text-right px-2" for="classname">
-          課程名稱
-        </label>
-        <div class="w-full md:w-11/12 flex items-center">
-          <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-            id="classname" type="text" placeholder="">
+        <div class="w-full md:w-1/6 text-xl md:mb-4 md:border-r-2 border-gray-900 px-3 text-left md:text-right py-2 font-semibold">
+          <h4>課程大綱</h4>
         </div>
-      </div>
-      <div class="w-full px-3 mb-2 md:mb-4 md:flex">
-        <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2 text-right px-2" for="classtype">
-          課程類型
-        </label>
-        <div class="w-full md:w-11/12 flex items-center">
-          <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-            id="classtype" type="text" placeholder="">
+        <div  class="w-full md:w-5/6 mb-4 px-3 py-2 text-lg">
+          <p>1.學習如何自我介紹。</p>
+          <p>2.學習三種不同的方式來問候朋友。</p>
+          <p>3.知道如何說家庭成員。</p>
+          <p>4.學習如何在不同時間迎接朋友。</p>
+          <p>5.在課堂上學習一些實用的句子。</p>
         </div>
-      </div>
-      <div class="w-full px-3 mb-2 md:mb-4 md:flex">
-        <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2 text-right px-2" for="problem">
-          問題
-        </label>
-        <div class="w-full md:w-11/12 flex items-center">
-          <textarea id="problem" placeholder="請輸入課程大綱"
-            class=" py-3 px-4 w-full p-1 resize border border-gray-500 rounded focus:border-gray-700 focus:shadow-none focus:outline-none text-sm">
-          </textarea>
+        <div class="w-full md:w-1/6 text-xl md:mb-4 md:border-r-2 border-gray-900 px-3 text-left md:text-right py-2 font-semibold">
+          <h4>授課教師</h4>
         </div>
-      </div>
-      <div class="w-full px-3 mb-2 md:mb-4 md:flex">
-        <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2 text-right px-2" for="response">
-          回應
-        </label>
-        <div class="w-full md:w-11/12 flex items-center">
-          <textarea id="response" placeholder="請輸入課程大綱"
-            class=" py-3 px-4 w-full p-1 resize border border-gray-500 rounded focus:border-gray-700 focus:shadow-none focus:outline-none text-sm">
-          </textarea>
-        </div>
-      </div>
-      <div class="w-full px-3 mb-2 md:mb-4 md:flex">
-        <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2 text-right px-2" for="number">
-          人數班制
-        </label>
-        <div class="w-full md:w-5/12 flex items-center">
-          <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-            id="number" type="text" placeholder="">
-        </div>
-        <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2 text-right px-2" for="maxNum">
-          最高人數
-        </label>
-        <div class="w-full md:w-2/12 flex items-center">
-          <div class="relative text-sm w-full">
-            <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="maxNum"
-              >
-              <option value="31">選擇分區</option>
-            </select>
-            <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
-              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-            </div>
+        <div  class="w-full md:w-5/6 mb-4 px-3 py-2 flex flex-wrap">
+          <div class="teacher-img md:mr-4 relative mb-3 md:mb-0">
+            <img src="@/assets/img/teacherDefault.svg" alt="" class="object-contain">
+            <a class="absolute right-0 bottom-0 bg-gray-700 rounded-full p-2 border border-white w-10 h-10 text-center">
+              <i class="fas fa-volume-up text-white"></i>
+            </a>
+          </div>
+          <div class="teacher-name flex flex-col justify-center">
+            <h6 class="text-2xl font-bold">ALEX</h6>
+            <h6 class="text-lg mb-3">ALEX WU</h6>
+            <p class="text-lg">alex_teacherdemo88@liveabc.com</p>
           </div>
         </div>
-        <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2 text-right px-2" for="minNum">
-          最低人數
-        </label>
-        <div class="w-full md:w-2/12 flex items-center">
-          <div class="relative text-sm w-full">
-            <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="minNum"
-              >
-              <option value="31">選擇分區</option>
-            </select>
-            <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
-              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-            </div>
-          </div>
+        <div class="w-full md:w-1/6 text-xl md:mb-4 md:border-r-2 border-gray-900 px-3 text-left md:text-right py-2 font-semibold">
+          <h4>教師經歷</h4>
+        </div>
+        <div  class="w-full md:w-5/6 mb-4 px-3 py-2 text-lg">
+          <p>Hello, my name's Jeremy and I'm originally from Chicago, Illinois in the United States. I'm 33 years old and have been all around the world but currently living in Taiwan. Taiwan is very different from my home city, but in many ways better. I've been teaching English for about 4 years. My students range from small children who are just starting to learn, to working professionals who need to use English at their place of employment. with each student, my goal is to help them express themselves clearly as well as gain confidence in their speaking ability. I've also been learning Chinese for four years, so I know how it feels to learn another language and the struggles that come with it, such as practicing or finding ways to improve. If you're learning English for work, school, or just personal improvement, I'm happy to help and look forward to working with you in the future!</p>
         </div>
       </div>
-      <div class="w-full px-3 mb-2 md:mb-4 md:flex">
-        <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2 text-right px-2" for="pro">
-          教師專案
-        </label>
-        <div class="w-full md:w-11/12 flex items-center">
-          <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-            id="pro" type="text" placeholder="">
-        </div>
-      </div>
-      <div class="w-full px-3 mb-2 md:mb-4 md:flex">
-        <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2 text-right px-2" for="teacher">
-          指定教師
-        </label>
-        <div class="w-full md:w-11/12 flex items-center">
-          <div class="relative text-sm w-full">
-            <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="teacher"
-              >
-              <option value="31">選擇分區</option>
-            </select>
-            <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
-              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="w-full px-3 mb-2 md:mb-4 md:flex">
-        <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2 text-right px-2" for="date">
-          課程日期
-        </label>
-        <div class="w-full md:w-5/12 flex items-center">
-          <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-            id="date" type="text" placeholder="">
-        </div>
-        <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2 text-right px-2" for="name">
-          課程時間從
-        </label>
-        <div class="w-full md:w-2/12 flex items-center">
-          <div class="relative text-sm w-full">
-            <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="timeStart"
-              >
-              <option value="31">選擇分區</option>
-            </select>
-            <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
-              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-            </div>
-          </div>
-        </div>
-        <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2 text-right px-2" for="name">
-          到
-        </label>
-        <div class="w-full md:w-2/12 flex items-center">
-          <div class="relative text-sm w-full">
-            <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="timeEnd"
-              >
-              <option value="31">選擇分區</option>
-            </select>
-            <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
-              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="w-full px-3 mb-2 md:mb-4 md:flex">
-        <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2 text-right px-2" for="price">
-          費用類型
-        </label>
-        <div class="w-full md:w-2/12 flex items-center">
-          <div class="relative text-sm w-full">
-            <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="price"
-              >
-              <option value="31">選擇分區</option>
-            </select>
-            <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
-              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-            </div>
-          </div>
-        </div>
-        <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2 text-right px-2" for="name">
-          點數
-        </label>
-        <div class="w-full md:w-2/12 flex items-center">
-          <div class="relative text-sm w-full">
-            <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="invoice"
-              >
-              <option value="31">選擇分區</option>
-            </select>
-            <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
-              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="w-full px-3 mb-2 md:mb-4 md:flex">
-        <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2 text-right px-2">
-          設定
-        </label>
-        <div class="w-full md:w-4/12 flex items-center">
-          <label class="control control--checkbox">主任是否要收到開課通知？
-            <input type="checkbox" checked="checked"/>
-            <div class="control__indicator"></div>
-          </label>
-        </div>
-        <div class="w-full md:w-4/12 flex items-center">
-          <label class="control control--checkbox">是否不開放公開預約？
-            <input type="checkbox" checked="checked"/>
-            <div class="control__indicator"></div>
-          </label>
-        </div>
-      </div>
-      <div class="w-full px-3 mb-2 md:mb-4 flex justify-end">
-        <a class="px-4 py-2 bg-green-light m-1 cursor-pointer" @click="close()"><i class="fas fa-times mr-1"></i>駁回</a>
-        <a class="px-4 py-2 bg-green-light m-1 cursor-pointer" @click="close()"><i class="fas fa-check mr-1"></i>通過</a>
-      </div>
-    </form>
+    </div>
   </Modal>
 </template>
 <script>
@@ -263,6 +88,8 @@ export default {
 .modal-outer {
   width: 100% !important;
   max-width: 64em !important;
+  background: rgb(255,255,255);
+  background: linear-gradient(0deg, #ffffff 88%, #E6E6E6 88%);
 }
 .modal-footer {
   padding: 15px 0px 0px 0px;
@@ -273,46 +100,5 @@ export default {
 .vm-btn-close {
   outline: none !important;
 }
-/* checbox */
-.control {
-    display: block;
-    position: relative;
-    padding-left: 30px;
-    margin-bottom: 15px;
-    cursor: pointer;
-    font-size: 18px;
-}
-.control input {
-    position: absolute;
-    z-index: -1;
-    opacity: 0;
-}
-.control input:checked ~ .control__indicator {
-    background: #666666;
-}
-.control__indicator {
-    position: absolute;
-    top: 2px;
-    left: 0;
-    height: 20px;
-    width: 20px;
-    background: #e6e6e6;
-}
-.control input:checked ~ .control__indicator:after {
-    display: block;
-}
-.control--checkbox .control__indicator:after {
-    left: 8px;
-    top: 4px;
-    width: 3px;
-    height: 8px;
-    border: solid #fff;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-}
-.control__indicator:after {
-    content: '';
-    position: absolute;
-    display: none;
-}
+
 </style>

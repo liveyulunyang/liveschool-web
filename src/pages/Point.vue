@@ -32,9 +32,9 @@
                       <img src="@/assets/img/icons/re.svg" alt="" class="w-8">
                     </a>
                   </div>
-                  <Button class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
-                    匯出資料
-                  </Button>
+                  <button class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
+                    ↓ 匯出資料
+                  </button>
                 </div>
                 <form>
                   <div class="mb-6">

@@ -60,6 +60,7 @@
           <option value="director">主任</option>
           <option value="student">學生</option>
           <option value="supervise">督導</option>
+          <option value="teacher">老師</option>
         </select>
         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
           <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -72,7 +73,6 @@
 <script>
   import Nav from './components/Nav'
   import Button from "./components/Button"
-  // import Avatar from "./components/Avatar"
   import SideBar from "./components/SideBar"
   import { mapGetters } from 'vuex'
   export default {
@@ -157,7 +157,7 @@
             icon: "far fa-calendar-alt",
             title: "我的課程",
             url: "/myClass",
-            role: ['director', 'student']
+            role: ['director', 'student', 'teacher']
           },
           {
             icon: "fas fa-users",
@@ -169,7 +169,7 @@
             icon: "fas fa-seedling",
             title: "能力剖面圖",
             url: "/sectional_drawing",
-            role: ['director', 'student', 'teacher']
+            role: ['student', 'teacher']
           },
           {
             icon: "fas fa-users",

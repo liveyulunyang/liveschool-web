@@ -1,5 +1,5 @@
 <template>
-  <Modal :based-on="showfirstModal" title="預約資料審核" :modalClass="'modal-outer'" @close="$emit('closeModal', false)">
+  <Modal :based-on="showfirstModal" :title="title" :modalClass="'modal-outer'" @close="$emit('closeModal', false)">
     <form novalidate>
       <div class="w-full px-3 mb-2 md:mb-4 md:flex">
         <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2 text-right px-2" for="booker">
@@ -7,14 +7,14 @@
         </label>
         <div class="w-full md:w-8/12 flex items-center">
           <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-            id="booker" type="text" placeholder="">
+            id="booker" type="text" placeholder="" :disabled="isDisabled">
         </div>
         <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2 text-right px-2" for="point">
           當前點數
         </label>
         <div class="w-full md:w-2/12 flex items-center">
           <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-            id="point" type="text" placeholder="">
+            id="point" type="text" placeholder="" :disabled="isDisabled">
         </div>
       </div>
       <div class="w-full px-3 mb-2 md:mb-4 md:flex">
@@ -23,7 +23,7 @@
         </label>
         <div class="w-full md:w-11/12 flex items-center">
           <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-            id="branch" type="text" placeholder="">
+            id="branch" type="text" placeholder="" :disabled="isDisabled">
         </div>
       </div>
       <div class="w-full px-3 mb-2 md:mb-4 md:flex">
@@ -32,7 +32,7 @@
         </label>
         <div class="w-full md:w-11/12 flex items-center">
           <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-            id="type" type="text" placeholder="">
+            id="type" type="text" placeholder="" :disabled="isDisabled">
         </div>
       </div>
       <div class="w-full px-3 mb-2 md:mb-4 md:flex">
@@ -41,7 +41,7 @@
         </label>
         <div class="w-full md:w-11/12 flex items-center">
           <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-            id="classname" type="text" placeholder="">
+            id="classname" type="text" placeholder="" :disabled="isDisabled">
         </div>
       </div>
       <div class="w-full px-3 mb-2 md:mb-4 md:flex">
@@ -50,7 +50,7 @@
         </label>
         <div class="w-full md:w-11/12 flex items-center">
           <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-            id="classtype" type="text" placeholder="">
+            id="classtype" type="text" placeholder="" :disabled="isDisabled">
         </div>
       </div>
       <div class="w-full px-3 mb-2 md:mb-4 md:flex">
@@ -58,7 +58,7 @@
           問題
         </label>
         <div class="w-full md:w-11/12 flex items-center">
-          <textarea id="problem" placeholder="請輸入課程大綱"
+          <textarea id="problem" placeholder="請輸入課程大綱" :disabled="isDisabled"
             class=" py-3 px-4 w-full p-1 resize border border-gray-500 rounded focus:border-gray-700 focus:shadow-none focus:outline-none text-sm">
           </textarea>
         </div>
@@ -68,7 +68,7 @@
           回應
         </label>
         <div class="w-full md:w-11/12 flex items-center">
-          <textarea id="response" placeholder="請輸入課程大綱"
+          <textarea id="response" placeholder="請輸入課程大綱" :disabled="isDisabled"
             class=" py-3 px-4 w-full p-1 resize border border-gray-500 rounded focus:border-gray-700 focus:shadow-none focus:outline-none text-sm">
           </textarea>
         </div>
@@ -79,14 +79,14 @@
         </label>
         <div class="w-full md:w-5/12 flex items-center">
           <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-            id="number" type="text" placeholder="">
+            id="number" type="text" placeholder="" :disabled="isDisabled">
         </div>
         <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2 text-right px-2" for="maxNum">
           最高人數
         </label>
         <div class="w-full md:w-2/12 flex items-center">
           <div class="relative text-sm w-full">
-            <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="maxNum"
+            <select :disabled="isDisabled" class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="maxNum"
               >
               <option value="31">選擇分區</option>
             </select>
@@ -100,7 +100,7 @@
         </label>
         <div class="w-full md:w-2/12 flex items-center">
           <div class="relative text-sm w-full">
-            <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="minNum"
+            <select :disabled="isDisabled" class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="minNum"
               >
               <option value="31">選擇分區</option>
             </select>
@@ -116,7 +116,7 @@
         </label>
         <div class="w-full md:w-11/12 flex items-center">
           <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-            id="pro" type="text" placeholder="">
+            id="pro" type="text" placeholder="" :disabled="isDisabled">
         </div>
       </div>
       <div class="w-full px-3 mb-2 md:mb-4 md:flex">
@@ -125,7 +125,7 @@
         </label>
         <div class="w-full md:w-11/12 flex items-center">
           <div class="relative text-sm w-full">
-            <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="teacher"
+            <select :disabled="isDisabled" class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="teacher"
               >
               <option value="31">選擇分區</option>
             </select>
@@ -141,14 +141,14 @@
         </label>
         <div class="w-full md:w-5/12 flex items-center">
           <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-            id="date" type="text" placeholder="">
+            id="date" type="text" placeholder="" :disabled="isDisabled">
         </div>
         <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2 text-right px-2" for="name">
           課程時間從
         </label>
         <div class="w-full md:w-2/12 flex items-center">
           <div class="relative text-sm w-full">
-            <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="timeStart"
+            <select :disabled="isDisabled" class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="timeStart"
               >
               <option value="31">選擇分區</option>
             </select>
@@ -162,7 +162,7 @@
         </label>
         <div class="w-full md:w-2/12 flex items-center">
           <div class="relative text-sm w-full">
-            <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="timeEnd"
+            <select :disabled="isDisabled" class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="timeEnd"
               >
               <option value="31">選擇分區</option>
             </select>
@@ -178,7 +178,7 @@
         </label>
         <div class="w-full md:w-2/12 flex items-center">
           <div class="relative text-sm w-full">
-            <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="price"
+            <select :disabled="isDisabled" class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="price"
               >
               <option value="31">選擇分區</option>
             </select>
@@ -192,7 +192,7 @@
         </label>
         <div class="w-full md:w-2/12 flex items-center">
           <div class="relative text-sm w-full">
-            <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="invoice"
+            <select :disabled="isDisabled" class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="invoice"
               >
               <option value="31">選擇分區</option>
             </select>
@@ -208,20 +208,23 @@
         </label>
         <div class="w-full md:w-4/12 flex items-center">
           <label class="control control--checkbox">主任是否要收到開課通知？
-            <input type="checkbox" checked="checked"/>
+            <input type="checkbox" checked="checked" :disabled="isDisabled" />
             <div class="control__indicator"></div>
           </label>
         </div>
         <div class="w-full md:w-4/12 flex items-center">
           <label class="control control--checkbox">是否不開放公開預約？
-            <input type="checkbox" checked="checked"/>
+            <input type="checkbox" checked="checked"  :disabled="isDisabled"/>
             <div class="control__indicator"></div>
           </label>
         </div>
       </div>
-      <div class="w-full px-3 mb-2 md:mb-4 flex justify-end">
-        <a class="px-4 py-2 bg-green-light m-1 cursor-pointer" @click="close()"><i class="fas fa-times mr-1"></i>駁回</a>
-        <a class="px-4 py-2 bg-green-light m-1 cursor-pointer" @click="close()"><i class="fas fa-check mr-1"></i>通過</a>
+      <div class="w-full px-3 mb-2 md:mb-4 flex justify-end" v-if="!isDisabled">
+        <a class="px-4 py-2 bg-gray-900 m-1 cursor-pointer text-white" @click="close()"><i class="fas fa-times mr-1"></i>駁回</a>
+        <a class="px-4 py-2 bg-gray-900 m-1 cursor-pointer text-white" @click="close()"><i class="fas fa-check mr-1"></i>通過</a>
+      </div>
+      <div class="w-full px-3 mb-2 md:mb-4 flex justify-end" v-if="isDisabled">
+        <a class="px-4 py-2 bg-gray-900 m-1 cursor-pointer text-white" @click="addBooking()"><i class="fas fa-check mr-1"></i>送出</a>
       </div>
     </form>
   </Modal>
@@ -234,7 +237,6 @@ export default {
 
   data () {
     return {
-      // showfirstModal: false
     }
   },
 
@@ -242,7 +244,15 @@ export default {
     showfirstModal: {
       type: Boolean,
       default: false
-    }
+    },
+    isDisabled: {
+      type: Boolean,
+      default: false
+    },
+    title: {
+      type: String,
+      default: '預約資料審核'
+    },
   },
 
   components: {
@@ -254,6 +264,10 @@ export default {
     close () {
       let self = this
       self.$emit('closeModal', false)
+    },
+    addBooking () {
+      this.close()
+      this.$emit('submit', 'book_course')
     }
   }
 }
@@ -272,47 +286,5 @@ export default {
 }
 .vm-btn-close {
   outline: none !important;
-}
-/* checbox */
-.control {
-    display: block;
-    position: relative;
-    padding-left: 30px;
-    margin-bottom: 15px;
-    cursor: pointer;
-    font-size: 18px;
-}
-.control input {
-    position: absolute;
-    z-index: -1;
-    opacity: 0;
-}
-.control input:checked ~ .control__indicator {
-    background: #666666;
-}
-.control__indicator {
-    position: absolute;
-    top: 2px;
-    left: 0;
-    height: 20px;
-    width: 20px;
-    background: #e6e6e6;
-}
-.control input:checked ~ .control__indicator:after {
-    display: block;
-}
-.control--checkbox .control__indicator:after {
-    left: 8px;
-    top: 4px;
-    width: 3px;
-    height: 8px;
-    border: solid #fff;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
-}
-.control__indicator:after {
-    content: '';
-    position: absolute;
-    display: none;
 }
 </style>

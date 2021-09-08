@@ -5,6 +5,7 @@ import { Icon } from 'leaflet';
 import '@/assets/css/tailwind.css';
 import '@/assets/css/main.css';
 import '@/assets/css/table.css';
+import '@/assets/css/checkbox.css';
 import 'leaflet/dist/leaflet.css';
 
 import router from './router';
@@ -14,6 +15,7 @@ import VueSweetalert2 from 'vue-sweetalert2'
 import 'sweetalert2/dist/sweetalert2.min.css'
 
 import VCalendar from 'v-calendar'
+
 Vue.use(VCalendar)
 // import myUpload from 'vue-image-crop-upload/upload-2.vue'
 // Vue.use(myUpload)

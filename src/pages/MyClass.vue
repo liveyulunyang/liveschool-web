@@ -151,7 +151,7 @@
 
         </div>
     </div>
-    <div class="flex flex-col w-full" v-if="$store.state.userRole === 'student'">
+    <div class="flex flex-col w-full" v-if="$store.state.userRole === 'student' || $store.state.userRole === 'teacher'">
       <div class="flex flex-wrap items-stretch py-3 bg-gray-600">
         <div class="md:flex-none py-4 text-white font-bold flex items-center justify-center md:border-r-2 px-3 w-full md:w-2/6">
           <div class="mx-2">
@@ -276,7 +276,7 @@
           <div v-if="isCalemder">
             <Calender class="hidden md:block" />
             <div class="md:hidden">
-              <CalenderDot class="mb-4" />
+              <CalenderDot :isisFullWidth="true" class="mb-4" />
               <div class="mb-4 w-full flex justify-between items-center">
                 <div class="relative text-sm w-full sm:w-auto">
                   <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="invoice"

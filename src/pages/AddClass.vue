@@ -7,9 +7,9 @@
     <div class="flex justify-between">
       <ul class="flex cursor-pointer text-sm">
         <li class="py-2 mr-1">
-          <Button @click="$router.back(-1)" class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
+          <button @click="$router.back(-1)" class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
             <i class="fas fa-chevron-left"></i>返回
-          </Button>
+          </button>
         </li>
         <li class="py-2 px-6 tag flex items-center justify-center mx-1" :class="{ tagAct: tag === 0 }" @click="tag = 0">課程基本資料</li>
         <li class="py-2 px-6 tag flex items-center justify-center mx-1" :class="{ tagAct: tag === 1 }" @click="tag = 1">課程章節</li>
