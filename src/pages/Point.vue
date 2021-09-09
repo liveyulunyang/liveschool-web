@@ -33,7 +33,7 @@
                     </a>
                   </div>
                   <button class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
-                    ↓ 匯出資料
+                    <i class="fas fa-arrow-down mr-1"></i>匯出資料
                   </button>
                 </div>
                 <form>

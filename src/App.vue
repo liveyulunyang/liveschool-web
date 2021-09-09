@@ -11,7 +11,8 @@
           <button class="dropbtn focus:outline-none" @click="isOpenUser = !isOpenUser">Hi! Peggy<i class="fas fa-sort-down ml-2"></i></button>
           <div id="myDropdown" class="dropdown-content" :class=" { hidden: !isOpenUser }">
 
-            <a href="#about">編輯個人資料</a>
+            <router-link :to="{ name: 'account' }" href="#about">帳號資料</router-link>
+            <a href="#about">查詢紀錄</a>
             <a href="#base">登出</a>
           </div>
         </div>

@@ -128,10 +128,15 @@ const router = new Router({
       component: () => import('@/pages/AddBooking.vue')
     },
     {
-        path: '/analytics',
-        name: 'analytics',
-        component: () => import('./pages/Analytics.vue')
+      path: '/account',
+      name: 'account',
+      component: () => import('@/pages/Account.vue')
     },
+    // {
+    //     path: '/analytics',
+    //     name: 'analytics',
+    //     component: () => import('./pages/Analytics.vue')
+    // },
     // {
     //     path: '/vehicles',
     //     name: 'vehicles',

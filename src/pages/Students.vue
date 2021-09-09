@@ -37,17 +37,17 @@
           <a href="" class="block mr-1">
             <img src="@/assets/img/icons/re.svg" alt="" class="w-8">
           </a>
-          <Button class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
+          <button class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
             <i class="fas fa-arrow-down"></i> 匯出資料
-          </Button>
+          </button>
         </div>
         <div class="flex justify-end items-center">
-          <Button class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
+          <button class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
             + 匯入學生清單
-          </Button>
-          <Button @click="toManage" class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
+          </button>
+          <button @click="toManage" class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
             + 新增學生
-          </Button>
+          </button>
         </div>
       </div>
       <Table :columns="tableList.columns"
