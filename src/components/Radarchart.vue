@@ -4,7 +4,11 @@
   export default {
     extends: Radar,
     name: 'Radarchart',
-    // props: ['chartdata', 'options'],
+    props: {
+      // chartdata: {
+      //   type: Object
+      // }
+    },
     data () {
       return {
         chartData: {
@@ -22,7 +26,7 @@
             }
           ]
         },
-        options:{
+        options: {
           responsive: true,
           maintainAspectRatio: false,
           legend: {
@@ -39,7 +43,9 @@
       }
     },
     mounted () {
-      this.renderChart(this.chartData, this.options)
+      if (this.chartData && this.options) {
+        this.renderChart(this.chartData, this.options)
+      }
     },
     methods: {
     }

@@ -56,13 +56,13 @@
             <section class="w-full lg:w-1/2 px-2 mb-4 lg:mb-0">
               <div class="bg-white px-4 py-5">
                 <p class="text-left mb-4 font-bold text-lg">成長曲線圖</p>
-                <line-chart :chartdata="datacollectionLinear" :options="lineOptions" :bg-gradient="gradients"/>
+                <line-chart :chartdata="dataLinear" :options="lineOptions" />
               </div>
             </section>
             <section class="w-full lg:w-1/2 px-2">
               <div class="bg-white px-4 py-5">
                 <p class="text-left mb-4 font-bold text-lg">能力雷達圖</p>
-                <Radarchart />
+                <Radarchart :chartdata="RadarData"  />
               </div>
             </section>
           </div>
@@ -119,7 +119,8 @@
             time: '52min'
           }
         ],
-        datacollectionLinear: {
+        // LineChart
+        dataLinear: {
           labels: ['', '', '', '', '', '', '', '', '', '', ''],
           datasets: [
             {
@@ -224,13 +225,22 @@
             }
           }
         },
-        gradients: [
-          {
-            red: '255',
-            green: '255',
-            blue: '255'
-          }
-        ]
+        // RadarChart
+        RadarData: {
+          labels: ['口說', '聽力', '句型組織', '理解', '參與度'],
+          datasets: [
+            {
+              label: '能力雷達圖',
+              backgroundColor: 'rgba(179,181,198,0.2)',
+              borderColor: 'rgba(179,181,198,1)',
+              pointBackgroundColor: 'rgba(179,181,198,1)',
+              pointBorderColor: '#fff',
+              pointHoverBackgroundColor: '#fff',
+              pointHoverBorderColor: 'rgba(179,181,198,1)',
+              data: [65, 59, 90, 81, 56]
+            }
+          ]
+        }
       }
     },
     computed: {

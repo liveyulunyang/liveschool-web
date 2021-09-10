@@ -4,11 +4,20 @@
   export default {
     extends: Line,
     name: 'LineChart',
-    props: ['chartdata', 'options', 'bgGradient'],
-    mounted () {
-      if (this.bgGradient) {
-        this.constructGradients(this.bgGradient)
+    props: ['chartdata', 'options'],
+    data () {
+      return {
+        bgGradient: [
+          {
+            red: '255',
+            green: '255',
+            blue: '255'
+          }
+        ]
       }
+    },
+    mounted () {
+      this.constructGradients(this.bgGradient)
 
       this.renderChart(this.chartdata, this.options)
     },

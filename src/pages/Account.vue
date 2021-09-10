@@ -125,23 +125,23 @@
                 </form>
               </div>
               <div v-if="tag === 1" class="">
-                <div class="flex flex-wrap mb-4">
-                  <div class="w-full md:w-2/4 md:pr-4">
-                    <div class="bg-white py-8 text-xl">
-                      <h6>現在點數
-                        <span class="bg-gray-400 py-4 px-12 w-full text-3xl">666</span>
-                        點</h6>
+                <div class="flex flex-wrap mb-4 items-stretch">
+                  <div class="w-full lg:w-2/4 lg:pr-4 mb-4 lg:mb-0">
+                    <div class="w-full h-full bg-white flex items-center justify-center font-semibold py-4 lg:py-0">
+                      <h6 class="text-xl mx-2 whitespace-no-wrap">現在點數</h6>
+                      <span class="bg-gray-300 py-4 px-12 w-3/5 text-3xl whitespace-no-wrap">666</span>
+                      <h6 class="text-xl mx-2 whitespace-no-wrap">點</h6>
                     </div>
                   </div>
-                  <div class="w-1/2 md:w-1/4 pt-4 md:pt-0 pr-2 md:px-2 text-3xl text-white font-bold">
-                    <div class="bg-gray-700 py-8">
-                      <h6>前往儲值</h6>
-                    </div>
+                  <div class="w-1/2 lg:w-1/4 lg:pt-0 pr-2 lg:px-2 text-3xl text-white font-bold">
+                    <a class="block cursor-pointer">
+                      <img src="@/assets/img/icons/btn_point_add.svg" alt="" class="w-full object-contain">
+                    </a>
                   </div>
-                  <div class="w-1/2 md:w-1/4 pt-4 md:pt-0 pl-2 md:pl-4 text-3xl text-white font-bold">
-                    <div class="bg-gray-700 py-8">
-                      <h6>聯絡我們</h6>
-                    </div>
+                  <div class="w-1/2 lg:w-1/4 lg:pt-0 pl-2 lg:pl-4 text-3xl text-white font-bold">
+                    <a class="block cursor-pointer">
+                      <img src="@/assets/img/icons/btn_point_contact.svg" alt="" class="w-full object-contain">
+                    </a>
                   </div>
                 </div>
                 <div class="flex flex-wrap bg-white py-6 px-6 items-center">
@@ -203,7 +203,7 @@
     },
     data () {
       return {
-        tag: 1,
+        tag: 0,
         periodTime: null,
         tableList: {
           columns: [
