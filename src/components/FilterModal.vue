@@ -138,29 +138,6 @@
           <button type="submit" class="px-2"><i class="fa fa-search"></i></button>
         </div>
       </div>
-      <!-- <div class="w-full lg:w-auto flex px-1" v-if="showItems.serach">
-        <div class="relative text-sm w-full">
-          <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
-            >
-            <option value="" disabled="disabled" hidden="hidden">請選擇搜尋欄位</option>
-            <option value="">姓名/英文姓名</option>
-            <option value="">行動電話</option>
-            <option value="">縣市</option>
-            <option value="">分校</option>
-            <option value="">班級</option>
-            <option value="">來源</option>
-          </select>
-          <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
-            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-          </div>
-        </div>
-      </div>
-      <div class="w-full lg:w-auto flex px-1 mb-2" v-if="showItems.serach">
-        <div class="flex bg-white w-full border">
-          <input type="text" placeholder="請選擇搜尋欄位" name="search" class="py-2 px-2 border-0 focus:outline-none w-full">
-          <button type="submit" class="px-2"><i class="fa fa-search"></i></button>
-        </div>
-      </div> -->
       <!-- 重製按鈕 -->
       <div class="w-full md:w-1/2 lg:w-auto flex px-1 mb-2" v-if="showItems.sync">
         <a href="" class="flex items-center justify-center bg-gray-900 text-white w-8 h-8">
