@@ -525,10 +525,10 @@ import 'vue2-datepicker/index.css'
 .text-xs {
   font-size: 12px !important;
 }
-.mx-datepicker-range {
-  width: 15em;
-  height: 42px !important;
-}
+// .mx-datepicker-range {
+//   width: 15em;
+//   height: 42px !important;
+// }
 .mx-input {
   height: 42px !important;
 }

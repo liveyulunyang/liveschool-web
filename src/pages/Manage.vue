@@ -11,16 +11,7 @@
       </div>
       <div class="flex items-center">
         <label class="typo__label whitespace-no-wrap mr-2">選擇帳號角色</label>
-          <Multiselect
-            v-model="identityVal"
-            :options="identityOptions"
-            :multiple="false"
-            :close-on-select="false"
-            :clear-on-select="false"
-            :show-labels="false"
-            track-by="name" label="name"
-            placeholder="老師">
-          </Multiselect>
+        <FilterModal :showItems="showItems" />
       </div>
     </div>
 
@@ -262,24 +253,27 @@
 
 <script>
 /* eslint-disable no-console */
-  import myUpload from 'vue-image-crop-upload/upload-2.vue';
-  import Multiselect from 'vue-multiselect'
+  import myUpload from 'vue-image-crop-upload/upload-2.vue'
+  import FilterModal from '@/components/FilterModal'
   export default {
     name: 'Manage',
     components: {
-      Multiselect,
+      FilterModal,
       myUpload
     },
     data () {
       return {
-        identityVal: null,
-        identityOptions: [
-          { name: '管理者', value: 'all' },
-          { name: '主任/HR', value: 'all' },
-          { name: '督導', value: 'all' },
-          { name: '老師', value: 'all' },
-          { name: '學生', value: 'all' }
-        ],
+        showItems: {
+          role: true,
+          listStatus: false,
+          classTopic: false,
+          classification: false,
+          branch: false,
+          classType: false,
+          timePeriod: false,
+          serach: false,
+          sync: false
+        },
         tagOptions: [
           { id: 0, name: 'Come to Live', isActive: false },
           { id: 1, name: 'Come to Live', isActive: false },

@@ -14,51 +14,7 @@
         </div>
       </div>
       <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row mb-4">
-        <div class="flex items-center justify-start flex-wrap">
-
-          <Multiselect
-            class="mr-1"
-            v-model="identityVal"
-            :options="identityOptions"
-            :multiple="false"
-            :close-on-select="true"
-            :clear-on-select="false"
-            :show-labels="false"
-            track-by="name" label="name"
-
-            placeholder="全部">
-          </Multiselect>
-
-          <date-picker
-            class="mr-1"
-            v-model="timeInterval"
-            type="date" range placeholder="選擇時間區間"
-            :input-class="'mx-input'">
-          </date-picker>
-
-          <Multiselect
-            class="mr-1"
-            v-model="searchVal"
-            :options="searchOptions"
-            :multiple="false"
-            :close-on-select="true"
-            :clear-on-select="false"
-            :show-labels="false"
-            track-by="name" label="name"
-            placeholder="請選擇搜尋欄位">
-          </Multiselect>
-
-          <div class="mr-1 flex bg-white">
-            <input type="text" placeholder="Search.." name="search" class="py-2 px-2 border-0 focus:outline-none w-20">
-            <button type="submit" class="px-2"><i class="fa fa-search"></i></button>
-          </div>
-
-
-          <a href="" class="block mr-1">
-            <img src="@/assets/img/icons/re.svg" alt="" class="w-8">
-          </a>
-
-        </div>
+        <FilterModal :showItems="showItems" />
         <div class="flex justify-end items-center">
           <Button class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
             + 匯入帳號
@@ -78,21 +34,30 @@
 </template>
 
 <script>
-  import Table from "@/components/tables/User";
-  import Multiselect from 'vue-multiselect'
-  import DatePicker from 'vue2-datepicker';
-  import 'vue2-datepicker/index.css';
-  import Pagination from "@/components/modules/Pagination";
+  import Table from "@/components/tables/User"
+  import 'vue2-datepicker/index.css'
+  import Pagination from "@/components/modules/Pagination"
+  import FilterModal from '@/components/FilterModal'
   export default {
     name: "User",
     components: {
       Table,
-      Multiselect,
-      DatePicker,
-      Pagination
+      Pagination,
+      FilterModal
     },
     data () {
       return {
+        showItems: {
+          role: true,
+          listStatus: false,
+          classTopic: false,
+          classification: false,
+          branch: false,
+          classType: false,
+          timePeriod: true,
+          serach: true,
+          sync: true
+        },
         timeInterval: null,
 
         identityVal: null,
@@ -186,15 +151,15 @@
   .search {
     width: 10em !important;
   }
-.mx-datepicker-range {
-  width: 15em;
-  height: 42px !important;
-}
-.mx-input {
-  height: 42px !important;
-}
+  /* .mx-datepicker-range {
+    width: 15em;
+    height: 42px !important;
+  } */
+  .mx-input {
+    height: 42px !important;
+  }
 
-.multiselect {
-  width: fit-content !important;
-}
+  .multiselect {
+    width: fit-content !important;
+  }
 </style>

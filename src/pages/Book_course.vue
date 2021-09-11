@@ -9,63 +9,7 @@
       </div>
       <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row mb-4">
         <div class="flex items-center justify-start flex-wrap">
-          <div class="mr-1">
-            <Multiselect
-              class="role"
-              v-model="roomVal"
-              :options="roomOptions"
-              :multiple="false"
-              :close-on-select="true"
-              :clear-on-select="false"
-              :show-labels="false"
-              track-by="name" label="name"
-              placeholder="狀態">
-            </Multiselect>
-          </div>
-          <div class="mr-1">
-            <Multiselect
-              class=""
-              v-model="classTypeVal"
-              :options="classTypeOptions"
-              :multiple="false"
-              :close-on-select="true"
-              :clear-on-select="false"
-              :show-labels="false"
-              track-by="name" label="name"
-              placeholder="課程種類">
-            </Multiselect>
-          </div>
-          <div class="mr-1">
-            <date-picker
-              v-model="periodTime"
-              type="date" range placeholder="選擇時間區間"
-              :input-class="'mx-input'"></date-picker>
-          </div>
-
-          <div class="mr-1">
-            <Multiselect
-              class="search"
-              v-model="searchVal"
-              :options="searchOptions"
-              :multiple="false"
-              :close-on-select="true"
-              :clear-on-select="false"
-              :show-labels="false"
-              track-by="name" label="name"
-              placeholder="請選擇搜尋欄位">
-            </Multiselect>
-          </div>
-
-          <div class="mr-1 flex bg-white">
-            <input type="text" placeholder="Search.." name="search" class="py-2 px-2 border-0 focus:outline-none w-20">
-            <button type="submit" class="px-2"><i class="fa fa-search"></i></button>
-          </div>
-
-          <div class="mr-1">
-            <a href="" class="block">
-              <img src="@/assets/img/icons/re.svg" alt="" class="w-8">
-            </a>
-          </div>
+          <FilterModal :showItems="showItems" />
           <button v-if="$store.state.userRole === 'director'" class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
             ↓ 匯出資料
           </button>
@@ -86,21 +30,27 @@
 </template>
 
 <script>
-  import Table from "@/components/tables/Booking";
-  import Multiselect from 'vue-multiselect'
-  import DatePicker from 'vue2-datepicker';
-  import 'vue2-datepicker/index.css';
-  import Button from '../components/Button.vue';
+  import Table from "@/components/tables/Booking"
+  import FilterModal from '@/components/FilterModal'
   export default {
     name: "Book_course",
     components: {
       Table,
-      Multiselect,
-      DatePicker
+      FilterModal
     },
     data () {
       return {
-        periodTime: null,
+        showItems: {
+          role: false,
+          listStatus: true,
+          classTopic: false,
+          classification: false,
+          branch: false,
+          classType: false,
+          timePeriod: true,
+          serach: true,
+          sync: true
+        },
 
         roomVal: null,
         roomOptions: [
@@ -215,10 +165,10 @@
   .search {
     width: 10em !important;
   }
-.mx-datepicker-range {
+/* .mx-datepicker-range {
   width: 15em;
   height: 42px !important;
-}
+} */
 .mx-input {
   height: 42px !important;
 }

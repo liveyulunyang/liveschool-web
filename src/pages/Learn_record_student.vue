@@ -15,38 +15,7 @@
                 <i class="fas fa-chevron-left"></i>返回
               </router-link>
             </div>
-          <div class="mr-1">
-            <date-picker
-              v-model="periodTime"
-              type="date" range placeholder="選擇時間區間"
-              :input-class="'mx-input'"></date-picker>
-          </div>
-            <div class="mr-1">
-              <Multiselect
-                class=""
-                v-model="classTopicVal"
-                :options="classTopicOptions"
-                :multiple="false"
-                :close-on-select="true"
-                :clear-on-select="false"
-                :show-labels="false"
-                track-by="name" label="name"
-                placeholder="課程主題">
-              </Multiselect>
-            </div>
-            <div class="mr-1">
-              <Multiselect
-                class=""
-                v-model="topicCategoryVal"
-                :options="topicCategoryOptions"
-                :multiple="false"
-                :close-on-select="true"
-                :clear-on-select="false"
-                :show-labels="false"
-                track-by="name" label="name"
-                placeholder="主題分類">
-              </Multiselect>
-            </div>
+            <FilterModal :showItems="showItems" />
           </div>
           <div>
             <a class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
@@ -141,50 +110,27 @@
 </template>
 
 <script>
-import Table from "@/components/tables/Record_student";
-import Multiselect from 'vue-multiselect'
-import 'vue2-datepicker/index.css'
-import DatePicker from 'vue2-datepicker'
+import Table from "@/components/tables/Record_student"
+import FilterModal from '@/components/FilterModal'
   export default {
     name: "Learn_record",
     components: {
       Table,
-      Multiselect,
-      DatePicker
+      FilterModal
     },
     data () {
       return {
-        periodTime: null,
-
-        roomVal: null,
-        roomOptions: [
-          { name: '教室', value: '' }
-        ],
-        classTopicVal: null,
-        classTopicOptions: [
-          { name: '課程主題', value: '' }
-        ],
-        topicCategoryVal: null,
-        topicCategoryOptions: [
-          { name: '主題分類', value: '' }
-        ],
-        branchVal: null,
-        branchOptions: [
-          { name: '站別', value: '' }
-        ],
-        classTypeVal: null,
-        classTypeOptions: [
-          { name: '課程種類', value: '' }
-        ],
-        searchVal: null,
-        searchOptions: [
-          { name: '姓名/英文姓名', value: '' },
-          { name: '行動電話', value: 'all' },
-          { name: '縣市', value: 'all' },
-          { name: '分校', value: 'all' },
-          { name: '班級', value: 'all' },
-          { name: '來源', value: 'all' }
-        ],
+        showItems: {
+          role: false,
+          listStatus: false,
+          classTopic: true,
+          classification: true,
+          branch: false,
+          classType: false,
+          timePeriod: true,
+          serach: false,
+          sync: false
+        },
 
         tableList: {
           columns: [

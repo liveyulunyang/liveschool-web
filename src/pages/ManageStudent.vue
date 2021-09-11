@@ -11,16 +11,7 @@
       </div>
       <div class="flex items-center">
         <label class="typo__label whitespace-no-wrap mr-2">選擇帳號角色</label>
-          <Multiselect
-            v-model="identityVal"
-            :options="identityOptions"
-            :multiple="false"
-            :close-on-select="false"
-            :clear-on-select="false"
-            :show-labels="false"
-            track-by="name" label="name"
-            placeholder="老師">
-          </Multiselect>
+        <FilterModal :showItems="showItems" />
       </div>
     </div>
 
@@ -172,14 +163,25 @@
 
 <script>
 /* eslint-disable no-console */
-  import Multiselect from 'vue-multiselect'
+  import FilterModal from '@/components/FilterModal'
   export default {
     name: 'Manage',
     components: {
-      Multiselect,
+      FilterModal
     },
     data () {
       return {
+        showItems: {
+          role: true,
+          listStatus: false,
+          classTopic: false,
+          classification: false,
+          branch: false,
+          classType: false,
+          timePeriod: false,
+          serach: false,
+          sync: false
+        },
         identityVal: null,
         identityOptions: [
           { name: '管理者', value: 'all' },

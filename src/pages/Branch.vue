@@ -15,35 +15,8 @@
       </div>
       <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row mb-4">
         <div class="flex items-center justify-start w-2/5">
+          <FilterModal :showItems="showItems" />
 
-          <date-picker
-            class="mr-1 w-full"
-            v-model="timeInterval"
-            type="date" range placeholder="選擇時間區間"
-            :input-class="'mx-input'">
-          </date-picker>
-
-          <Multiselect
-            class="mr-1"
-            v-model="searchVal"
-            :options="searchOptions"
-            :multiple="false"
-            :close-on-select="true"
-            :clear-on-select="false"
-            :show-labels="false"
-            track-by="name" label="name"
-            placeholder="請選擇搜尋欄位">
-          </Multiselect>
-
-          <div class="mr-1 flex bg-white">
-            <input type="text" placeholder="Search.." name="search" class="py-2 px-2 border-0 focus:outline-none w-20">
-            <button type="submit" class="px-2"><i class="fa fa-search"></i></button>
-          </div>
-
-
-          <a class="block w-20">
-            <img src="@/assets/img/icons/re.svg" alt="" class="w-full block object-contain">
-          </a>
 
         </div>
         <div class="flex justify-end items-center">
@@ -65,32 +38,32 @@
 </template>
 
 <script>
-  import Table from "@/components/tables/Branch";
+  import Table from "@/components/tables/Branch"
   import Multiselect from 'vue-multiselect'
-  import DatePicker from 'vue2-datepicker';
-  import 'vue2-datepicker/index.css';
-  import Pagination from "@/components/modules/Pagination";
+  import DatePicker from 'vue2-datepicker'
+  import 'vue2-datepicker/index.css'
+  import Pagination from "@/components/modules/Pagination"
+  import FilterModal from '../components/FilterModal.vue'
   export default {
     name: "User",
     components: {
       Table,
-      Multiselect,
-      DatePicker,
-      Pagination
+      Pagination,
+      FilterModal
     },
     data () {
       return {
-        timeInterval: null,
-
-        searchVal: null,
-        searchOptions: [
-          { name: '姓名/英文姓名', value: '' },
-          { name: '行動電話', value: 'all' },
-          { name: '縣市', value: 'all' },
-          { name: '分校', value: 'all' },
-          { name: '班級', value: 'all' },
-          { name: '來源', value: 'all' }
-        ],
+        showItems: {
+          role: false,
+          listStatus: false,
+          classTopic: false,
+          classification: false,
+          branch: false,
+          classType: false,
+          timePeriod: false,
+          serach: true,
+          sync: true
+        },
 
         tableList: {
           columns: [

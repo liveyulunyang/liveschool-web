@@ -15,28 +15,7 @@
       </div>
       <div class="flex items-center justify-between w-full flex-wrap">
         <div class="flex items-center justify-start flex-wrap">
-
-          <Multiselect
-            class="mr-1"
-            v-model="searchVal"
-            :options="searchOptions"
-            :multiple="false"
-            :close-on-select="true"
-            :clear-on-select="false"
-            :show-labels="false"
-            track-by="name" label="name"
-            placeholder="請選擇搜尋欄位">
-          </Multiselect>
-
-          <div class="mr-1 flex bg-white">
-            <input type="text" placeholder="Search.." name="search" class="py-2 px-2 border-0 focus:outline-none w-20">
-            <button type="submit" class="px-2"><i class="fa fa-search"></i></button>
-          </div>
-
-
-          <a href="" class="block mr-1">
-            <img src="@/assets/img/icons/re.svg" alt="" class="w-8">
-          </a>
+          <FilterModal :showItems="showItems" />
           <button class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
             <i class="fas fa-arrow-down"></i> 匯出資料
           </button>
@@ -61,38 +40,28 @@
 
 <script>
   import Table from "@/components/tables/Student";
-  import Multiselect from 'vue-multiselect'
-  import 'vue2-datepicker/index.css';
-  import Pagination from "@/components/modules/Pagination";
+  import Pagination from "@/components/modules/Pagination"
+  import FilterModal from '../components/FilterModal.vue'
   export default {
     name: "Students",
     components: {
       Table,
-      Multiselect,
-      Pagination
+      Pagination,
+        FilterModal
     },
     data () {
       return {
-        timeInterval: null,
-
-        identityVal: null,
-        identityOptions: [
-          { name: '全部', value: '' },
-          { name: '管理者', value: 'all' },
-          { name: '主任/HR', value: 'all' },
-          { name: '督導', value: 'all' },
-          { name: '老師', value: 'all' },
-          { name: '學生', value: 'all' }
-        ],
-        searchVal: null,
-        searchOptions: [
-          { name: '姓名/英文姓名', value: '' },
-          { name: '行動電話', value: 'all' },
-          { name: '縣市', value: 'all' },
-          { name: '分校', value: 'all' },
-          { name: '班級', value: 'all' },
-          { name: '來源', value: 'all' }
-        ],
+        showItems: {
+          role: false,
+          listStatus: false,
+          classTopic: false,
+          classification: false,
+          branch: false,
+          classType: false,
+          timePeriod: false,
+          serach: true,
+          sync: true
+        },
 
         tableList: {
           columns: [
@@ -161,10 +130,10 @@
   .search {
     width: 10em !important;
   }
-.mx-datepicker-range {
+/* .mx-datepicker-range {
   width: 15em;
   height: 42px !important;
-}
+} */
 .mx-input {
   height: 42px !important;
 }
