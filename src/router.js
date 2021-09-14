@@ -52,7 +52,7 @@ const router = new Router({
       component: () => import('@/pages/Live_class.vue')
     },
     {
-      path: '/classification',
+      path: '/classification/:second?/:third?',
       name: 'classification',
       component: () => import('@/pages/Classification.vue')
     },
@@ -62,9 +62,14 @@ const router = new Router({
       component: () => import('@/pages/Learn_record.vue')
     },
     {
-      path: '/learn_record/:id',
+      path: '/learn_record/student',
       name: 'learn_record_student',
       component: () => import('@/pages/Learn_record_student.vue')
+    },
+    {
+      path: '/learn_record/supervise',
+      name: 'Learn_record_supervise',
+      component: () => import('@/pages/Learn_record_supervise.vue')
     },
     {
       path: '/teach_record',

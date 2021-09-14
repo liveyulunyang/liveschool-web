@@ -2,11 +2,11 @@
   <div class="flex items-center justify-start flex-wrap">
     <div class="w-full flex flex-wrap items-center">
       <!-- 權限 -->
-      <div class="w-full md:w-1/2 lg:w-auto px-1 mb-2" v-if="showItems.role">
+      <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.role">
         <div class="relative text-sm w-full">
-          <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
+          <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
             >
-            <option value="" disabled="disabled" hidden="hidden">角色</option>
+            <option value="">角色</option>
             <option value="">管理者</option>
             <option value="">主任/HR</option>
             <option value="">督導</option>
@@ -18,12 +18,12 @@
           </div>
         </div>
       </div>
-      <!-- 狀態 -->
-      <div class="w-full md:w-1/2 lg:w-auto px-1 mb-2" v-if="showItems.listStatus">
+      <!-- 身份 -->
+      <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.listStatus">
         <div class="relative text-sm w-full">
-          <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
+          <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
             >
-            <option value="" disabled="disabled" hidden="hidden">身份</option>
+            <option value="">身份</option>
             <option value="">全部</option>
             <option value="">管理者</option>
             <option value="">主任/HR</option>
@@ -37,11 +37,11 @@
         </div>
       </div>
       <!-- 課程主離 -->
-      <div class="w-full md:w-1/2 lg:w-auto px-1 mb-2" v-if="showItems.classTopic">
+      <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.classTopic">
         <div class="relative text-sm w-full">
-          <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
+          <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
             >
-            <option value="" disabled="disabled" hidden="hidden">課程主離</option>
+            <option value="">課程主離</option>
             <option value="all">全部</option>
             <option value="220">Come to Live</option>
             <option value="225">自然發音</option>
@@ -61,12 +61,11 @@
         </div>
       </div>
       <!-- 主題分類 -->
-      <div class="w-full md:w-1/2 lg:w-auto px-1 mb-2" v-if="showItems.classification">
+      <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.classification">
         <div class="relative text-sm w-full">
-          <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
+          <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
             >
-            <option disabled="disabled" hidden="hidden">主題分類</option>
-            <option value="">全部</option>
+            <option>主題分類</option>
           </select>
           <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -74,17 +73,11 @@
         </div>
       </div>
       <!-- 站別 -->
-      <div class="w-full md:w-1/2 lg:w-auto px-1 mb-2" v-if="showItems.branch">
+      <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.branch">
         <div class="relative text-sm w-full">
-          <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
+          <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
             >
-            <option value="" disabled="disabled" hidden="hidden">站別</option>
-            <option value="">全部</option>
-            <option value="">管理者</option>
-            <option value="">主任/HR</option>
-            <option value="">督導</option>
-            <option value="">老師</option>
-            <option value="">學生</option>
+            <option value="">站別</option>
           </select>
           <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -92,17 +85,11 @@
         </div>
       </div>
       <!-- 課程種類 -->
-      <div class="w-full md:w-1/2 lg:w-auto px-1 mb-2" v-if="showItems.classType">
+      <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.classType">
         <div class="relative text-sm w-full">
-          <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
+          <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
             >
-            <option value="" disabled="disabled" hidden="hidden">課程種類</option>
-            <option value="">全部</option>
-            <option value="">管理者</option>
-            <option value="">主任/HR</option>
-            <option value="">督導</option>
-            <option value="">老師</option>
-            <option value="">學生</option>
+            <option value="">課程種類</option>
           </select>
           <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -110,18 +97,33 @@
         </div>
       </div>
       <!-- 時間區間 -->
-      <div class="w-full md:w-1/2 lg:w-auto px-1 mb-2" v-if="showItems.timePeriod">
+      <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.timePeriod">
         <date-picker
           v-model="periodTime"
           type="date" range placeholder="選擇時間區間"
           :input-class="'mx-input'"></date-picker>
       </div>
-      <!-- 搜尋欄位 -->
-      <div class="w-full lg:w-auto md:flex px-1 items-center" v-if="showItems.serach">
+      <!-- 審核狀態 -->
+      <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.approvalStatus">
         <div class="relative text-sm w-full">
-          <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
+          <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
             >
-            <option value="" disabled="disabled" hidden="hidden">請選擇搜尋欄位</option>
+            <option value="">狀態</option>
+            <option value="">審核中</option>
+            <option value="">未通過</option>
+            <option value="">審核成功</option>
+          </select>
+          <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
+            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+          </div>
+        </div>
+      </div>
+      <!-- 搜尋欄位 -->
+      <div class="w-full lg:w-auto md:flex p-1 items-center md:mb-0" v-if="showItems.serach">
+        <div class="relative text-sm w-full">
+          <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
+            >
+            <option value="">請選擇搜尋欄位</option>
             <option value="">姓名/英文姓名</option>
             <option value="">行動電話</option>
             <option value="">縣市</option>
@@ -133,13 +135,13 @@
             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
           </div>
         </div>
-        <div class="flex bg-white w-full border">
-          <input type="text" placeholder="請選擇搜尋欄位" name="search" class="py-2 px-2 border-0 focus:outline-none w-full">
+        <div class="flex bg-white w-full border border-gray-500 h-43">
+          <input type="text" placeholder="輸入關鍵字搜索" name="search" class="text-sm px-2 border-0 focus:outline-none w-full h-full">
           <button type="submit" class="px-2"><i class="fa fa-search"></i></button>
         </div>
       </div>
       <!-- 重製按鈕 -->
-      <div class="w-full md:w-1/2 lg:w-auto flex px-1 mb-2" v-if="showItems.sync">
+      <div class="w-auto p-1" v-if="showItems.sync">
         <a href="" class="flex items-center justify-center bg-gray-900 text-white w-8 h-8">
           <i class="fas fa-sync-alt text-lg"></i>
         </a>
@@ -158,15 +160,16 @@
         type: Object,
         default () {
           return {
-            role: true,
-            listStatus: true,
-            classTopic: true,
-            classification: true,
-            branch: true,
-            classType: true,
-            timePeriod: true,
-            serach: true,
-            sync: true
+            role: false,
+            listStatus: false,
+            classTopic: false,
+            classification: false,
+            branch: false,
+            classType: false,
+            timePeriod: false,
+            serach: false,
+            sync: false,
+            approvalStatus: true
           }
         }
       }
@@ -198,9 +201,18 @@
   }
 </script>
 
-<style scoped>
+<style lang="scss">
   .mx-datepicker-range {
     width: 100%;
     height: 42px !important;
+  }
+  .mx-input-wrapper {
+    input {
+      height: 43px;
+      border-radius: 0 !important;
+    }
+  }
+  .h-43 {
+    height: 43px;
   }
 </style>

@@ -192,8 +192,6 @@
 </template>
 
 <script>
-  import DatePicker from 'vue2-datepicker'
-  import 'vue2-datepicker/index.css'
   import Table from "@/components/tables/point"
   export default {
     name: "Point",

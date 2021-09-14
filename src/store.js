@@ -6,7 +6,7 @@ Vue.use(Vuex)
 /* eslint-disable no-param-reassign */
 export default new Vuex.Store({
   state: {
-    userRole: 'admin', // admin director supervise student teacher
+    userRole: 'supervise', // admin director supervise student teacher
     items: {
         needed: [
             {

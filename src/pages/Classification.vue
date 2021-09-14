@@ -102,7 +102,6 @@
                 ]
               }
             ] }
-          // { name: '主任校別分類管理' }
         ]
       }
     },
@@ -112,7 +111,7 @@
     methods: {
       setSecond (item) {
         console.log(item)
-        // this.$router.push({ name: 'Classification', query: { keyword: self.searchVal } })
+        this.$router.push({ name: 'classification', params: { second: item.id } })
       }
     }
   }

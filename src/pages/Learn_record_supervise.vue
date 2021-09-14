@@ -3,24 +3,22 @@
     <div class="flex flex-col w-full">
         <div class="mb-4 flex justify-between items-center flex-wrap">
           <div class="flex items-center">
-            <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">學生學習紀錄
+            <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">主任預約紀錄
             </h1>
-            <span>測試學生(test@gmail.com)</span>
+            <span>ALEX/ALEX WU(test@gmail.com)</span>
           </div>
         </div>
         <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row mb-4">
           <div class="flex items-center justify-start flex-wrap">
             <div class="mr-1">
-              <router-link :to="{ name: 'learn_record' }"  class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
+              <router-link :to="{ name: 'branch' }"  class="px-4 py-2 bg-white hover:bg-primary-light text-sm rounded whitespace-no-wrap border border-gray-500">
                 <i class="fas fa-chevron-left"></i>返回
               </router-link>
             </div>
             <FilterModal :showItems="showItems" />
           </div>
           <div>
-            <a class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
-              <i class="fas fa-arrow-down mr-1"></i>匯出資料
-            </a>
+            <ExportBtn />
           </div>
         </div>
       <div class="flex flex-wrap">
@@ -31,7 +29,7 @@
             <hr class="border-b border-gray-800 mb-2">
             <div class="w-full flex py-2 border-b border-gray-800">
               <div class="w-1/2 text-left">
-                <p>上課次數</p>
+                <p>總申請數</p>
               </div>
               <div class="w-1/2 text-right">
                 <p>8次</p>
@@ -39,34 +37,34 @@
             </div>
             <div class="w-full flex py-2 border-b border-gray-800">
               <div class="w-1/2 text-left">
-                <p>出席率</p>
+                <p>申請成功數</p>
               </div>
               <div class="w-1/2 text-right">
-                <p>100%</p>
+                <p>10次</p>
               </div>
             </div>
             <div class="w-full flex py-2 border-b border-gray-800">
               <div class="w-1/2 text-left">
-                <p>總分鐘數</p>
+                <p>申請失敗數</p>
               </div>
               <div class="w-1/2 text-right">
-                <p>8分鐘</p>
+                <p>10次</p>
               </div>
             </div>
             <div class="w-full flex py-2 border-b border-gray-800">
               <div class="w-1/2 text-left">
-                <p>平均分鐘數</p>
+                <p>申請取消數</p>
               </div>
               <div class="w-1/2 text-right">
-                <p>10分鐘</p>
+                <p>10次</p>
               </div>
             </div>
             <div class="w-full flex py-2 border-b border-gray-800">
               <div class="w-1/2 text-left">
-                <p>剩餘點數</p>
+                <p>扣除總點數</p>
               </div>
               <div class="w-1/2 text-right">
-                <p>8點</p>
+                <p>88點</p>
               </div>
             </div>
           </div>
@@ -75,7 +73,23 @@
             <hr class="border-b border-gray-800 mb-2">
             <div class="w-full flex py-2">
               <div class="w-1/2 text-left">
-                <p>come to live</p>
+                <p>一對一課程</p>
+              </div>
+              <div class="w-1/2 text-right">
+                <p>88堂</p>
+              </div>
+            </div>
+            <div class="w-full flex py-2">
+              <div class="w-1/2 text-left">
+                <p>一對六課程</p>
+              </div>
+              <div class="w-1/2 text-right">
+                <p>5堂</p>
+              </div>
+            </div>
+            <div class="w-full flex py-2">
+              <div class="w-1/2 text-left">
+                <p>歐/美外師、中師</p>
               </div>
               <div class="w-1/2 text-right">
                 <p>1堂</p>
@@ -83,15 +97,7 @@
             </div>
             <div class="w-full flex py-2">
               <div class="w-1/2 text-left">
-                <p>兒童生活英語</p>
-              </div>
-              <div class="w-1/2 text-right">
-                <p>1堂</p>
-              </div>
-            </div>
-            <div class="w-full flex py-2">
-              <div class="w-1/2 text-left">
-                <p>兒童漫畫英語</p>
+                <p>菲師</p>
               </div>
               <div class="w-1/2 text-right">
                 <p>1堂</p>
@@ -100,11 +106,12 @@
           </div>
         </div>
         <div class="w-full md:w-3/5 xl:w-5/6 px-2">
-          <Table
+            <Table
             :columns="tableList.columns"
             :actions="tableList.actions"
             :data="tableList.datas">
           </Table>
+          <Pagination />
         </div>
       </div>
     </div>
@@ -112,38 +119,45 @@
 </template>
 
 <script>
-import Table from "@/components/tables/Record_student"
+import Table from '@/components/tables/Record_supervise'
 import FilterModal from '@/components/FilterModal'
+import Pagination from '@/components/modules/Pagination'
+import ExportBtn from '@/components/modules/ExportBtn'
   export default {
-    name: "Learn_record",
+    name: 'Learn_record_supervise',
     components: {
       Table,
-      FilterModal
+      FilterModal,
+      Pagination,
+      ExportBtn
     },
     data () {
       return {
         showItems: {
           role: false,
           listStatus: false,
-          classTopic: true,
-          classification: true,
+          classTopic: false,
+          classification: false,
           branch: false,
           classType: false,
           timePeriod: true,
           serach: false,
-          sync: false
+          sync: false,
+          approvalStatus: true
         },
 
         tableList: {
           columns: [
-            { name: 'time', label: '課程時間', required: true },
-            { name: 'status', label: '課程狀態', required: true },
-            { name: 'point', label: '課程點數', required: true },
-            { name: 'topic', label: '主題', required: true },
-            { name: 'classification', label: '主題分類', required: true },
-            { name: 'name', label: '名稱', required: true },
-            { name: 'other', label: '其他', required: true },
-            { name: 'detail', label: '課程詳情', required: true }
+            { name: 'time', label: '狀態', required: true },
+            { name: 'status', label: '建立時間', required: true },
+            { name: 'point', label: '課程名稱', required: true },
+            { name: 'topic', label: '課程種類', required: true },
+            { name: 'classification', label: '教師專案', required: true },
+            { name: 'name', label: '安排教師', required: true },
+            { name: 'other', label: '人數', required: true },
+            { name: 'detail', label: '課程使用點數', required: true },
+            { name: 'orderTime', label: '預約時間', required: true },
+            { name: 'classTime', label: '實際開課時間', required: true },
           ],
           datas: [
             {
@@ -151,16 +165,12 @@ import FilterModal from '@/components/FilterModal'
               status: '課程已結束',
               point: '88',
               topic: '生活英語',
-              classification: '生活英語',
-              name: 'B1 U1'
-            },
-            {
-              time: '2021-06-23 22:00~23:00',
-              status: '課程已結束',
-              point: '88',
-              topic: '生活英語',
-              classification: '生活英語',
-              name: 'B1 U1'
+              classification: '歐/美外師、中師',
+              name: 'Peggy',
+              other: '0/0',
+              detail: '88',
+              orderTime: '2021-06-22 22:00~23:00',
+              classTime: '2021-06-22 22:00~23:00'
             }
           ]
         }
@@ -169,9 +179,9 @@ import FilterModal from '@/components/FilterModal'
     computed: {
     },
     methods: {
+      submit () {}
     }
   }
 </script>
-<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
-<style>
+<style lang="scss">
 </style>

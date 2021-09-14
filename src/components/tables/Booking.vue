@@ -41,16 +41,16 @@
             {{ item.status }}
           </td>
           <td data-th="狀態">
-            <Button v-if="item.actions"
+            <button v-if="item.actions"
               class="mx-1 btnAudit px-2 py-1" @click.native="openModal"
               rounded>
               審核<i class="fas fa-arrow-right ml-1"></i>
-            </Button>
-            <Button v-if="!item.actions"
+            </button>
+            <button v-if="!item.actions"
               class="mx-1 btnCheck px-2 py-1" @click.native="openModal"
               rounded>
               查看<i class="far fa-folder-open ml-1"></i>
-            </Button>
+            </button>
           </td>
         </tr>
       </tbody>
@@ -61,13 +61,10 @@
 </template>
 
 <script>
-  // import Avatar from "./Avatar";
-  import Button from "@/components/Button";
   import BookingModal from '@/components/modules/BookingModal'
   export default {
     name: "Table",
     components: {
-      Button,
       BookingModal
     },
     props: {

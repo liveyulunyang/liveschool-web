@@ -6,57 +6,55 @@
           <th v-for="column in columns" :key="column.name" class="whitespace-no-wrap text-center">{{ column.label }}</th>
         </tr>
         <tr v-for="item in data" :key="item.id">
-          <td data-th="帳號(信箱)">
+          <td data-th="分區/校名">
             {{ item.id }}
           </td>
-          <td data-th="姓名/英文姓名">
+          <td data-th="校別">
             {{ item.name }}
           </td>
-          <td data-th="CTL帳號">
+          <td data-th="主任帳號">
             {{ item.CTL }}
           </td>
-          <td data-th="行動電話">
+          <td data-th="姓名/英文姓名">
             {{ item.mobile }}
           </td>
-          <td data-th="點數">
+          <td data-th="預約成功課數">
             {{ item.point }}
           </td>
-          <td data-th="角色">
+          <td data-th="待審核課數">
             {{ item.role }}
           </td>
-          <td data-th="來源">
+          <td data-th="已結束課數">
             {{ item.source }}
           </td>
-          <td data-th="縣市">
+          <td data-th="原始課數">
             {{ item.source }}
           </td>
-          <td data-th="分校">
+          <td data-th="新增課數">
             {{ item.branch }}
           </td>
-          <td data-th="班級">
+          <td data-th="已使用點數">
             {{ item.class }}
           </td>
-          <td data-th="建立時間">
+          <td data-th="剩餘點數">
             {{ item.time }}
           </td>
           <td data-th="執行動作">
-            <Button
+            <!-- <button
               class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
-              rounded>
-              <img src="@/assets/img/icons/edit.svg" alt="" class="w-6 object-contain">
-            </Button>
-            <Button
-              class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
-
-              rounded>
+              >
               <img src="@/assets/img/icons/more.svg" alt="" class="w-6 object-contain">
-            </Button>
-            <Button
-              class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
-              @click.native="del"
-              rounded>
-              <img src="@/assets/img/icons/delete.svg" alt="" class="w-6 object-contain">
-            </Button>
+            </button> -->
+            <button @click="$router.push({ name: 'Learn_record_supervise' })"
+              class="bg-gray-900 text-white hover:text-black-1 hover:bg-primary-light mx-1 w-8 h-8 rounded actionBtn"
+              >
+              <i class="far fa-folder-open text-lg"></i>
+            </button>
+            <button
+              class="bg-gray-900 text-white hover:text-black-1 hover:bg-primary-light mx-1 w-8 h-8 rounded actionBtn"
+              >
+              <i class="fas fa-ticket-alt text-lg"></i>
+            </button>
           </td>
         </tr>
       </tbody>
@@ -65,14 +63,9 @@
 </template>
 
 <script>
-  // import Avatar from "./Avatar";
-  import Button from "@/components/Button";
-
   export default {
     name: "Table",
     components: {
-      // Avatar,
-      Button
     },
     props: {
       columns: {
@@ -102,12 +95,10 @@
     },
     methods: {
       edit() {
-        
-        console.log('edit manage');
+        console.log('edit manage')
       },
       open() {
-        
-        console.log('open manage');
+        console.log('open manage')
       },
       del() {
         this.$swal.fire({
@@ -132,5 +123,10 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+.actionBtn {
+  i {
+    line-height: 32px;
+  }
+}
 </style>

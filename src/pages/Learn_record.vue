@@ -12,9 +12,7 @@
             <FilterModal :showItems="showItems" />
           </div>
           <div>
-            <button class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
-              <i class="fas fa-arrow-down mr-1"></i>匯出資料
-            </button>
+            <ExportBtn />
           </div>
         </div>
         <Table
@@ -30,11 +28,13 @@
 import Table from "@/components/tables/Record"
 import 'vue2-datepicker/index.css'
 import FilterModal from '@/components/FilterModal'
+import ExportBtn from '@/components/modules/ExportBtn'
   export default {
     name: "Learn_record",
     components: {
       Table,
-      FilterModal
+      FilterModal,
+      ExportBtn
     },
     data () {
       return {
