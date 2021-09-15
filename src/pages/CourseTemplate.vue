@@ -22,13 +22,69 @@
         <Table :columns="tableList.columns"
           :actions="tableList.actions"
           :data="tableList.datas">
+          <template slot="supplementaryMaterials">
+            <th class="whitespace-no-wrap text-center">補充教材</th>
+          </template>
+          <template slot="actionsLabel">
+            <th class="whitespace-no-wrap text-center">執行動作</th>
+          </template>
+          <template slot="startClassLabel">
+            <th class="whitespace-no-wrap text-center">開課</th>
+          </template>
+
+          <template slot="supplementaryMaterialsBtn">
+            <td data-th="補充教材">
+              <button
+                class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
+                >
+                <!-- <img src="@/assets/img/icons/file.svg" alt="" class="h-6 object-contain noData"> -->
+                <img src="@/assets/img/icons/file_active.svg" alt="" class="h-6 object-contain hasData">
+              </button>
+              <button @click="toPreview"
+                class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
+                >
+                <!-- <img src="@/assets/img/icons/before_test.svg" alt="" class="h-6 object-contain noData"> -->
+                <img src="@/assets/img/icons/before_test_active.svg" alt="" class="h-6 object-contain hasData">
+              </button>
+              <button @click="toReview"
+                class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1 isActive"
+                >
+                <!-- <img src="@/assets/img/icons/after_test.svg" alt="" class="h-6 object-contain noData"> -->
+                <img src="@/assets/img/icons/after_test_active.svg" alt="" class="h-6 object-contain hasData">
+              </button>
+              <!-- {{ item.materials }} -->
+            </td>
+          </template>
+          <template slot="actionsBtn">
+            <td data-th="執行動作">
+              <button @click="$router.push({ name: 'Learn_record_supervise' })"
+                class="bg-gray-900 text-white hover:text-black-1 hover:bg-primary-light mx-1 w-8 h-8 rounded actionBtn"
+                >
+                <i class="far fa-folder-open text-lg"></i>
+              </button>
+              <button
+                class="bg-gray-900 text-white hover:text-black-1 hover:bg-primary-light mx-1 w-8 h-8 rounded actionBtn"
+                >
+                <i class="fas fa-ticket-alt text-lg"></i>
+              </button>
+            </td>
+          </template>
+          <template slot="startClass">
+            <td data-th="開課">
+              <button
+                class="bg-gray-900 text-white hover:text-black-1 hover:bg-primary-light mx-1 px-2 py-1 rounded"
+                >
+                + 開課
+              </button>
+            </td>
+          </template>
         </Table>
     </div>
   </main>
 </template>
 
 <script>
-  import Table from "@/components/tables/Template"
+  import Table from "@/components/table"
   import FilterModal from '@/components/FilterModal'
   export default {
     name: "CourseTemplate",
@@ -52,9 +108,7 @@
         tableList: {
           columns: [
             { name: 'type', label: '課程種類', required: true },
-            { name: 'name', label: '課程名稱', required: true },
-            { name: 'materials', label: '補充教材', required: true },
-            { name: 'actions', label: '執行動作', required: true }
+            { name: 'name', label: '課程名稱', required: true }
           ],
           datas: [
             {
@@ -70,16 +124,15 @@
     methods: {
       addClass () {
         this.$router.push({ name: 'addTalkClass' })
+      },
+      toPreview () {
+        console.log('d')
+        this.$router.push({ path: '/ctl_class/preview' })
+      },
+      toReview () {
+        console.log('d')
+        this.$router.push({ path: '/ctl_class/review' })
       }
-      // edit() {
-      //   console.log('edit manage');
-      // },
-      // open() {
-      //   console.log('open manage');
-      // },
-      // del() {
-      //   console.log('del manage');
-      // }
     }
   }
 </script>

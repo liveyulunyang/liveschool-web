@@ -192,12 +192,11 @@
 </template>
 
 <script>
-  import Table from "@/components/tables/point"
+  import Table from "@/components/table"
   export default {
     name: "Point",
     components: {
-      Table,
-      DatePicker
+      Table
     },
     data () {
       return {

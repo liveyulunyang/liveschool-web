@@ -14,7 +14,7 @@
 import Modal from '@kouts/vue-modal'
 import '@kouts/vue-modal/dist/vue-modal.css'
 import FilterModal from '@/components/FilterModal'
-import Table from '@/components/tables/onlyShow'
+import Table from '@/components/table'
 export default {
   name: 'StudentsModal',
 

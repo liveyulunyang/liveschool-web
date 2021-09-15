@@ -24,13 +24,25 @@
         :columns="tableList.columns"
         :actions="tableList.actions"
         :data="tableList.datas">
+          <template slot="actionsLabel">
+            <th class="whitespace-no-wrap text-center">動作</th>
+          </template>
+          <template scope="props" slot="actionsBtn">
+            <td data-th="動作">
+              <button @click="open(props.item.id)"
+                class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
+                >
+                <img src="@/assets/img/icons/more.svg" alt="" class="w-6 object-contain">
+              </button>
+            </td>
+          </template>
       </Table>
     </div>
   </main>
 </template>
 
 <script>
-  import Table from "@/components/tables/Booking"
+  import Table from "@/components/table"
   import FilterModal from '@/components/FilterModal'
   export default {
     name: "Book_course",
@@ -52,36 +64,6 @@
           sync: true
         },
 
-        roomVal: null,
-        roomOptions: [
-          { name: '教室', value: '' }
-        ],
-        classTopicVal: null,
-        classTopicOptions: [
-          { name: '課程主題', value: '' }
-        ],
-        topicCategoryVal: null,
-        topicCategoryOptions: [
-          { name: '主題分類', value: '' }
-        ],
-        branchVal: null,
-        branchOptions: [
-          { name: '站別', value: '' }
-        ],
-        classTypeVal: null,
-        classTypeOptions: [
-          { name: '課程種類', value: '' }
-        ],
-        searchVal: null,
-        searchOptions: [
-          { name: '姓名/英文姓名', value: '' },
-          { name: '行動電話', value: 'all' },
-          { name: '縣市', value: 'all' },
-          { name: '分校', value: 'all' },
-          { name: '班級', value: 'all' },
-          { name: '來源', value: 'all' }
-        ],
-
         tableList: {
           columns: [
             // { name: 'id', label: 'ID', required: true },
@@ -96,7 +78,6 @@
             { name: 'bookingTime', label: '預約時間', required: true },
             { name: 'classtime', label: '實際開課時間', required: true },
             { name: 'status', label: '狀態', required: true },
-            { name: 'actions', label: '動作', required: true }
           ],
           datas: [
             {
@@ -111,8 +92,7 @@
               point: 88,
               bookingTime: '2021-06-22 22:00-23:00',
               classtime: '',
-              status: '審核中',
-              actions: true
+              status: '審核中'
             },
             {
               id: '282639',
@@ -126,8 +106,7 @@
               point: 88,
               bookingTime: '2021-06-22 22:00-23:00',
               classtime: '2021-06-22 22:00-23:00',
-              status: '通過',
-              actions: false
+              status: '通過'
             }
           ]
         }

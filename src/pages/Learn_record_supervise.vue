@@ -1,5 +1,6 @@
 <template>
   <main class="flex items-start p-6">
+    <StudentsModal :showfirstModal="showfirstModal" v-on:closeModal="closeModal" :isDisabled="true" :title="''" v-on:submit="submit" />
     <div class="flex flex-col w-full">
         <div class="mb-4 flex justify-between items-center flex-wrap">
           <div class="flex items-center">
@@ -106,10 +107,12 @@
           </div>
         </div>
         <div class="w-full md:w-3/5 xl:w-5/6 px-2">
-            <Table
+          <Table
             :columns="tableList.columns"
             :actions="tableList.actions"
-            :data="tableList.datas">
+            :data="tableList.datas"
+            v-on:openModal="openModal"
+            >
           </Table>
           <Pagination />
         </div>
@@ -119,20 +122,23 @@
 </template>
 
 <script>
-import Table from '@/components/tables/Record_supervise'
+import Table from '@/components/table'
 import FilterModal from '@/components/FilterModal'
 import Pagination from '@/components/modules/Pagination'
 import ExportBtn from '@/components/modules/ExportBtn'
+import StudentsModal from '@/components/modules/StudentsModal'
   export default {
     name: 'Learn_record_supervise',
     components: {
       Table,
       FilterModal,
       Pagination,
-      ExportBtn
+      ExportBtn,
+      StudentsModal
     },
     data () {
       return {
+        showfirstModal: false,
         showItems: {
           role: false,
           listStatus: false,
@@ -179,7 +185,15 @@ import ExportBtn from '@/components/modules/ExportBtn'
     computed: {
     },
     methods: {
-      submit () {}
+      submit () {},
+
+      openModal () {
+        this.showfirstModal = true
+      },
+      closeModal (closeModal) {
+        console.log(closeModal)
+        this.showfirstModal = closeModal
+      }
     }
   }
 </script>

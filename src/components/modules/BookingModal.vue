@@ -10,7 +10,7 @@
             id="booker" type="text" placeholder="" :disabled="isDisabled">
         </div>
         <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2 text-right px-2" for="point">
-          當前點數
+          剩餘點數
         </label>
         <div class="w-full md:w-2/12 flex items-center">
           <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"

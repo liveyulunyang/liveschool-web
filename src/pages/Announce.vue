@@ -15,8 +15,8 @@
 
           <div class="flex flex-wrap bg-white py-6 px-6 mb-4 hover:bg-gray-300 shadow-lg" v-for="n in 5" :key="n">
             <div class="w-full md:w-3/4 text-left mb-3 md:mb-0">
-              <h3 class="text-2xl md:text-3xl lg:text-4xl font-bold">ZOOM版本更新下載 通知</h3>
-              <p class="text-xl md:text-2xl bar text-gray-800">
+              <h3 class="text-2xl md:text-3xl font-bold">ZOOM版本更新下載 通知</h3>
+              <p class="text-xl bar text-gray-800">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium incidunt quidem ut totam ab inventore distinctio quas similique asperiores suscipit, fugit nobis atque consequuntur eos est nisi sit, molestiae nesciunt nemo reprehenderit omnis in tenetur ducimus id. Temporibus incidunt enim error, nobis veritatis sed modi iste dicta fugiat a eum?
               </p>
             </div>

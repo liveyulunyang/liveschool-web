@@ -104,6 +104,30 @@
             :columns="tableList.columns"
             :actions="tableList.actions"
             :data="tableList.datas">
+            <template slot="othersLabel">
+              <th class="whitespace-no-wrap text-center">其他</th>
+            </template>
+            <template slot="classDetailLabel">
+              <th class="whitespace-no-wrap text-center">課程詳情</th>
+            </template>
+
+            <template slot="others">
+              <td data-th="其他">
+                <button class="bg-gray-900 text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1">
+                  問券調查
+                </button>
+                <button class="bg-gray-900 text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1">
+                  老師評語
+                </button>
+              </td>
+            </template>
+            <template slot="classDetail">
+              <td data-th="課程詳情">
+                <button class="bg-gray-900 text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1">
+                  <i class="fas fa-folder-open"></i>
+                </button>
+              </td>
+            </template>
           </Table>
         </div>
       </div>
@@ -112,7 +136,7 @@
 </template>
 
 <script>
-import Table from "@/components/tables/Record_student"
+import Table from "@/components/table"
 import FilterModal from '@/components/FilterModal'
   export default {
     name: "Learn_record",
@@ -141,9 +165,7 @@ import FilterModal from '@/components/FilterModal'
             { name: 'point', label: '課程點數', required: true },
             { name: 'topic', label: '主題', required: true },
             { name: 'classification', label: '主題分類', required: true },
-            { name: 'name', label: '名稱', required: true },
-            { name: 'other', label: '其他', required: true },
-            { name: 'detail', label: '課程詳情', required: true }
+            { name: 'name', label: '名稱', required: true }
           ],
           datas: [
             {

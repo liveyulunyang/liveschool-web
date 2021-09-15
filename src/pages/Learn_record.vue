@@ -19,13 +19,25 @@
           :columns="tableList.columns"
           :actions="tableList.actions"
           :data="tableList.datas">
+          <template slot="actionsLabel">
+            <th class="whitespace-no-wrap text-center">執行動作</th>
+          </template>
+          <template scope="props" slot="actionsBtn">
+            <td data-th="執行動作">
+              <button @click="open(props.item.id)"
+                class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
+                >
+                <img src="@/assets/img/icons/more.svg" alt="" class="w-6 object-contain">
+              </button>
+            </td>
+          </template>
         </Table>
     </div>
   </main>
 </template>
 
 <script>
-import Table from "@/components/tables/Record"
+import Table from "@/components/table"
 import 'vue2-datepicker/index.css'
 import FilterModal from '@/components/FilterModal'
 import ExportBtn from '@/components/modules/ExportBtn'
@@ -36,6 +48,9 @@ import ExportBtn from '@/components/modules/ExportBtn'
       FilterModal,
       ExportBtn
     },
+    props: [
+      'props'
+    ],
     data () {
       return {
         showItems: {
@@ -49,37 +64,6 @@ import ExportBtn from '@/components/modules/ExportBtn'
           serach: true,
           sync: true
         },
-        periodTime: null,
-
-        roomVal: null,
-        roomOptions: [
-          { name: '教室', value: '' }
-        ],
-        classTopicVal: null,
-        classTopicOptions: [
-          { name: '課程主題', value: '' }
-        ],
-        topicCategoryVal: null,
-        topicCategoryOptions: [
-          { name: '主題分類', value: '' }
-        ],
-        branchVal: null,
-        branchOptions: [
-          { name: '站別', value: '' }
-        ],
-        classTypeVal: null,
-        classTypeOptions: [
-          { name: '課程種類', value: '' }
-        ],
-        searchVal: null,
-        searchOptions: [
-          { name: '姓名/英文姓名', value: '' },
-          { name: '行動電話', value: 'all' },
-          { name: '縣市', value: 'all' },
-          { name: '分校', value: 'all' },
-          { name: '班級', value: 'all' },
-          { name: '來源', value: 'all' }
-        ],
 
         tableList: {
           columns: [
@@ -89,7 +73,6 @@ import ExportBtn from '@/components/modules/ExportBtn'
             { name: 'class', label: '班級', required: true },
             { name: 'point', label: '點數', required: true },
             { name: 'director', label: '班主任', required: true },
-            { name: 'action', label: '執行動作', required: true }
           ],
           datas: [
             {
@@ -98,8 +81,7 @@ import ExportBtn from '@/components/modules/ExportBtn'
               branch: '總公司',
               class: 'C8',
               point: '88',
-              director: 'peggy@gmail.com',
-              action: true
+              director: 'peggy@gmail.com'
             },
             {
               name: '測試/Peggy',
@@ -107,8 +89,7 @@ import ExportBtn from '@/components/modules/ExportBtn'
               branch: '總公司',
               class: 'C8',
               point: '88',
-              director: 'peggy@gmail.com',
-              action: true
+              director: 'peggy@gmail.com'
             }
           ]
         }
@@ -117,6 +98,9 @@ import ExportBtn from '@/components/modules/ExportBtn'
     computed: {
     },
     methods: {
+      open() {
+        console.log('open manage')
+      }
     }
   }
 </script>

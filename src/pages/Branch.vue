@@ -30,6 +30,23 @@
       <Table :columns="tableList.columns"
         :actions="tableList.actions"
         :data="tableList.datas">
+          <template slot="actionsLabel">
+            <th class="whitespace-no-wrap text-center">執行動作</th>
+          </template>
+          <template slot="actionsBtn">
+            <td data-th="執行動作">
+              <button @click="$router.push({ name: 'Learn_record_supervise' })"
+                class="bg-gray-900 text-white hover:text-black-1 hover:bg-primary-light mx-1 w-8 h-8 rounded actionBtn"
+                >
+                <i class="far fa-folder-open text-lg"></i>
+              </button>
+              <button
+                class="bg-gray-900 text-white hover:text-black-1 hover:bg-primary-light mx-1 w-8 h-8 rounded actionBtn"
+                >
+                <i class="fas fa-ticket-alt text-lg"></i>
+              </button>
+            </td>
+          </template>
       </Table>
       <Pagination />
     </div>
@@ -37,7 +54,7 @@
 </template>
 
 <script>
-  import Table from "@/components/tables/Branch"
+  import Table from "@/components/table"
   import Pagination from "@/components/modules/Pagination"
   import FilterModal from '@/components/FilterModal'
   import ExportBtn from '@/components/modules/ExportBtn'
@@ -86,14 +103,7 @@
             { name: 'city', label: '原始課數', required: true, sortable: true },
             { name: 'branch', label: '新增課數', required: true, sortable: true },
             { name: 'class', label: '已使用點數', required: true, sortable: true },
-            { name: 'time', label: '剩餘點數', required: true, sortable: true },
-            { name: 'actions', label: '執行動作',
-              actions: [
-                { name: 'edit', label: 'edit' },
-                { name: 'open', label: 'open' },
-                { name: 'del', label: 'del' }
-              ]
-            }
+            { name: 'time', label: '剩餘點數', required: true, sortable: true }
           ],
           datas: [
             {

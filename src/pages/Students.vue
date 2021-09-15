@@ -32,6 +32,33 @@
       <Table :columns="tableList.columns"
         :actions="tableList.actions"
         :data="tableList.datas">
+        <template slot="actionsLabel">
+          <th class="whitespace-no-wrap text-center">執行動作</th>
+        </template>
+        <template scope="props" slot="actionsBtn">
+          <td data-th="執行動作">
+            <button
+              class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
+              >
+              <img src="@/assets/img/icons/edit.svg" alt="" class="w-6 object-contain">
+            </button>
+            <button
+              class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
+              >
+              <img src="@/assets/img/icons/more.svg" alt="" class="w-6 object-contain">
+            </button>
+            <button
+              class="hover:text-black-1 hover:bg-primary-light mx-1"
+              >
+              <img src="@/assets/img/icons/tick.svg" alt="" class="w-6 object-contain">
+            </button>
+            <button @click="open(props.item.id)"
+              class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1 ml-3"
+              >
+              <img src="@/assets/img/icons/delete.svg" alt="" class="w-6 object-contain">
+            </button>
+          </td>
+        </template>
       </Table>
       <Pagination />
     </div>
@@ -39,7 +66,7 @@
 </template>
 
 <script>
-  import Table from "@/components/tables/Student";
+  import Table from "@/components/table";
   import Pagination from "@/components/modules/Pagination"
   import FilterModal from '../components/FilterModal.vue'
   export default {
@@ -49,6 +76,9 @@
       Pagination,
         FilterModal
     },
+    props: [
+      'props'
+    ],
     data () {
       return {
         showItems: {
@@ -70,15 +100,7 @@
             { name: 'mobile', label: '電話', required: true, sortable: true },
             { name: 'point', label: '點數', required: true, sortable: false},
             { name: 'branch', label: '分校', required: true, sortable: true },
-            { name: 'class', label: '班級', required: true, sortable: true },
-
-            { name: 'actions', label: '執行動作',
-              actions: [
-              { name: 'edit', label: 'edit' },
-              { name: 'open', label: 'open' },
-              { name: 'del', label: 'del' }
-              ]
-            }
+            { name: 'class', label: '班級', required: true, sortable: true }
           ],
           datas: [
             {

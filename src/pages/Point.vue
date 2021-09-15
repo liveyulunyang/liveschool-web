@@ -207,9 +207,9 @@
                       <img src="@/assets/img/icons/re.svg" alt="" class="w-8">
                     </a>
                   </div>
-                  <Button class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
+                  <button class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
                     匯出資料
-                  </Button>
+                  </button>
                 </div>
                 <Table :columns="tableList.columns"
                   :actions="tableList.actions"
@@ -226,7 +226,7 @@
 <script>
   import DatePicker from 'vue2-datepicker'
   import 'vue2-datepicker/index.css'
-  import Table from "@/components/tables/point";
+  import Table from "@/components/table"
   export default {
     name: "Point",
     components: {

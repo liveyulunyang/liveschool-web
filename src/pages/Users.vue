@@ -27,6 +27,28 @@
       <Table :columns="tableList.columns"
         :actions="tableList.actions"
         :data="tableList.datas">
+          <template slot="actionsLabel">
+            <th class="whitespace-no-wrap text-center">執行動作</th>
+          </template>
+          <template scope="props" slot="actionsBtn">
+            <td data-th="執行動作">
+              <button @click="edit(props.item.id)"
+                class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
+                >
+                <img src="@/assets/img/icons/edit.svg" alt="" class="w-6 object-contain">
+              </button>
+              <button @click="open(props.item.id)"
+                class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
+                >
+                <img src="@/assets/img/icons/more.svg" alt="" class="w-6 object-contain">
+              </button>
+              <button @click="del(props.item.id)"
+                class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
+                >
+                <img src="@/assets/img/icons/delete.svg" alt="" class="w-6 object-contain">
+              </button>
+            </td>
+          </template>
       </Table>
       <Pagination />
     </div>
@@ -34,7 +56,7 @@
 </template>
 
 <script>
-  import Table from "@/components/tables/User"
+  import Table from "@/components/table"
   import 'vue2-datepicker/index.css'
   import Pagination from "@/components/modules/Pagination"
   import FilterModal from '@/components/FilterModal'
@@ -45,6 +67,9 @@
       Pagination,
       FilterModal
     },
+    props: [
+      'props'
+    ],
     data () {
       return {
         showItems: {
@@ -91,15 +116,7 @@
             { name: 'city', label: '縣市', required: true, sortable: true },
             { name: 'branch', label: '分校', required: true, sortable: true },
             { name: 'class', label: '班級', required: true, sortable: true },
-            { name: 'time', label: '建立時間', required: true, sortable: true },
-
-            { name: 'actions', label: '執行動作',
-              actions: [
-              { name: 'edit', label: 'edit' },
-              { name: 'open', label: 'open' },
-              { name: 'del', label: 'del' }
-              ]
-            }
+            { name: 'time', label: '建立時間', required: true, sortable: true }
           ],
           datas: [
             {
@@ -139,11 +156,35 @@
     methods: {
       toManage () {
         this.$router.push({ name: 'account_add' })
+      },
+      edit() {
+        console.log('edit manage')
+      },
+      open() {
+        console.log('open manage')
+      },
+      del() {
+        this.$swal.fire({
+          title: '確認要刪除此筆資料?',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: '刪除',
+          cancelButtonText: '取消'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this.$swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+          }
+        })
       }
     }
   }
 </script>
-<style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 <style>
   .role {
     width: 6em !important;
