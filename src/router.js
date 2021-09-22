@@ -19,6 +19,11 @@ const router = new Router({
       name: 'courses',
       component: () => import('@/pages/Courses.vue')
     },
+    {
+      path: '/coursesTC',
+      name: 'coursesTC',
+      component: () => import('@/pages/CoursesTC.vue')
+    },
     // 帳號管理
     {
       path: '/account/add',
@@ -52,7 +57,7 @@ const router = new Router({
       component: () => import('@/pages/Live_class.vue')
     },
     {
-      path: '/classification/:second?/:third?',
+      path: '/classification/:first?/:second?/:third?/:fourth?',
       name: 'classification',
       component: () => import('@/pages/Classification.vue')
     },

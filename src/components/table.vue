@@ -6,6 +6,7 @@
           <th v-for="column in columns" :key="column.name" class="whitespace-no-wrap text-center">{{ column.label }}</th>
           <slot name="record"></slot>
           <slot name="supplementaryMaterials"></slot>
+          <slot name="statusLabel"></slot>
           <slot name="actionsLabel"></slot>
           <slot name="startClassLabel"></slot>
           <slot name="othersLabel"></slot>
@@ -17,6 +18,7 @@
           </td>
           <slot name="recordBtn"></slot>
           <slot name="supplementaryMaterialsBtn"></slot>
+          <slot name="statusText"></slot>
           <slot name="actionsBtn" :item="item"></slot>
           <slot name="startClass"></slot>
           <slot name="others"></slot>
@@ -41,20 +43,10 @@
         sortable: Boolean,
         actions: Object
       },
-      data: Array,
-      filterKey: String
+      data: Array
     },
     data () {
-      let sortOrders = {}
-      this.columns.forEach((column) => {
-        sortOrders[column.name] = 1
-      })
       return {
-        sortKey: '',
-        sortOrders: sortOrders,
-        avatarSize: 8,
-        nbVehiclesToShow: 8,
-        vehiclesShown: 8
       }
     },
     computed: {
@@ -73,4 +65,98 @@
 .cursorPointer {
   cursor: pointer;
 }
+.c-table table { border-spacing: 0 1rem;  }
+
+.rwd-table {
+  margin: auto;
+  min-width: 300px;
+  max-width: 100%;
+  /* border-collapse: collapse; */
+  border-collapse: separate;
+}
+
+.rwd-table tr:first-child {
+  border-top: none;
+}
+
+.rwd-table tr:not(:first-child) {
+  /* box-shadow: 0 2px 4px 0 rgb(0 0 0 / 5%); */
+  /* margin-bottom: 0.75rem; */
+}
+
+.rwd-table th {
+  display: none;
+}
+
+.rwd-table td {
+  display: block;
+  background: white;
+}
+
+.rwd-table td:first-child {
+  /* rwd-table td */
+}
+
+.rwd-table td:last-child {
+  margin-bottom: .5em;
+}
+
+.rwd-table td:before {
+  content: attr(data-th) ": ";
+  font-weight: bold;
+  width: 120px;
+  display: inline-block;
+  color: #000;
+}
+
+.rwd-table th,
+.rwd-table td {
+  text-align: center;
+}
+
+.rwd-table {
+  color: #333;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 1024px) {
+  .c-table table { border-spacing: 0 0rem !important; }
+  .rwd-table tr:nth-child(2) {
+    border-top: none;
+  }
+  .rwd-table th,
+  .rwd-table td {
+    text-align: left;
+  }
+  .rwd-table th,
+  .rwd-table td {
+    padding: .5em 1em;
+  }
+
+}
+@media screen and (min-width: 1025px) {
+  .rwd-table tr:hover:not(:first-child) {
+    background-color: #d8e7f3;
+  }
+  .rwd-table td:before {
+    display: none;
+  }
+  .rwd-table th,
+  .rwd-table td {
+    display: table-cell;
+    padding: .25em .5em;
+  }
+  .rwd-table th:first-child,
+  .rwd-table td:first-child {
+    padding-left: 0;
+  }
+  .rwd-table th:last-child,
+  .rwd-table td:last-child {
+    padding-right: 0;
+  }
+  .rwd-table td {
+    padding: .75em !important;
+  }
+}
+
 </style>

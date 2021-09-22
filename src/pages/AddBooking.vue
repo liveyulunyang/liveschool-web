@@ -1,46 +1,20 @@
 <template>
-  <main class="flex items-start p-6" id="bookingAdd">
-    <div class="flex flex-col w-full">
+  <main class="flex items-start" id="bookingAdd">
+    <div class="flex flex-col p-6 w-full">
         <div class="mb-4 flex justify-between items-center flex-wrap">
           <div class="flex">
             <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">新增預約</h1>
           </div>
         </div>
-        <nav class="text-black font-bold mb-4" aria-label="Breadcrumb">
-          <ol class="p-0 xl:inline-flex xl:text-sm w-full">
-            <li class="flex items-center w-32 mb-4 xl:mb-0">
-              <button @click="$router.back(-1)" class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
-                <i class="fas fa-chevron-left mr-1"></i>取消
-              </button>
-            </li>
-            <li class="flex items-center border-l-2 xl:border-l-0 border-gray-400 pl-2 xl:pl-0 xl:flex-1 whitespace-no-wrap" :class="{ active: step === 0 }">
-              <a href="#" class="block">預約需知</a>
-              <hr class="w-full border-b border-gray-400 mr-5 ml-2 hidden xl:block">
-            </li>
-            <li class="flex items-center border-l-2 xl:border-l-0 border-gray-400 pl-2 xl:pl-0 py-1 xl:flex-1 whitespace-no-wrap" :class="{ active: step === 1 }">
-              <a href="#">課程人數與師資</a>
-              <hr class="w-full border-b border-gray-400 mr-5 ml-2 hidden xl:block">
-            </li>
-            <li class="flex items-center border-l-2 xl:border-l-0 border-gray-400 pl-2 xl:pl-0 py-1 xl:flex-1 whitespace-no-wrap" :class="{ active: step === 2 }">
-              <a href="#">選擇課程</a>
-              <hr class="w-full border-b border-gray-400 mr-5 ml-2 hidden xl:block">
-            </li>
-            <li class="flex items-center border-l-2 xl:border-l-0 border-gray-400 pl-2 xl:pl-0 py-1 xl:flex-1 whitespace-no-wrap" :class="{ active: step === 3 }">
-              <a href="#">預約課程時段</a>
-              <hr class="w-full border-b border-gray-400 mr-5 ml-2 hidden xl:block">
-            </li>
-            <li class="flex items-center border-l-2 xl:border-l-0 border-gray-400 pl-2 xl:pl-0 py-1 xl:flex-1 whitespace-no-wrap" :class="{ active: step === 4 }">
-              <a href="#">上課名單</a>
-              <hr class="w-full border-b border-gray-400 mr-5 ml-2 hidden xl:block">
-            </li>
-            <li class="flex items-center border-l-2 xl:border-l-0 border-gray-400 pl-2 xl:pl-0 py-1 xl:flex-1 whitespace-no-wrap" :class="{ active: step === 5 }">
-              <a href="#">設定與其他問題</a>
-              <hr class="w-full border-b border-gray-400 mr-5 ml-2 hidden xl:block">
-            </li>
-            <li class="flex items-center border-l-2 xl:border-l-0 border-gray-400 pl-2 xl:pl-0 py-1 xl:flex-1 whitespace-no-wrap" :class="{ active: step === 6 }">
-              <a href="#">預約資料預覽</a>
-            </li>
-          </ol>
+        <nav class="font-bold mb-4">
+          <ul class="lg:flex" id="progressbar">
+            <li :class="{ active: step === 0 }"><p>預約需知</p></li>
+            <li :class="{ active: step === 1 }"><p>課程人數與師資</p></li>
+            <li :class="{ active: step === 2 }"><p>選擇課程</p></li>
+            <li :class="{ active: step === 3 }"><p>預約課程時段</p></li>
+            <li :class="{ active: step === 4 }"><p>上課名單</p></li>
+            <li :class="{ active: step === 5 }"><p>設定與其他問題</p></li>
+          </ul>
         </nav>
         <div class="content w-full">
           <div v-if="step === 0">
@@ -68,8 +42,8 @@
             </div>
           </div>
           <div v-if="step === 1">
-            <div class="bg-white text-left py-8 px-4 md:px-8 xl:px-12 leading-loose font-semibold text-lg mb-4">
-              <h6 class="text-xl mb-1 font-bold">選擇課程人數</h6>
+            <div class="bg-white text-left py-8 px-4 md:px-8 xl:px-12 leading-loose font-semibold mb-4">
+              <h6 class="text-lg mb-1 font-bold">選擇課程人數</h6>
               <div class="flex flex-col mb-8">
                 <label class="inline-flex items-center mt-3">
                   <input type="radio" class="form-radio h-5 w-5 text-gray-600"><span class="ml-2 text-gray-700">一對一課程(25分鐘)</span>
@@ -78,7 +52,7 @@
                   <input type="radio" class="form-radio h-5 w-5 text-gray-600"><span class="ml-2 text-gray-700">一至六人班課程(50分鐘)</span>
                 </label>
               </div>
-              <h6 class="text-xl mb-1 font-bold">選擇師資</h6>
+              <h6 class="text-lg mb-1 font-bold">選擇師資</h6>
               <div class="flex flex-col">
                 <label class="inline-flex items-center mt-3">
                   <input type="radio" class="form-radio h-5 w-5 text-gray-600"><span class="ml-2 text-gray-700">歐/美外師、中師</span>
@@ -120,7 +94,7 @@
                 </div>
               </div>
               <div class="flex border mx-2">
-                <input type="text" placeholder="輸入關鍵字搜尋" name="search" class="py-2 px-2 border-0 focus:outline-none w-32 text-sm">
+                <input type="text" placeholder="輸入關鍵字搜尋" name="search" class="py-2 border-0 focus:outline-none w-32 text-sm">
                 <button type="submit" class="px-2"><i class="fa fa-search"></i></button>
               </div>
               <a href="" class="block ml-2">
@@ -130,7 +104,7 @@
             <div class="overflow-y-scroll h-screen-50 mb-4">
               <div class="bg-white text-left py-2 px-4 xl:px-8 leading-loose font-semibold mb-4" v-for="n in 10" :key="n">
                 <div class="flex flex-wrap py-2 items-center">
-                  <div class="w-2/12 pr-2">
+                  <div class="w-4/5 lg:w-auto pr-2">
                     <img src="@/assets/img/classImg.png" alt="" class="object-contain max-w-full">
                   </div>
                   <div class="w-4/12 xl:flex text-left">
@@ -141,7 +115,7 @@
                       <div class="xl:w-1/2">兒童生活英語</div>
                       <div class="xl:w-1/2">CTL口說升級測驗Starter</div>
                   </div>
-                  <div class="w-2/12 flex items-center justify-end">
+                  <div class="w-4/5 lg:w-auto flex items-center justify-end">
                     <button
                       class="text-primary-normal hover:text-black-1 hover:bg-primary-light"
                       >
@@ -183,7 +157,7 @@
                   </button>
                 </div>
               </div>
-              <div class="px-2 w-full">
+              <div class="px-2 w-full hidden lg:block">
                 <FullCalendar :options="calendarOptions" />
                 <!-- <Calender :Calendertype="'week'" /> -->
               </div>
@@ -191,18 +165,6 @@
 
           </div>
           <div v-if="step === 4">
-            <div class="flex flex-wrap">
-              <div class="w-1/2 text-left px-4 leading-loose font-semibold text-lg mb-4">
-                <div class="bg-white w-full px-6 py-4">
-                  <h6 class="text-xl font-bold">學生名單</h6>
-                </div>
-              </div>
-              <div class="w-1/2 text-left px-4 leading-loose font-semibold text-lg mb-4">
-                <div class="bg-white w-full px-6 py-4">
-                  <h6 class="text-xl font-bold">上課名單</h6>
-                </div>
-              </div>
-            </div>
             <Drag class="mb-4" />
             <div class="flex justify-center items-center">
               <button @click="step = 3" class="mx-4 px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
@@ -222,7 +184,7 @@
                 <div class="w-full md:w-1/12 md:text-right">
                   <p>設定</p>
                 </div>
-                <div class="w-full md:w-11/12 px-2">
+                <div class="w-full md:w-11/12 px-3">
                   <label class="control control--checkbox mb-0 flex items-center">
                     <input type="checkbox" checked="checked"/>主任是否要收到開課通知？
                     <div class="control__indicator"></div>
@@ -233,7 +195,7 @@
                 <div class="w-full md:w-1/12 md:text-right">
                   <p>其他問題</p>
                 </div>
-                <div class="w-full md:w-11/12 px-2">
+                <div class="w-full md:w-11/12 px-3">
                   <textarea id="otherProb" placeholder=""
                     class=" py-3 px-4 w-full p-1 resize border border-gray-500 rounded focus:border-gray-700 focus:shadow-none focus:outline-none text-sm">
                   </textarea>
@@ -251,8 +213,155 @@
             </div>
           </div>
 
-          <BookingModal :showfirstModal="showfirstModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" />
+          <!-- <BookingModal :showfirstModal="showfirstModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" /> -->
         </div>
+    </div>
+    <div class="bg-white h-full py-5 relative shadow-lg form-right hidden lg:block" :class="{ formOpen: isShowForm }">
+      <div class="absolute bg-white booking-btn px-3 py-2 text-sm shadow-lg cursor-pointer whitespace-no-wrap" @click="isShowForm = !isShowForm">
+        <i class="fas fa-arrow-right mr-1"></i>預約資料預覽
+      </div>
+      <form>
+        <div class="h-screen-form overflow-y-scroll overflow-x-hidden mb-4 border-b whitespace-no-wrap">
+          <div class="w-full px-3 mb-2 md:mb-4 md:flex items-center">
+            <label class="md:w-1/5 tracking-wide text-sm mb-2 text-right" for="booker">
+              預約者
+            </label>
+            <div class="w-full md:w-4/5 flex items-center px-2">
+              <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                id="booker" type="text" placeholder="">
+            </div>
+          </div>
+          <div class="w-full px-3 mb-2 md:mb-4 md:flex items-center">
+            <label class="md:w-1/5 tracking-wide text-sm mb-2 text-right" for="point">
+              剩餘點數
+            </label>
+            <div class="w-full md:w-4/5 flex items-center px-2">
+              <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                id="point" type="text" placeholder="">
+            </div>
+          </div>
+          <div class="w-full px-3 mb-2 md:mb-4 md:flex items-center">
+            <label class="md:w-1/5 tracking-wide text-sm mb-2 text-right" for="branch">
+              校別
+            </label>
+            <div class="w-full md:w-4/5 flex items-center px-2">
+              <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                id="branch" type="text" placeholder="">
+            </div>
+          </div>
+          <div class="w-full px-3 mb-2 md:mb-4 md:flex items-center">
+            <label class="md:w-1/5 tracking-wide text-sm mb-2 text-right" for="type">
+              人數班制
+            </label>
+            <div class="w-full md:w-4/5 flex items-center px-2">
+              <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                id="type" type="text" placeholder="">
+            </div>
+          </div>
+          <div class="w-full px-3 mb-2 md:mb-4 md:flex items-center">
+            <label class="md:w-1/5 tracking-wide text-sm mb-2 text-right" for="classname">
+              教師專案
+            </label>
+            <div class="w-full md:w-4/5 flex items-center px-2">
+              <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                id="classname" type="text" placeholder="">
+            </div>
+          </div>
+          <div class="w-full px-3 mb-2 md:mb-4 md:flex items-center">
+            <label class="md:w-1/5 tracking-wide text-sm mb-2 text-right" for="type">
+              課程主題
+            </label>
+            <div class="w-full md:w-4/5 flex items-center px-2">
+              <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                id="type" type="text" placeholder="">
+            </div>
+          </div>
+          <div class="w-full px-3 mb-2 md:mb-4 md:flex items-center">
+            <label class="md:w-1/5 tracking-wide text-sm mb-2 text-right" for="classname">
+              主題分類
+            </label>
+            <div class="w-full md:w-4/5 flex items-center px-2">
+              <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                id="classname" type="text" placeholder="">
+            </div>
+          </div>
+          <div class="w-full px-3 mb-2 md:mb-4 md:flex items-center">
+            <label class="md:w-1/5 tracking-wide text-sm mb-2 text-right" for="classtype">
+              課程名稱
+            </label>
+            <div class="w-full md:w-4/5 flex items-center px-2">
+              <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                id="classtype" type="text" placeholder="">
+            </div>
+          </div>
+          <div class="w-full px-3 mb-2 md:mb-4 md:flex items-center">
+            <label class="md:w-1/5 tracking-wide text-sm mb-2 text-right" for="classtype">
+              課程日期
+            </label>
+            <div class="w-full md:w-4/5 flex items-center px-2">
+              <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                id="classtype" type="text" placeholder="">
+            </div>
+          </div>
+          <div class="w-full px-3 mb-2 md:mb-4 md:flex items-center">
+            <label class="md:w-1/5 tracking-wide text-sm mb-2 text-right" for="classtype">
+              課程時間從
+            </label>
+            <div class="w-full md:w-4/5 flex items-center px-2">
+              <input class="appearance-none border-gray-500
+              focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                id="classtype" type="text" placeholder="">
+                <span class="text-sm mx-2">到</span>
+              <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                id="classtype" type="text" placeholder="">
+            </div>
+          </div>
+          <div class="w-full px-3 mb-2 md:mb-4 md:flex items-center">
+            <label class="md:w-1/5 tracking-wide text-sm mb-2 text-right" for="classtype">
+              上課學生
+            </label>
+            <div class="w-full md:w-4/5 flex items-center px-2">
+              <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                id="classtype" type="text" placeholder="">
+            </div>
+          </div>
+          <div class="w-full px-3 mb-2 md:mb-4 md:flex items-center">
+            <label class="md:w-1/5 tracking-wide text-sm mb-2 text-right" for="classtype">
+              問題
+            </label>
+            <div class="w-full md:w-4/5 flex items-center px-2">
+              <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                id="classtype" type="text" placeholder="">
+            </div>
+          </div>
+          <div class="w-full px-3 mb-2 md:mb-4 md:flex items-center">
+            <label class="md:w-1/5 tracking-wide text-sm mb-2 text-right">
+              設定
+            </label>
+            <div class="w-full md:w-4/5 px-2">
+              <div class="flex items-center mb-2">
+                <label class="control control--checkbox">主任是否要收到開課通知？
+                  <input type="checkbox" checked="checked" />
+                  <div class="control__indicator"></div>
+                </label>
+              </div>
+              <div class="flex items-center">
+                <label class="control control--checkbox">是否不開放公開預約？
+                  <input type="checkbox" checked="checked" />
+                  <div class="control__indicator"></div>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="w-full px-3 mb-2 md:mb-4 flex justify-end">
+          <a class="px-4 py-2 bg-gray-900 m-1 cursor-pointer text-white" @click="close()"><i class="fas fa-times mr-1"></i>駁回</a>
+          <a class="px-4 py-2 bg-gray-900 m-1 cursor-pointer text-white" @click="close()"><i class="fas fa-check mr-1"></i>通過</a>
+        </div> -->
+        <div class="w-full px-3 mb-2 md:mb-4 flex justify-center">
+          <a class="px-4 py-2 bg-gray-900 m-1 cursor-pointer text-white block w-full" @click="addBooking()"><i class="fas fa-check mr-1"></i>送出</a>
+        </div>
+      </form>
     </div>
   </main>
 </template>
@@ -266,18 +375,19 @@ import FullCalendar from '@fullcalendar/vue'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
-import BookingModal from '@/components/modules/BookingModal'
+// import BookingModal from '@/components/modules/BookingModal'
   export default {
     name: "AddBooking",
     components: {
       // Calender,
       CalenderDot,
       FullCalendar,
-      Drag,
-      BookingModal
+      Drag
+      // BookingModal
     },
     data () {
       return {
+        isShowForm: false,
         step: 0,
         calendarOptions: {
           plugins: [ dayGridPlugin, interactionPlugin, timeGridPlugin ],
@@ -318,45 +428,108 @@ import BookingModal from '@/components/modules/BookingModal'
 <style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 <style lang="scss">
 #bookingAdd {
+  .h-screen-50 {
+    height: calc(100vh - 450px);
+  }
+  .h-screen-form {
+    height: calc(100vh - 200px);
+  }
+  .w-1-7 {
+    width: calc(100% / 7);
+  }
+  .booking-btn {
+    left: -124px;
+    top: 20px;
+  }
   nav {
-    li a {
-      color: rgba(203, 213, 224);
-    }
-    @media screen and (min-width: 1440px) {
-      a {
+    ul {
+      li {
+        list-style-type: none;
+        text-transform: uppercase;
+        font-size: 14px;
+        width: calc(100%/6);
         position: relative;
-        color: rgba(203, 213, 224);
-        &:before {
-          position: absolute;
-          content: "";
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          top: 50%;
-          transform: translateY(-50%);
-          left: -0.7rem;
-          background: rgba(203, 213, 224);
+        letter-spacing: 1px;
+        p {
+          color: rgb(201, 201, 201);
         }
-      }
-      .active {
-        a {
-          color: rgb(0, 0, 0);
+        &:before {
+          content: '';
+          width: 10px;
+          height: 10px;
+          line-height: 26px;
+          display: block;
+          background: rgb(201, 201, 201);
+          border-radius: 25px;
+          margin: 0 auto 10px auto;
+        }
+        &:not(:first-child):after {
+          content: '';
+          width: 90%;
+          height: 2px;
+          background: rgb(201, 201, 201);
+          position: absolute;
+          left: -45%;
+          top: 4px;
+        }
+        @media (max-width: 1023px) {
+          width: 100%;
+          margin-bottom: 20px;
+          p {
+            text-align: left;
+            margin-left: 30px;
+          }
           &:before {
-            background: rgb(0, 0, 0);
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            display: block;
+            border-radius: 25px;
+            margin: 0;
+            top: 4px;
+            z-index: 2;
+          }
+          &:not(:last-child):after {
+            content: '';
+            width: 2px;
+            height: 40px;
+            position: absolute;
+            left: 4px;
+            top: 3px;
+            background: rgb(201, 201, 201);
+          }
+          &:last-child:after {
+            content: none;
           }
         }
       }
-    }
-    li.active {
-      border-color: rgb(0, 0, 0) !important;
-      a {
-        color: rgb(0, 0, 0);
+      li.active {
+        p {
+          color: rgb(80, 80, 80);
+        }
+        &:before {
+          background: rgb(80, 80, 80);
+        }
       }
+    }
+
+  }
+  .form-right {
+    width: 0;
+    // transform: translateX(100%);
+    transition: .3s;
+    a {
+      display: none !important;
+    }
+  }
+  .formOpen {
+    width: 25%;
+    a {
+      display: block !important;
     }
   }
 
 }
-.h-screen-50 {
-  height: calc(100vh - 450px);
-}
+
 </style>

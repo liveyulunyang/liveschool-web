@@ -85,7 +85,6 @@
     },
     data () {
       return {
-        role: 'admin',
         isOpenUser: false,
         menuListItems: [
           {
@@ -96,8 +95,14 @@
           },
           {
             icon: "fas fa-comments",
-            title: "課程管理",
+            title: "LC課程管理",
             url: "/courses",
+            role: ['admin']
+          },
+          {
+            icon: "fas fa-chalkboard-teacher",
+            title: "TC課程管理",
+            url: "/coursesTC",
             role: ['admin']
           },
           {
@@ -227,6 +232,111 @@
           //   url: "/settings"
           // }
         ],
+        adminList: [
+          {
+            icon: "fas fa-users",
+            title: "使用者管理",
+            url: "/"
+          },
+          {
+            icon: "fas fa-comments",
+            title: "課程管理",
+            url: "/courses"
+          },
+          {
+            icon: "fas fa-chalkboard-teacher",
+            title: "Live Teacher",
+            url: "/coursesTC"
+          },
+          {
+            icon: "fab fa-youtube",
+            title: "Live Class",
+            url: "/live_class"
+          },
+          {
+            icon: "fas fa-list-ul",
+            title: "分類管理",
+            url: "/classification"
+          },
+          {
+            icon: "fas fa-book",
+            title: "預約課程",
+            url: "/book_course"
+          },
+          {
+            icon: "fas fa-history",
+            title: "學習紀錄",
+            url: "/learn_record"
+          },
+          {
+            icon: "fas fa-id-card",
+            title: "授課紀錄",
+            url: "/teach_record"
+          },
+          {
+            icon: "fas fa-ticket-alt",
+            title: "點數管理",
+            url: "/point"
+          },
+          {
+            icon: "fas fa-key",
+            title: "序號管理",
+            url: "/serial_number"
+          },
+          {
+            icon: "fas fa-bell",
+            title: "公告",
+            url: "/announce"
+          },
+          {
+            icon: "fas fa-info",
+            title: "系統資訊",
+            url: "/info"
+          }
+        ],
+        directorList: [
+          {
+            icon: "far fa-calendar-alt",
+            title: "我的課程",
+            url: "/myClass"
+          },
+          {
+            icon: "fas fa-users",
+            title: "學生管理",
+            url: "/students"
+          },
+          {
+            icon: "fas fa-book",
+            title: "預約課程",
+            url: "/book_course"
+          }
+        ],
+        superviseList: [
+          {
+            icon: "fas fa-users",
+            title: "分校管理",
+            url: "/branch"
+          }
+        ],
+        studentList: [
+          {
+            icon: "far fa-calendar-alt",
+            title: "我的課程",
+            url: "/myClass"
+          },
+          {
+            icon: "fas fa-chart-line",
+            title: "能力剖面圖",
+            url: "/sectional_drawing"
+          }
+        ],
+        teacherList: [
+          {
+            icon: "far fa-calendar-alt",
+            title: "我的課程",
+            url: "/myClass"
+          }
+        ],
         user: {
           img: {
             src: require('./assets/img/avatar.png'),
@@ -246,10 +356,23 @@
         'userRole'
       ]),
       roleMenu () {
-        var filterEmpty = this.menuListItems.filter((item, index, array) => {
-          return item.role.indexOf(this.userRole) > -1
-        })
-        return filterEmpty
+        if (this.userRole === 'admin') {
+          return this.adminList
+        } else if (this.userRole === 'director') {
+            return this.directorList
+          } else if (this.userRole === 'supervise') {
+            return this.superviseList
+          } else if (this.userRole === 'student') {
+            return this.studentList
+          } else if (this.userRole === 'teacher') {
+            return this.teacherList
+          } else {
+            return this.adminList
+          }
+        // var filterEmpty = this.menuListItems.filter((item, index, array) => {
+        //   return item.role.indexOf(this.userRole) > -1
+        // })
+        // return filterEmpty
       }
     },
     methods: {

@@ -127,10 +127,13 @@
               <div v-if="tag === 1" class="">
                 <div class="flex flex-wrap mb-4 items-stretch">
                   <div class="w-full lg:w-2/4 lg:pr-4 mb-4 lg:mb-0">
-                    <div class="w-full h-full bg-white flex items-center justify-center font-semibold py-4 lg:py-0">
-                      <h6 class="text-xl mx-2 whitespace-no-wrap">現在點數</h6>
-                      <span class="bg-gray-300 py-4 px-12 w-3/5 text-3xl whitespace-no-wrap">666</span>
-                      <h6 class="text-xl mx-2 whitespace-no-wrap">點</h6>
+                    <div class="w-full h-full bg-white  font-semibold py-4 lg:py-0 flex flex-col items-center justify-center">
+                      <div class="flex items-center justify-center w-full">
+                        <h6 class="text-xl mx-2 whitespace-no-wrap">現在點數</h6>
+                        <span class="bg-gray-300 py-4 px-12 w-3/5 text-3xl whitespace-no-wrap">666</span>
+                        <h6 class="text-xl mx-2 whitespace-no-wrap">點</h6>
+                      </div>
+                      <p class="text-sm mt-3">即將於<span class="text-red-500 mx-1 font-bold">2021.09.07</span>過期<span class="text-red-500 mx-1 font-bold">50</span>點</p>
                     </div>
                   </div>
                   <div class="w-1/2 lg:w-1/4 lg:pt-0 pr-2 lg:px-2 text-3xl text-white font-bold">

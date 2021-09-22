@@ -24,19 +24,34 @@
         :columns="tableList.columns"
         :actions="tableList.actions"
         :data="tableList.datas">
-          <template slot="actionsLabel">
-            <th class="whitespace-no-wrap text-center">動作</th>
+          <template slot="statusLabel">
+            <th class="whitespace-no-wrap text-center">狀態</th>
           </template>
-          <template scope="props" slot="actionsBtn">
-            <td data-th="動作">
-              <button @click="open(props.item.id)"
-                class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
+          <template slot="actionsLabel">
+            <th class="whitespace-no-wrap text-center">紀錄</th>
+          </template>
+
+          <template slot="statusText">
+            <td data-th="狀態">
+              <p class="px-1 py-2 border border-gray-900 rounded-lg">審核成功</p>
+            </td>
+          </template>
+          <template slot="actionsBtn">
+            <td data-th="紀錄">
+              <button @click="openModal"
+                class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1 text-white bg-gray-900 px-2 py-1 rounded text-lg"
                 >
-                <img src="@/assets/img/icons/more.svg" alt="" class="w-6 object-contain">
+                <i class="fas fa-clipboard-list"></i>
+              </button>
+              <button @click="openModal"
+                class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1 text-white bg-gray-900 px-2 py-1 rounded text-lg"
+                >
+                <i class="fas fa-film"></i>
               </button>
             </td>
           </template>
       </Table>
+      <CommentModal :showfirstModal="showfirstModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" />
     </div>
   </main>
 </template>
@@ -44,14 +59,18 @@
 <script>
   import Table from "@/components/table"
   import FilterModal from '@/components/FilterModal'
+  import CommentModal from '@/components/modules/CommentModal'
   export default {
     name: "Book_course",
     components: {
       Table,
-      FilterModal
+      FilterModal,
+      CommentModal
     },
     data () {
       return {
+        showfirstModal: false,
+
         showItems: {
           role: false,
           listStatus: true,
@@ -123,6 +142,16 @@
       },
       addBook () {
         this.$router.push({ name: 'AddBooking' })
+      },
+
+      openModal () {
+        this.showfirstModal = true
+      },
+      closeModal (closeModal) {
+        this.showfirstModal = closeModal
+      },
+      submit (submit) {
+        // this.$router.push({ name: submit })
       }
       // edit() {
       //   console.log('edit manage');

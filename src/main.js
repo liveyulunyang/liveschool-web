@@ -4,7 +4,6 @@ import App from './App.vue';
 import { Icon } from 'leaflet';
 import '@/assets/css/tailwind.css';
 import '@/assets/css/main.css';
-import '@/assets/css/table.css';
 import '@/assets/css/checkbox.css';
 import 'leaflet/dist/leaflet.css';
 

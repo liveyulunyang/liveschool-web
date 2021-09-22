@@ -32,7 +32,7 @@
                   >
                   <img src="@/assets/img/icons/edit.svg" alt="" class="w-8 object-contain">
                 </button>
-                <button
+                <button @click="del()"
                   class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
                   >
                   <img src="@/assets/img/icons/delete.svg" alt="" class="w-8 object-contain">
@@ -77,6 +77,25 @@
       },
       closeModal (closeModal) {
         this.showfirstModal = closeModal
+      },
+      del () {
+        this.$swal.fire({
+          title: '確認要刪除此筆資料?',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: '刪除',
+          cancelButtonText: '取消'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this.$swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+          }
+        })
       }
     }
   }

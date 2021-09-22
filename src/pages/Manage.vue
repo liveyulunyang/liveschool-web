@@ -40,7 +40,7 @@
           <h5 class="text-left text-sm px-2 mb-2 font-bold">課程標籤(可多選)</h5>
           <div class="flex flex-wrap w-full">
             <div class="w-1/2 md:w-1/3 lg:w-1/4 py-1 px-2" v-for="(item, index) in tagOptions" :key="index">
-              <a class="py-1 bg-white border border-gray-200 text-gray-0 text-sm rounded whitespace-no-wrap block" :class="{ tagActive: item.isActive }" >{{ item.name }}</a>
+              <a class="py-2 bg-white border border-gray-200 text-gray-0 text-sm rounded whitespace-no-wrap block" :class="{ tagActive: item.isActive }" >{{ item.name }}</a>
             </div>
           </div>
         </div>
