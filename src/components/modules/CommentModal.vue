@@ -1,13 +1,45 @@
 <template>
-  <Modal :based-on="showfirstModal" :title="title" :modalClass="'modal-outer bg-gray-300 pb-4'" @close="$emit('closeModal', false)">
-    <FilterModal :showItems="showItems" />
-    <div class="h-table">
-      <Table
-        :columns="tableList.columns"
-        :actions="tableList.actions"
-        :data="tableList.datas">
-      </Table>
-    </div>
+    <Modal :based-on="showfirstModal" :title="''" :modalClass="'modal-outer bg-gray-300 pb-4'" @close="$emit('closeModal', false)">
+      <FilterModal :showItems="showItems" />
+      <div class="h-table">
+        <Table
+          :columns="tableList.columns"
+          :actions="tableList.actions"
+          :data="tableList.datas">
+            <template slot="statusLabel">
+              <th class="whitespace-no-wrap text-center">課後預習分數</th>
+            </template>
+            <template slot="actionsLabel">
+              <th class="whitespace-no-wrap text-center">其他</th>
+            </template>
+
+            <template slot="statusText">
+              <td data-th="課後預習分數">
+                <p class="px-1 py-2 border border-gray-300 text-gray-300">課後練習成績</p>
+              </td>
+            </template>
+            <template slot="actionsBtn">
+              <td data-th="其他">
+                <button @click="openModal"
+                  class="text-sm text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1 text-white bg-gray-900 px-2 py-2 rounded"
+                  >
+                  <i class="far fa-star mr-1"></i>老師評語
+                </button>
+                <button @click="openModal"
+                  class="text-sm text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1 text-white bg-gray-900 px-2 py-2 rounded"
+                  >
+                  <i class="far fa-star mr-1"></i>學生評語
+                </button>
+                <button
+                  class="text-sm text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1 text-white bg-gray-900 px-2 py-2 rounded"
+                  >
+                  <i class="far fa-gem mr-1"></i>成績證書
+                </button>
+              </td>
+            </template>
+        </Table>
+      </div>
+      <CommentContentModal :showfirstModal="showSecondModal" v-on:closeModal="closeModal" :isDisabled="true" :title="''" v-on:submit="submit" />
   </Modal>
 </template>
 <script>
@@ -15,11 +47,13 @@ import Modal from '@kouts/vue-modal'
 import '@kouts/vue-modal/dist/vue-modal.css'
 import FilterModal from '@/components/FilterModal'
 import Table from '@/components/table'
+import CommentContentModal from '@/components/modules/CommentContentModal'
 export default {
   name: 'StudentsModal',
 
   data () {
     return {
+      showSecondModal: true,
       showItems: {
         role: false,
         listStatus: false,
@@ -30,33 +64,23 @@ export default {
         timePeriod: false,
         serach: true,
         sync: true,
-        approvalStatus: false
+        approvalStatus: false,
+        isExportBtn: true
       },
-        tableList: {
-          columns: [
-            { name: 'status', label: '狀態', required: true },
-            { name: 'email', label: '帳號信箱', required: true },
-            { name: 'name', label: '學生姓名', required: true },
-            { name: 'mobile', label: '行動電話', required: true },
-            { name: 'isAttend', label: '出席', required: true }
-          ],
-          datas: [
-            {
-              status: '正取',
-              email: '課程已結束',
-              name: 'Peggy',
-              mobile: '090000000',
-              isAttend: '是'
-            },
-            {
-              status: '正取',
-              email: '課程已結束',
-              name: 'Peggy',
-              mobile: '090000000',
-              isAttend: '是'
-            }
-          ]
-        }
+      tableList: {
+        columns: [
+          { name: 'email', label: '帳號信箱', required: true },
+          { name: 'name', label: '學生姓名', required: true },
+          { name: 'point', label: '剩餘點數', required: true }
+        ],
+        datas: [
+          {
+            email: 'Peggy@gmail',
+            name: 'Peggy',
+            point: '88',
+          }
+        ]
+      }
     }
   },
 
@@ -78,7 +102,8 @@ export default {
   components: {
     Modal,
     FilterModal,
-    Table
+    Table,
+    CommentContentModal
   },
   computed: {
   },
@@ -86,6 +111,16 @@ export default {
     close () {
       let self = this
       self.$emit('closeModal', false)
+    },
+
+    openModal () {
+      this.showSecondModal = true
+    },
+    closeModal (closeModal) {
+      this.showSecondModal = closeModal
+    },
+    submit (submit) {
+      // this.$router.push({ name: submit })
     }
     // addBooking () {
     //   this.close()

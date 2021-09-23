@@ -146,6 +146,13 @@
           <i class="fas fa-sync-alt text-lg"></i>
         </a>
       </div>
+
+      <!-- 匯出按鈕 -->
+      <div class="w-auto p-1" v-if="showItems.isExportBtn">
+        <button class="px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
+          <i class="fas fa-arrow-down mr-1"></i> 匯出資料
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -169,7 +176,8 @@
             timePeriod: false,
             serach: false,
             sync: false,
-            approvalStatus: true
+            approvalStatus: true,
+            isExportBtn: false
           }
         }
       }

@@ -69,7 +69,7 @@
     },
     data () {
       return {
-        showfirstModal: false,
+        showfirstModal: true,
 
         showItems: {
           role: false,
