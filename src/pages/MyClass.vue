@@ -13,6 +13,24 @@
             </div>
             <div class="flex items-center flex-1 justify-between sm:justify-start">
               <section style="background: none; border: none; box-shadow: none;" class="flex items-center mx-2">
+                <div class="roundedOne booking">
+                  <input type="checkbox" value="None" id="booking" name="check" checked="">
+                  <label for="booking"></label>
+                </div>
+                <span class="text-sm ml-1 whitespace-no-wrap md:hidden">預約</span>
+                <span class="text-sm ml-1 whitespace-no-wrap hidden md:block">LiveTalk單堂預約</span>
+              </section>
+              <section style="background: none; border: none; box-shadow: none;" class="flex items-center mx-2">
+                <div class="roundedOne finish">
+                  <input type="checkbox" value="None" id="finish" name="check" checked="">
+                  <label for="finish"></label>
+                </div>
+                <span class="text-sm ml-1 whitespace-no-wrap md:hidden">已結束</span>
+                <span class="text-sm ml-1 whitespace-no-wrap hidden md:block">已結束課程</span>
+              </section>
+            </div>
+            <!-- <div class="flex items-center flex-1 justify-between sm:justify-start">
+              <section style="background: none; border: none; box-shadow: none;" class="flex items-center mx-2">
                 <div class="roundedOne personal">
                   <input type="checkbox" value="None" id="personal" name="check" checked="">
                   <label for="personal"></label>
@@ -36,7 +54,7 @@
                 <span class="text-sm ml-1 whitespace-no-wrap md:hidden">已結束</span>
                 <span class="text-sm ml-1 whitespace-no-wrap hidden md:block">已結束課程</span>
               </section>
-            </div>
+            </div> -->
             <div class="flex items-center text-xs flex-wrap" v-if="!isCalemder">
               <div class="mx-1">
                 <date-picker

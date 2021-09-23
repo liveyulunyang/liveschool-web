@@ -1,5 +1,5 @@
 <template>
-  <Modal :based-on="showfirstModal" :modalClass="'modal-outer'" @close="$emit('closeModal', false)">
+  <Modal :based-on="showfirstModal" :modalClass="'modal-outer head-bg'" @close="$emit('closeModal', false)">
     <div>
       <div class="flex flex-wrap">
         <div class="w-full md:w-1/6 mb-4">
@@ -85,7 +85,7 @@ export default {
 </script>
 
 <style>
-.modal-outer {
+.head-bg {
   width: 100% !important;
   max-width: 64em !important;
   background: rgb(255,255,255);

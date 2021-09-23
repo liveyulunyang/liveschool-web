@@ -53,7 +53,7 @@ export default {
 
   data () {
     return {
-      showSecondModal: true,
+      showSecondModal: false,
       showItems: {
         role: false,
         listStatus: false,

@@ -10,9 +10,6 @@
       <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row mb-4">
         <div class="flex items-center justify-start flex-wrap">
           <FilterModal :showItems="showItems" />
-          <button v-if="$store.state.userRole === 'director'" class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
-            ↓ 匯出資料
-          </button>
         </div>
         <div class="flex justify-end items-center"  v-if="$store.state.userRole === 'director'">
           <button @click="addBook" class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
@@ -69,7 +66,7 @@
     },
     data () {
       return {
-        showfirstModal: true,
+        showfirstModal: false,
 
         showItems: {
           role: false,
@@ -80,7 +77,8 @@
           classType: false,
           timePeriod: true,
           serach: true,
-          sync: true
+          sync: true,
+          isExportBtn: true
         },
 
         tableList: {
