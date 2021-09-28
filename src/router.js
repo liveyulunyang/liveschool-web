@@ -36,7 +36,7 @@ const router = new Router({
       component: () => import('@/pages/Manage.vue')
     },
     {
-      path: '/talk_class/add',
+      path: '/talk_class/:status',
       name: 'addTalkClass',
       component: () => import('@/pages/AddClass.vue')
     },

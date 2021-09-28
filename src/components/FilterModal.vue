@@ -1,6 +1,18 @@
 <template>
   <div class="flex items-center justify-start flex-wrap">
     <div class="w-full flex flex-wrap items-center">
+      <!-- 教室 -->
+      <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.classroom">
+        <div class="relative text-sm w-full">
+          <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
+            >
+            <option value="">教室</option>
+          </select>
+          <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
+            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+          </div>
+        </div>
+      </div>
       <!-- 權限 -->
       <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.role">
         <div class="relative text-sm w-full">
@@ -167,6 +179,7 @@
         type: Object,
         default () {
           return {
+            classroom: false,
             role: false,
             listStatus: false,
             classTopic: false,
@@ -212,7 +225,7 @@
 <style lang="scss">
   .mx-datepicker-range {
     width: 100%;
-    height: 42px !important;
+    height: 43px !important;
   }
   .mx-input-wrapper {
     input {

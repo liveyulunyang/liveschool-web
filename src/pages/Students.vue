@@ -152,14 +152,6 @@
   .search {
     width: 10em !important;
   }
-/* .mx-datepicker-range {
-  width: 15em;
-  height: 42px !important;
-} */
-.mx-input {
-  height: 42px !important;
-}
-
 .multiselect {
   width: fit-content !important;
 }

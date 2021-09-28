@@ -12,7 +12,9 @@
           </button>
         </li>
         <li class="py-2 px-6 tag flex items-center justify-center mx-1" :class="{ tagAct: tag === 0 }" @click="tag = 0">課程基本資料</li>
-        <li class="py-2 px-6 tag flex items-center justify-center mx-1" :class="{ tagAct: tag === 1 }" @click="tag = 1">課程章節</li>
+        <!-- <li class="py-2 px-6 tag flex items-center justify-center mx-1" :class="{ tagAct: tag === 1 }" @click="tag = 1">課程章節</li> -->
+        <li class="py-2 px-6 tag flex items-center justify-center mx-1" :class="{ tagAct: tag === 1 }" @click="tag = 1">堂數設定</li>
+        <li class="py-2 px-6 tag flex items-center justify-center mx-1" :class="{ tagAct: tag === 2 }" @click="tag = 2">課程時間</li>
       </ul>
 
       <ul class="flex cursor-pointer text-sm" v-if="tag === 1">
@@ -381,9 +383,8 @@
           </button>
         </div>
       </form>
-      <form action="javascript:void(0);" class="text-NotoSansRegular textColorblack mx-auto" v-if="tag === 1">
+      <!-- <form action="javascript:void(0);" class="text-NotoSansRegular textColorblack mx-auto" v-if="tag === 1">
 
-        <!-- Chapter -->
         <div class="w-full bg-white py-2 lg:py-3 flex flex-col justify-between leading-normal mb-1">
           <div class="flex flex-wrap textColorblack">
 
@@ -404,12 +405,6 @@
                     id="email" type="email" placeholder="副標題">
                 </div>
               </div>
-              <!-- <div class="w-full md:w-3/12 flex items-center justify-center md:pl-2">
-                <button class="button-verified py-2 px-2 rounded w-full text-sm whitespace-no-wrap md:mx-1">
-                  儲存</button>
-                <button class="button-verified py-2 px-2 rounded w-full text-sm whitespace-no-wrap md:mx-1">
-                  <i class="fas fa-times"></i>取消修改</button>
-              </div> -->
               <div class="w-full md:w-3/12 flex items-center justify-center md:pl-2">
                 <button class="button-verified py-2 px-2 rounded w-full text-sm whitespace-no-wrap md:mx-1">
                   <i class="fas fa-plus"></i>新增單元
@@ -428,7 +423,6 @@
           </div>
         </div>
 
-        <!-- Unit -->
         <div class="w-full bg-white py-2 lg:py-3 flex flex-col justify-between leading-normal">
           <div class="flex flex-wrap textColorblack">
 
@@ -494,25 +488,10 @@
                 <button class="button-verified py-2 px-2 rounded w-full text-sm whitespace-no-wrap md:mx-1">
                   <i class="fas fa-times"></i>取消修改</button>
               </div>
-              <!-- <div class="w-full md:w-1/5 flex items-center justify-center md:pl-2">
-                <button class="button-verified py-2 px-2 rounded w-full text-sm whitespace-no-wrap md:mx-1">
-                  <i class="fas fa-plus"></i>新增單元
-                </button>
-                <button class="button-verified py-2 px-2 rounded w-full text-sm whitespace-no-wrap md:mx-1">
-                  <i class="fas fa-edit"></i>
-                </button>
-                <button class="button-verified py-2 px-2 rounded w-full text-sm whitespace-no-wrap md:mx-1">
-                  <i class="fas fa-trash-alt"></i>
-                </button>
-                <a href="" class="block px-1">
-                  <i class="fas fa-bars mb-0"></i>
-                </a>
-              </div> -->
             </div>
           </div>
         </div>
 
-        <!-- 新增影片 -->
         <div class="w-full bg-white py-2 lg:py-3 flex flex-col justify-between leading-normal border-t border-gray-1">
           <div class="flex flex-wrap textColorblack">
 
@@ -538,8 +517,7 @@
                   <span>cover.jpg</span>
                   <a href="" class="block p-2"><i class="fas fa-times"></i></a>
                 </div>
-                <!-- <div class="w-full md:w-3/5 px-1 md:flex items-center">
-                </div> -->
+
               </div>
               <div class="w-full md:w-2/12 flex items-center justify-center md:pl-2">
                 <button class="button-verified py-2 px-2 rounded w-full text-sm whitespace-no-wrap md:mx-1">
@@ -547,25 +525,11 @@
                 <button class="button-verified py-2 px-2 rounded w-full text-sm whitespace-no-wrap md:mx-1">
                   <i class="fas fa-times"></i>取消修改</button>
               </div>
-              <!-- <div class="w-full md:w-1/5 flex items-center justify-center md:pl-2">
-                <button class="button-verified py-2 px-2 rounded w-full text-sm whitespace-no-wrap md:mx-1">
-                  <i class="fas fa-plus"></i>新增單元
-                </button>
-                <button class="button-verified py-2 px-2 rounded w-full text-sm whitespace-no-wrap md:mx-1">
-                  <i class="fas fa-edit"></i>
-                </button>
-                <button class="button-verified py-2 px-2 rounded w-full text-sm whitespace-no-wrap md:mx-1">
-                  <i class="fas fa-trash-alt"></i>
-                </button>
-                <a href="" class="block px-1">
-                  <i class="fas fa-bars mb-0"></i>
-                </a>
-              </div> -->
+
             </div>
           </div>
         </div>
 
-        <!-- 新增單字 -->
         <div class="w-full bg-white py-2 lg:py-3 flex flex-col justify-between leading-normal border-t border-gray-1">
           <div class="flex flex-wrap textColorblack">
 
@@ -609,20 +573,6 @@
                 <button class="button-verified py-2 px-2 rounded w-full text-sm whitespace-no-wrap md:mx-1">
                   <i class="fas fa-times"></i>取消修改</button>
               </div>
-              <!-- <div class="w-full md:w-1/5 flex items-center justify-center md:pl-2">
-                <button class="button-verified py-2 px-2 rounded w-full text-sm whitespace-no-wrap md:mx-1">
-                  <i class="fas fa-plus"></i>新增單元
-                </button>
-                <button class="button-verified py-2 px-2 rounded w-full text-sm whitespace-no-wrap md:mx-1">
-                  <i class="fas fa-edit"></i>
-                </button>
-                <button class="button-verified py-2 px-2 rounded w-full text-sm whitespace-no-wrap md:mx-1">
-                  <i class="fas fa-trash-alt"></i>
-                </button>
-                <a href="" class="block px-1">
-                  <i class="fas fa-bars mb-0"></i>
-                </a>
-              </div> -->
             </div>
             <div class="w-full px-3 py-3 md:flex mb-2">
               <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2 opacity-0" for="email">
@@ -649,7 +599,6 @@
           </div>
         </div>
 
-        <!-- 新增學習內容 -->
         <div class="w-full bg-white py-2 lg:py-3 flex flex-col justify-between leading-normal border-t border-gray-1">
           <div class="flex flex-wrap textColorblack">
             <div class="w-full px-3 py-3 md:flex mb-2">
@@ -679,7 +628,7 @@
             </div>
           </div>
         </div>
-      </form>
+      </form> -->
     </div>
 
     <NoData v-else />

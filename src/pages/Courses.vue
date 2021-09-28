@@ -38,11 +38,11 @@
             <td data-th="紀錄">
               <button
                 class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1">
-                <img src="@/assets/img/icons/list.svg" alt="" class="h-6 object-contain noData">
+                <img :src="require('@/assets/img/icons/list.svg')" alt="" class="h-6 object-contain noData">
               </button>
               <button
                 class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1">
-                <img src="@/assets/img/icons/film.svg" alt="" class="h-6 object-contain noData">
+                <img :src="require('@/assets/img/icons/film.svg')" alt="" class="h-6 object-contain noData">
                 <!-- <img src="@/assets/img/icons/film_active.svg" alt="" class="h-6 object-contain hasData"> -->
               </button>
             </td>
@@ -53,21 +53,20 @@
                 class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
                 >
                 <!-- <img src="@/assets/img/icons/file.svg" alt="" class="h-6 object-contain noData"> -->
-                <img src="@/assets/img/icons/file_active.svg" alt="" class="h-6 object-contain hasData">
+                <img :src="require('@/assets/img/icons/file_active.svg')" alt="" class="h-6 object-contain hasData">
               </button>
               <button @click="toPreview"
                 class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
                 >
                 <!-- <img src="@/assets/img/icons/before_test.svg" alt="" class="h-6 object-contain noData"> -->
-                <img src="@/assets/img/icons/before_test_active.svg" alt="" class="h-6 object-contain hasData">
+                <img :src="require('@/assets/img/icons/before_test_active.svg')" alt="" class="h-6 object-contain hasData">
               </button>
               <button @click="toReview"
                 class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1 isActive"
                 >
                 <!-- <img src="@/assets/img/icons/after_test.svg" alt="" class="h-6 object-contain noData"> -->
-                <img src="@/assets/img/icons/after_test_active.svg" alt="" class="h-6 object-contain hasData">
+                <img :src="require('@/assets/img/icons/after_test_active.svg')" alt="" class="h-6 object-contain hasData">
               </button>
-              <!-- {{ item.materials }} -->
             </td>
           </template>
           <template scope="props" slot="actionsBtn">
@@ -75,17 +74,17 @@
               <button @click="edit(props.item.id)"
                 class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
                 >
-                <img src="@/assets/img/icons/edit.svg" alt="" class="w-6 object-contain">
+                <img :src="require('@/assets/img/icons/edit.svg')" alt="" class="w-6 object-contain">
               </button>
               <button @click="open(props.item.id)"
                 class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
                 >
-                <img src="@/assets/img/icons/more.svg" alt="" class="w-6 object-contain">
+                <img :src="require('@/assets/img/icons/more.svg')" alt="" class="w-6 object-contain">
               </button>
               <button @click="del(props.item.id)"
                 class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
                 >
-                <img src="@/assets/img/icons/delete.svg" alt="" class="w-6 object-contain">
+                <img :src="require('@/assets/img/icons/delete.svg')" alt="" class="w-6 object-contain">
               </button>
             </td>
           </template>
@@ -136,10 +135,6 @@
             { name: 'classtype', label: '課程種類', required: true },
             { name: 'isPublic', label: '是否公開', required: true },
             { name: 'branch', label: '站別', required: true },
-            // { name: 'record', label: '紀錄', required: true },
-            // { name: 'materials', label: '補充教材', required: true },
-            // { name: 'actions', label: '執行動作', required: true
-            // },
             { name: 'status', label: '狀態', required: true }
           ],
           datas: [
@@ -196,7 +191,7 @@
     },
     methods: {
       addClass () {
-        this.$router.push({ name: 'addTalkClass' })
+        this.$router.push({ name: 'addTalkClass', params: { status: 'add'} })
       },
       toEdit () {
         this.$router.push({ name: 'course_template' })
@@ -215,23 +210,23 @@
       },
       del(id) {
         console.log(id)
-        // this.$swal.fire({
-        //   title: '確認要刪除此筆資料?',
-        //   icon: 'warning',
-        //   showCancelButton: true,
-        //   confirmButtonColor: '#3085d6',
-        //   cancelButtonColor: '#d33',
-        //   confirmButtonText: '刪除',
-        //   cancelButtonText: '取消'
-        // }).then((result) => {
-        //   if (result.isConfirmed) {
-        //     this.$swal.fire(
-        //       'Deleted!',
-        //       'Your file has been deleted.',
-        //       'success'
-        //     )
-        //   }
-        // })
+        this.$swal.fire({
+          title: '確認要刪除此筆資料?',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: '刪除',
+          cancelButtonText: '取消'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this.$swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+          }
+        })
       },
       toPreview () {
         console.log('d')
@@ -252,11 +247,4 @@
   .search {
     width: 10em !important;
   }
-/* .mx-datepicker-range {
-  width: 15em;
-  height: 42px !important;
-} */
-.mx-input {
-  height: 42px !important;
-}
 </style>

@@ -11,6 +11,7 @@
           <slot name="startClassLabel"></slot>
           <slot name="othersLabel"></slot>
           <slot name="classDetailLabel"></slot>
+          <slot name="RegistrationReviewLabel"></slot>
         </tr>
         <tr v-for="(item, index) in data" :key="index">
           <td :data-th="column.label" v-for="(column, indexColumn) in columns" :key="indexColumn" @click="openModal" :class="{ cursorPointer: $route.name === 'Learn_record_supervise' }">
@@ -23,6 +24,7 @@
           <slot name="startClass"></slot>
           <slot name="others"></slot>
           <slot name="classDetail"></slot>
+          <slot name="RegistrationReview"></slot>
         </tr>
       </tbody>
     </table>

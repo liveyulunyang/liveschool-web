@@ -3,13 +3,12 @@
     <div class="flex flex-col w-full">
       <div class="mb-4 flex justify-between items-center flex-wrap">
         <div class="flex">
-          <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">LiveTalk課程管理</h1>
+          <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">LiveTeacher課程管理</h1>
         </div>
         <div class="flex text-xs flex-wrap">
-          <h5 class="mr-3 whitespace-no-wrap">已結束<span class="bg-white rounded-lg px-2 py-1 mx-1">999</span>課</h5>
-          <h5 class="mr-3 whitespace-no-wrap">已取消<span class="bg-white rounded-lg px-2 py-1 mx-1">915</span>課</h5>
-          <h5 class="mr-3 whitespace-no-wrap">進行中<span class="bg-white rounded-lg px-2 py-1 mx-1">9</span>課</h5>
-          <h5 class="mr-3 whitespace-no-wrap">未結束<span class="bg-white rounded-lg px-2 py-1 mx-1">99</span>課</h5>
+          <h5 class="mr-3 whitespace-no-wrap">上線中<span class="bg-white rounded-lg px-2 py-1 mx-1">999</span>課</h5>
+          <h5 class="mr-3 whitespace-no-wrap">草稿<span class="bg-white rounded-lg px-2 py-1 mx-1">915</span>課</h5>
+          <h5 class="mr-3 whitespace-no-wrap">結束<span class="bg-white rounded-lg px-2 py-1 mx-1">9</span>課</h5>
         </div>
       </div>
       <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row mb-4">
@@ -19,9 +18,6 @@
           <button class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
             批次匯入
           </button>
-          <button @click="toEdit" class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
-            編輯模板
-          </button>
           <button @click="addClass" class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
             + 新增課程
           </button>
@@ -30,66 +26,39 @@
       <Table :columns="tableList.columns"
         :actions="tableList.actions"
         :data="tableList.datas">
-          <template v-slot:record><th class="whitespace-no-wrap text-center">紀錄</th></template>
-          <template v-slot:supplementaryMaterials><th class="whitespace-no-wrap text-center">補充教材</th></template>
-          <template v-slot:actionsLabel><th class="whitespace-no-wrap text-center">執行動作</th></template>
+          <template v-slot:actionsLabel><th class="whitespace-no-wrap text-center">課程動作</th></template>
+          <template v-slot:RegistrationReviewLabel><th class="whitespace-no-wrap text-center">報名審核動作</th></template>
 
-          <template slot="recordBtn">
-            <td data-th="紀錄">
-              <button
-                class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1">
-                <img src="@/assets/img/icons/list.svg" alt="" class="h-6 object-contain noData">
-              </button>
-              <button
-                class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1">
-                <img src="@/assets/img/icons/film.svg" alt="" class="h-6 object-contain noData">
-                <!-- <img src="@/assets/img/icons/film_active.svg" alt="" class="h-6 object-contain hasData"> -->
-              </button>
-            </td>
-          </template>
-          <template slot="supplementaryMaterialsBtn">
-            <td data-th="補充教材">
-              <button
-                class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
-                >
-                <!-- <img src="@/assets/img/icons/file.svg" alt="" class="h-6 object-contain noData"> -->
-                <img src="@/assets/img/icons/file_active.svg" alt="" class="h-6 object-contain hasData">
-              </button>
-              <button @click="toPreview"
-                class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
-                >
-                <!-- <img src="@/assets/img/icons/before_test.svg" alt="" class="h-6 object-contain noData"> -->
-                <img src="@/assets/img/icons/before_test_active.svg" alt="" class="h-6 object-contain hasData">
-              </button>
-              <button @click="toReview"
-                class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1 isActive"
-                >
-                <!-- <img src="@/assets/img/icons/after_test.svg" alt="" class="h-6 object-contain noData"> -->
-                <img src="@/assets/img/icons/after_test_active.svg" alt="" class="h-6 object-contain hasData">
-              </button>
-              <!-- {{ item.materials }} -->
-            </td>
-          </template>
           <template scope="props" slot="actionsBtn">
-            <td data-th="執行動作">
+            <td data-th="課程動作">
               <button @click="edit(props.item.id)"
                 class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
                 >
-                <img src="@/assets/img/icons/edit.svg" alt="" class="w-6 object-contain">
+                <img :src="require('@/assets/img/icons/edit.svg')" alt="" class="w-6 object-contain">
               </button>
-              <button @click="open(props.item.id)"
+              <button @click="openModal"
                 class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
                 >
-                <img src="@/assets/img/icons/more.svg" alt="" class="w-6 object-contain">
+                <img :src="require('@/assets/img/icons/more.svg')" alt="" class="w-6 object-contain">
               </button>
               <button @click="del(props.item.id)"
                 class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
                 >
-                <img src="@/assets/img/icons/delete.svg" alt="" class="w-6 object-contain">
+                <img :src="require('@/assets/img/icons/delete.svg')" alt="" class="w-6 object-contain">
+              </button>
+            </td>
+          </template>
+          <template scope="props" slot="RegistrationReview">
+            <td data-th="報名審核動作">
+              <button @click="edit(props.item.id)"
+                class="text-white bg-gray-900 hover:text-black-1 hover:bg-primary-light mx-1 px-2 py-1 rounded"
+                >
+                審核<i class="fas fa-arrow-right ml-1"></i>
               </button>
             </td>
           </template>
       </Table>
+      <CommentModal :showfirstModal="showfirstModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" />
       <Pagination />
     </div>
   </main>
@@ -100,19 +69,24 @@
   import FilterModal from '@/components/FilterModal'
   import Pagination from '@/components/modules/Pagination'
   import 'vue2-datepicker/index.css'
+  import CommentModal from '@/components/modules/CourseModel'
   export default {
-    name: 'Courses',
+    name: 'CoursesTC',
     components: {
       Table,
       FilterModal,
-      Pagination
+      Pagination,
+      CommentModal
     },
     props: [
       'props'
     ],
     data () {
       return {
+        showfirstModal: false,
+
         showItems: {
+          classroom: true,
           role: false,
           listStatus: false,
           classTopic: true,
@@ -128,65 +102,23 @@
           columns: [
             { name: 'id', label: 'ID', required: true },
             { name: 'classroom', label: '教室', required: true },
-            { name: 'classname', label: '課程名稱', required: true },
             { name: 'teacher', label: '老師', required: true },
-            { name: 'number', label: '人數', required: true, sortable: false},
-            { name: 'point', label: '點數', required: true },
-            { name: 'classtime', label: '開課時間', required: true },
-            { name: 'classtype', label: '課程種類', required: true },
-            { name: 'isPublic', label: '是否公開', required: true },
-            { name: 'branch', label: '站別', required: true },
-            // { name: 'record', label: '紀錄', required: true },
-            // { name: 'materials', label: '補充教材', required: true },
-            // { name: 'actions', label: '執行動作', required: true
-            // },
-            { name: 'status', label: '狀態', required: true }
+            { name: 'topic', label: '主題分類', required: true },
+            { name: 'className', label: '課名', required: true },
+            { name: 'NumberOfClass', label: '開課時間', required: true },
+            { name: 'NumberOfPass', label: '課程種類', required: true },
+            { name: 'status', label: '是否公開', required: true }
           ],
           datas: [
             {
               id: '282638',
               classroom: 'ROOM1',
-              classname: 'CTL測試課程',
               teacher: 'Peggy',
-              number: '0/0',
-              point: 88,
-              classtime: '2021-06-22 22:00-23:00',
-              classtype: 'CTL口說班',
-              isPublic: '是',
-              branch: 'XX站',
-              record: 'C8',
-              materials: 'C8',
-              status: '準備中'
-            },
-            {
-              id: '2825638',
-              classroom: 'ROOM1',
-              classname: 'CTL測試課程',
-              teacher: 'Peggy',
-              number: '0/0',
-              point: 88,
-              classtime: '2021-06-22 22:00-23:00',
-              classtype: 'CTL口說班',
-              isPublic: '是',
-              branch: 'XX站',
-              record: 'C8',
-              materials: 'C8',
-              status: '準備中'
-            },
-            {
-              id: '282658',
-              classroom: 'ROOM1',
-              classname: 'CTL測試課程',
-              teacher: 'Peggy',
-              number: '0/0',
-              point: 88,
-              classtime: '2021-06-22 22:00-23:00',
-              classtype: 'CTL口說班',
-              isPublic: '是',
-              branch: 'XX站',
-              record: 'C8',
-              materials: 'C8',
-              status: '準備中'
+              topic: '作文班',
+              className: '作文的起承轉合',
+              NumberOfClass: '13',
+              NumberOfPass: '25/40',
+              status: '已上線'
             }
           ]
         }
@@ -196,42 +128,38 @@
     },
     methods: {
       addClass () {
-        this.$router.push({ name: 'addTalkClass' })
+        this.$router.push({ name: 'addTalkClass', params: { status: 'add'} })
       },
       toEdit () {
         this.$router.push({ name: 'course_template' })
       },
-      // edit() {
-      //   console.log('edit manage');
-      // },
-      // open() {
-      //   console.log('open manage');
-      // },
+
       edit(id) {
         console.log(id)
+        this.$router.push({ name: 'addTalkClass', params: { status: 'edit'} })
       },
       open(id) {
         console.log(id)
       },
       del(id) {
         console.log(id)
-        // this.$swal.fire({
-        //   title: '確認要刪除此筆資料?',
-        //   icon: 'warning',
-        //   showCancelButton: true,
-        //   confirmButtonColor: '#3085d6',
-        //   cancelButtonColor: '#d33',
-        //   confirmButtonText: '刪除',
-        //   cancelButtonText: '取消'
-        // }).then((result) => {
-        //   if (result.isConfirmed) {
-        //     this.$swal.fire(
-        //       'Deleted!',
-        //       'Your file has been deleted.',
-        //       'success'
-        //     )
-        //   }
-        // })
+        this.$swal.fire({
+          title: '確認要刪除此筆資料?',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: '刪除',
+          cancelButtonText: '取消'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this.$swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+          }
+        })
       },
       toPreview () {
         console.log('d')
@@ -240,6 +168,16 @@
       toReview () {
         console.log('d')
         this.$router.push({ path: '/ctl_class/review' })
+      },
+
+      openModal () {
+        this.showfirstModal = true
+      },
+      closeModal (closeModal) {
+        this.showfirstModal = closeModal
+      },
+      submit (submit) {
+        // this.$router.push({ name: submit })
       }
     }
   }
@@ -252,11 +190,4 @@
   .search {
     width: 10em !important;
   }
-/* .mx-datepicker-range {
-  width: 15em;
-  height: 42px !important;
-} */
-.mx-input {
-  height: 42px !important;
-}
 </style>
