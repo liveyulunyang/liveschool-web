@@ -117,22 +117,22 @@
                 </div>
               </div>
               <div v-if="tag === 3">
-                <div class="flex flex-wrap lg:flex-no-wrap">
-                  <div class="bg-white py-8 px-4 md:px-8 leading-loose flex flex-col justify-between">
-                    <div>
-                      <div class="mb-8">
+                <div class="flex flex-wrap lg:flex-no-wrap bg-white">
+                  <div class="py-8 px-4 md:px-8 leading-loose flex flex-col justify-between w-full lg:w-auto">
+                    <div class="md:flex lg:flex-col">
+                      <div class="mb-8 md:w-1/2 lg:w-full">
                         <h6 class="text-xl font-bold">選擇日期</h6>
                         <p class="text-base">請先選擇課程時段</p>
                         <CalenderDot />
                       </div>
-                      <div class="mb-8">
+                      <div class="mb-8 md:w-1/2 lg:w-full">
                         <h6 class="text-xl font-bold">選擇時段</h6>
                         <div class="relative text-sm w-full">
-                          <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
+                          <select v-model="TimePeriod" @change="setTime" class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
                             >
-                            <option value="">全天</option>
-                            <option value="">上午</option>
-                            <option value="">下午</option>
+                            <option value="full">全天</option>
+                            <option value="morning">上午</option>
+                            <option value="afternoon">下午</option>
                           </select>
                           <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
                             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -151,8 +151,8 @@
                     </div>
                   </div>
                   <div class="px-2 w-full">
-                    <FullCalendar :options="calendarOptions" class="hidden lg:block" />
-                    <!-- <FullCalendar :options="calendarListOptions" class="lg:hidden" /> -->
+                    <FullCalendar :options="calendarOptions" class="hidden lg:block" ref="fullCalendar" :slot-min-time="'10:00'" />
+                    <FullCalendar :options="calendarListOptions" class="lg:hidden" />
                     <!-- <Calender :Calendertype="'week'" /> -->
                   </div>
                 </div>
@@ -168,14 +168,13 @@
   import DatePicker from 'vue2-datepicker'
   import 'vue2-datepicker/index.css'
   import CalenderDot from '@/components/modules/CalenderDot'
+
   import '@fullcalendar/core/vdom'
   import FullCalendar from '@fullcalendar/vue'
   import dayGridPlugin from '@fullcalendar/daygrid'
   import timeGridPlugin from '@fullcalendar/timegrid'
   import interactionPlugin from '@fullcalendar/interaction'
-  // import listPlugin   from '@fullcalendar/list'
-  // import { Calendar } from '@fullcalendar/core'
-  import resourceTimelinePlugin from '@fullcalendar/resource-timeline'
+  import listPlugin   from '@fullcalendar/list'
   export default {
     name: "Course_setting",
     components: {
@@ -185,18 +184,17 @@
     },
     data () {
       return {
-        tag: 3,
+        tag: 0,
         periodTime: null,
         value1: null,
+        TimePeriod: 'full',
 
         calendarOptions: {
-          plugins: [ dayGridPlugin, interactionPlugin, timeGridPlugin, resourceTimelinePlugin ],
+          plugins: [dayGridPlugin, interactionPlugin, timeGridPlugin],
           initialView: 'timeGridWeek',
           weekends: true,
-          // defaultView: 'resourceTimeline',
-          minTime: '10:00:00',
-          mazTime: '14:00:00',
-
+          slotMinTime: '9:00:00',
+          slotMaxTime: '21:00:00',
           events: [
             {
               title: '預約此時段',
@@ -209,30 +207,45 @@
 
             }
           ]
+        },
+        calendarListOptions: {
+          plugins: [dayGridPlugin, interactionPlugin, timeGridPlugin, listPlugin],
+          initialView: 'listWeek',
+          weekends: true,
+          slotMinTime: '9:00:00',
+          slotMaxTime: '21:00:00',
+          events: [
+            {
+              title: '預約此時段',
+              start: '2021-10-07T10:30:00',
+              end: '2021-10-07T11:30:00',
+              extendedProps: {
+                department: 'BioChemistry'
+              },
+              description: 'Lecture'
+            }
+          ]
         }
-        // calendarListOptions: {
-        //   plugins: [ dayGridPlugin, interactionPlugin, timeGridPlugin, listPlugin ],
-        //   initialView: 'listWeek',
-        //   weekends: true,
-        //   minTime: '08:00:00',
-        //   maxTime: '20:00:00',
-        //   events: [
-        //     {
-        //       title: '預約此時段',
-        //       start: '2021-10-07T10:30:00',
-        //       end: '2021-10-07T11:30:00',
-        //       extendedProps: {
-        //         department: 'BioChemistry'
-        //       },
-        //       description: 'Lecture'
-        //     }
-        //   ]
-        // }
       }
     },
     computed: {
     },
+    mounted () {
+    },
     methods: {
+      setTime () {
+        let TimePeriod = this.TimePeriod
+        if (TimePeriod === 'morning') {
+          this.$refs.fullCalendar.getApi().setOption('slotMinTime', '09:00:00')
+          this.$refs.fullCalendar.getApi().setOption('slotMaxTime', '13:00:00')
+        } else if (TimePeriod === 'afternoon') {
+          this.$refs.fullCalendar.getApi().setOption('slotMinTime', '13:00:00')
+          this.$refs.fullCalendar.getApi().setOption('slotMaxTime', '21:00:00')
+        } else {
+          this.$refs.fullCalendar.getApi().setOption('slotMinTime', '09:00:00')
+          this.$refs.fullCalendar.getApi().setOption('slotMaxTime', '21:00:00')
+        }
+      }
     }
   }
 </script>

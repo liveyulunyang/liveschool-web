@@ -4,7 +4,8 @@
       <vue-ads-pagination
         :page="page"
         :itemsPerPage="10"
-        :maxVisiblePages="1"
+        :max-visible-pages="5"
+
         :totalItems="200"
       >
           <template
@@ -12,12 +13,12 @@
               slot-scope="props"
           >
           <vue-ads-page-button
-              v-for="(button, key) in props.buttons"
-              :key="key"
-              v-bind="button"
-              :class="{'bg-yellow-dark': button.active}"
-              @page-change="page = button.page"
-              @range-change="start = button.start; end = button.end"
+            v-for="(button, key) in props.buttons"
+            :key="key"
+            v-bind="button"
+            :class="{ 'bg-gray-900 pagination-btn': button.active }"
+            @page-change="page = button.page"
+            @range-change="start = button.start; end = button.end"
           />
         </template>
       </vue-ads-pagination>
@@ -42,7 +43,7 @@ export default {
     data () {
       return {
         loading: false,
-        page: 5,
+        page: 0,
       }
     },
 
@@ -56,11 +57,19 @@ export default {
     }
 }
 </script>
-<style>
-.vue-ads-pr-2 {
-  display: none;
-}
-.flex {
-  display: flex !important;
-}
+<style lang="scss">
+  .vue-ads-pr-2 {
+    display: none;
+  }
+  .flex {
+    display: flex !important;
+  }
+  .vue-ads-w-6 {
+    width: auto;
+    padding: .5rem .75rem;
+    border: 2px solid rgb(0, 0, 0) !important;
+  }
+  .vue-ads-cursor-default {
+    border: none !important;
+  }
 </style>
