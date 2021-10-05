@@ -3,57 +3,39 @@
     <div class="flex flex-col w-full">
       <div class="mb-4 flex justify-between items-center flex-wrap">
         <div class="flex">
-          <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">LiveTeacher課程管理</h1>
-        </div>
-        <div class="flex text-xs flex-wrap">
-          <h5 class="mr-3 whitespace-no-wrap">上線中<span class="bg-white rounded-lg px-2 py-1 mx-1">999</span>課</h5>
-          <h5 class="mr-3 whitespace-no-wrap">草稿<span class="bg-white rounded-lg px-2 py-1 mx-1">915</span>課</h5>
-          <h5 class="mr-3 whitespace-no-wrap">結束<span class="bg-white rounded-lg px-2 py-1 mx-1">9</span>課</h5>
+          <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">LiveTeacher報名進度</h1>
         </div>
       </div>
-      <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row mb-4">
+      <div class="flex items-center justify-between w-full flex-wrap  mb-4">
         <FilterModal :showItems="showItems" />
 
-        <div class="flex justify-end items-center">
-          <button class="px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
-            批次匯入
-          </button>
-          <button @click="addClass" class="px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
-            <i class="fas fa-plus mr-1"></i> 新增課程
+        <div class="w-full lg:w-auto flex justify-end">
+          <button @click="addClass" class="px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm mx-1 whitespace-no-wrap">
+            <i class="fas fa-plus mr-1"></i> 新增報名
           </button>
         </div>
       </div>
       <Table :columns="tableList.columns"
         :actions="tableList.actions"
         :data="tableList.datas">
-          <template v-slot:actionsLabel><th class="whitespace-no-wrap text-center">課程動作</th></template>
-          <template v-slot:RegistrationReviewLabel><th class="whitespace-no-wrap text-center">報名審核動作</th></template>
+          <template slot="statusLabel">
+            <th class="whitespace-no-wrap text-center">狀態</th>
+          </template>
+          <template v-slot:actionsLabel><th class="whitespace-no-wrap text-center">課程資料</th></template>
 
-          <template scope="props" slot="actionsBtn">
-            <td data-th="課程動作">
-              <button @click="edit(props.item.id)"
-                class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
-                >
-                <img :src="require('@/assets/img/icons/edit.svg')" alt="" class="w-6 object-contain">
-              </button>
+          <template slot="statusText">
+            <td data-th="狀態" >
+              <div class="lg:flex justify-center">
+                <div class="border border-gray-900 rounded-lg text-center w-32 ml-16 -mt-4 lg:mt-0 lg:ml-0">審核中<br/>-取消報名-</div>
+              </div>
+            </td>
+          </template>
+          <template slot="actionsBtn">
+            <td data-th="課程資料">
               <button @click="openModal"
                 class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
                 >
                 <img :src="require('@/assets/img/icons/more.svg')" alt="" class="w-6 object-contain">
-              </button>
-              <button @click="del(props.item.id)"
-                class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
-                >
-                <img :src="require('@/assets/img/icons/delete.svg')" alt="" class="w-6 object-contain">
-              </button>
-            </td>
-          </template>
-          <template scope="props" slot="RegistrationReview">
-            <td data-th="報名審核動作">
-              <button @click="edit(props.item.id)"
-                class="text-white bg-gray-900 hover:text-black-1 hover:bg-primary-light mx-1 px-2 py-1 rounded"
-                >
-                審核<i class="fas fa-arrow-right ml-1"></i>
               </button>
             </td>
           </template>
@@ -86,39 +68,45 @@
         showfirstModal: false,
 
         showItems: {
-          classroom: true,
+          ProgressStatus: true,
+          classroom: false,
           role: false,
           listStatus: false,
-          classTopic: true,
-          classification: true,
-          branch: true,
+          classTopic: false,
+          classification: false,
+          branch: false,
           classType: true,
           timePeriod: true,
           serach: true,
-          sync: true
+          sync: true,
+          isExportBtn: true
         },
 
         tableList: {
           columns: [
-            { name: 'id', label: 'ID', required: true },
-            { name: 'classroom', label: '教室', required: true },
+            { name: 'time', label: 'ID', required: true },
             { name: 'teacher', label: '老師', required: true },
             { name: 'topic', label: '主題分類', required: true },
-            { name: 'className', label: '課名', required: true },
-            { name: 'NumberOfClass', label: '開課時間', required: true },
-            { name: 'NumberOfPass', label: '課程種類', required: true },
-            { name: 'status', label: '是否公開', required: true }
+            { name: 'className', label: '課程名稱', required: true },
+            { name: 'NumberOfClass', label: '課程堂數', required: true },
+            { name: 'NumberOfStudent', label: '課程人數', required: true }
           ],
           datas: [
             {
-              id: '282638',
-              classroom: 'ROOM1',
+              time: '282638',
               teacher: 'Peggy',
               topic: '作文班',
               className: '作文的起承轉合',
               NumberOfClass: '13',
-              NumberOfPass: '25/40',
-              status: '已上線'
+              NumberOfStudent: '20/40'
+            },
+            {
+              time: '282639',
+              teacher: 'Peggy',
+              topic: '作文班',
+              className: '作文的起承轉合',
+              NumberOfClass: '13',
+              NumberOfStudent: '20/40'
             }
           ]
         }
@@ -128,7 +116,8 @@
     },
     methods: {
       addClass () {
-        this.$router.push({ name: 'addTalkClass', params: { status: 'add'} })
+        this.$router.push({ name: 'AddApply' })
+        // this.$router.push({ name: 'addTalkClass', params: { status: 'add'} })
       },
       toEdit () {
         this.$router.push({ name: 'course_template' })

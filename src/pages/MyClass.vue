@@ -4,7 +4,7 @@
 
       <div class="mb-4 flex justify-between items-center flex-wrap">
         <div>
-          <h1 class="text-xl ading-none text-black-1 mr-2 font-bold text-left mb-4">我的分校預約課程
+          <h1 class="text-xl ading-none text-black-1 mr-2 font-bold text-left mb-4">我的課程
           </h1>
           <div class="menu-bar flex items-center mb-2 flex-wrap">
             <div class="flex items-center">

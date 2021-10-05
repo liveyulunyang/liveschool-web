@@ -8,14 +8,14 @@
         </div>
         <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row">
           <div class="flex items-center justify-start flex-wrap">
-            <button @click="$router.back(-1)" class="mr-3 px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
+            <button @click="$router.back(-1)" class="mr-3 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
               <i class="fas fa-chevron-left"></i>返回
             </button>
             <FilterModal :showItems="showItems" />
           </div>
           <div class="flex justify-end items-center">
-            <Button @click="addClass" class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
-              + 新增模板
+            <Button @click="addClass" class="px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
+              <i class="fas fa-plus mr-1"></i> 新增模板
             </Button>
           </div>
         </div>
@@ -74,7 +74,7 @@
               <button
                 class="bg-gray-900 text-white hover:text-black-1 hover:bg-primary-light mx-1 px-2 py-1 rounded"
                 >
-                + 開課
+                <i class="fas fa-plus mr-1"></i> 開課
               </button>
             </td>
           </template>

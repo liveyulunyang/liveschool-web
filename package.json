@@ -11,6 +11,8 @@
     "@fullcalendar/core": "^5.9.0",
     "@fullcalendar/daygrid": "^5.9.0",
     "@fullcalendar/interaction": "^5.9.0",
+    "@fullcalendar/list": "^5.9.0",
+    "@fullcalendar/resource-timeline": "^5.9.0",
     "@fullcalendar/timegrid": "^5.9.0",
     "@fullcalendar/vue": "^5.9.0",
     "@kouts/vue-modal": "^2.1.0",

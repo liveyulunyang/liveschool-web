@@ -16,11 +16,11 @@
       <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row mb-4">
         <FilterModal :showItems="showItems" />
         <div class="flex justify-end items-center">
-          <Button class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
-            + 匯入帳號
+          <Button class="px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
+            <i class="fas fa-plus mr-1"></i> 匯入帳號
           </Button>
-          <Button @click="toManage" class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
-            + 新增帳號
+          <Button @click="toManage" class="px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
+            <i class="fas fa-plus mr-1"></i> 新增帳號
           </Button>
         </div>
       </div>

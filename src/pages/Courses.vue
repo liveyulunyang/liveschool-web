@@ -16,14 +16,14 @@
         <FilterModal :showItems="showItems" />
 
         <div class="flex justify-end items-center">
-          <button class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
+          <button class="px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
             批次匯入
           </button>
-          <button @click="toEdit" class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
+          <button @click="toEdit" class="px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
             編輯模板
           </button>
-          <button @click="addClass" class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
-            + 新增課程
+          <button @click="addClass" class="px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
+            <i class="fas fa-plus mr-1"></i> 新增課程
           </button>
         </div>
       </div>

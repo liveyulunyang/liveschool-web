@@ -20,6 +20,11 @@ const router = new Router({
       component: () => import('@/pages/Courses.vue')
     },
     {
+      path: '/RegistrationProgress',
+      name: 'RegistrationProgress',
+      component: () => import('@/pages/RegistrationProgress.vue')
+    },
+    {
       path: '/coursesTC',
       name: 'coursesTC',
       component: () => import('@/pages/CoursesTC.vue')
@@ -82,11 +87,15 @@ const router = new Router({
       component: () => import('@/pages/Teach_record.vue')
     },
     {
-      path: '/book_course',
-      name: 'book_course',
-      component: () => import('@/pages/Book_course.vue')
+      path: '/book_course_director',
+      name: 'book_courseDirector',
+      component: () => import('@/pages/Book_courseDirector.vue')
     },
-
+    {
+      path: '/book_course_Admin',
+      name: 'book_courseAdmin',
+      component: () => import('@/pages/Book_courseAdmin.vue')
+    },
     {
       path: '/point',
       name: 'point',
@@ -138,9 +147,19 @@ const router = new Router({
       component: () => import('@/pages/AddBooking.vue')
     },
     {
+      path: '/AddApply/add',
+      name: 'AddApply',
+      component: () => import('@/pages/AddApply.vue')
+    },
+    {
       path: '/account',
       name: 'account',
       component: () => import('@/pages/Account.vue')
+    },
+    {
+      path: '/Course_setting',
+      name: 'Course_setting',
+      component: () => import('@/pages/Course_setting.vue')
     },
     // {
     //     path: '/analytics',

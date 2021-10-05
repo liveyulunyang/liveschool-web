@@ -88,6 +88,8 @@
 import Modal from '@kouts/vue-modal'
 import '@kouts/vue-modal/dist/vue-modal.css'
 import { VueEditor } from "vue2-editor"
+import DatePicker from 'vue2-datepicker'
+import 'vue2-datepicker/index.css'
 export default {
   name: 'AnnounceModal',
 
@@ -122,7 +124,8 @@ export default {
 
   components: {
     Modal,
-    VueEditor
+    VueEditor,
+    DatePicker
   },
   computed: {
   },

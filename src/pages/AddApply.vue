@@ -1,11 +1,11 @@
 <template>
-  <main class="flex items-start" id="bookingAdd">
+  <main class="flex items-start" id="ApplyAdd">
     <div class="flex flex-col p-6 w-full">
-        <div class="mb-4 flex justify-between items-center flex-wrap">
-          <div class="flex">
-            <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">新增預約</h1>
-          </div>
+      <div class="mb-4 flex justify-between items-center flex-wrap">
+        <div class="flex">
+          <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">新增報名</h1>
         </div>
+      </div>
       <div class="flex w-full mb-4">
         <a @click="$router.back(-1)" class="px-4 py-2 bg-gray-900 text-white text-sm rounded whitespace-no-wrap hidden lg:block">
           <i class="fas fa-chevron-left mr-1"></i>取消
@@ -13,18 +13,16 @@
         <nav class="font-bold w-full">
           <ul class="lg:flex" id="progressbar">
             <li :class="{ active: step === 0 }"><p>預約需知</p></li>
-            <li :class="{ active: step === 1 }"><p>課程人數與師資</p></li>
-            <li :class="{ active: step === 2 }"><p>選擇課程</p></li>
-            <li :class="{ active: step === 3 }"><p>預約課程時段</p></li>
-            <li :class="{ active: step === 4 }"><p>上課名單</p></li>
-            <li :class="{ active: step === 5 }"><p>設定與其他問題</p></li>
+            <li :class="{ active: step === 1 }"><p>選擇課程</p></li>
+            <li :class="{ active: step === 2 }"><p>上課名單</p></li>
+            <li :class="{ active: step === 3 }"><p>設定與其他問題</p></li>
           </ul>
         </nav>
       </div>
       <div class="content w-full">
         <div v-if="step === 0">
-          <div class="bg-white text-left py-8 px-4 md:px-8 xl:px-12 leading-loose font-semibold text-lg mb-4">
-            <h6 class="text-xl mb-3 font-bold">班主任線上預約需知</h6>
+          <div class="bg-white text-left py-8 px-4 md:px-8 xl:px-12 leading-loose font-semibold text-lg mb-4 ">
+            <h6 class="text-xl mb-3 font-bold">班主任線上報名LiveTeacher需知</h6>
             <p>1. 課程提出申請後，系統會於3日內完成審核。</p>
             <p>2. 預約課程前，請先確認學生點數是否充足，若學生點數不足，課程將無法通過審核。</p>
             <p>3. 線上課程的申請核准，依提出申請的先後順序來安排，若未符合申請(例如: 教室已滿/師資不符…等)，此預約單將「未通過」。</p>
@@ -47,37 +45,6 @@
           </div>
         </div>
         <div v-if="step === 1">
-          <div class="bg-white text-left py-8 px-4 md:px-8 xl:px-12 leading-loose font-semibold mb-4">
-            <h6 class="text-lg mb-1 font-bold">選擇課程人數</h6>
-            <div class="flex flex-col mb-8">
-              <label class="inline-flex items-center mt-3">
-                <input type="radio" class="form-radio h-5 w-5 text-gray-600"><span class="ml-2 text-gray-700">一對一課程(25分鐘)</span>
-              </label>
-              <label class="inline-flex items-center mt-3">
-                <input type="radio" class="form-radio h-5 w-5 text-gray-600"><span class="ml-2 text-gray-700">一至六人班課程(50分鐘)</span>
-              </label>
-            </div>
-            <h6 class="text-lg mb-1 font-bold">選擇師資</h6>
-            <div class="flex flex-col">
-              <label class="inline-flex items-center mt-3">
-                <input type="radio" class="form-radio h-5 w-5 text-gray-600"><span class="ml-2 text-gray-700">歐/美外師、中師</span>
-              </label>
-              <label class="inline-flex items-center mt-3">
-                <input type="radio" class="form-radio h-5 w-5 text-gray-600"><span class="ml-2 text-gray-700">菲師</span>
-              </label>
-            </div>
-          </div>
-          <div class="flex justify-center items-center">
-            <button @click="step = 0" class="mx-4 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
-              上一步
-            </button>
-
-            <button @click="step = 2" class="mx-4 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
-              下一步
-            </button>
-          </div>
-        </div>
-        <div v-if="step === 2">
           <div class="bg-white text-left py-4 xl:py-8 px-4 md:px-8 xl:px-12 leading-loose font-semibold text-lg mb-4 flex flex-wrap items-center">
             <h6 class="text-xl font-bold">選擇課程</h6>
             <div class="relative w-auto mx-2 text-sm">
@@ -106,7 +73,7 @@
               <img src="@/assets/img/icons/re.svg" alt="" class="w-8">
             </a>
           </div>
-          <div class="overflow-y-scroll h-screen-50 mb-4">
+          <div class="overflow-y-scroll h-screen-content mb-4">
             <div class="bg-white text-left py-2 px-4 xl:px-8 leading-loose font-semibold mb-4" v-for="n in 10" :key="n">
               <div class="flex flex-wrap py-2 items-center">
                 <div class="w-4/5 lg:w-auto pr-2">
@@ -134,6 +101,18 @@
             </div>
           </div>
           <div class="flex justify-center items-center">
+            <button @click="step = 0" class="mx-4 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
+              上一步
+            </button>
+
+            <button @click="step = 2" class="mx-4 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
+              下一步
+            </button>
+          </div>
+        </div>
+        <div v-if="step === 2">
+          <Drag class="mb-4" />
+          <div class="flex justify-center items-center">
             <button @click="step = 1" class="mx-4 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
               上一步
             </button>
@@ -144,44 +123,6 @@
           </div>
         </div>
         <div v-if="step === 3">
-
-          <div class="flex">
-            <div class="bg-white py-8 px-4 md:px-8 leading-loose flex flex-col justify-between">
-              <div>
-                <h6 class="text-xl font-bold">選擇可預約時段</h6>
-                <p class="text-base">請先選擇課程時段</p>
-                <CalenderDot />
-              </div>
-              <div class="flex justify-center items-center">
-                <button @click="step = 2" class="mx-4 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
-                  上一步
-                </button>
-
-                <button @click="step = 4" class="mx-4 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
-                  下一步
-                </button>
-              </div>
-            </div>
-            <div class="px-2 w-full hidden lg:block">
-              <FullCalendar :options="calendarOptions" />
-              <!-- <Calender :Calendertype="'week'" /> -->
-            </div>
-          </div>
-
-        </div>
-        <div v-if="step === 4">
-          <Drag class="mb-4" />
-          <div class="flex justify-center items-center">
-            <button @click="step = 3" class="mx-4 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
-              上一步
-            </button>
-
-            <button @click="step = 5" class="mx-4 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
-              下一步
-            </button>
-          </div>
-        </div>
-        <div v-if="step === 5">
           <div class="bg-white text-left py-8 px-4 md:px-8 xl:px-12 leading-loose font-semibold text-lg mb-4 h-screen-50">
             <h6 class="text-xl mb-3 font-bold">設定與其他問題</h6>
 
@@ -208,12 +149,8 @@
             </div>
           </div>
           <div class="flex justify-center items-center">
-            <button @click="step = 4" class="mx-4 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
+            <button @click="step = 2" class="mx-4 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
               上一步
-            </button>
-
-            <button @click="openModal" class="mx-4 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
-              預約資料預覽
             </button>
           </div>
         </div>
@@ -237,39 +174,12 @@
             </div>
           </div>
           <div class="w-full px-3 mb-2 md:mb-4 md:flex items-center">
-            <label class="md:w-1/5 tracking-wide text-sm mb-2 text-right" for="point">
-              剩餘點數
-            </label>
-            <div class="w-full md:w-4/5 flex items-center px-2">
-              <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-                id="point" type="text" placeholder="">
-            </div>
-          </div>
-          <div class="w-full px-3 mb-2 md:mb-4 md:flex items-center">
             <label class="md:w-1/5 tracking-wide text-sm mb-2 text-right" for="branch">
               校別
             </label>
             <div class="w-full md:w-4/5 flex items-center px-2">
               <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
                 id="branch" type="text" placeholder="">
-            </div>
-          </div>
-          <div class="w-full px-3 mb-2 md:mb-4 md:flex items-center">
-            <label class="md:w-1/5 tracking-wide text-sm mb-2 text-right" for="type">
-              人數班制
-            </label>
-            <div class="w-full md:w-4/5 flex items-center px-2">
-              <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-                id="type" type="text" placeholder="">
-            </div>
-          </div>
-          <div class="w-full px-3 mb-2 md:mb-4 md:flex items-center">
-            <label class="md:w-1/5 tracking-wide text-sm mb-2 text-right" for="classname">
-              教師專案
-            </label>
-            <div class="w-full md:w-4/5 flex items-center px-2">
-              <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-                id="classname" type="text" placeholder="">
             </div>
           </div>
           <div class="w-full px-3 mb-2 md:mb-4 md:flex items-center">
@@ -291,12 +201,12 @@
             </div>
           </div>
           <div class="w-full px-3 mb-2 md:mb-4 md:flex items-center">
-            <label class="md:w-1/5 tracking-wide text-sm mb-2 text-right" for="classtype">
+            <label class="md:w-1/5 tracking-wide text-sm mb-2 text-right" for="type">
               課程名稱
             </label>
             <div class="w-full md:w-4/5 flex items-center px-2">
               <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
-                id="classtype" type="text" placeholder="">
+                id="type" type="text" placeholder="">
             </div>
           </div>
           <div class="w-full px-3 mb-2 md:mb-4 md:flex items-center">
@@ -372,11 +282,11 @@
 </template>
 
 <script>
-  import CalenderDot from '@/components/modules/CalenderDot'
+  // import CalenderDot from '@/components/modules/CalenderDot'
   import Drag from '@/components/modules/drag'
   // import Calender from '@/components/modules/CalenderSimple'
 import '@fullcalendar/core/vdom' // solves problem with Vite
-import FullCalendar from '@fullcalendar/vue'
+// import FullCalendar from '@fullcalendar/vue'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
@@ -385,8 +295,8 @@ import interactionPlugin from '@fullcalendar/interaction'
     name: "AddBooking",
     components: {
       // Calender,
-      CalenderDot,
-      FullCalendar,
+      // CalenderDot,
+      // FullCalendar,
       Drag
       // BookingModal
     },
@@ -401,8 +311,8 @@ import interactionPlugin from '@fullcalendar/interaction'
           events: [
             {
               title: '預約此時段',
-              start: '2021-10-07T10:30:00',
-              end: '2021-10-07T11:30:00',
+              start: '2021-09-07T10:30:00',
+              end: '2021-09-07T11:30:00',
               extendedProps: {
                 department: 'BioChemistry'
               },
@@ -432,8 +342,11 @@ import interactionPlugin from '@fullcalendar/interaction'
 </script>
 <style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 <style lang="scss">
-#bookingAdd {
+#ApplyAdd {
   .h-screen-50 {
+    height: calc(100vh - 400px);
+  }
+  .h-screen-content {
     height: calc(100vh - 450px);
   }
   .h-screen-form {
@@ -452,7 +365,7 @@ import interactionPlugin from '@fullcalendar/interaction'
         list-style-type: none;
         text-transform: uppercase;
         font-size: 14px;
-        width: calc(100%/6);
+        width: calc(100%/4);
         position: relative;
         letter-spacing: 1px;
         p {

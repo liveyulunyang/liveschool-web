@@ -16,16 +16,13 @@
       <div class="flex items-center justify-between w-full flex-wrap">
         <div class="flex items-center justify-start flex-wrap">
           <FilterModal :showItems="showItems" />
-          <button class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
-            <i class="fas fa-arrow-down"></i> 匯出資料
-          </button>
         </div>
-        <div class="flex justify-end items-center">
-          <button class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
-            + 匯入學生清單
+        <div class="w-full lg:w-auto flex justify-end">
+          <button class="px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
+            <i class="fas fa-plus mr-1"></i>匯入學生清單
           </button>
-          <button @click="toManage" class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
-            + 新增學生
+          <button @click="toManage" class="px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
+            <i class="fas fa-plus mr-1"></i>新增學生
           </button>
         </div>
       </div>
@@ -90,7 +87,8 @@
           classType: false,
           timePeriod: false,
           serach: true,
-          sync: true
+          sync: true,
+          isExportBtn: true
         },
 
         tableList: {

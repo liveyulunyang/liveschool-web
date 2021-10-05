@@ -15,7 +15,14 @@
         </tr>
         <tr v-for="(item, index) in data" :key="index">
           <td :data-th="column.label" v-for="(column, indexColumn) in columns" :key="indexColumn" @click="openModal" :class="{ cursorPointer: $route.name === 'Learn_record_supervise' }">
-            {{ item[column.name] }}
+            <span class="lg:hidden">
+              <img v-if="column.name === 'teacher'" src="@/assets/img/vector.svg" alt="" class="inline-block object-contain w-8 mb-2 mr-2">
+              {{ item[column.name] }}
+            </span>
+            <div class="flex-col items-center justify-center hidden lg:flex">
+              <img src="@/assets/img/vector.svg" alt="" class="block object-contain w-8 mb-1" v-if="column.name === 'teacher'">
+              {{ item[column.name] }}
+            </div>
           </td>
           <slot name="recordBtn"></slot>
           <slot name="supplementaryMaterialsBtn"></slot>
@@ -121,7 +128,7 @@
   overflow: hidden;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1025px) {
   .c-table table { border-spacing: 0 0rem !important; }
   .rwd-table tr:nth-child(2) {
     border-top: none;
@@ -136,7 +143,7 @@
   }
 
 }
-@media screen and (min-width: 1025px) {
+@media screen and (min-width: 1024px) {
   .rwd-table tr:hover:not(:first-child) {
     background-color: #d8e7f3;
   }

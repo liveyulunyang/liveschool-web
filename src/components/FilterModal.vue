@@ -1,6 +1,18 @@
 <template>
   <div class="flex items-center justify-start flex-wrap">
     <div class="w-full flex flex-wrap items-center">
+      <!-- 狀態 -->
+      <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.ProgressStatus">
+        <div class="relative text-sm w-full">
+          <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
+            >
+            <option value="">狀態</option>
+          </select>
+          <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
+            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+          </div>
+        </div>
+      </div>
       <!-- 教室 -->
       <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.classroom">
         <div class="relative text-sm w-full">
@@ -48,12 +60,12 @@
           </div>
         </div>
       </div>
-      <!-- 課程主離 -->
+      <!-- 課程主題 -->
       <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.classTopic">
         <div class="relative text-sm w-full">
           <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
             >
-            <option value="">課程主離</option>
+            <option value="">課程主題</option>
             <option value="all">全部</option>
             <option value="220">Come to Live</option>
             <option value="225">自然發音</option>
@@ -152,18 +164,16 @@
           <button type="submit" class="px-2"><i class="fa fa-search"></i></button>
         </div>
       </div>
-      <!-- 重製按鈕 -->
-      <div class="w-auto p-1" v-if="showItems.sync">
-        <a href="" class="flex items-center justify-center bg-gray-900 text-white w-8 h-8">
-          <i class="fas fa-sync-alt text-lg"></i>
+      <!-- 重整按鈕 -->
+      <div class="w-auto syncBtn p-1" v-if="showItems.sync">
+        <a href="" class="flex items-center justify-center bg-gray-700 text-white">
+          <i class="fas fa-sync-alt"></i>
         </a>
       </div>
 
       <!-- 匯出按鈕 -->
       <div class="w-auto p-1" v-if="showItems.isExportBtn">
-        <button class="px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
-          <i class="fas fa-arrow-down mr-1"></i> 匯出資料
-        </button>
+        <ExportBtn />
       </div>
     </div>
   </div>
@@ -172,6 +182,7 @@
 <script>
   import DatePicker from 'vue2-datepicker'
   import 'vue2-datepicker/index.css'
+  import ExportBtn from '@/components/modules/ExportBtn'
   export default {
     name: 'FilterModal',
     props: {
@@ -179,6 +190,7 @@
         type: Object,
         default () {
           return {
+            ProgressStatus: false,
             classroom: false,
             role: false,
             listStatus: false,
@@ -196,7 +208,8 @@
       }
     },
     components: {
-      DatePicker
+      DatePicker,
+      ExportBtn
     },
     data () {
       return {
@@ -235,5 +248,12 @@
   }
   .h-43 {
     height: 43px;
+  }
+  .syncBtn a {
+    height: 36px;
+    width: 36px;
+    .fas {
+      font-size: 20px;
+    }
   }
 </style>

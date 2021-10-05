@@ -261,7 +261,7 @@
           {
             icon: "fas fa-book",
             title: "預約課程",
-            url: "/book_course"
+            url: "/book_course_Admin"
           },
           {
             icon: "fas fa-history",
@@ -296,11 +296,6 @@
         ],
         directorList: [
           {
-            icon: "far fa-calendar-alt",
-            title: "我的課程",
-            url: "/myClass"
-          },
-          {
             icon: "fas fa-users",
             title: "學生管理",
             url: "/students"
@@ -308,7 +303,17 @@
           {
             icon: "fas fa-book",
             title: "預約課程",
-            url: "/book_course"
+            url: "/book_course_director"
+          },
+          {
+            icon: "fas fa-chalkboard-teacher",
+            title: "報名進度",
+            url: "/RegistrationProgress"
+          },
+          {
+            icon: "far fa-calendar-alt",
+            title: "我的課程",
+            url: "/myClass"
           }
         ],
         superviseList: [

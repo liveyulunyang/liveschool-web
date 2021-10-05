@@ -9,7 +9,7 @@
         <div class="content">
           <div class="flex justify-end items-center mb-4">
             <button @click="openModal(true)" class="px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
-              + 新增公告
+              <i class="fas fa-plus mr-1"></i> 新增公告
             </button>
           </div>
 

@@ -3,8 +3,7 @@
     <div class="flex flex-col w-full">
       <div class="mb-4 flex justify-between items-center flex-wrap">
         <div class="flex">
-          <h1 class="text-xl ading-none text-black-1 mr-2 font-bold" v-if="$store.state.userRole === 'admin'">預約課程審核列表</h1>
-          <h1 class="text-xl ading-none text-black-1 mr-2 font-bold" v-if="$store.state.userRole === 'director'">預約課程清單</h1>
+          <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">LiveTalk預約課程清單</h1>
         </div>
       </div>
       <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row mb-4">
@@ -12,8 +11,8 @@
           <FilterModal :showItems="showItems" />
         </div>
         <div class="flex justify-end items-center"  v-if="$store.state.userRole === 'director'">
-          <button @click="addBook" class="px-4 py-2 bg-primary-normal text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
-            + 新增預約
+          <button @click="addBook" class="px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
+            <i class="fas fa-plus mr-1"></i> 新增預約
           </button>
         </div>
       </div>
@@ -30,7 +29,7 @@
 
           <template slot="statusText">
             <td data-th="狀態">
-              <p class="px-1 py-2 border border-gray-900 rounded-lg">審核成功</p>
+              <span class="px-1 py-2 border border-gray-900 rounded-lg">審核成功</span>
             </td>
           </template>
           <template slot="actionsBtn">
