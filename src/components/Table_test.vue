@@ -37,7 +37,7 @@
                         <template v-if="'actions' in column">
                           <Button v-for="(action, index) in column.actions"
                             :key="index"
-                            class="text-primary-normal hover:text-black-1 hover:bg-primary-light"
+                            class="text-primary-normal hover:text-black-1  hover:bg-gray-600"
                             @click.native="action.function"
                             rounded>
                             {{ action.label }}

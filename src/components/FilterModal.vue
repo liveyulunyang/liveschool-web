@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center justify-start flex-wrap">
+  <div class="flex items-center justify-start flex-wrap" id="filterBtn">
     <div class="w-full flex flex-wrap items-center">
       <!-- 狀態 -->
       <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.ProgressStatus">
@@ -236,13 +236,14 @@
 </script>
 
 <style lang="scss">
+#filterBtn {
   .mx-datepicker-range {
     width: 100%;
     height: 43px !important;
   }
   .mx-input-wrapper {
-    input {
-      height: 43px;
+    .mx-input {
+      height: 43px !important;
       border-radius: 0 !important;
     }
   }
@@ -256,4 +257,9 @@
       font-size: 20px;
     }
   }
+  select {
+    height: 43px !important;
+  }
+}
+
 </style>

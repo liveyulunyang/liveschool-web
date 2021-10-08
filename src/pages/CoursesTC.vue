@@ -15,10 +15,10 @@
         <FilterModal :showItems="showItems" />
 
         <div class="flex justify-end items-center">
-          <button class="px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
+          <button class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
             批次匯入
           </button>
-          <button @click="addClass" class="px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
+          <button @click="addClass" class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
             <i class="fas fa-plus mr-1"></i> 新增課程
           </button>
         </div>
@@ -32,17 +32,17 @@
           <template scope="props" slot="actionsBtn">
             <td data-th="課程動作">
               <button @click="edit(props.item.id)"
-                class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
+                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
                 >
                 <img :src="require('@/assets/img/icons/edit.svg')" alt="" class="w-6 object-contain">
               </button>
               <button @click="openModal"
-                class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
+                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
                 >
                 <img :src="require('@/assets/img/icons/more.svg')" alt="" class="w-6 object-contain">
               </button>
               <button @click="del(props.item.id)"
-                class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
+                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
                 >
                 <img :src="require('@/assets/img/icons/delete.svg')" alt="" class="w-6 object-contain">
               </button>
@@ -51,7 +51,7 @@
           <template scope="props" slot="RegistrationReview">
             <td data-th="報名審核動作">
               <button @click="edit(props.item.id)"
-                class="text-white bg-gray-900 hover:text-black-1 hover:bg-primary-light mx-1 px-2 py-1 rounded"
+                class="text-white bg-gray-900 hover:text-black-1  hover:bg-gray-600 mx-1 px-2 py-1 rounded"
                 >
                 審核<i class="fas fa-arrow-right ml-1"></i>
               </button>
@@ -128,7 +128,7 @@
     },
     methods: {
       addClass () {
-        this.$router.push({ name: 'addTalkClass', params: { status: 'add'} })
+        this.$router.push({ name: 'addTeacherClass', params: { status: 'add'} })
       },
       toEdit () {
         this.$router.push({ name: 'course_template' })

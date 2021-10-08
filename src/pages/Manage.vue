@@ -5,8 +5,8 @@
 
     <div class="flex w-full mt-8 items-center">
       <div class="mr-6">
-        <Button @click="$router.back(-1)" class="px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
-          <i class="fas fa-chevron-left"></i>返回
+        <Button @click="$router.back(-1)" class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
+          <i class="fas fa-chevron-left mr-1"></i>返回
         </Button>
       </div>
       <div class="flex items-center">
@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <section class="w-full bg-white mt-4 min-h-screen p-6">
+    <section class="w-full bg-white mt-4 min-h-screen p-2 md:p-3 lg:p-6 max-w-8xl mx-auto">
       <div class="flex w-full flex-wrap">
         <div class="w-full lg:w-1/5">
           <div class="h-40 w-40 relative">
@@ -40,7 +40,8 @@
           <h5 class="text-left text-sm px-2 mb-2 font-bold">課程標籤(可多選)</h5>
           <div class="flex flex-wrap w-full">
             <div class="w-1/2 md:w-1/3 lg:w-1/4 py-1 px-2" v-for="(item, index) in tagOptions" :key="index">
-              <a class="py-2 bg-white border border-gray-200 text-gray-0 text-sm rounded whitespace-no-wrap block" :class="{ tagActive: item.isActive }" >{{ item.name }}</a>
+              <a class="py-2 bg-white border border-gray-500 text-gray-0 text-sm rounded whitespace-no-wrap block text-gray-500 cursor-pointer"
+                :class="{ tagActive: item.isActive }" >{{ item.name }}</a>
             </div>
           </div>
         </div>
@@ -53,15 +54,19 @@
 
           <!-- 信箱 -->
           <div class="w-full px-3 mb-2 md:mb-4 md:flex">
-            <label class="md:pt-2 md:text-sm md:w-1/5 tracking-wide text-sm mb-2" for="email">
+            <label class="text-left md:pt-2 md:text-sm md:w-1/5 tracking-wide text-sm mb-2" for="email">
               電子信箱
             </label>
-            <div class="w-full md:w-3/5">
-              <input class="w-full appearance-none block text-sm border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-900" spellcheck="false"
+            <div class="w-full md:w-4/5 flex flex-wrap">
+              <input class="w-full md:w-5/6 appearance-none block text-sm border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-900" spellcheck="false"
                 id="email" type="email" placeholder="">
-            </div>
-            <div class="w-full md:w-1/5 flex items-center justify-center md:pl-2">
-              <button class="button-verified py-3 rounded w-full text-sm whitespace-no-wrap"><i class="far fa-check-square mr-2"></i>Verified</button>
+              <div class="w-full md:w-1/6 flex items-center justify-center md:pl-1 lg:pl-2 mt-1 md:mt-0">
+                <button class="button-verified py-3 rounded w-full text-sm whitespace-no-wrap">
+                  <!-- <i class="far fa-check-square mr-1 lg:mr-2 text-lg lg:text-xl"></i> -->
+                  <i class="fas fa-square mr-1 lg:mr-2 text-lg lg:text-xl"></i>
+                  Verified
+                </button>
+              </div>
             </div>
           </div>
 
@@ -83,18 +88,23 @@
               id="nameEn" type="text" placeholder="請輸入英文姓名" maxlength="15">
           </div>
 
-          <!-- 手機 -->
+          <!-- 行動電話 -->
           <div class="w-full px-3 mb-2 md:mb-4 md:flex">
             <label class="md:pt-2 md:text-sm md:w-1/5 tracking-wide text-sm mb-2" for="mobile">
               行動電話
             </label>
-            <div class="w-full md:w-3/5">
-              <input class="w-full appearance-none block text-sm border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-900" spellcheck="false"
+            <div class="w-full md:w-4/5 flex flex-wrap">
+              <input class="w-full md:w-5/6 appearance-none block text-sm border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-900" spellcheck="false"
                 id="mobile" type="phone" placeholder="">
+              <div class="w-full md:w-1/6 flex items-center justify-center md:pl-2 lg:pl-2 mt-1 md:mt-0">
+                <button class="button-verified py-3 rounded w-full text-sm whitespace-no-wrap">
+                  <!-- <i class="far fa-check-square mr-1 lg:mr-2 text-lg lg:text-xl"></i> -->
+                  <i class="fas fa-square mr-1 lg:mr-2 text-lg lg:text-xl"></i>
+                  Verified
+                </button>
+              </div>
             </div>
-            <div class="w-full md:w-1/5 flex items-center justify-center md:pl-2">
-              <button class="button-verified py-3 rounded w-full text-sm whitespace-no-wrap"><i class="far fa-check-square mr-2"></i>Verified</button>
-            </div>
+
           </div>
 
           <!-- 分區 -->
@@ -235,7 +245,9 @@
               其他
             </label>
             <div class="w-full md:w-4/5 md:flex justify-start">
-              <button class="button-verified py-3 px-8 md:px-12 rounded w-full md:w-auto text-sm"><i class="far fa-check-square mr-2"></i>promote</button>
+              <button class="button-verified py-3 px-8 md:px-12 rounded w-full md:w-auto text-sm">
+                <i class="far fa-check-square mr-1 lg:mr-2 text-xl"></i>promote
+              </button>
             </div>
           </div>
 
@@ -326,11 +338,11 @@
     display: none !important;
   }
   .tagActive {
-    border: 1px solid #808080;
+    border: 1px solid #808080 !important;
     box-shadow: 0px 2px 2px 0px #00000040;
     box-sizing: border-box;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-    color: black;
+    color: black !important;
   }
   input[type="file"] {
       position: absolute;

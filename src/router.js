@@ -13,7 +13,11 @@ const router = new Router({
       name: 'home',
       component: () => import('@/pages/Users.vue')
     },
-
+    {
+      path: '/user',
+      name: 'Users',
+      component: () => import('@/pages/Users.vue')
+    },
     {
       path: '/courses',
       name: 'courses',
@@ -29,6 +33,11 @@ const router = new Router({
       name: 'coursesTC',
       component: () => import('@/pages/CoursesTC.vue')
     },
+    {
+      path: '/CoursesClass',
+      name: 'CoursesClass',
+      component: () => import('@/pages/CoursesClass.vue')
+    },
     // 帳號管理
     {
       path: '/account/add',
@@ -43,7 +52,12 @@ const router = new Router({
     {
       path: '/talk_class/:status',
       name: 'addTalkClass',
-      component: () => import('@/pages/AddClass.vue')
+      component: () => import('@/pages/AddClassTalk.vue')
+    },
+    {
+      path: '/teacher_class/:status',
+      name: 'addTeacherClass',
+      component: () => import('@/pages/AddClassTeacher.vue')
     },
     {
       path: '/ctl_class/:type',
@@ -55,11 +69,6 @@ const router = new Router({
       path: '/course_template',
       name: 'course_template',
       component: () => import('@/pages/CourseTemplate.vue')
-    },
-    {
-      path: '/live_class',
-      name: 'live_class',
-      component: () => import('@/pages/Live_class.vue')
     },
     {
       path: '/classification/:first?/:second?/:third?/:fourth?',

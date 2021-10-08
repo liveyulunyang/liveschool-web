@@ -41,7 +41,7 @@
               <div class="control__indicator"></div>
             </label>
 
-            <button @click="step = 1" class="mx-4 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
+            <button @click="step = 1" class="mx-4 px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
               下一步
             </button>
           </div>
@@ -68,11 +68,11 @@
             </div>
           </div>
           <div class="flex justify-center items-center">
-            <button @click="step = 0" class="mx-4 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
+            <button @click="step = 0" class="mx-4 px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
               上一步
             </button>
 
-            <button @click="step = 2" class="mx-4 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
+            <button @click="step = 2" class="mx-4 px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
               下一步
             </button>
           </div>
@@ -122,7 +122,7 @@
                 </div>
                 <div class="w-4/5 lg:w-auto flex items-center justify-end">
                   <button
-                    class="text-primary-normal hover:text-black-1 hover:bg-primary-light"
+                    class="text-primary-normal hover:text-black-1  hover:bg-gray-600"
                     >
                     <img src="@/assets/img/icons/more.svg" alt="" class="object-contain w-full">
                   </button>
@@ -134,11 +134,11 @@
             </div>
           </div>
           <div class="flex justify-center items-center">
-            <button @click="step = 1" class="mx-4 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
+            <button @click="step = 1" class="mx-4 px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
               上一步
             </button>
 
-            <button @click="step = 3" class="mx-4 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
+            <button @click="step = 3" class="mx-4 px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
               下一步
             </button>
           </div>
@@ -153,11 +153,11 @@
                 <CalenderDot />
               </div>
               <div class="flex justify-center items-center">
-                <button @click="step = 2" class="mx-4 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
+                <button @click="step = 2" class="mx-4 px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
                   上一步
                 </button>
 
-                <button @click="step = 4" class="mx-4 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
+                <button @click="step = 4" class="mx-4 px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
                   下一步
                 </button>
               </div>
@@ -172,11 +172,11 @@
         <div v-if="step === 4">
           <Drag class="mb-4" />
           <div class="flex justify-center items-center">
-            <button @click="step = 3" class="mx-4 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
+            <button @click="step = 3" class="mx-4 px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
               上一步
             </button>
 
-            <button @click="step = 5" class="mx-4 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
+            <button @click="step = 5" class="mx-4 px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
               下一步
             </button>
           </div>
@@ -208,11 +208,11 @@
             </div>
           </div>
           <div class="flex justify-center items-center">
-            <button @click="step = 4" class="mx-4 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
+            <button @click="step = 4" class="mx-4 px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
               上一步
             </button>
 
-            <button @click="openModal" class="mx-4 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
+            <button @click="openModal" class="mx-4 px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
               預約資料預覽
             </button>
           </div>

@@ -16,10 +16,10 @@
       <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row mb-4">
         <FilterModal :showItems="showItems" />
         <div class="flex justify-end items-center">
-          <Button class="px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
+          <Button class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
             <i class="fas fa-plus mr-1"></i> 匯入帳號
           </Button>
-          <Button @click="toManage" class="px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
+          <Button @click="toManage" class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
             <i class="fas fa-plus mr-1"></i> 新增帳號
           </Button>
         </div>
@@ -33,17 +33,17 @@
           <template scope="props" slot="actionsBtn">
             <td data-th="執行動作">
               <button @click="edit(props.item.id)"
-                class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
+                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
                 >
                 <img src="@/assets/img/icons/edit.svg" alt="" class="w-6 object-contain">
               </button>
               <button @click="open(props.item.id)"
-                class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
+                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
                 >
                 <img src="@/assets/img/icons/more.svg" alt="" class="w-6 object-contain">
               </button>
               <button @click="del(props.item.id)"
-                class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
+                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
                 >
                 <img src="@/assets/img/icons/delete.svg" alt="" class="w-6 object-contain">
               </button>

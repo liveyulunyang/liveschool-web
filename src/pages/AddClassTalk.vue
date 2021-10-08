@@ -7,23 +7,23 @@
     <div class="flex justify-between">
       <ul class="flex cursor-pointer text-sm">
         <li class="py-2 mr-1">
-          <button @click="$router.back(-1)" class="px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
-            <i class="fas fa-chevron-left"></i>返回
+          <button @click="$router.back(-1)" class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
+            <i class="fas fa-chevron-left mr-1"></i>返回
           </button>
         </li>
         <li class="py-2 px-6 tag flex items-center justify-center mx-1" :class="{ tagAct: tag === 0 }" @click="tag = 0">課程基本資料</li>
         <!-- <li class="py-2 px-6 tag flex items-center justify-center mx-1" :class="{ tagAct: tag === 1 }" @click="tag = 1">課程章節</li> -->
-        <li class="py-2 px-6 tag flex items-center justify-center mx-1" :class="{ tagAct: tag === 1 }" @click="tag = 1">堂數設定</li>
-        <li class="py-2 px-6 tag flex items-center justify-center mx-1" :class="{ tagAct: tag === 2 }" @click="tag = 2">課程時間</li>
+        <!-- <li class="py-2 px-6 tag flex items-center justify-center mx-1" :class="{ tagAct: tag === 1 }" @click="tag = 1">堂數設定</li>
+        <li class="py-2 px-6 tag flex items-center justify-center mx-1" :class="{ tagAct: tag === 2 }" @click="tag = 2">課程時間</li> -->
       </ul>
 
-      <ul class="flex cursor-pointer text-sm" v-if="tag === 1">
+      <!-- <ul class="flex cursor-pointer text-sm" v-if="tag === 1">
         <li class="py-2 mr-1">
-          <Button @click="$router.back(-1)" class="px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
+          <Button @click="$router.back(-1)" class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
             <i class="fas fa-plus"></i>新增章節
           </Button>
         </li>
-      </ul>
+      </ul> -->
     </div>
     <div v-if="isData">
       <form action="javascript:void(0);" class="text-NotoSansRegular textColorblack mx-auto" v-if="tag === 0">
@@ -37,9 +37,9 @@
               </label>
               <div>
               </div>
-              <div class="w-full md:w-3/5 flex items-center">
+              <div class="w-full md:w-4/5 flex items-center flex-wrap lg:flex-no-wrap">
 
-                <div class="relative text-sm w-full md:w-48 md:mr-2">
+                <div class="relative text-sm w-full lg:w-1/4 lg:pr-1">
                   <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="invoice"
                     >
                     <option value="31">一般口說課程</option>
@@ -49,15 +49,23 @@
                   </div>
                 </div>
 
-                <input class="w-full appearance-none block text-sm border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-900" spellcheck="false"
+                <input class="w-full lg:w-auto lg:flex-1 appearance-none block text-sm border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-900" spellcheck="false"
                   id="email" type="email" placeholder="">
+
+                <div class="w-full lg:w-32 flex items-center justify-center lg:pl-2 mt-1 md:mt-0">
+                  <button class="button-verified py-3 rounded w-full text-sm whitespace-no-wrap px-1">
+                    <!-- <i class="far fa-check-square mr-1 lg:mr-2 text-lg lg:text-xl"></i> -->
+                    <i class="fas fa-square mr-1 lg:mr-2 text-lg lg:text-xl"></i>
+                    公開課程
+                  </button>
+                </div>
               </div>
-              <div class="w-full md:w-1/5 flex items-center justify-center md:pl-2">
+              <!-- <div class="w-full md:w-1/5 flex items-center justify-center md:pl-2">
                 <button class="button-verified py-3 rounded w-full text-sm whitespace-no-wrap">
-                  <!-- <i class="far fa-check-square mr-2"></i> -->
+                  <i class="far fa-check-square mr-2"></i>
                   <i class="fas fa-square"></i>
                   公開課程</button>
-              </div>
+              </div> -->
             </div>
 
             <!-- 封面 -->
@@ -66,18 +74,20 @@
                 封面
               </label>
               <div class="w-full md:w-3/5 flex items-center">
-                <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                <input class="appearance-none border-gray-500 focus:border-gray-900 block w-full text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
                   id="name" type="text" placeholder="請輸入url">
               </div>
               <div class="w-full md:w-1/5 flex items-center">
-                <a href="" class="block px-3 mr-3">
+                <a href="" class="block px-1 lg:px-3 lg:mr-1 xl:mr-3">
                   <label for="file-upload" class="custom-file-upload">
                     <i class="fas fa-upload"></i>
                   </label>
                   <input id="file-upload" type="file"/>
                 </a>
-                <span>cover.jpg</span>
-                <a href="" class="block p-2"><i class="fas fa-times"></i></a>
+                <div class="flex items-center">
+                  <span>cover.jpg</span>
+                  <a href="" class="block p-2"><i class="fas fa-times"></i></a>
+                </div>
               </div>
             </div>
 

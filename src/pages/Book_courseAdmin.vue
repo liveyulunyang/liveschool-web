@@ -12,7 +12,7 @@
           <FilterModal :showItems="showItems" />
         </div>
         <div class="flex justify-end items-center">
-          <button @click="addBook" class="px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
+          <button @click="addBook" class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
             <i class="fas fa-cog mr-1"></i>預約設定
           </button>
         </div>
@@ -29,7 +29,7 @@
           <template slot="actionsBtn">
             <td data-th="動作">
               <button @click="openModal"
-                class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1 text-white bg-gray-900 px-2 py-2 rounded"
+                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1 text-white bg-gray-900 px-2 py-2 rounded"
                 >
                 審核<i class="fas fa-arrow-right ml-1"></i>
               </button>

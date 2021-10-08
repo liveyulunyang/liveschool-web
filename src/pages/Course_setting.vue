@@ -40,12 +40,12 @@
 
                     <div class="flex items-center mx-2">
                       <button
-                        class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
+                        class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
                         >
                         <img src="@/assets/img/icons/edit.svg" alt="" class="w-6 object-contain">
                       </button>
                       <button
-                        class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
+                        class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
                         >
                         <img src="@/assets/img/icons/delete.svg" alt="" class="w-6 object-contain">
                       </button>
@@ -74,12 +74,12 @@
 
                     <div class="flex items-center mx-2">
                       <button
-                        class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
+                        class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
                         >
                         <img src="@/assets/img/icons/edit.svg" alt="" class="w-6 object-contain">
                       </button>
                       <button
-                        class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
+                        class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
                         >
                         <img src="@/assets/img/icons/delete.svg" alt="" class="w-6 object-contain">
                       </button>
@@ -128,7 +128,7 @@
                       <div class="mb-8 md:w-1/2 lg:w-full">
                         <h6 class="text-xl font-bold">選擇時段</h6>
                         <div class="relative text-sm w-full">
-                          <select v-model="TimePeriod" @change="setTime" class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
+                          <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
                             >
                             <option value="full">全天</option>
                             <option value="morning">上午</option>
@@ -141,11 +141,11 @@
                       </div>
                     </div>
                     <div class="flex justify-center items-center">
-                      <button class="mx-4 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
+                      <button class="mx-4 px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
                         停課
                       </button>
 
-                      <button class="mx-4 px-4 py-2 bg-gray-400 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
+                      <button class="mx-4 px-4 py-2 bg-gray-400 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
                         取消
                       </button>
                     </div>
@@ -187,14 +187,15 @@
         tag: 0,
         periodTime: null,
         value1: null,
-        TimePeriod: 'full',
 
         calendarOptions: {
           plugins: [dayGridPlugin, interactionPlugin, timeGridPlugin],
           initialView: 'timeGridWeek',
           weekends: true,
+          slotDuration: '00:30:00',
           slotMinTime: '9:00:00',
           slotMaxTime: '21:00:00',
+
           events: [
             {
               title: '預約此時段',
@@ -233,19 +234,6 @@
     mounted () {
     },
     methods: {
-      setTime () {
-        let TimePeriod = this.TimePeriod
-        if (TimePeriod === 'morning') {
-          this.$refs.fullCalendar.getApi().setOption('slotMinTime', '09:00:00')
-          this.$refs.fullCalendar.getApi().setOption('slotMaxTime', '13:00:00')
-        } else if (TimePeriod === 'afternoon') {
-          this.$refs.fullCalendar.getApi().setOption('slotMinTime', '13:00:00')
-          this.$refs.fullCalendar.getApi().setOption('slotMaxTime', '21:00:00')
-        } else {
-          this.$refs.fullCalendar.getApi().setOption('slotMinTime', '09:00:00')
-          this.$refs.fullCalendar.getApi().setOption('slotMaxTime', '21:00:00')
-        }
-      }
     }
   }
 </script>
@@ -259,5 +247,8 @@
   .tagAct {
     background: white;
     color: black;
+  }
+  .fc-view-harness {
+    height: 700px !important;
   }
 </style>

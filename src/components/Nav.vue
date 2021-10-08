@@ -12,16 +12,16 @@
     <div class="c-nav__menu flex flex-col justify-between" :class="[ mode === 'mobile' ? 'is-mobile' : '' ]">
       <ul>
         <li class="c-nav__menuitem" v-for="(item, index) in menuListItem" :key="index">
-          <router-link :to="item.url" @click.native="isClosed = true"
+          <router-link :to="item.url"
               :class="{ 'active': item.isActive }"
-              class="flex items-center py-4 px-6 text-gray-1 hover:border-l-3 hover:border-solid hover:border-primary-normal hover:bg-primary-light hover:text-primary-normal">
+              class="flex items-center py-4 px-6 text-gray-1 hover:border-l-3 hover:border-solid hover:border-primary-normal  hover:bg-gray-600 hover:text-primary-normal">
             <i :class="item.icon"></i>
             <span class="ml-3 text-sm font-bold">{{ item.title }}</span>
           </router-link>
         </li>
         <li class="c-nav__menuitem">
           <a href="https://store.liveabc.com/" target="_blank"
-              class="flex items-center py-4 px-6 text-gray-1 hover:border-l-3 hover:border-solid hover:border-primary-normal hover:bg-primary-light hover:text-primary-normal">
+              class="flex items-center py-4 px-6 text-gray-1 hover:border-l-3 hover:border-solid hover:border-primary-normal  hover:bg-gray-600 hover:text-primary-normal">
             <i class="fas fa-school"></i>
             <span class="ml-3 text-sm font-bold">Live Class</span>
           </a>

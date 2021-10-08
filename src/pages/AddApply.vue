@@ -23,14 +23,12 @@
         <div v-if="step === 0">
           <div class="bg-white text-left py-8 px-4 md:px-8 xl:px-12 leading-loose font-semibold text-lg mb-4 ">
             <h6 class="text-xl mb-3 font-bold">班主任線上報名LiveTeacher需知</h6>
-            <p>1. 課程提出申請後，系統會於3日內完成審核。</p>
-            <p>2. 預約課程前，請先確認學生點數是否充足，若學生點數不足，課程將無法通過審核。</p>
-            <p>3. 線上課程的申請核准，依提出申請的先後順序來安排，若未符合申請(例如: 教室已滿/師資不符…等)，此預約單將「未通過」。</p>
+            <p>1. 課程提出預約後，系統會於3個工作日(不含六、日)完成審核。</p>
+            <p>2. LiveTeacher課程為另外計費，不使用點數系統。</p>
+            <p>3. 線上課程的申請核准，依提出申請的先後順序來安排，若未符合申請(例如: 教室已滿…等)，此預約單將「未通過」。</p>
             <p>4. 預約課程若「狀態」仍顯示「審核中」，主任可以取消預約，一旦課程審核完畢，恕不任意修改。</p>
             <p>5. 班主任個人資料如正確，課程審核不論「成功」或「未通過」，班主任皆會收到簡訊和郵件通知。</p>
-            <p>6. 課程預約後，若欲取消，請學生依規定自行於課前12小時上線取消，否則點數將不予返還。</p>
-            <p>7. 預約課程「成功」上架後，若課前6小時仍未達開班人數，此課程將會被取消。</p>
-            <p>8. 課程師資安排，總公司保有調配之權利。</p>
+            <p>6. 課程師資、時間之變動，總公司保有調配之權利。</p>
           </div>
           <div class="flex justify-center items-center">
 
@@ -39,7 +37,7 @@
               <div class="control__indicator"></div>
             </label>
 
-            <button @click="step = 1" class="mx-4 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
+            <button @click="step = 1" class="mx-4 px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
               下一步
             </button>
           </div>
@@ -89,7 +87,7 @@
                 </div>
                 <div class="w-4/5 lg:w-auto flex items-center justify-end">
                   <button
-                    class="text-primary-normal hover:text-black-1 hover:bg-primary-light"
+                    class="text-primary-normal hover:text-black-1  hover:bg-gray-600"
                     >
                     <img src="@/assets/img/icons/more.svg" alt="" class="object-contain w-full">
                   </button>
@@ -101,11 +99,11 @@
             </div>
           </div>
           <div class="flex justify-center items-center">
-            <button @click="step = 0" class="mx-4 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
+            <button @click="step = 0" class="mx-4 px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
               上一步
             </button>
 
-            <button @click="step = 2" class="mx-4 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
+            <button @click="step = 2" class="mx-4 px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
               下一步
             </button>
           </div>
@@ -113,11 +111,11 @@
         <div v-if="step === 2">
           <Drag class="mb-4" />
           <div class="flex justify-center items-center">
-            <button @click="step = 1" class="mx-4 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
+            <button @click="step = 1" class="mx-4 px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
               上一步
             </button>
 
-            <button @click="step = 3" class="mx-4 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
+            <button @click="step = 3" class="mx-4 px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
               下一步
             </button>
           </div>
@@ -149,7 +147,7 @@
             </div>
           </div>
           <div class="flex justify-center items-center">
-            <button @click="step = 2" class="mx-4 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
+            <button @click="step = 2" class="mx-4 px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
               上一步
             </button>
           </div>

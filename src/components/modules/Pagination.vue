@@ -4,7 +4,7 @@
       <vue-ads-pagination
         :page="page"
         :itemsPerPage="10"
-        :max-visible-pages="5"
+        :max-visible-pages="3"
 
         :totalItems="200"
       >

@@ -8,13 +8,13 @@
         </div>
         <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row">
           <div class="flex items-center justify-start flex-wrap">
-            <button @click="$router.back(-1)" class="mr-3 px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm rounded whitespace-no-wrap">
+            <button @click="$router.back(-1)" class="mr-3 px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
               <i class="fas fa-chevron-left"></i>返回
             </button>
             <FilterModal :showItems="showItems" />
           </div>
-          <div class="flex justify-end items-center">
-            <Button @click="addClass" class="px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
+          <div class="w-full lg:w-auto flex justify-end items-center">
+            <Button @click="addClass" class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
               <i class="fas fa-plus mr-1"></i> 新增模板
             </Button>
           </div>
@@ -29,25 +29,25 @@
             <th class="whitespace-no-wrap text-center">執行動作</th>
           </template>
           <template slot="startClassLabel">
-            <th class="whitespace-no-wrap text-center">開課</th>
+            <th class="whitespace-no-wrap text-center opacity-0">開課</th>
           </template>
 
           <template slot="supplementaryMaterialsBtn">
             <td data-th="補充教材">
               <button
-                class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
+                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
                 >
                 <!-- <img src="@/assets/img/icons/file.svg" alt="" class="h-6 object-contain noData"> -->
                 <img src="@/assets/img/icons/file_active.svg" alt="" class="h-6 object-contain hasData">
               </button>
               <button @click="toPreview"
-                class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
+                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
                 >
                 <!-- <img src="@/assets/img/icons/before_test.svg" alt="" class="h-6 object-contain noData"> -->
                 <img src="@/assets/img/icons/before_test_active.svg" alt="" class="h-6 object-contain hasData">
               </button>
               <button @click="toReview"
-                class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1 isActive"
+                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1 isActive"
                 >
                 <!-- <img src="@/assets/img/icons/after_test.svg" alt="" class="h-6 object-contain noData"> -->
                 <img src="@/assets/img/icons/after_test_active.svg" alt="" class="h-6 object-contain hasData">
@@ -58,12 +58,12 @@
           <template slot="actionsBtn">
             <td data-th="執行動作">
               <button @click="$router.push({ name: 'Learn_record_supervise' })"
-                class="bg-gray-900 text-white hover:text-black-1 hover:bg-primary-light mx-1 w-8 h-8 rounded actionBtn"
+                class="bg-gray-900 text-white hover:text-black-1  hover:bg-gray-600 mx-1 w-8 h-8 rounded actionBtn"
                 >
                 <i class="far fa-folder-open text-lg"></i>
               </button>
               <button
-                class="bg-gray-900 text-white hover:text-black-1 hover:bg-primary-light mx-1 w-8 h-8 rounded actionBtn"
+                class="bg-gray-900 text-white hover:text-black-1  hover:bg-gray-600 mx-1 w-8 h-8 rounded actionBtn"
                 >
                 <i class="fas fa-ticket-alt text-lg"></i>
               </button>
@@ -72,7 +72,7 @@
           <template slot="startClass">
             <td data-th="開課">
               <button
-                class="bg-gray-900 text-white hover:text-black-1 hover:bg-primary-light mx-1 px-2 py-1 rounded"
+                class="bg-gray-900 text-white hover:text-black-1  hover:bg-gray-600 mx-1 px-2 py-1 rounded"
                 >
                 <i class="fas fa-plus mr-1"></i> 開課
               </button>
@@ -107,13 +107,17 @@
         },
         tableList: {
           columns: [
-            { name: 'type', label: '課程種類', required: true },
-            { name: 'name', label: '課程名稱', required: true }
+            { name: 'type', label: '課程種類', required: true, isShow: true },
+            { name: 'name', label: '課程名稱', required: true, isShow: true },
+            { name: 'isOrder', label: '是否開放預約', required: true, isShow: true },
+            { name: 'orderNum', label: '預約數量', required: true, isShow: true }
           ],
           datas: [
             {
               type: 'CTL口說班',
-              name: 'CTL口說升級測驗Starter'
+              name: 'CTL口說升級測驗Starter',
+              isOrder: '是',
+              orderNum: '5/20'
             }
           ]
         }

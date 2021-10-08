@@ -6,7 +6,7 @@
                     <h1 class="text-2xl leading-none text-black-1 mr-2">Vehicules Dashboard</h1>
                     <span class="text-sm leading-none text-block-3">{{ vehiclesList.datas.length }} Total</span>
                 </div>
-                <Button class="w-56 px-4 py-2 bg-primary-normal text-white hover:bg-primary-light" rounded>
+                <Button class="w-56 px-4 py-2 bg-primary-normal text-white  hover:bg-gray-600" rounded>
                     Filter List
                 </Button>
             </div>

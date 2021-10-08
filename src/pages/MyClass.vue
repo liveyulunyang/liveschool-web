@@ -8,8 +8,8 @@
           </h1>
           <div class="menu-bar flex items-center mb-2 flex-wrap">
             <div class="flex items-center">
-              <a @click="isCalemder = true" class="block px-1 py-1 btn-toggle cursor-pointer" :class="{ isType: isCalemder }"><i class="fas fa-border-all text-4xl"></i></a>
-              <a @click="isCalemder = false" class="block px-1 py-1 btn-toggle cursor-pointer" :class="{ isType: !isCalemder }"><i class="fas fa-list-alt text-4xl"></i></a>
+              <a @click="isCalender = true" class="block px-1 py-1 btn-toggle cursor-pointer" :class="{ isType: isCalender }"><i class="fas fa-border-all text-4xl"></i></a>
+              <a @click="isCalender = false" class="block px-1 py-1 btn-toggle cursor-pointer" :class="{ isType: !isCalender }"><i class="fas fa-list-alt text-4xl"></i></a>
             </div>
             <div class="flex items-center flex-1 justify-between sm:justify-start">
               <section style="background: none; border: none; box-shadow: none;" class="flex items-center mx-2">
@@ -55,7 +55,7 @@
                 <span class="text-sm ml-1 whitespace-no-wrap hidden md:block">已結束課程</span>
               </section>
             </div> -->
-            <div class="flex items-center text-xs flex-wrap" v-if="!isCalemder">
+            <div class="flex items-center text-xs flex-wrap" v-if="!isCalender">
               <div class="mx-1">
                 <date-picker
                   v-model="periodTime"
@@ -101,8 +101,8 @@
       <div class="content">
         <!-- <div class="menu-bar flex items-center mb-2 flex-wrap">
           <div class="flex items-center">
-            <a @click="isCalemder = true" class="block px-1 py-1 btn-toggle cursor-pointer" :class="{ isType: isCalemder }"><i class="fas fa-border-all text-4xl"></i></a>
-            <a @click="isCalemder = false" class="block px-1 py-1 btn-toggle cursor-pointer" :class="{ isType: !isCalemder }"><i class="fas fa-list-alt text-4xl"></i></a>
+            <a @click="isCalender = true" class="block px-1 py-1 btn-toggle cursor-pointer" :class="{ isType: isCalender }"><i class="fas fa-border-all text-4xl"></i></a>
+            <a @click="isCalender = false" class="block px-1 py-1 btn-toggle cursor-pointer" :class="{ isType: !isCalender }"><i class="fas fa-list-alt text-4xl"></i></a>
           </div>
           <div class="flex items-center flex-1 justify-between sm:justify-start">
             <section style="background: none; border: none; box-shadow: none;" class="flex items-center mx-2">
@@ -130,7 +130,7 @@
               <span class="text-sm ml-1 whitespace-no-wrap hidden md:block">已結束課程</span>
             </section>
           </div>
-          <div class="flex items-center text-xs flex-wrap" v-if="!isCalemder">
+          <div class="flex items-center text-xs flex-wrap" v-if="!isCalender">
             <div class="mx-1">
               <date-picker
                 v-model="periodTime"
@@ -165,7 +165,7 @@
           </div>
         </div> -->
 
-        <div v-if="isCalemder">
+        <div v-if="isCalender">
           <Calender class="hidden md:block" />
           <div class="md:hidden">
             <CalenderDot class="mb-4" />
@@ -216,7 +216,7 @@
             </div>
           </div>
         </div>
-        <section v-if="!isCalemder">
+        <section v-if="!isCalender">
           <!-- <div v-if="!data">
             <NoData :text="'目前還未擁有任何課程喔'" />
             <button class="text-white bg-gray-900 px-5 py-2 rounded-full text-xl mb-4">前往增加個人課程</button>
@@ -300,8 +300,8 @@
         <div class="content">
           <div class="menu-bar flex items-center mb-2 flex-wrap">
             <div class="flex items-center">
-              <a @click="isCalemder = true" class="block px-1 py-1 btn-toggle cursor-pointer" :class="{ isType: isCalemder }"><i class="fas fa-border-all text-4xl"></i></a>
-              <a @click="isCalemder = false" class="block px-1 py-1 btn-toggle cursor-pointer" :class="{ isType: !isCalemder }"><i class="fas fa-list-alt text-4xl"></i></a>
+              <a @click="isCalender = true" class="block px-1 py-1 btn-toggle cursor-pointer" :class="{ isType: isCalender }"><i class="fas fa-border-all text-4xl"></i></a>
+              <a @click="isCalender = false" class="block px-1 py-1 btn-toggle cursor-pointer" :class="{ isType: !isCalender }"><i class="fas fa-list-alt text-4xl"></i></a>
             </div>
             <div class="flex items-center flex-1 justify-between sm:justify-start">
               <section style="background: none; border: none; box-shadow: none;" class="flex items-center mx-2">
@@ -329,7 +329,7 @@
                 <span class="text-sm ml-1 whitespace-no-wrap">LiveTeacher</span>
               </section>
             </div>
-            <div class="flex items-center text-xs flex-wrap" v-if="!isCalemder">
+            <div class="flex items-center text-xs flex-wrap" v-if="!isCalender">
               <div class="mx-1">
                 <date-picker
                   v-model="periodTime"
@@ -364,7 +364,7 @@
             </div>
           </div>
 
-          <div v-if="isCalemder">
+          <div v-if="isCalender">
             <Calender class="hidden md:block" />
             <div class="md:hidden">
               <CalenderDot :isisFullWidth="true" class="mb-4" />
@@ -415,7 +415,7 @@
               </div>
             </div>
           </div>
-          <section v-if="!isCalemder">
+          <section v-if="!isCalender">
             <!-- <div v-if="!data">
               <NoData :text="'目前還未擁有任何課程喔'" />
               <button class="text-white bg-gray-900 px-5 py-2 rounded-full text-xl mb-4">前往增加個人課程</button>
@@ -443,8 +443,8 @@
         <!-- <div class="content">
           <div class="menu-bar flex items-center mb-2 flex-wrap">
             <div class="flex items-center">
-              <a @click="isCalemder = true" class="block px-1 py-1 btn-toggle cursor-pointer" :class="{ isType: isCalemder }"><i class="fas fa-border-all text-4xl"></i></a>
-              <a @click="isCalemder = false" class="block px-1 py-1 btn-toggle cursor-pointer" :class="{ isType: !isCalemder }"><i class="fas fa-list-alt text-4xl"></i></a>
+              <a @click="isCalender = true" class="block px-1 py-1 btn-toggle cursor-pointer" :class="{ isType: isCalender }"><i class="fas fa-border-all text-4xl"></i></a>
+              <a @click="isCalender = false" class="block px-1 py-1 btn-toggle cursor-pointer" :class="{ isType: !isCalender }"><i class="fas fa-list-alt text-4xl"></i></a>
             </div>
             <div class="flex items-center flex-1 justify-between sm:justify-start">
               <section style="background: none; border: none; box-shadow: none;" class="flex items-center mx-2">
@@ -472,7 +472,7 @@
                 <span class="text-sm ml-1 whitespace-no-wrap hidden md:block">已結束課程</span>
               </section>
             </div>
-            <div class="flex items-center text-xs flex-wrap" v-if="!isCalemder">
+            <div class="flex items-center text-xs flex-wrap" v-if="!isCalender">
               <div class="mx-1">
                 <date-picker
                   v-model="periodTime"
@@ -507,7 +507,7 @@
             </div>
           </div>
 
-          <div v-if="isCalemder">
+          <div v-if="isCalender">
             <Calender class="hidden md:block" />
             <div class="md:hidden">
               <CalenderDot class="mb-4" />
@@ -558,7 +558,7 @@
               </div>
             </div>
           </div>
-          <section v-if="!isCalemder">
+          <section v-if="!isCalender">
             <div class="flex items-center justify-center flex-wrap">
               <div class="bg-white px-2 py-2 hover:shadow-lg transition duration-500 w-full flex borderGreen mb-3 border-l-4 borderGreen flex-col md:flex-row"  v-for="n in 5" :key="n">
                 <div class="md:w-1/12 p-1"><img src="@/assets/img/classImg.png" alt="" class="mx-auto object-contain max-w-full"></div>
@@ -599,7 +599,7 @@ import 'vue2-datepicker/index.css'
     },
     data () {
       return {
-        isCalemder: true,
+        isCalender: true,
         periodTime: null,
 
         data: null

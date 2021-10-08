@@ -8,7 +8,7 @@
         </div>
         <div class="content">
           <div class="flex justify-end items-center mb-4">
-            <button @click="openModal(true)" class="px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm mx-1 rounded whitespace-no-wrap">
+            <button @click="openModal(true)" class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
               <i class="fas fa-plus mr-1"></i> 新增公告
             </button>
           </div>
@@ -23,17 +23,17 @@
             <div class="w-full md:w-1/4 flex flex-col justify-center items-end">
               <div class="flex mb-4 order-2 md:order-1">
                 <button @click="openModal(false)"
-                  class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
+                  class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
                   >
                   <img src="@/assets/img/icons/more.svg" alt="" class="w-8 object-contain">
                 </button>
                 <button @click="openModal(true)"
-                  class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
+                  class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
                   >
                   <img src="@/assets/img/icons/edit.svg" alt="" class="w-8 object-contain">
                 </button>
                 <button @click="del()"
-                  class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
+                  class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
                   >
                   <img src="@/assets/img/icons/delete.svg" alt="" class="w-8 object-contain">
                 </button>

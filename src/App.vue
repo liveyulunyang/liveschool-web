@@ -251,7 +251,7 @@
           {
             icon: "fab fa-youtube",
             title: "Live Class",
-            url: "/live_class"
+            url: "/CoursesClass"
           },
           {
             icon: "fas fa-list-ul",

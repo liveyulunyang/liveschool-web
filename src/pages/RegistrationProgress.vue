@@ -10,7 +10,7 @@
         <FilterModal :showItems="showItems" />
 
         <div class="w-full lg:w-auto flex justify-end">
-          <button @click="addClass" class="px-4 py-2 bg-gray-900 text-white hover:bg-primary-light text-sm mx-1 whitespace-no-wrap">
+          <button @click="addClass" class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm mx-1 whitespace-no-wrap">
             <i class="fas fa-plus mr-1"></i> 新增報名
           </button>
         </div>
@@ -33,7 +33,7 @@
           <template slot="actionsBtn">
             <td data-th="課程資料">
               <button @click="openModal"
-                class="text-primary-normal hover:text-black-1 hover:bg-primary-light mx-1"
+                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
                 >
                 <img :src="require('@/assets/img/icons/more.svg')" alt="" class="w-6 object-contain">
               </button>

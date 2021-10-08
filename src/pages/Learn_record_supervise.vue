@@ -12,7 +12,7 @@
         <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row mb-4">
           <div class="flex items-center justify-start flex-wrap">
             <div class="mr-1">
-              <router-link :to="{ name: 'branch' }"  class="px-4 py-2 bg-white hover:bg-primary-light text-sm rounded whitespace-no-wrap border border-gray-500">
+              <router-link :to="{ name: 'branch' }"  class="px-4 py-2 bg-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap border border-gray-500">
                 <i class="fas fa-chevron-left"></i>返回
               </router-link>
             </div>
