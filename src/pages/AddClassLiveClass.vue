@@ -240,6 +240,14 @@
                 </div>
               </div>
               <div class="w-full md:w-3/12 flex items-center justify-center md:pl-2">
+                <button class="bg-gray-900 text-white py-2 px-2 rounded text-sm whitespace-no-wrap md:mx-1">
+                  <i class="fas fa-check mr-1"></i>儲存
+                </button>
+                <button class="button-verified py-2 px-2 rounded text-sm whitespace-no-wrap md:mx-1">
+                  <i class="fas fa-times mr-1"></i>取消修改
+                </button>
+              </div>
+              <!-- <div class="w-full md:w-3/12 flex items-center justify-center md:pl-2">
                 <button class="button-verified py-2 px-2 rounded w-full text-sm whitespace-no-wrap md:mx-1">
                   <i class="fas fa-plus mr-1"></i>新增單元
                 </button>
@@ -256,7 +264,7 @@
                 <i class="fas fa-minus"></i>
                 <i class="fas fa-minus"></i>
                 <i class="fas fa-minus"></i>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
