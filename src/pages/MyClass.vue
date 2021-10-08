@@ -421,6 +421,7 @@
               <button class="text-white bg-gray-900 px-5 py-2 rounded-full text-xl mb-4">前往增加個人課程</button>
               <img src="@/assets/img/myclass.png" alt="" class="mx-auto object-contain max-w-full">
             </div> -->
+            <startClassModal :showfirstModal="showfirstModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" /> -->
             <div class="flex items-center justify-center flex-wrap">
               <div class="bg-white px-2 py-2 hover:shadow-lg transition duration-500 w-full flex borderGreen mb-3 border-l-4 borderGreen flex-col md:flex-row"  v-for="n in 5" :key="n">
                 <div class="md:w-1/12 p-1"><img src="@/assets/img/classImg.png" alt="" class="mx-auto object-contain max-w-full"></div>
@@ -431,9 +432,9 @@
                 <div class="md:w-1/12 p-1 flex items-center justify-center"><p>兒童生活英語</p></div>
                 <div class="md:w-1/12 p-1 flex items-center justify-center"><p>B1 U1-U3 Class 2</p></div>
                 <div class="md:w-5/12 p-1 flex items-center justify-center md:justify-end">
-                  <a href="" class="border px-2 py-1 text-white bg-gray-900"><i class="fas fa-folder-open"></i></a>
-                  <a href="" class="border px-2 py-1 ml-8">課程準備中</a>
-                  <!-- <a href="" class="border px-2 py-1">前往上課</a> -->
+                  <a href="" class="border px-2 py-1 text-white bg-gray-900 mr-8"><i class="fas fa-folder-open"></i></a>
+                  <!-- <a href="" class="border px-2 py-1">課程準備中</a> -->
+                  <a @click="openModal" class="border px-2 py-1 bg-gray-900 text-white cursor-pointer">前往上課<i class="fas fa-arrow-right ml-1 text-sm"></i></a>
                 </div>
               </div>
             </div>
@@ -588,26 +589,39 @@ import Calender from '@/components/modules/Calender'
 import CalenderDot from '@/components/modules/CalenderDot'
 import DatePicker from 'vue2-datepicker'
 import 'vue2-datepicker/index.css'
+import startClassModal from '@/components/modules/startClassModal'
 // import NoData from '@/components/NoData'
   export default {
     name: "MyClass",
     components: {
       Calender,
       DatePicker,
-      CalenderDot
+      CalenderDot,
+      startClassModal
       // NoData
     },
     data () {
       return {
-        isCalender: true,
+        isCalender: false,
         periodTime: null,
 
-        data: null
+        data: null,
+
+        showfirstModal: false
       }
     },
     computed: {
     },
     methods: {
+      openModal () {
+        this.showfirstModal = true
+      },
+      closeModal (closeModal) {
+        this.showfirstModal = closeModal
+      },
+      submit (submit) {
+        this.$router.push({ name: submit })
+      }
     }
   }
 </script>
