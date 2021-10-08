@@ -60,6 +60,11 @@ const router = new Router({
       component: () => import('@/pages/AddClassTeacher.vue')
     },
     {
+      path: '/teacher_class/:status',
+      name: 'addLiveClassClass',
+      component: () => import('@/pages/AddClassLiveClass.vue')
+    },
+    {
       path: '/ctl_class/:type',
       name: 'ctl_class',
       component: () => import('@/pages/AddPreReviewClass.vue')

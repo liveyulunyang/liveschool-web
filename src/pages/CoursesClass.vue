@@ -107,7 +107,7 @@
     },
     methods: {
       addClass () {
-        this.$router.push({ name: 'addTeacherClass', params: { status: 'add'} })
+        this.$router.push({ name: 'addLiveClassClass', params: { status: 'add'} })
       },
       toEdit () {
         this.$router.push({ name: 'course_template' })
@@ -115,7 +115,7 @@
 
       edit(id) {
         console.log(id)
-        this.$router.push({ name: 'addTalkClass', params: { status: 'edit'} })
+        this.$router.push({ name: 'addLiveClassClass', params: { status: 'edit'} })
       },
       open(id) {
         console.log(id)
