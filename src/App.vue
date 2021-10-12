@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="min-h-screen overflow-auto">
+  <!-- <div id="app" class="min-h-screen overflow-auto">
     <Nav class="hidden md:block" :menu-list-item="roleMenu" :user="user"></Nav>
     <header class="bg-white flex justify-between px-2 lg:px-20 border-b border-gray-3 border-solid h-20">
       <Nav class="md:hidden" mode="mobile" :menu-list-item="roleMenu" :user="user"></Nav>
@@ -27,7 +27,7 @@
             class="fill-current">
           <use xlink:href="#c-icon-bell"></use>
           </svg>
-        </Button>
+        </Button> -->
         <!-- <Button @click.native="openSideBar"
                 class="mx-2 relative text-gray-1 hover:text-primary-normal"
                 round>
@@ -48,7 +48,7 @@
                   img-class="h-8 w-8 rounded-full">
           </avatar>
         </Button> -->
-      </div>
+      <!-- </div>
     </header>
     <router-view class="min-h-full" @click.native="outside" />
     <SideBar :is-visible="isOpenSideBar" @click="outside"></SideBar>
@@ -68,20 +68,23 @@
         </div>
       </div>
     </div>
+  </div> -->
+  <div id="app" class="mx-auto overflow-hidden m-0 p-0 w-full h-auto">
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-  import Nav from './components/Nav'
-  import Button from "./components/Button"
-  import SideBar from "./components/SideBar"
+  // import Nav from './components/Nav'
+  // import Button from "./components/Button"
+  // import SideBar from "./components/SideBar"
   import { mapGetters } from 'vuex'
   export default {
     name: 'app',
     components: {
-      Nav,
-      Button,
-      SideBar
+      // Nav,
+      // Button,
+      // SideBar
     },
     data () {
       return {
@@ -396,77 +399,5 @@
 </script>
 
 <style>
-  #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    display: block;
-    background-color: #F4F6FC;
-    grid-template-columns: 100%;
-    grid-template-rows: 1fr;
-    grid-template-areas: "head"
-    "main";
-  }
-  #app > header {
-    grid-area: head;
-  }
-  main {
-    grid-area: main;
-  }
 
-  @media (min-width: 768px) {
-    #app {
-      display: grid;
-      grid-template-columns: auto 1fr;
-      grid-template-rows: 80px 1fr ;
-      grid-template-areas: "nav head"
-      "nav main";
-    }
-
-    #app > header {
-      grid-area: head;
-    }
-  }
-
-.dropbtn {
-  /* background-color: #04AA6D; */
-  /* color: white; */
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-.dropbtn:hover, .dropbtn:focus {
-  /* background-color: #3e8e41; */
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  /* display: none; */
-  position: absolute;
-  left: -2em;
-  background-color: #ffffff;
-  min-width: 140px;
-  overflow: auto;
-  border: 1px solid #ddd;
-  z-index: 1;
-  font-size: 14px;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown a:hover {background-color: #ddd;}
-
-.show {display: block;}
 </style>

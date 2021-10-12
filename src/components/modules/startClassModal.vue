@@ -83,7 +83,7 @@ export default {
   }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
   .max-w-modal {
     max-width: 50em !important;
   }
