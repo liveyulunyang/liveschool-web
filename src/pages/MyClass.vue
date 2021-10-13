@@ -421,7 +421,7 @@
               <button class="text-white bg-gray-900 px-5 py-2 rounded-full text-xl mb-4">前往增加個人課程</button>
               <img src="@/assets/img/myclass.png" alt="" class="mx-auto object-contain max-w-full">
             </div> -->
-            <startClassModal :showfirstModal="showfirstModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" /> -->
+            <startClassModal :showfirstModal="showfirstModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" />
             <div class="flex items-center justify-center flex-wrap">
               <div class="bg-white px-2 py-2 hover:shadow-lg transition duration-500 w-full flex borderGreen mb-3 border-l-4 borderGreen flex-col md:flex-row"  v-for="n in 5" :key="n">
                 <div class="md:w-1/12 p-1"><img src="@/assets/img/classImg.png" alt="" class="mx-auto object-contain max-w-full"></div>

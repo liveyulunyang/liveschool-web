@@ -1,34 +1,31 @@
 <template>
-  <div class="bg-gray-800 relative">
-  <!-- <div>
-    <fullscreen :fullscreen.sync="fullscreen">
-      content
-    </fullscreen>
-    <button type="button" @click="toggle" >Fullscreen</button>
-    <div class="fullscreen-wrapper">
-      content
-    </div>
-    <button type="button" @click="toggleApi" >FullscreenApi</button>
-  </div> -->
-    <div class="container max-h-screen">
-      <pdf src="/test.pdf" :page="currentPage" @num-pages="pageCount = $event" @page-loaded="currentPage = $event" ref="myPdfComponent"></pdf>
-    </div>
+  <div class="relative w-full h-screen bg-gray-800">
 
-    <div class="absolute w-full left-0 bottom-0 bg-gray-900">
-      <div class="flex items-stretch py-3 video-mode-play-bar">
-        <div class="w-1/3 text-white flex items-center">
+    <fullscreen :fullscreen.sync="fullscreen">
+      <div class="container">
+        <pdf :src="src" :page="currentPage" @num-pages="pageCount = $event" @page-loaded="currentPage = $event" ref="myPdfComponent"></pdf>
+      </div>
+    </fullscreen>
+
+    <!-- <div class="container max-h-screen">
+      <pdf src="/test.pdf" :page="currentPage" @num-pages="pageCount = $event" @page-loaded="currentPage = $event" ref="myPdfComponent"></pdf>
+    </div> -->
+
+    <div class="absolute w-full left-0 bottom-0">
+      <div class="flex items-stretch py-3 video-mode-play-bar flex-wrap">
+        <div class="w-full md:w-1/3 text-white flex items-center">
           <div class="dropup w-full">
-            <button class="dropbtn w-full text-left text-lg focus:outline-none" @click="isShowMenu= !isShowMenu">
+            <button class="dropbtn w-full text-left text-lg focus:outline-none md:p-2" @click="isShowMenu= !isShowMenu">
               <i class="fas fa-sort-up px-4"></i>01.English Restaurant
             </button>
-            <div class="dropup-content w-full px-4" :class="{ block: isShowMenu }">
+            <div class="dropup-content w-full" :class="{ block: isShowMenu }">
               <a href="#">Link 1</a>
               <a href="#">Link 2</a>
               <a href="#">Link 3</a>
             </div>
           </div>
         </div>
-        <div class="w-2/3 border-l flex items-center">
+        <div class="w-full md:w-2/3 border-l flex items-center">
           <div class="bottom-0 left-0 w-full px-3">
             <div class="flex items-center justify-between">
               <div class="flex w-5/6 items-center">
@@ -40,7 +37,7 @@
                 </div>
                 <div class="progess-bar relative w-full mx-2">
                   <div class="progess-bar-bg h-2 text-xs flex rounded">
-                    <div :style="`width:{{ currentPage }} / {{ pageCount }}`" class="rounded progess-bar-num shadow-none flex flex-col whitespace-nowrap bg-white justify-center login-btn-login player-video"></div>
+                    <div :style="progressCalc" class="rounded progess-bar-num shadow-none flex flex-col whitespace-nowrap bg-white justify-center login-btn-login player-video"></div>
                   </div>
                 </div>
                 <a class="text-white block px-2 cursor-pointer" @click="nextPage"><i class="fas fa-chevron-right"></i></a>
@@ -49,7 +46,7 @@
                 <a class="btn inline-block p-3 text-xl cursor-pointer" @click="$refs.myPdfComponent.print()">
                   <i class="fas fa-download"></i>
                 </a>
-                <a class="btn inline-block p-3 text-xl cursor-pointer">
+                <a class="btn inline-block p-3 text-xl cursor-pointer" @click="toggleApi">
                   <i class="fas fa-expand"></i>
                 </a>
               </div>
@@ -62,10 +59,10 @@
 </template>
 
 <script>
-// import VueFullscreen from 'vue-fullscreen'
-// Vue.use(VueFullscreen)
-import pdf from 'vue-pdf'
-var loadingTask = pdf.createLoadingTask('https://cdn.mozilla.net/pdfjs/tracemonkey.pdf');
+  import VueFullscreen from 'vue-fullscreen'
+  import Vue from 'vue'
+  Vue.use(VueFullscreen)
+  import pdf from 'vue-pdf'
   export default {
     name: "startClass",
     components: {
@@ -73,19 +70,19 @@ var loadingTask = pdf.createLoadingTask('https://cdn.mozilla.net/pdfjs/tracemonk
     },
     data () {
       return {
-        src: loadingTask,
+        src: '/test.pdf',
         currentPage: 1,
         pageCount: 0,
-        isShowMenu: false
+        isShowMenu: false,
 
-        // fullscreen: false,
-        // teleport: true,
-        // pageOnly: false
+        fullscreen: true,
+        teleport: true,
+        pageOnly: false
       }
     },
     computed: {
       progressCalc () {
-        return this.currentPage / this.pageCount * 1000
+          return ('width:' + Math.round(this.currentPage / this.pageCount * 10000) / 100.00 + '%')
       }
     },
     mounted () {
@@ -100,24 +97,24 @@ var loadingTask = pdf.createLoadingTask('https://cdn.mozilla.net/pdfjs/tracemonk
         if (this.currentPage < this.pageCount) {
           this.currentPage ++
         }
+      },
+      toggle () {
+        this.fullscreen = !this.fullscreen
+      },
+      toggleApi () {
+        this.$fullscreen.toggle(this.$el.querySelector('.fullscreen-wrapper'), {
+          teleport: this.teleport,
+          callback: (isFullscreen) => {
+            this.fullscreen = isFullscreen
+          },
+        })
       }
-      // toggle () {
-      //   this.fullscreen = !this.fullscreen
-      // },
-      // toggleApi () {
-      //   this.$fullscreen.toggle(this.$el.querySelector('.fullscreen-wrapper'), {
-      //     teleport: this.teleport,
-      //     callback: (isFullscreen) => {
-      //       this.fullscreen = isFullscreen
-      //     },
-      //   })
-      // }
     }
   }
 </script>
 <style lang="scss" scoped>
 .video-mode-play-bar {
-  background: rgba(126, 126, 126, 0.1);
+  background: rgba(126, 126, 126, 0.9);
 }
 .video-mode-play-bar .player-video {
   position: relative;
@@ -131,7 +128,6 @@ var loadingTask = pdf.createLoadingTask('https://cdn.mozilla.net/pdfjs/tracemonk
 /* Dropup Button */
 .dropbtn {
   color: white;
-  padding: 16px;
   font-size: 16px;
   border: none;
 }
@@ -146,8 +142,9 @@ var loadingTask = pdf.createLoadingTask('https://cdn.mozilla.net/pdfjs/tracemonk
 .dropup-content {
   display: none;
   position: absolute;
-  bottom: 70px;
-  background: rgba(0,0,0,0.8);
+  bottom: 60px;
+  // background: rgba(0,0,0,0.8);
+  background: rgba(126, 126, 126, 0.9);
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
@@ -159,10 +156,14 @@ var loadingTask = pdf.createLoadingTask('https://cdn.mozilla.net/pdfjs/tracemonk
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  width: 100%;
 }
 
 /* Change color of dropup links on hover */
-.dropup-content a:hover {background-color: #ddd}
+.dropup-content a:hover {
+  // background-color: rgb(0, 0, 0)
+  background: rgba(126, 126, 126, 1);
+}
 
 /* Show the dropup menu on hover */
 // .dropup:hover .dropup-content {

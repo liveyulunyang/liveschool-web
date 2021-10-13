@@ -194,6 +194,11 @@ const router = new Router({
           path: '/Course_setting',
           name: 'Course_setting',
           component: () => import('@/pages/Course_setting.vue')
+        },
+        {
+          path: '/selectLesson',
+          name: 'SelectLesson',
+          component: () => import('@/pages/SelectLesson.vue')
         }
       ]
     }

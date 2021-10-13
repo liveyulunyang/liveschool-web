@@ -20,11 +20,12 @@
           </router-link>
         </li>
         <li class="c-nav__menuitem">
-          <a href="https://store.liveabc.com/" target="_blank"
+          <router-link :to="{ name: 'SelectLesson' }"
+              
               class="flex items-center py-4 px-6 text-gray-1 hover:border-l-3 hover:border-solid hover:border-primary-normal  hover:bg-gray-600 hover:text-primary-normal">
             <i class="fas fa-school"></i>
-            <span class="ml-3 text-sm font-bold">Live Class</span>
-          </a>
+            <span class="ml-3 text-sm font-bold">學習平台</span>
+          </router-link>
         </li>
       </ul>
       <a @click="isClosed = !isClosed" class="p-5 bg-primary-light text-primary w-full cursor-pointer md:hidden">Close</a>
