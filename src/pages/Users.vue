@@ -80,7 +80,7 @@
           branch: false,
           classType: false,
           timePeriod: true,
-          serach: true,
+          search: true,
           sync: true
         },
         timeInterval: null,
@@ -158,9 +158,11 @@
         this.$router.push({ name: 'account_add' })
       },
       edit() {
+        this.$router.push({ name: 'account_edit', params: { id: 1 } })
         console.log('edit manage')
       },
       open() {
+        this.$router.push({ name: 'learn_record_student' })
         console.log('open manage')
       },
       del() {

@@ -1,54 +1,84 @@
 <template>
-  <div id="app" class="min-h-screen overflow-auto">
-    <Nav class="hidden md:block" :menu-list-item="roleMenu" :user="user"></Nav>
-    <header class="bg-white flex justify-between px-2 lg:px-20 border-b border-gray-3 border-solid h-20">
-      <Nav class="md:hidden" mode="mobile" :menu-list-item="roleMenu" :user="user"></Nav>
-      <router-link class="flex items-center" to="/">
-        <img alt="Velocity" src="@/assets/logo.png" class="w-24 md:w-48 h-auto">
-      </router-link>
-      <div class="flex items-center">
-        <div class="dropdown">
-          <button class="dropbtn focus:outline-none" @click="isOpenUser = !isOpenUser">Hi! Peggy<i class="fas fa-sort-down ml-2"></i></button>
-          <div id="myDropdown" class="dropdown-content" :class=" { hidden: !isOpenUser }">
+<div>
+<div id="backView" class="min-h-screen overflow-auto">
+  <Nav class="hidden md:block" :menu-list-item="roleMenu" :user="user"></Nav>
+  <header class="bg-white flex justify-between px-2 lg:px-20 border-b border-gray-3 border-solid h-20">
+    <Nav class="md:hidden" mode="mobile" :menu-list-item="roleMenu" :user="user"></Nav>
+    <router-link class="flex items-center" to="/">
+      <img alt="Velocity" src="@/assets/logo.png" class="w-24 md:w-48 h-auto">
+    </router-link>
+    <div class="flex items-center">
+      <div class="dropdown">
+        <button class="dropbtn focus:outline-none" @click="isOpenUser = !isOpenUser">Hi! Peggy<i class="fas fa-sort-down ml-2"></i></button>
+        <div id="myDropdown" class="dropdown-content" :class=" { hidden: !isOpenUser }">
 
-            <router-link :to="{ name: 'account' }">帳號資料</router-link>
-            <router-link :to="{ name: 'learn_record_student' }">查詢紀錄</router-link>
-            <a href="#base">登出</a>
-          </div>
+          <router-link :to="{ name: 'account' }">帳號資料</router-link>
+          <router-link :to="{ name: 'learn_record_student' }">查詢紀錄</router-link>
+          <a href="#base">登出</a>
         </div>
-        <Button @click.native="openSideBar"
-            class="mx-2 relative text-gray-1 hover:text-primary-normal focus:outline-none"
-            round>
-          <span class="absolute top-0 right-0 h-2 w-2 rounded-full bg-primary-normal"></span>
-          <svg xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            height="35"
-            width="35"
-            class="fill-current">
-          <use xlink:href="#c-icon-bell"></use>
-          </svg>
-        </Button>
       </div>
-    </header>
-    <router-view class="min-h-full" @click.native="outside" />
-    <SideBar :is-visible="isOpenSideBar" @click="outside"></SideBar>
+      <Button @click.native="openSideBar"
+          class="mx-2 relative text-gray-1 hover:text-primary-normal focus:outline-none"
+          round>
+        <span class="absolute top-0 right-0 h-2 w-2 rounded-full bg-primary-normal"></span>
+        <svg xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          height="35"
+          width="35"
+          class="fill-current">
+        <use xlink:href="#c-icon-bell"></use>
+        </svg>
+      </Button>
+    </div>
+  </header>
+  <router-view class="min-h-full" @click.native="outside" />
+  <SideBar :is-visible="isOpenSideBar" @click="outside"></SideBar>
 
-    <div class="fixed bottom-0 right-0 z-40 cursor-pointer">
-      <div class="relative w-auto mx-1">
-        <select class="block appearance-none py-3 px-4 pr-8 rounded leading-tight focus:outline-none border" id="setRole"
-          @change="setRole($event)" v-model="$store.state.userRole">
-          <option value="admin">管理者</option>
-          <option value="director">主任</option>
-          <option value="student">學生</option>
-          <option value="supervise">督導</option>
-          <option value="teacher">老師</option>
-        </select>
-        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
-          <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-        </div>
+  <!-- <div class="fixed bottom-0 right-0 z-40 cursor-pointer">
+    <div class="relative w-auto mx-1">
+      <select class="block appearance-none py-3 px-4 pr-8 rounded leading-tight focus:outline-none border" id="setRole"
+        @change="setRole($event)" v-model="$store.state.userRole">
+        <option value="admin">管理者</option>
+        <option value="director">主任</option>
+        <option value="student">學生</option>
+        <option value="supervise">督導</option>
+        <option value="teacher">老師</option>
+      </select>
+      <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
+        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
       </div>
     </div>
-  </div>
+  </div> -->
+
+</div>
+  <footer class="bg-gray-900 w-full text-white py-12">
+    <div class="container mx-auto flex flex-wrap justify-between">
+      <div class="flex flex-wrap">
+        <div class="px-4">
+          <h6 class="text-lg mb-6">Live School</h6>
+          <a href="">師資陣容</a>
+        </div>
+        <div class="px-4">
+          <h6 class="text-lg mb-6">網站指南</h6>
+          <a href="" class="block mb-3">常見問題</a>
+          <a href="" class="block mb-3">操作手冊</a>
+          <a href="" class="block">軟體下載</a>
+        </div>
+        <div class="px-4">
+          <h6 class="text-lg mb-6">切換語言</h6>
+          <a href="" class="block mb-3">English</a>
+          <a href="" class="block mb-3">繁體中文</a>
+          <a href="" class="block">简体中文</a>
+        </div>
+      </div>
+      <div class="">
+        <p><img src="@/assets/logo_liveabc.png" alt="" class="mb-3"></p>
+        <p class="mb-3">school@liveabc.com</p>
+        <p>客服專線：02-7730-9567、02-2528-0958</p>
+      </div>
+    </div>
+  </footer>
+</div>
 </template>
 
 <script>
@@ -77,7 +107,7 @@ export default {
           {
             icon: "fas fa-chalkboard-teacher",
             title: "TC課程管理",
-            url: "/coursesTC",
+            url: "/CoursesTeacher",
             role: ['admin']
           },
           {
@@ -221,7 +251,7 @@ export default {
           {
             icon: "fas fa-chalkboard-teacher",
             title: "Live Teacher",
-            url: "/coursesTC"
+            url: "/CoursesTeacher"
           },
           {
             icon: "fab fa-youtube",
@@ -378,7 +408,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  #app {
+  #backView {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -390,7 +420,7 @@ export default {
     grid-template-areas: "head"
     "main";
   }
-  #app > header {
+  #backView > header {
     grid-area: head;
   }
   main {
@@ -398,7 +428,7 @@ export default {
   }
 
   @media (min-width: 768px) {
-    #app {
+    #backView {
       display: grid;
       grid-template-columns: auto 1fr;
       grid-template-rows: 80px 1fr ;
@@ -406,7 +436,7 @@ export default {
       "nav main";
     }
 
-    #app > header {
+    #backView > header {
       grid-area: head;
     }
   }

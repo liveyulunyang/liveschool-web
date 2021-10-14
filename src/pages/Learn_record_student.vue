@@ -154,7 +154,7 @@ import FilterModal from '@/components/FilterModal'
           branch: false,
           classType: false,
           timePeriod: true,
-          serach: false,
+          search: false,
           sync: false
         },
 

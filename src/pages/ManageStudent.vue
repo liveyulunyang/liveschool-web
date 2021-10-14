@@ -179,7 +179,7 @@
           branch: false,
           classType: false,
           timePeriod: false,
-          serach: false,
+          search: false,
           sync: false
         },
         identityVal: null,

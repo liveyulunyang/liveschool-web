@@ -143,7 +143,7 @@
         </div>
       </div>
       <!-- 搜尋欄位 -->
-      <div class="w-full lg:w-auto md:flex p-1 items-center md:mb-0" v-if="showItems.serach">
+      <div class="w-full lg:w-auto md:flex p-1 items-center md:mb-0" v-if="showItems.search">
         <div class="relative text-sm w-full">
           <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
             >
@@ -199,7 +199,7 @@
             branch: false,
             classType: false,
             timePeriod: false,
-            serach: false,
+            search: false,
             sync: false,
             approvalStatus: true,
             isExportBtn: false

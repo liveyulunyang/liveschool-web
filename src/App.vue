@@ -105,7 +105,7 @@
           {
             icon: "fas fa-chalkboard-teacher",
             title: "TC課程管理",
-            url: "/coursesTC",
+            url: "/CoursesTeacher",
             role: ['admin']
           },
           {
@@ -249,7 +249,7 @@
           {
             icon: "fas fa-chalkboard-teacher",
             title: "Live Teacher",
-            url: "/coursesTC"
+            url: "/CoursesTeacher"
           },
           {
             icon: "fab fa-youtube",

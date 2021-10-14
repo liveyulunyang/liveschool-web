@@ -36,11 +36,11 @@
 
           <template slot="recordBtn">
             <td data-th="紀錄">
-              <button
+              <button @click="preClass()"
                 class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1">
                 <img :src="require('@/assets/img/icons/list.svg')" alt="" class="h-6 object-contain noData">
               </button>
-              <button
+              <button @click="reviewClass()"
                 class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1">
                 <img :src="require('@/assets/img/icons/film.svg')" alt="" class="h-6 object-contain noData">
                 <!-- <img src="@/assets/img/icons/film_active.svg" alt="" class="h-6 object-contain hasData"> -->
@@ -89,6 +89,7 @@
             </td>
           </template>
       </Table>
+      <CommentModal :showfirstModal="showfirstModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" />
       <Pagination />
     </div>
   </main>
@@ -99,18 +100,22 @@
   import FilterModal from '@/components/FilterModal'
   import Pagination from '@/components/modules/Pagination'
   import 'vue2-datepicker/index.css'
+  import CommentModal from '@/components/modules/CommentModal'
   export default {
-    name: 'Courses',
+    name: 'CoursesTalk',
     components: {
       Table,
       FilterModal,
-      Pagination
+      Pagination,
+      CommentModal
     },
     props: [
       'props'
     ],
     data () {
       return {
+        showfirstModal: false,
+
         showItems: {
           role: false,
           listStatus: false,
@@ -119,7 +124,7 @@
           branch: true,
           classType: true,
           timePeriod: true,
-          serach: true,
+          search: true,
           sync: true
         },
 
@@ -228,6 +233,11 @@
           }
         })
       },
+      preClass () {
+        this.showfirstModal = true
+      },
+      reviewClass () {
+      },
       toPreview () {
         console.log('d')
         this.$router.push({ path: '/ctl_class/preview' })
@@ -235,6 +245,16 @@
       toReview () {
         console.log('d')
         this.$router.push({ path: '/ctl_class/review' })
+      },
+
+      openModal () {
+        this.showfirstModal = true
+      },
+      closeModal (closeModal) {
+        this.showfirstModal = closeModal
+      },
+      submit (submit) {
+        // this.$router.push({ name: submit })
       }
     }
   }

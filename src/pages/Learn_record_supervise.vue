@@ -147,7 +147,7 @@ import StudentsModal from '@/components/modules/StudentsModal'
           branch: false,
           classType: false,
           timePeriod: true,
-          serach: false,
+          search: false,
           sync: false,
           approvalStatus: true
         },

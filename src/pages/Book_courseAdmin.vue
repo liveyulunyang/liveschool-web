@@ -60,7 +60,7 @@
           ProgressStatus: true,
           classType: true,
           timePeriod: true,
-          serach: true,
+          search: true,
           sync: true
         },
 

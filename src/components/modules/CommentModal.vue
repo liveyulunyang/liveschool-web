@@ -3,9 +3,12 @@
       <FilterModal :showItems="showItems" />
       <div class="h-table">
         <Table
-          :columns="tableList.columns"
-          :actions="tableList.actions"
-          :data="tableList.datas">
+          :columns="returnData.columns"
+          :actions="returnData.actions"
+          :data="returnData.datas">
+            <template slot="attend">
+              <th class="whitespace-no-wrap text-center">有無出席</th>
+            </template>
             <template slot="statusLabel">
               <th class="whitespace-no-wrap text-center">課後預習分數</th>
             </template>
@@ -13,9 +16,15 @@
               <th class="whitespace-no-wrap text-center">其他</th>
             </template>
 
+            <template slot="attendContent">
+              <td data-th="有無出席">
+                <i class="fas fa-check-circle text-center"></i>
+              </td>
+            </template>
             <template slot="statusText">
               <td data-th="課後預習分數">
-                <p class="px-1 py-2 border border-gray-300 text-gray-300">課後練習成績</p>
+                <p class="px-1 py-2 border border-gray-300 text-gray-300" v-if="$store.state.userRole !== 'admin'">課後練習成績</p>
+                <p class="px-1 py-2 border border-gray-300 text-gray-300" v-if="$store.state.userRole === 'admin'">請輸入課程成績</p>
               </td>
             </template>
             <template slot="actionsBtn">
@@ -30,7 +39,7 @@
                   >
                   <i class="far fa-star mr-1"></i>學生評語
                 </button>
-                <button
+                <button v-if="$store.userRole === 'student'"
                   class="text-sm text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1 text-white bg-gray-900 px-2 py-2 rounded"
                   >
                   <i class="far fa-gem mr-1"></i>成績證書
@@ -62,7 +71,7 @@ export default {
         branch: false,
         classType: false,
         timePeriod: false,
-        serach: true,
+        search: true,
         sync: true,
         approvalStatus: false,
         isExportBtn: true
@@ -71,8 +80,22 @@ export default {
         columns: [
           { name: 'email', label: '帳號信箱', required: true },
           { name: 'name', label: '學生姓名', required: true },
-          { name: 'point', label: '剩餘點數', required: true }
+          { name: 'point', label: '剩餘點數', required: true, uesrRole: 'student' }
         ],
+        datas: [
+          {
+            email: 'Peggy@gmail',
+            name: 'Peggy',
+            point: '88',
+          }
+        ]
+      },
+      tableListAdmin: {
+        columns: [
+          { name: 'email', label: '帳號信箱', required: true },
+          { name: 'name', label: '學生姓名', required: true }
+        ],
+
         datas: [
           {
             email: 'Peggy@gmail',
@@ -106,6 +129,13 @@ export default {
     CommentContentModal
   },
   computed: {
+    returnData () {
+      if (this.$store.state.userRole === 'admin') {
+        return this.tableListAdmin
+      } else {
+        return this.tableList
+      }
+    }
   },
   methods: {
     close () {

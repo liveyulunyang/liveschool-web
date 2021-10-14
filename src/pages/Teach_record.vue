@@ -62,7 +62,7 @@ import ExportBtn from '@/components/modules/ExportBtn'
           branch: false,
           classType: false,
           timePeriod: false,
-          serach: true,
+          search: true,
           sync: true,
           approvalStatus: false
         },

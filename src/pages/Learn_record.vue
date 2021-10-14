@@ -61,7 +61,7 @@ import ExportBtn from '@/components/modules/ExportBtn'
           branch: false,
           classType: false,
           timePeriod: true,
-          serach: true,
+          search: true,
           sync: true
         },
 
@@ -100,6 +100,7 @@ import ExportBtn from '@/components/modules/ExportBtn'
     methods: {
       open() {
         console.log('open manage')
+        this.$router.push({ name: 'learn_record_student' })
       }
     }
   }

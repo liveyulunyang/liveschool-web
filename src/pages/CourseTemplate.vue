@@ -102,7 +102,7 @@
           branch: false,
           classType: true,
           timePeriod: true,
-          serach: true,
+          search: true,
           sync: true
         },
         tableList: {

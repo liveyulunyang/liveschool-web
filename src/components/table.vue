@@ -1,9 +1,11 @@
 <template>
   <div class="c-table">
+    <TeacherInfoModal :showfirstModal="showfirstModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" />
     <table class="rwd-table w-full mb-2 border-separate text-sm">
       <tbody>
         <tr>
           <th v-for="column in columns" :key="column.name" class="whitespace-no-wrap text-center">{{ column.label }}</th>
+          <slot name="attend"></slot>
           <slot name="record"></slot>
           <slot name="supplementaryMaterials"></slot>
           <slot name="statusLabel"></slot>
@@ -15,15 +17,16 @@
         </tr>
         <tr v-for="(item, index) in data" :key="index">
           <td :data-th="column.label" v-for="(column, indexColumn) in columns" :key="indexColumn" @click="openModal" :class="{ cursorPointer: $route.name === 'Learn_record_supervise' }">
-            <span class="lg:hidden">
+            <span class="lg:hidden" @click="openTeacherInfo(column.name)">
               <img v-if="column.name === 'teacher'" src="@/assets/img/vector.svg" alt="" class="inline-block object-contain w-8 mb-2 mr-2">
               {{ item[column.name] }}
             </span>
-            <div class="flex-col items-center justify-center hidden lg:flex">
+            <div class="flex-col items-center justify-center hidden lg:flex" @click="openTeacherInfo(column.name)">
               <img src="@/assets/img/vector.svg" alt="" class="block object-contain w-8 mb-1" v-if="column.name === 'teacher'">
               {{ item[column.name] }}
             </div>
           </td>
+          <slot name="attendContent"></slot>
           <slot name="recordBtn"></slot>
           <slot name="supplementaryMaterialsBtn"></slot>
           <slot name="statusText"></slot>
@@ -39,10 +42,11 @@
 </template>
 
 <script>
-
+  import TeacherInfoModal from '@/components/modules/TeacherInfoModal'
   export default {
     name: 'Table',
     components: {
+      TeacherInfoModal
     },
     props: {
       columns: {
@@ -56,6 +60,7 @@
     },
     data () {
       return {
+        showfirstModal: false
       }
     },
     computed: {
@@ -65,6 +70,14 @@
         if (this.$route.name === 'Learn_record_supervise') {
           this.$emit('openModal', true)
         }
+      },
+      openTeacherInfo (name) {
+        name === 'teacher' ? this.showfirstModal = true : null
+      },
+      closeModal (closeModal) {
+        this.showfirstModal = closeModal
+      },
+      submit (submit) {
       }
     }
   }

@@ -42,7 +42,7 @@ const router = new Router({
         {
           path: '/courses',
           name: 'courses',
-          component: () => import('@/pages/Courses.vue')
+          component: () => import('@/pages/CoursesTalk.vue')
         },
         {
           path: '/RegistrationProgress',
@@ -50,9 +50,9 @@ const router = new Router({
           component: () => import('@/pages/RegistrationProgress.vue')
         },
         {
-          path: '/coursesTC',
-          name: 'coursesTC',
-          component: () => import('@/pages/CoursesTC.vue')
+          path: '/CoursesTeacher',
+          name: 'CoursesTeacher',
+          component: () => import('@/pages/CoursesTeacher.vue')
         },
         {
           path: '/CoursesClass',

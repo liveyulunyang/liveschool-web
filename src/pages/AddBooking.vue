@@ -212,8 +212,8 @@
               上一步
             </button>
 
-            <button @click="openModal" class="mx-4 px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
-              預約資料預覽
+            <button @click="openModal" class="mx-4 px-4 py-2 bg-gray-600 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
+              下一步
             </button>
           </div>
         </div>
@@ -223,7 +223,7 @@
     </div>
     <div class="bg-white h-full py-5 relative shadow-lg form-right hidden lg:block" :class="{ formOpen: isShowForm }">
       <div class="absolute bg-white booking-btn px-3 py-2 text-sm cursor-pointer whitespace-no-wrap" @click="isShowForm = !isShowForm">
-        <i class="fas fa-arrow-right mr-1"></i>預約資料預覽
+        <i class="fas fa-arrow-right mr-1"></i>下一步
       </div>
       <form>
         <div class="h-screen-form overflow-y-scroll overflow-x-hidden mb-4 border-b whitespace-no-wrap">

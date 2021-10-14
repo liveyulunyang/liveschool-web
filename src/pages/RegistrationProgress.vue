@@ -53,7 +53,7 @@
   import 'vue2-datepicker/index.css'
   import CommentModal from '@/components/modules/CourseModel'
   export default {
-    name: 'CoursesTC',
+    name: 'CoursesTeacher',
     components: {
       Table,
       FilterModal,
@@ -77,7 +77,7 @@
           branch: false,
           classType: true,
           timePeriod: true,
-          serach: true,
+          search: true,
           sync: true,
           isExportBtn: true
         },

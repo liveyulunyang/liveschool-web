@@ -73,7 +73,7 @@
           classTopic: true,
           classification: true,
           timePeriod: true,
-          serach: true,
+          search: true,
           sync: true
         },
 

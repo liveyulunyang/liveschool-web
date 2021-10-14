@@ -75,7 +75,7 @@
           branch: false,
           classType: false,
           timePeriod: true,
-          serach: true,
+          search: true,
           sync: true,
           isExportBtn: true
         },
