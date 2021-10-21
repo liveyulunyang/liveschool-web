@@ -218,12 +218,11 @@
           </div>
         </div>
 
-        <!-- <BookingModal :showfirstModal="showfirstModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" /> -->
       </div>
     </div>
     <div class="bg-white h-full py-5 relative shadow-lg form-right hidden lg:block" :class="{ formOpen: isShowForm }">
       <div class="absolute bg-white booking-btn px-3 py-2 text-sm cursor-pointer whitespace-no-wrap" @click="isShowForm = !isShowForm">
-        <i class="fas fa-arrow-right mr-1"></i>下一步
+        <i class="fas fa-arrow-right mr-1"></i>預約資料預覽
       </div>
       <form>
         <div class="h-screen-form overflow-y-scroll overflow-x-hidden mb-4 border-b whitespace-no-wrap">
@@ -398,6 +397,9 @@ import interactionPlugin from '@fullcalendar/interaction'
           plugins: [ dayGridPlugin, interactionPlugin, timeGridPlugin ],
           initialView: 'timeGridWeek',
           weekends: true,
+          slotDuration: '00:30:00',
+          slotMinTime: '9:00:00',
+          slotMaxTime: '21:00:00',
           events: [
             {
               title: '預約此時段',
@@ -433,6 +435,9 @@ import interactionPlugin from '@fullcalendar/interaction'
 <style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 <style lang="scss">
 #bookingAdd {
+  .fc-view-harness {
+    height: 700px !important;
+  }
   .h-screen-50 {
     height: calc(100vh - 450px);
   }

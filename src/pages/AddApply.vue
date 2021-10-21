@@ -302,22 +302,6 @@ import interactionPlugin from '@fullcalendar/interaction'
       return {
         isShowForm: false,
         step: 0,
-        calendarOptions: {
-          plugins: [ dayGridPlugin, interactionPlugin, timeGridPlugin ],
-          initialView: 'timeGridWeek',
-          weekends: true,
-          events: [
-            {
-              title: '預約此時段',
-              start: '2021-09-07T10:30:00',
-              end: '2021-09-07T11:30:00',
-              extendedProps: {
-                department: 'BioChemistry'
-              },
-              description: 'Lecture'
-            }
-          ]
-        },
         showfirstModal: false
       }
     },

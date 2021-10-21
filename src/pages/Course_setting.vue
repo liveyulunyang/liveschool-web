@@ -6,8 +6,8 @@
             <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">預約課程設定</h1>
           </div>
         </div>
-        <div class="content">
-          <section class="w-full mt-2 min-h-screen px-3 lg:px-6 py-4">
+        <div class="content w-full">
+          <section class="w-full mt-2 px-3 lg:px-6 py-4">
             <div class="flex justify-between">
               <ul class="flex cursor-pointer">
                 <li class="py-2 px-6 tag flex items-center justify-center mr-2" :class="{ tagAct: tag === 0 }" @click="tag = 0">班型</li>
