@@ -37,27 +37,27 @@
             <button @click="toEditAccount"
               class="text-primary-normal hover:text-black-1 hover:bg-gray-600 mx-1"
               >
-              <img src="@/assets/img/icons/edit.svg" alt="" class="w-6 object-contain">
+              <img src="@/assets/img/icons/edit.svg" alt="" class="w-8 object-contain">
             </button>
             <button @click="openDetail"
               class="text-primary-normal hover:text-black-1 hover:bg-gray-600 mx-1"
               >
-              <img src="@/assets/img/icons/more.svg" alt="" class="w-6 object-contain">
+              <img src="@/assets/img/icons/more.svg" alt="" class="w-8 object-contain">
             </button>
             <button @click="toPoint"
               class="hover:text-black-1 hover:bg-gray-600 mx-1"
               >
-              <img src="@/assets/img/icons/tick.svg" alt="" class="w-6 object-contain">
+              <img src="@/assets/img/icons/tick.svg" alt="" class="w-8 object-contain">
             </button>
             <button @click="toSectionalDrawing(props.item.id)"
               class="hover:text-black-1 hover:bg-gray-600 mx-1"
               >
-              <img src="@/assets/img/icons/ability.svg" alt="" class="w-6 object-contain">
+              <img src="@/assets/img/icons/ability.svg" alt="" class="w-8 object-contain">
             </button>
             <button @click="del(props.item.id)"
               class="text-primary-normal hover:text-black-1 hover:bg-gray-600 mx-1 ml-3"
               >
-              <img src="@/assets/img/icons/delete.svg" alt="" class="w-6 object-contain">
+              <img src="@/assets/img/icons/delete.svg" alt="" class="w-8 object-contain">
             </button>
           </td>
         </template>

@@ -35,7 +35,7 @@
               <button @click="openModal"
                 class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
                 >
-                <img :src="require('@/assets/img/icons/more.svg')" alt="" class="w-6 object-contain">
+                <img :src="require('@/assets/img/icons/more.svg')" alt="" class="w-8 object-contain">
               </button>
             </td>
           </template>

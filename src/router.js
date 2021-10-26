@@ -116,6 +116,11 @@ const router = new Router({
           component: () => import('@/pages/Learn_record_student.vue')
         },
         {
+          path: '/learn_record/teacher',
+          name: 'Learn_record_teacher',
+          component: () => import('@/pages/Learn_record_teacher.vue')
+        },
+        {
           path: '/learn_record/supervise',
           name: 'Learn_record_supervise',
           component: () => import('@/pages/Learn_record_supervise.vue')

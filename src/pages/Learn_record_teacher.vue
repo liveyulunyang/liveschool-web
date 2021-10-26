@@ -3,7 +3,7 @@
     <div class="flex flex-col w-full">
         <div class="mb-4 flex justify-between items-center flex-wrap">
           <div class="flex items-center">
-            <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">學生學習紀錄
+            <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">老師授課紀錄
             </h1>
             <span>測試學生(test@gmail.com)</span>
           </div>

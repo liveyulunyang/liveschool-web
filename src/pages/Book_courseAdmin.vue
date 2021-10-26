@@ -37,6 +37,7 @@
           </template>
       </Table>
       <CommentModal :showfirstModal="showfirstModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" />
+      <!-- <CommentModal :showfirstModal="showfirstModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" /> -->
     </div>
   </main>
 </template>
@@ -44,7 +45,7 @@
 <script>
   import Table from "@/components/table"
   import FilterModal from '@/components/FilterModal'
-  import CommentModal from '@/components/modules/CommentModal'
+  import CommentModal from '@/components/modules/BookingModal'
   export default {
     name: "Book_course",
     components: {

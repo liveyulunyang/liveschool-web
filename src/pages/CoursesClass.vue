@@ -27,17 +27,17 @@
         :data="tableList.datas">
           <template v-slot:RegistrationReviewLabel><th class="whitespace-no-wrap text-center">執行動作</th></template>
 
-          <template scope="props" slot="RegistrationReview">
+          <template slot="RegistrationReview">
             <td data-th="執行動作">
-              <button @click="edit(props.item.id)"
+              <button @click="edit()"
                 class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
                 >
-                <img :src="require('@/assets/img/icons/edit.svg')" alt="" class="w-6 object-contain">
+                <img :src="require('@/assets/img/icons/edit.svg')" alt="" class="w-8 object-contain">
               </button>
-              <button @click="del(props.item.id)"
+              <button @click="del()"
                 class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
                 >
-                <img :src="require('@/assets/img/icons/delete.svg')" alt="" class="w-6 object-contain">
+                <img :src="require('@/assets/img/icons/delete.svg')" alt="" class="w-8 object-contain">
               </button>
             </td>
           </template>
@@ -114,14 +114,14 @@
       },
 
       edit(id) {
-        console.log(id)
+        console.log()
         this.$router.push({ name: 'addLiveClassClass', params: { status: 'edit'} })
       },
       open(id) {
-        console.log(id)
+        console.log()
       },
       del(id) {
-        console.log(id)
+        console.log()
         this.$swal.fire({
           title: '確認要刪除此筆資料?',
           icon: 'warning',

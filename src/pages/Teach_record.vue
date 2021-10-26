@@ -24,10 +24,10 @@
             </template>
             <template slot="actionsBtn">
               <td data-th="執行動作">
-                <button
+                <button @click="openDetail()"
                   class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
                   >
-                  <img src="@/assets/img/icons/more.svg" alt="" class="w-6 object-contain">
+                  <img src="@/assets/img/icons/more.svg" alt="" class="w-8 object-contain">
                 </button>
               </td>
             </template>
@@ -87,7 +87,10 @@ import ExportBtn from '@/components/modules/ExportBtn'
     computed: {
     },
     methods: {
-      submit () {}
+      submit () {},
+      openDetail () {
+        this.$router.push({ name: 'Learn_record_teacher' })
+      }
     }
   }
 </script>
