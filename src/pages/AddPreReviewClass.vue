@@ -1,7 +1,7 @@
 
 <template>
 	<main class="flex flex-wrap p-3 xl:p-6">
-		<h1 class="text-2xl leading-none text-black-1 mr-2">CTL測試課程 / <span v-if="$route.params.type === 'preview'">課前預習</span><span v-if="$route.params.type === 'review'">課後預習</span></h1>
+		<h1 class="text-2xl leading-none text-black-1 mr-2">課前 / 課後</h1>
 
     <section class="w-full mt-2 min-h-screen px-3 lg:px-6 py-4">
       <div class="flex justify-between">

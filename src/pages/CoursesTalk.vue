@@ -30,9 +30,20 @@
       <Table :columns="tableList.columns"
         :actions="tableList.actions"
         :data="tableList.datas">
+          <template v-slot:peopleNum><th class="whitespace-no-wrap text-center">人數</th></template>
           <template v-slot:record><th class="whitespace-no-wrap text-center">紀錄</th></template>
           <template v-slot:supplementaryMaterials><th class="whitespace-no-wrap text-center">補充教材</th></template>
           <template v-slot:actionsLabel><th class="whitespace-no-wrap text-center">執行動作</th></template>
+
+          <template slot="peopleNumContent">
+            <td data-th="人數">
+              <StudentListModal :showfirstModal="showStudentsListModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" />
+              <button @click="openPeopleNumModal()"
+                class="text-primary-normal hover:text-black-1 hover:underline">
+                0/0
+              </button>
+            </td>
+          </template>
 
           <template slot="recordBtn">
             <td data-th="紀錄">
@@ -101,13 +112,15 @@
   import Pagination from '@/components/modules/Pagination'
   import 'vue2-datepicker/index.css'
   import CommentModal from '@/components/modules/CommentModal'
+  import StudentListModal from '@/components/modules/StudentListModal'
   export default {
     name: 'CoursesTalk',
     components: {
       Table,
       FilterModal,
       Pagination,
-      CommentModal
+      CommentModal,
+      StudentListModal
     },
     props: [
       'props'
@@ -115,6 +128,7 @@
     data () {
       return {
         showfirstModal: false,
+        showStudentsListModal: false,
 
         showItems: {
           role: false,
@@ -134,7 +148,6 @@
             { name: 'classroom', label: '教室', required: true },
             { name: 'classname', label: '課程名稱', required: true },
             { name: 'teacher', label: '老師', required: true },
-            { name: 'number', label: '人數', required: true, sortable: false},
             { name: 'point', label: '點數', required: true },
             { name: 'classtime', label: '開課時間', required: true },
             { name: 'classtype', label: '課程種類', required: true },
@@ -148,7 +161,6 @@
               classroom: 'ROOM1',
               classname: 'CTL測試課程',
               teacher: 'Peggy',
-              number: '0/0',
               point: 88,
               classtime: '2021-06-22 22:00-23:00',
               classtype: 'CTL口說班',
@@ -247,14 +259,15 @@
         this.$router.push({ path: '/ctl_class/review' })
       },
 
-      openModal () {
-        this.showfirstModal = true
-      },
       closeModal (closeModal) {
         this.showfirstModal = closeModal
+        this.showStudentsListModal = closeModal
       },
       submit (submit) {
         // this.$router.push({ name: submit })
+      },
+      openPeopleNumModal () {
+        this.showStudentsListModal = true
       }
     }
   }

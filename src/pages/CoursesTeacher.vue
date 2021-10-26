@@ -34,27 +34,37 @@
               <button @click="edit(props.item.id)"
                 class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
                 >
-                <img :src="require('@/assets/img/icons/edit.svg')" alt="" class="w-6 object-contain">
+                <img :src="require('@/assets/img/icons/edit.svg')" alt="" class="w-8 object-contain">
               </button>
               <button @click="openModal"
                 class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
                 >
-                <img :src="require('@/assets/img/icons/more.svg')" alt="" class="w-6 object-contain">
+                <img :src="require('@/assets/img/icons/more.svg')" alt="" class="w-8 object-contain">
               </button>
               <button @click="del(props.item.id)"
                 class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
                 >
-                <img :src="require('@/assets/img/icons/delete.svg')" alt="" class="w-6 object-contain">
+                <img :src="require('@/assets/img/icons/delete.svg')" alt="" class="w-8 object-contain">
               </button>
             </td>
           </template>
-          <template scope="props" slot="RegistrationReview">
+          <template slot="RegistrationReview">
             <td data-th="報名審核動作">
-              <button @click="edit(props.item.id)"
-                class="text-white bg-gray-900 hover:text-black-1  hover:bg-gray-600 mx-1 px-2 py-1 rounded"
+              <button @click="toAudit()"
+                class="text-white bg-gray-900 hover:text-black-1 hover:bg-gray-600 mx-1 px-2 py-1 rounded"
                 >
-                審核<i class="fas fa-arrow-right ml-1"></i>
+                查看<i class="fas fa-arrow-right ml-1"></i>
               </button>
+              <!-- <button @click="toAudit()"
+                class="border border-gray-900 hover:text-black-1 hover:bg-gray-600 mx-1 px-2 py-1 rounded"
+                >
+                額滿<i class="far fa-folder-open ml-1"></i>
+              </button> -->
+              <!-- <button @click="toAudit()"
+                class="border border-gray-900 hover:text-black-1 hover:bg-gray-600 mx-1 px-2 py-1 rounded"
+                >
+                紀錄<i class="far fa-folder-open ml-1"></i>
+              </button> -->
             </td>
           </template>
       </Table>
@@ -105,9 +115,9 @@
             { name: 'teacher', label: '老師', required: true },
             { name: 'topic', label: '主題分類', required: true },
             { name: 'className', label: '課名', required: true },
-            { name: 'NumberOfClass', label: '開課時間', required: true },
-            { name: 'NumberOfPass', label: '課程種類', required: true },
-            { name: 'status', label: '是否公開', required: true }
+            { name: 'NumberOfClass', label: '堂數', required: true },
+            { name: 'NumberOfPass', label: '已通過人數', required: true },
+            { name: 'status', label: '狀態', required: true }
           ],
           datas: [
             {
@@ -134,14 +144,14 @@
         this.$router.push({ name: 'course_template' })
       },
 
-      edit(id) {
-        console.log(id)
-        this.$router.push({ name: 'addTalkClass', params: { status: 'edit'} })
+      toAudit () {
+        this.$router.push({ name: 'CoursesTeacher_Audit' })
       },
-      open(id) {
+
+      open (id) {
         console.log(id)
       },
-      del(id) {
+      del (id) {
         console.log(id)
         this.$swal.fire({
           title: '確認要刪除此筆資料?',

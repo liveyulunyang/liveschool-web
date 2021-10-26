@@ -4,8 +4,10 @@
     <table class="rwd-table w-full mb-2 border-separate text-sm">
       <tbody>
         <tr>
+          <slot name="AdmissionStatus"></slot>
           <th v-for="column in columns" :key="column.name" class="whitespace-no-wrap text-center">{{ column.label }}</th>
           <slot name="attend"></slot>
+          <slot name="peopleNum"></slot>
           <slot name="record"></slot>
           <slot name="supplementaryMaterials"></slot>
           <slot name="statusLabel"></slot>
@@ -13,9 +15,11 @@
           <slot name="startClassLabel"></slot>
           <slot name="othersLabel"></slot>
           <slot name="classDetailLabel"></slot>
+          <slot name="RegistrationNumLabel"></slot>
           <slot name="RegistrationReviewLabel"></slot>
         </tr>
         <tr v-for="(item, index) in data" :key="index">
+          <slot name="AdmissionStatusContent"></slot>
           <td :data-th="column.label" v-for="(column, indexColumn) in columns" :key="indexColumn" @click="openModal" :class="{ cursorPointer: $route.name === 'Learn_record_supervise' }">
             <span class="lg:hidden" @click="openTeacherInfo(column.name)">
               <img v-if="column.name === 'teacher'" src="@/assets/img/vector.svg" alt="" class="inline-block object-contain w-8 mb-2 mr-2">
@@ -27,6 +31,7 @@
             </div>
           </td>
           <slot name="attendContent"></slot>
+          <slot name="peopleNumContent"></slot>
           <slot name="recordBtn"></slot>
           <slot name="supplementaryMaterialsBtn"></slot>
           <slot name="statusText"></slot>
@@ -34,6 +39,7 @@
           <slot name="startClass"></slot>
           <slot name="others"></slot>
           <slot name="classDetail"></slot>
+          <slot name="RegistrationNumContent"></slot>
           <slot name="RegistrationReview"></slot>
         </tr>
       </tbody>

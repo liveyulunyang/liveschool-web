@@ -189,16 +189,16 @@
         </div>
       </div>
       <!-- 重整按鈕 -->
-      <div class="w-auto syncBtn p-1" v-if="showItems.sync">
+      <div class="w-auto syncBtn p-1 cursor-pointer" v-if="showItems.sync">
         <a class="flex items-center justify-center bg-gray-700 text-white">
           <i class="fas fa-sync-alt"></i>
         </a>
       </div>
 
       <!-- 匯出按鈕 -->
-      <div class="w-auto p-1" v-if="showItems.isExportBtn">
+      <a class="w-auto p-1 cursor-pointer" v-if="showItems.isExportBtn">
         <ExportBtn />
-      </div>
+      </a>
     </div>
   </div>
 </template>

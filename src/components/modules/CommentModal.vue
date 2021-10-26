@@ -7,10 +7,13 @@
           :actions="returnData.actions"
           :data="returnData.datas">
             <template slot="attend">
-              <th class="whitespace-no-wrap text-center">有無出席</th>
+              <th class="whitespace-no-wrap text-center">出席</th>
+            </template>
+            <template slot="record">
+              <th class="whitespace-no-wrap text-center">課前分數</th>
             </template>
             <template slot="statusLabel">
-              <th class="whitespace-no-wrap text-center">課後預習分數</th>
+              <th class="whitespace-no-wrap text-center">課後分數</th>
             </template>
             <template slot="actionsLabel">
               <th class="whitespace-no-wrap text-center">其他</th>
@@ -21,12 +24,28 @@
                 <i class="fas fa-check-circle text-center"></i>
               </td>
             </template>
+            <template slot="recordBtn">
+              <td data-th="課前分數">
+                <p class="px-1 py-2">-</p>
+              </td>
+            </template>
             <template slot="statusText">
-              <td data-th="課後預習分數">
+              <td data-th="課後分數">
+                <p class="px-1 py-2">-</p>
+              </td>
+            </template>
+            <!-- <template slot="recordBtn">
+              <td data-th="課前分數">
                 <p class="px-1 py-2 border border-gray-300 text-gray-300" v-if="$store.state.userRole !== 'admin'">課後練習成績</p>
                 <p class="px-1 py-2 border border-gray-300 text-gray-300" v-if="$store.state.userRole === 'admin'">請輸入課程成績</p>
               </td>
             </template>
+            <template slot="statusText">
+              <td data-th="課後分數">
+                <p class="px-1 py-2 border border-gray-300 text-gray-300" v-if="$store.state.userRole !== 'admin'">課後練習成績</p>
+                <p class="px-1 py-2 border border-gray-300 text-gray-300" v-if="$store.state.userRole === 'admin'">請輸入課程成績</p>
+              </td>
+            </template> -->
             <template slot="actionsBtn">
               <td data-th="其他">
                 <button @click="openModal"
@@ -74,7 +93,7 @@ export default {
         search: true,
         sync: true,
         approvalStatus: false,
-        isExportBtn: true
+        isExportBtn: false
       },
       tableList: {
         columns: [

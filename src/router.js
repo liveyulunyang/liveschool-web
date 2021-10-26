@@ -55,6 +55,11 @@ const router = new Router({
           component: () => import('@/pages/CoursesTeacher.vue')
         },
         {
+          path: '/CoursesTeacher_Audit',
+          name: 'CoursesTeacher_Audit',
+          component: () => import('@/pages/CoursesTeacher_Audit.vue')
+        },
+        {
           path: '/CoursesClass',
           name: 'CoursesClass',
           component: () => import('@/pages/CoursesClass.vue')
@@ -80,7 +85,7 @@ const router = new Router({
           component: () => import('@/pages/AddClassTeacher.vue')
         },
         {
-          path: '/teacher_class/:status',
+          path: '/live_class/:status',
           name: 'addLiveClassClass',
           component: () => import('@/pages/AddClassLiveClass.vue')
         },
