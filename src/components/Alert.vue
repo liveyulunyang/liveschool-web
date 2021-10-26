@@ -1,7 +1,7 @@
 <template>
-    <div class="p-4 rounded" :class="alertClass">
-        {{ content }}
-    </div>
+  <div class="p-4 rounded" :class="alertClass">
+    {{ content }}
+  </div>
 </template>
 
 <script>

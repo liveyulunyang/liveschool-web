@@ -113,15 +113,20 @@
 
             <template slot="others">
               <td data-th="其他">
-                <button class="bg-gray-900 text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1">
+                <CommentContentModal :showfirstModal="showCommentModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" />
+                <!-- <button class="bg-gray-900 text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1">
                   問券調查
-                </button>
-                <button class="bg-gray-900 text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1">
+                </button> -->
+                <button class="bg-gray-900 text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1" @click="showCommentModal = true">
                   老師評語
+                </button>
+                <button class="bg-gray-900 text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1" @click="showCommentModal = true">
+                  學生評語
                 </button>
               </td>
             </template>
             <template slot="classDetail">
+              <CalenderModel :showfirstModal="showDetailModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" />
               <td data-th="課程詳情">
                 <button class="bg-gray-900 text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1">
                   <i class="fas fa-folder-open"></i>
@@ -138,14 +143,21 @@
 <script>
 import Table from "@/components/table"
 import FilterModal from '@/components/FilterModal'
+import CommentContentModal from '@/components/modules/CommentContentModal'
+import CalenderModel from '@/components/modules/CalenderModel'
   export default {
     name: "Learn_record",
     components: {
       Table,
-      FilterModal
+      FilterModal,
+      CommentContentModal,
+      CalenderModel
     },
     data () {
       return {
+        showCommentModal: false,
+        showDetailModal: true,
+
         showItems: {
           role: false,
           listStatus: false,
@@ -191,6 +203,17 @@ import FilterModal from '@/components/FilterModal'
     computed: {
     },
     methods: {
+      openModal () {
+        this.showfirstModal = true
+      },
+      closeModal (closeModal) {
+        this.showfirstModal = closeModal
+        this.showDetailModal = closeModal
+        this.showCommentModal = closeModal
+      },
+      submit (submit) {
+        this.$router.push({ name: submit })
+      }
     }
   }
 </script>

@@ -40,7 +40,7 @@
                 >
                 <i class="far fa-folder-open text-lg"></i>
               </button>
-              <button
+              <button @click="$router.push({ name: 'PointsTrading' })"
                 class="bg-gray-900 text-white hover:text-black-1  hover:bg-gray-600 mx-1 w-8 h-8 rounded actionBtn"
                 >
                 <i class="fas fa-ticket-alt text-lg"></i>
@@ -111,28 +111,28 @@
               name: 'CTL校',
               nameEn: 'Peggy@gmail.com',
               CTL: '是',
-              mobile: 'Peggy',
+              mobile: 'Peggy001/Peggy',
               point: 8,
               role: '99',
               source: '66',
               city: '77',
-              branch: '9',
-              class: '88',
-              time: '88'
+              branch: '+9',
+              class: '-88',
+              time: '=88'
             },
             {
               id: '南區',
               name: 'CTL校',
               nameEn: 'Peggy@gmail.com',
               CTL: '是',
-              mobile: 'Peggy',
+              mobile: 'Peggy001/Peggy',
               point: 8,
               role: '99',
               source: '66',
               city: '77',
-              branch: '9',
-              class: '88',
-              time: '88'
+              branch: '+9',
+              class: '-88',
+              time: '=88'
             },
           ]
         }

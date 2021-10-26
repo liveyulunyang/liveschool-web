@@ -32,25 +32,30 @@
         <template slot="actionsLabel">
           <th class="whitespace-no-wrap text-center">執行動作</th>
         </template>
-        <template scope="props" slot="actionsBtn">
+        <template scope="props" slot="actionsBtn" class="flex items-center">
           <td data-th="執行動作">
-            <button
-              class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
+            <button @click="toEditAccount"
+              class="text-primary-normal hover:text-black-1 hover:bg-gray-600 mx-1"
               >
               <img src="@/assets/img/icons/edit.svg" alt="" class="w-6 object-contain">
             </button>
-            <button
-              class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
+            <button @click="openDetail"
+              class="text-primary-normal hover:text-black-1 hover:bg-gray-600 mx-1"
               >
               <img src="@/assets/img/icons/more.svg" alt="" class="w-6 object-contain">
             </button>
-            <button
-              class="hover:text-black-1  hover:bg-gray-600 mx-1"
+            <button @click="toPoint"
+              class="hover:text-black-1 hover:bg-gray-600 mx-1"
               >
               <img src="@/assets/img/icons/tick.svg" alt="" class="w-6 object-contain">
             </button>
-            <button @click="open(props.item.id)"
-              class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1 ml-3"
+            <button @click="toSectionalDrawing(props.item.id)"
+              class="hover:text-black-1 hover:bg-gray-600 mx-1"
+              >
+              <img src="@/assets/img/icons/ability.svg" alt="" class="w-6 object-contain">
+            </button>
+            <button @click="del(props.item.id)"
+              class="text-primary-normal hover:text-black-1 hover:bg-gray-600 mx-1 ml-3"
               >
               <img src="@/assets/img/icons/delete.svg" alt="" class="w-6 object-contain">
             </button>
@@ -71,7 +76,7 @@
     components: {
       Table,
       Pagination,
-        FilterModal
+      FilterModal
     },
     props: [
       'props'
@@ -138,6 +143,39 @@
     methods: {
       toManage () {
         this.$router.push({ name: 'studentsAdd' })
+      },
+      toEditAccount () {
+        this.$router.push({ name: 'account_edit', params: { id: 1} })
+      },
+      openDetail () {
+        this.$router.push({ name: 'learn_record_student' })
+      },
+      toPoint () {
+        this.$router.push({ name: 'point' })
+      },
+      toSectionalDrawing (id) {
+        this.$router.push({ name: 'SectionalDrawing' })
+        console.log(id)
+      },
+      del(id) {
+        console.log(id)
+        this.$swal.fire({
+          title: '確認要刪除此筆資料?',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: '刪除',
+          cancelButtonText: '取消'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this.$swal.fire(
+              'Deleted!',
+              'Your file has been deleted.',
+              'success'
+            )
+          }
+        })
       }
     }
   }

@@ -3,12 +3,7 @@
     <div class="relative">
       <div class="flex flex-wrap">
         <div  class="w-full mb-4 px-3 py-2 flex flex-wrap">
-          <div class="teacher-img md:mr-4 relative mb-3 md:mb-0">
-            <img src="@/assets/img/teacherDefault.svg" alt="" class="object-contain">
-            <a class="absolute right-0 bottom-0 bg-gray-700 rounded-full p-2 border border-white w-10 h-10 text-center">
-              <i class="fas fa-volume-up text-white"></i>
-            </a>
-          </div>
+          <MugShot />
           <div class="teacher-name flex flex-col justify-center">
             <h6 class="text-2xl font-bold">ALEX</h6>
             <h6 class="text-lg mb-3">ALEX WU</h6>
@@ -36,6 +31,7 @@
 <script>
 import Modal from '@kouts/vue-modal'
 import '@kouts/vue-modal/dist/vue-modal.css'
+import MugShot from '@/components/MugShot'
 export default {
   name: 'TeacherInfoModal',
 
@@ -53,7 +49,8 @@ export default {
   },
 
   components: {
-    Modal
+    Modal,
+    MugShot
   },
   computed: {
   },
@@ -69,7 +66,7 @@ export default {
 <style>
 .head-bg {
   width: 100% !important;
-  max-width: 64em !important;
+  /* max-width: 64em !important; */
   background: rgb(255,255,255);
   height: calc(100vh - 100px);
   overflow-y: scroll;

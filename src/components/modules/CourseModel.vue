@@ -29,12 +29,7 @@
           <h4>授課教師</h4>
         </div>
         <div  class="w-full md:w-5/6 mb-4 px-3 py-2 flex flex-wrap">
-          <div class="teacher-img md:mr-4 relative mb-3 md:mb-0">
-            <img src="@/assets/img/teacherDefault.svg" alt="" class="object-contain">
-            <a class="absolute right-0 bottom-0 bg-gray-700 rounded-full p-2 border border-white w-10 h-10 text-center">
-              <i class="fas fa-volume-up text-white"></i>
-            </a>
-          </div>
+          <MugShot />
           <div class="teacher-name flex flex-col justify-center">
             <h6 class="text-2xl font-bold">ALEX</h6>
             <h6 class="text-lg mb-3">ALEX WU</h6>
@@ -142,6 +137,7 @@
 <script>
 import Modal from '@kouts/vue-modal'
 import '@kouts/vue-modal/dist/vue-modal.css'
+import MugShot from '@/components/MugShot'
 export default {
   name: 'BookingModal',
 
@@ -159,7 +155,8 @@ export default {
   },
 
   components: {
-    Modal
+    Modal,
+    MugShot
   },
   computed: {
   },

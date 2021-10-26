@@ -84,6 +84,30 @@
           </div>
         </div>
       </div>
+      <!-- 課程狀態 -->
+      <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.classStatus">
+        <div class="relative text-sm w-full">
+          <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
+            >
+            <option value="">課程狀態</option>
+            <option value="all">全部</option>
+            <option value="220">Come to Live</option>
+            <option value="225">自然發音</option>
+            <option value="221">生活英語</option>
+            <option value="223">檢定課程</option>
+            <option value="222">商業英語</option>
+            <option value="224">日文課程</option>
+            <option value="227">互動英語雜誌</option>
+            <option value="289">線上師訓課程</option>
+            <option value="226">雙師課程</option>
+            <option value="320">Ready Go</option>
+            <option value="336">Sound It Out Lite</option>
+          </select>
+          <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
+            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+          </div>
+        </div>
+      </div>
       <!-- 主題分類 -->
       <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.classification">
         <div class="relative text-sm w-full">
@@ -166,7 +190,7 @@
       </div>
       <!-- 重整按鈕 -->
       <div class="w-auto syncBtn p-1" v-if="showItems.sync">
-        <a href="" class="flex items-center justify-center bg-gray-700 text-white">
+        <a class="flex items-center justify-center bg-gray-700 text-white">
           <i class="fas fa-sync-alt"></i>
         </a>
       </div>
