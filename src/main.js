@@ -16,15 +16,26 @@ import 'sweetalert2/dist/sweetalert2.min.css'
 import VCalendar from 'v-calendar'
 
 Vue.use(VCalendar)
-// import myUpload from 'vue-image-crop-upload/upload-2.vue'
-// Vue.use(myUpload)
 Vue.use(VueSweetalert2)
 
+import VueI18n from 'vue-i18n'
+// import zh from './i18n/zh'
+// import en from './i18n/en'
+// import cn from './i18n/cn'
+Vue.use(VueI18n)
+let locale = 'zh'
+
+const i18n = new VueI18n({
+  locale: locale,
+  messages: {
+    'zh': require('@/i18n/zh.json'),
+    'en': require('@/i18n/en.json'),
+    'cn': require('@/i18n/cn.json')
+  }
+})
 
 Vue.config.productionTip = false
 
-
-// this part resolve an issue where the markers would not appear
 delete Icon.Default.prototype._getIconUrl;
 
 Icon.Default.mergeOptions({
@@ -36,6 +47,7 @@ Icon.Default.mergeOptions({
 new Vue({
   router,
   store,
+  i18n,
   render: h => h(App)
 }).$mount('#app')
 

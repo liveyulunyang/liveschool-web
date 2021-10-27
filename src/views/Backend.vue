@@ -51,27 +51,27 @@
   </div>
 
 </div>
-  <footer class="bg-gray-900 w-full text-white py-12">
+  <footer class="bg-gray-900 w-full text-white py-12 px-3 md:px-0 text-center md:text-left">
     <div class="container mx-auto flex flex-wrap justify-between">
-      <div class="flex flex-wrap">
-        <div class="px-4">
+      <div class="flex flex-wrap w-full md:w-auto mb-12 md:mb-0">
+        <div class="px-4 w-1/3 md:w-auto">
           <h6 class="text-lg mb-6">Live School</h6>
-          <a href="">師資陣容</a>
+          <a href="">{{ $t('teachers') }}</a>
         </div>
-        <div class="px-4">
-          <h6 class="text-lg mb-6">網站指南</h6>
-          <a href="" class="block mb-3">常見問題</a>
-          <a href="" class="block mb-3">操作手冊</a>
-          <a href="" class="block">軟體下載</a>
+        <div class="px-4 w-1/3 md:w-auto">
+          <h6 class="text-lg mb-6">{{ $t('SiteGuide') }}</h6>
+          <a href="" class="block mb-3">{{ $t('QA') }}</a>
+          <a href="" class="block mb-3">{{ $t('Manual') }}</a>
+          <a href="" class="block">{{ $t('downloads') }}</a>
         </div>
-        <div class="px-4">
+        <div class="px-4 w-1/3 md:w-auto">
           <h6 class="text-lg mb-6">切換語言</h6>
-          <a href="" class="block mb-3">English</a>
-          <a href="" class="block mb-3">繁體中文</a>
-          <a href="" class="block">简体中文</a>
+          <a @click="setLang('en')" class="block mb-3 cursor-pointer">English</a>
+          <a @click="setLang('zh')" class="block mb-3 cursor-pointer">繁體中文</a>
+          <a @click="setLang('cn')" class="block cursor-pointer">简体中文</a>
         </div>
       </div>
-      <div class="">
+      <div class="w-full md:w-auto flex flex-col items-center md:flex-none md:items-start">
         <p><img src="@/assets/logo_liveabc.png" alt="" class="mb-3"></p>
         <p class="mb-3">school@liveabc.com</p>
         <p>客服專線：02-7730-9567、02-2528-0958</p>
@@ -188,54 +188,6 @@ export default {
             url: "/branch",
             role: ['supervise']
           }
-          // {
-          //   icon: "fas fa-school",
-          //   title: "分校管理",
-          //   url: "/branch",
-          //   role: ['admin', 'director', 'student', 'supervise']
-          // }
-          // {
-          //   id: 0,
-          //   icon: "#c-icon-dashboard",
-          //   title: "Overview",
-          //   url: "/"
-          // },s
-          // {
-          //   id: 1,
-          //   icon: "#c-icon-analytics",
-          //   title: "Analitycs",
-          //   url: "/analytics"
-          // },
-          // {
-          //   id: 2,
-          //   icon: "#c-icon-vehicles",
-          //   title: "Vehicles",
-          //   url: "/vehicles"
-          // },
-          // {
-          //   id: 3,
-          //   icon: "#c-icon-service",
-          //   title: "Service",
-          //   url: "/service-reminders"
-          // },
-          // {
-          //   id: 4,
-          //   icon: "#c-icon-map",
-          //   title: "Map",
-          //   url: "/map"
-          // },
-          // {
-          //   id: 5,
-          //   icon: "#c-icon-chat",
-          //   title: "Chat",
-          //   url: "/chat"
-          // },
-          // {
-          //   id: 6,
-          //   icon: "#c-icon-settings",
-          //   title: "Settings",
-          //   url: "/settings"
-          // }
         ],
         adminList: [
           {
@@ -370,8 +322,15 @@ export default {
   },
     computed: {
       ...mapGetters([
-        'userRole'
+        'userRole',
+        'lang'
       ]),
+      lang: {
+        get () {
+          return this.$store.state.lang
+        },
+        set () {}
+      },
       roleMenu () {
         if (this.userRole === 'admin') {
           return this.adminList
@@ -402,6 +361,10 @@ export default {
       },
       setRole (event) {
         this.$store.dispatch('setRole', event.target.value)
+      },
+      setLang (lang) {
+        this.$store.dispatch('setLang', lang)
+        this.$i18n.locale = lang
       }
     }
 }

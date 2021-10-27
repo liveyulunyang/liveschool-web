@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
 Vue.use(Vuex)
 
 /* eslint-disable no-param-reassign */
 export default new Vuex.Store({
   state: {
+    lang: 'zh',
     userRole: 'admin', // admin director supervise student teacher
     items: {
         needed: [
@@ -69,24 +69,24 @@ export default new Vuex.Store({
     nextId: 1
   },
   getters: {
-    userRole: state => state.userRole
+    userRole: state => state.userRole,
+    lang: state => state.lang
   },
   actions: {
     setRole: (context, data) => {
       console.log(data)
       context.commit('SETROLE', data)
+    },
+    setLang: ({ commit }, data) => {
+      commit('SETLANG', data)
     }
   },
   mutations: {
     SETROLE (state, data) {
       state.userRole = data
+    },
+    SETLANG (state, value) {
+      state.lang = value
     }
-    // addItem(state, item) {
-    //   state.items.todo.push(Object.assign(item, { id: state.nextId }));
-    //   state.nextId += 1;
-    // },
-    // updateItems(state, { items, id }) {
-    //   state.items[id] = items;
-    // }
   }
 })
