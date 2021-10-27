@@ -1,8 +1,8 @@
 
 <template>
-	<main class="flex flex-wrap p-6">
-		<h1 class="text-xl ading-none text-black-1 mr-2 font-bold" v-if="$route.name === 'account_add'">新增帳號</h1>
-		<h1 class="text-xl ading-none text-black-1 mr-2 font-bold" v-if="$route.name === 'account_edit'">編輯帳號資料</h1>
+	<main class="p-6">
+		<h1 class="text-xl text-black-1 mr-2 font-bold text-left" v-if="$route.name === 'account_add'">新增帳號</h1>
+		<h1 class="text-xl text-black-1 mr-2 font-bold text-left" v-if="$route.name === 'account_edit'">編輯帳號資料</h1>
 
     <div class="flex w-full mt-8 items-center">
       <div class="mr-6">
@@ -10,18 +10,27 @@
           <i class="fas fa-chevron-left mr-1"></i>返回
         </Button>
       </div>
-      <div class="flex items-center">
-        <label class="typo__label whitespace-no-wrap mr-2">選擇帳號角色</label>
+      <div class="flex items-center mr-2 w-2/5 lg:w-auto">
+        <label class="typo__label whitespace-no-wrap mr-2 hidden lg:block">選擇帳號角色</label>
         <FilterModal :showItems="showItems" />
+      </div>
+      <div class="flex justify-between mx-1">
+        <ul class="flex cursor-pointer">
+          <li class="py-4 px-6 tag flex items-center justify-center mr-2" :class="{ tagAct: tag === 0 }" @click="tag = 0">基本資料</li>
+          <li class="py-4 px-6 tag flex items-center justify-center mx-2" :class="{ tagAct: tag === 1 }" @click="tag = 1">授課時間</li>
+          <li class="py-4 px-6 tag flex items-center justify-center mx-2" :class="{ tagAct: tag === 2 }" @click="tag = 2">停課時間</li>
+        </ul>
       </div>
     </div>
 
-    <section class="w-full bg-white mt-4 min-h-screen p-2 md:p-3 lg:p-6 max-w-8xl mx-auto">
+    <section class="w-full bg-white min-h-screen p-2 md:p-3 lg:p-6 max-w-8xl mx-auto" v-if="tag === 0">
       <div class="flex w-full flex-wrap">
         <div class="w-full lg:w-1/5">
-          <div class="h-40 w-40 relative">
+          <div class="h-40 w-40 relative mx-auto">
             <a class="btn absolute right-0 bottom-0 cursor-pointer h-8 w-8 rounded-full bg-gray-900 flex justify-center items-center border-2 border-white" @click="isShow = !isShow"><i class="fas fa-camera text-base text-white"></i></a>
-            <img src="@/assets/img/vector.svg" alt="" class="block object-contain" v-if="!imgDataUrl">
+            <div class="mugShot-img">
+              <img :src="require('@/assets/img/teacherDefault.svg')" alt="" class="object-contain block">
+            </div>
             <my-upload field="img"
               @crop-success="cropSuccess"
               @crop-upload-success="cropUploadSuccess"
@@ -261,6 +270,10 @@
       </div>
     </form>
     </section>
+
+    <section v-if="tag === 1" class="min-h-screen"></section>
+
+    <section v-if="tag === 2" class="min-h-screen"></section>
 	</main>
 </template>
 
@@ -276,6 +289,7 @@
     },
     data () {
       return {
+        tag: 0,
         showItems: {
           role: true,
           listStatus: false,
@@ -335,6 +349,20 @@
 </script>
 <style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 <style>
+  .tag {
+    background: #CCCCCC;
+    color: #808080;
+  }
+  .tagAct {
+    background: white;
+    color: black;
+  }
+  .mugShot-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
   #fileInput {
     display: none !important;
   }

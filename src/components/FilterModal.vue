@@ -1,6 +1,6 @@
 <template>
-  <div class="flex items-center justify-start flex-wrap" id="filterBtn">
-    <div class="w-full flex flex-wrap items-center">
+  <!-- <div class="flex items-center justify-start flex-wrap" id="filterBtn"> -->
+    <div class="w-full flex flex-wrap items-center" id="filterBtn">
       <!-- 狀態 -->
       <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.ProgressStatus">
         <div class="relative text-sm w-full">
@@ -200,7 +200,7 @@
         <ExportBtn />
       </a>
     </div>
-  </div>
+  <!-- </div> -->
 </template>
 
 <script>
