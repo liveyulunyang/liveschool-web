@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import CalenderModel from '@/components/modules/CalenderModel'
+import CalenderModel from '@/components/popup/CalenderModel'
 export default {
   name: 'Calender',
   components: {

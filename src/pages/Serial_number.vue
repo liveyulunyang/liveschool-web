@@ -47,7 +47,7 @@
   import FilterModal from '@/components/FilterModal'
   import Pagination from '@/components/modules/Pagination'
   import 'vue2-datepicker/index.css'
-  import AddSerialNumModal from '@/components/modules/AddSerialNumModal'
+  import AddSerialNumModal from '@/components/popup/AddSerialNumModal'
   export default {
     name: 'Serial_number',
     components: {

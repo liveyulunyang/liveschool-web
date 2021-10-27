@@ -75,7 +75,7 @@ import Modal from '@kouts/vue-modal'
 import '@kouts/vue-modal/dist/vue-modal.css'
 import FilterModal from '@/components/FilterModal'
 import Table from '@/components/table'
-import CommentContentModal from '@/components/modules/CommentContentModal'
+import CommentContentModal from '@/components/popup/CommentContentModal'
 export default {
   name: 'StudentsModal',
 

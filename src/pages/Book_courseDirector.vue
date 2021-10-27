@@ -55,7 +55,7 @@
 <script>
   import Table from "@/components/table"
   import FilterModal from '@/components/FilterModal'
-  import CommentModal from '@/components/modules/CommentModal'
+  import CommentModal from '@/components/popup/CommentModal'
   export default {
     name: "Book_course",
     components: {

@@ -53,7 +53,7 @@
 
 <script>
   import Pagination from "@/components/modules/Pagination"
-  import AnnounceModal from '@/components/modules/AnnounceModal'
+  import AnnounceModal from '@/components/popup/AnnounceModal'
   // import DatePicker from 'vue2-datepicker'
   export default {
     name: "Announce",

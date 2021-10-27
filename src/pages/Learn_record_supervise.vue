@@ -126,7 +126,7 @@ import Table from '@/components/table'
 import FilterModal from '@/components/FilterModal'
 import Pagination from '@/components/modules/Pagination'
 import ExportBtn from '@/components/modules/ExportBtn'
-import StudentsModal from '@/components/modules/StudentsModal'
+import StudentsModal from '@/components/popup/StudentsModal'
   export default {
     name: 'Learn_record_supervise',
     components: {

@@ -48,7 +48,7 @@
 </template>
 
 <script>
-  import TeacherInfoModal from '@/components/modules/TeacherInfoModal'
+  import TeacherInfoModal from '@/components/popup/TeacherInfoModal'
   export default {
     name: 'Table',
     components: {

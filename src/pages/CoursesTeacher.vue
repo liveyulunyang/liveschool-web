@@ -79,7 +79,7 @@
   import FilterModal from '@/components/FilterModal'
   import Pagination from '@/components/modules/Pagination'
   import 'vue2-datepicker/index.css'
-  import CommentModal from '@/components/modules/CourseModel'
+  import CommentModal from '@/components/popup/CourseModel'
   export default {
     name: 'CoursesTeacher',
     components: {

@@ -288,7 +288,7 @@ import '@fullcalendar/core/vdom' // solves problem with Vite
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
-// import BookingModal from '@/components/modules/BookingModal'
+// import BookingModal from '@/components/popup/BookingModal'
   export default {
     name: "AddBooking",
     components: {

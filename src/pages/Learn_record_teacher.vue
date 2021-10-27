@@ -143,8 +143,8 @@
 <script>
 import Table from "@/components/table"
 import FilterModal from '@/components/FilterModal'
-import CommentContentModal from '@/components/modules/CommentContentModal'
-import CalenderModel from '@/components/modules/CalenderModel'
+import CommentContentModal from '@/components/popup/CommentContentModal'
+import CalenderModel from '@/components/popup/CalenderModel'
   export default {
     name: "Learn_record",
     components: {

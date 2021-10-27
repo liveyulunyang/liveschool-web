@@ -111,8 +111,8 @@
   import FilterModal from '@/components/FilterModal'
   import Pagination from '@/components/modules/Pagination'
   import 'vue2-datepicker/index.css'
-  import CommentModal from '@/components/modules/CommentModal'
-  import StudentListModal from '@/components/modules/StudentListModal'
+  import CommentModal from '@/components/popup/CommentModal'
+  import StudentListModal from '@/components/popup/StudentListModal'
   export default {
     name: 'CoursesTalk',
     components: {

@@ -109,7 +109,7 @@
   import Pagination from '@/components/modules/Pagination'
   import 'vue2-datepicker/index.css'
   import ReviewRegistrationMaterials from '@/components/modules/Review_Registration_Materials'
-  import StudentListModal from '@/components/modules/StudentListModal'
+  import StudentListModal from '@/components/popup/StudentListModal'
   export default {
     name: 'CoursesTeacher',
     components: {
