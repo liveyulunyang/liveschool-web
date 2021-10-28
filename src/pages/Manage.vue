@@ -1,6 +1,6 @@
 
 <template>
-	<main class="p-6">
+	<main class="p-6" id="manage">
 		<h1 class="text-xl text-black-1 mr-2 font-bold text-left" v-if="$route.name === 'account_add'">新增帳號</h1>
 		<h1 class="text-xl text-black-1 mr-2 font-bold text-left" v-if="$route.name === 'account_edit'">編輯帳號資料</h1>
 
@@ -15,7 +15,7 @@
         <FilterModal :showItems="showItems" />
       </div>
       <div class="flex justify-between mx-1">
-        <ul class="flex cursor-pointer">
+        <ul class="flex cursor-pointer font-bold">
           <li class="py-4 px-6 tag flex items-center justify-center mr-2" :class="{ tagAct: tag === 0 }" @click="tag = 0">基本資料</li>
           <li class="py-4 px-6 tag flex items-center justify-center mx-2" :class="{ tagAct: tag === 1 }" @click="tag = 1">授課時間</li>
           <li class="py-4 px-6 tag flex items-center justify-center mx-2" :class="{ tagAct: tag === 2 }" @click="tag = 2">停課時間</li>
@@ -23,7 +23,7 @@
       </div>
     </div>
 
-    <section class="w-full bg-white min-h-screen p-2 md:p-3 lg:p-6 max-w-8xl mx-auto" v-if="tag === 0">
+    <section v-if="tag === 0" class="w-full bg-white min-h-screen p-2 md:p-3 lg:p-6 max-w-8xl mx-auto">
       <div class="flex w-full flex-wrap">
         <div class="w-full lg:w-1/5">
           <div class="h-40 w-40 relative mx-auto">
@@ -271,9 +271,113 @@
     </form>
     </section>
 
-    <section v-if="tag === 1" class="min-h-screen"></section>
+    <section v-if="tag === 1" class="w-full bg-white min-h-screen p-2 md:p-3 lg:p-6 max-w-8xl mx-auto">
+      <div class="flex flex-wrap">
+        <div class="w-full flex flex-wrap mb-6 lg:mb-8" v-for="(item, index) in teachingTime" :key="index">
+          <div class="bg-gray-400 py-2 w-full lg:w-auto lg:px-24 leading-loose flex items-center justify-center mb-3 lg:mb-0">
+            <p class="text-center">{{ item.title }}</p>
+          </div>
+          <div class="w-full lg:flex-1 mb-3 lg:mb-0">
+            <div class="w-full px-3 md:flex">
+              <label class="md:pt-2 md:text-sm md:w-1/3 tracking-wide text-sm mb-2 font-bold" for="name">
+                開課時段
+              </label>
+              <div class="relative text-sm w-full md:w-2/3">
+                <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
+                  >
+                  <option value="">上午</option>
+                  <option value="">下午</option>
+                </select>
+                <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
+                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="w-full lg:flex-1 mb-3 lg:mb-0">
+            <div class="w-full px-3 md:flex">
+              <label class="md:pt-2 md:text-sm md:w-1/3 tracking-wide text-sm mb-2 font-bold" for="name">
+                開始時間
+              </label>
+              <div class="w-full md:w-2/3">
+                <date-picker
+                  class="w-full"
+                  v-model="item.startTime"
+                  :minute-step="30"
+                  :hour-options="starthours"
+                  format="HH:mm"
+                  value-type="format"
+                  type="time"
+                  placeholder="HH:mm"
+                ></date-picker>
+              </div>
+            </div>
+          </div>
+          <div class="w-full lg:flex-1 mb-3 lg:mb-0">
+            <div class="w-full px-3 md:flex">
+              <label class="md:pt-2 md:text-sm md:w-1/3 tracking-wide text-sm mb-2 font-bold" for="name">
+                結束時間
+              </label>
+              <div class="w-full md:w-2/3">
+                <date-picker
+                  class="w-full"
+                  v-model="item.endTime"
+                  :minute-step="30"
+                  :hour-options="endhours"
+                  format="HH:mm"
+                  value-type="format"
+                  type="time"
+                  placeholder="HH:mm"
+                ></date-picker>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    <section v-if="tag === 2" class="min-h-screen"></section>
+      </div>
+      <div class="md:flex mt-3 md:mb-4 w-full lg:pt-6 justify-end px-2">
+        <button class="button-main py-3 px-8 md:px-12 rounded w-full md:w-1/5 text-sm whitespace-no-wrap">
+          <i class="fas fa-check mr-1"></i>儲存
+        </button>
+      </div>
+    </section>
+
+    <section v-if="tag === 2" class="w-full bg-white min-h-screen p-2 md:p-3 lg:p-6 max-w-8xl mx-auto">
+      <div class="flex">
+        <div class="bg-white py-8 px-4 md:px-8 leading-loose flex flex-col justify-between">
+          <div>
+            <h6 class="text-xl font-bold">選擇日期</h6>
+            <CalenderDot />
+          </div>
+          <div class="mb-8 md:w-1/2 lg:w-full">
+            <h6 class="text-xl font-bold">選擇時段</h6>
+            <div class="relative text-sm w-full">
+              <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
+                >
+                <option value="full">全天</option>
+                <option value="morning">半天</option>
+                <option value="afternoon">單時段</option>
+              </select>
+              <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
+                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+              </div>
+            </div>
+          </div>
+          <div class="flex justify-center items-center">
+            <button @click="step = 2" class="mx-4 px-6 py-1 bg-gray-900 text-white  hover:bg-gray-600 rounded whitespace-no-wrap">
+              停課
+            </button>
+
+            <button @click="step = 4" class="mx-4 px-6 py-1 bg-gray-400 text-white  hover:bg-gray-600 rounded whitespace-no-wrap">
+              取消
+            </button>
+          </div>
+        </div>
+        <div class="px-2 w-full hidden lg:block">
+          <FullCalendar :options="calendarOptions" />
+        </div>
+      </div>
+    </section>
 	</main>
 </template>
 
@@ -281,15 +385,25 @@
 /* eslint-disable no-console */
   import myUpload from 'vue-image-crop-upload/upload-2.vue'
   import FilterModal from '@/components/FilterModal'
+    import DatePicker from 'vue2-datepicker';
+  import 'vue2-datepicker/index.css';
+  import CalenderDot from '@/components/modules/CalenderDot'
+  import FullCalendar from '@fullcalendar/vue'
+  import dayGridPlugin from '@fullcalendar/daygrid'
+  import timeGridPlugin from '@fullcalendar/timegrid'
+  import interactionPlugin from '@fullcalendar/interaction'
   export default {
     name: 'Manage',
     components: {
       FilterModal,
-      myUpload
+      myUpload,
+      DatePicker,
+      CalenderDot,
+      FullCalendar
     },
     data () {
       return {
-        tag: 0,
+        tag: 2,
         showItems: {
           role: true,
           listStatus: false,
@@ -323,7 +437,58 @@
         headers: {
           smail: '*_~'
         },
-        imgDataUrl: ''
+        imgDataUrl: '',
+
+        starthours: Array.from({ length: 13 }).map((_, i) => i + 8),
+        endhours: Array.from({ length: 13 }).map((_, i) => i + 9),
+        teachingTime: [
+          { title: '星期一', timePeriod: null, startTime: '14:00', endTime: '21:00' },
+          { title: '星期二', timePeriod: null, startTime: '14:00', endTime: '21:00' },
+          { title: '星期三', timePeriod: null, startTime: '14:00', endTime: '21:00' },
+          { title: '星期四', timePeriod: null, startTime: '14:00', endTime: '21:00' },
+          { title: '星期五', timePeriod: null, startTime: '14:00', endTime: '21:00' },
+          { title: '星期六', timePeriod: null, startTime: '14:00', endTime: '21:00' },
+          { title: '星期日', timePeriod: null, startTime: '14:00', endTime: '21:00' }
+        ],
+
+        calendarOptions: {
+          plugins: [ dayGridPlugin, interactionPlugin, timeGridPlugin ],
+          initialView: 'timeGridWeek',
+          weekends: true,
+          slotDuration: '00:30:00',
+          slotMinTime: '9:00:00',
+          slotMaxTime: '21:00:00',
+          events: [
+            {
+              title: 'test',
+              start: '2021-10-28T10:30:00',
+              end: '2021-10-28T11:00:00',
+              extendedProps: {
+                department: 'BioChemistry'
+              },
+              description: 'Lecture'
+            },
+            {
+              title: 'test',
+              start: '2021-10-28T11:00:00',
+              end: '2021-10-28T11:30:00',
+              extendedProps: {
+                department: 'BioChemistry'
+              },
+              description: 'Lecture'
+            },
+            {
+              title: '此時段已預約:99999',
+              start: '2021-10-28T14:00:00',
+              end: '2021-10-28T14:30:00',
+              extendedProps: {
+                department: 'BioChemistry'
+              },
+              description: 'Lecture',
+              className: 'isBooked'
+            }
+          ]
+        }
       }
     },
     mounted() {
@@ -344,11 +509,18 @@
 				console.log(status)
 				console.log('field: ' + field)
 			}
+      // notBeforeTodayTwelveOClock(date) {
+      //   return date > new Date(new Date().setHours(20, 0, 0, 0));
+      // }
     }
   }
 </script>
 <style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
-<style>
+<style lang="scss">
+#manage {
+  .mx-input {
+    height: 43px;
+  }
   .tag {
     background: #CCCCCC;
     color: #808080;
@@ -391,4 +563,32 @@
     background: #4D4D4D;
     border-radius: 8px;
   }
+  .fc-view-harness {
+    height: 700px !important;
+  }
+  .fc-v-event {
+    border-radius: 0;
+    background-color: rgb(167, 167, 167) !important;
+    border: none;
+    border-left: 4px solid #565656;
+    box-shadow: none !important;
+    .fc-event-main {
+      color: black !important;
+      font-weight: 900;
+    }
+
+  }
+  .isBooked {
+    background: rgb(212, 212, 212) !important;
+    border-left: 4px solid #808080;
+    .fc-event-time {
+      display: none;
+    }
+    .fc-event-main {
+      color: #999999 !important;
+      font-weight: 900;
+    }
+  }
+}
+
 </style>

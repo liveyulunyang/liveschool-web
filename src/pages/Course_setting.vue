@@ -141,11 +141,11 @@
                       </div>
                     </div>
                     <div class="flex justify-center items-center">
-                      <button class="mx-4 px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
+                      <button class="mx-4 px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 rounded whitespace-no-wrap">
                         停課
                       </button>
 
-                      <button class="mx-4 px-4 py-2 bg-gray-400 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
+                      <button class="mx-4 px-4 py-2 bg-gray-400 text-white  hover:bg-gray-600 rounded whitespace-no-wrap">
                         取消
                       </button>
                     </div>
