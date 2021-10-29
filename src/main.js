@@ -5,6 +5,7 @@ import { Icon } from 'leaflet';
 import '@/assets/css/tailwind.css';
 import '@/assets/css/main.css';
 import '@/assets/css/checkbox.css';
+import '@/assets/css/sweatalert.scss';
 import 'leaflet/dist/leaflet.css';
 
 import router from './router';

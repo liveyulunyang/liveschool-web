@@ -20,6 +20,9 @@
 .bg-primary-normal {
   background-color: #2e5bff;
 }
+.bg-gray-alert {
+  background: #E5E5E5;
+}
 /* 網頁用色 */
 .bg-blue-main-dark {
   background: #0F455C;

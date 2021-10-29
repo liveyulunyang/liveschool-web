@@ -128,7 +128,7 @@
             <template slot="classDetail">
               <CalenderModel :showfirstModal="showDetailModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" />
               <td data-th="課程詳情">
-                <button class="bg-gray-900 text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1">
+                <button class="bg-gray-900 text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1" @click="openCommentModal">
                   <i class="fas fa-folder-open"></i>
                 </button>
               </td>
@@ -205,6 +205,9 @@ import CalenderModel from '@/components/popup/CalenderModel'
     methods: {
       openModal () {
         this.showfirstModal = true
+      },
+      openCommentModal () {
+        this.showDetailModal = true
       },
       closeModal (closeModal) {
         this.showfirstModal = closeModal

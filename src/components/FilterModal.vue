@@ -30,12 +30,27 @@
         <div class="relative text-sm w-full">
           <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
             >
-            <option value="">角色</option>
+            <option value="">權限</option>
             <option value="">管理者</option>
             <option value="">主任/HR</option>
             <option value="">督導</option>
             <option value="">老師</option>
             <option value="">學生</option>
+          </select>
+          <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
+            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+          </div>
+        </div>
+      </div>
+      <!-- 刪除原因 -->
+      <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.delReason">
+        <div class="relative text-sm w-full">
+          <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
+            >
+            <option value="">刪除原因</option>
+            <option value="">長期未使用</option>
+            <option value="">建立錯誤</option>
+            <option value="">測試用</option>
           </select>
           <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -48,12 +63,6 @@
           <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
             >
             <option value="">身份</option>
-            <option value="">全部</option>
-            <option value="">管理者</option>
-            <option value="">主任/HR</option>
-            <option value="">督導</option>
-            <option value="">老師</option>
-            <option value="">學生</option>
           </select>
           <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>

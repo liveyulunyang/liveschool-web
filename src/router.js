@@ -40,6 +40,11 @@ const router = new Router({
           component: () => import('@/pages/Users.vue')
         },
         {
+          path: '/users_recycle',
+          name: 'usersRecycle',
+          component: () => import('@/pages/UsersRecycle.vue')
+        },
+        {
           path: '/courses',
           name: 'courses',
           component: () => import('@/pages/CoursesTalk.vue')

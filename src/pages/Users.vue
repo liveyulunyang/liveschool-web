@@ -1,5 +1,5 @@
 <template>
-  <main class="flex items-start p-6">
+  <main class="flex items-start p-6" id="user">
     <div class="flex flex-col w-full">
       <div class="mb-4 flex justify-between items-center flex-wrap">
         <div class="flex">
@@ -13,15 +13,18 @@
           <h5 class="whitespace-no-wrap">學生<span class="bg-white rounded-lg px-2 py-1 mx-1">9999</span>人</h5>
         </div>
       </div>
-      <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row mb-4">
+      <div class="flex items-center w-full flex-wrap lg:flex-no-wrap mb-4">
         <FilterModal :showItems="showItems" />
         <div class="flex justify-end items-center">
-          <Button class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
+          <button @click="toRecyle" class="px-4 py-2 bg-gray-600 text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
+            <i class="fas fa-trash-alt mr-1"></i> 帳號回收中心
+          </button>
+          <button class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
             <i class="fas fa-plus mr-1"></i> 匯入帳號
-          </Button>
-          <Button @click="toManage" class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
+          </button>
+          <button @click="toManage" class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
             <i class="fas fa-plus mr-1"></i> 新增帳號
-          </Button>
+          </button>
         </div>
       </div>
       <Table :columns="tableList.columns"
@@ -30,19 +33,19 @@
           <template slot="actionsLabel">
             <th class="whitespace-no-wrap text-center">執行動作</th>
           </template>
-          <template scope="props" slot="actionsBtn">
-            <td data-th="執行動作">
-              <button @click="edit(props.item.id)"
+          <template slot="actionsBtn">
+            <td data-th="執行動作" class="bg-white">
+              <button @click="edit()"
                 class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
                 >
                 <img src="@/assets/img/icons/edit.svg" alt="" class="w-8 object-contain">
               </button>
-              <button @click="open(props.item.id)"
+              <button @click="open()"
                 class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
                 >
                 <img src="@/assets/img/icons/more.svg" alt="" class="w-8 object-contain">
               </button>
-              <button @click="del(props.item.id)"
+              <button @click="del()"
                 class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
                 >
                 <img src="@/assets/img/icons/delete.svg" alt="" class="w-8 object-contain">
@@ -154,6 +157,9 @@
     computed: {
     },
     methods: {
+      toRecyle () {
+        this.$router.push({ name: 'usersRecycle' })
+      },
       toManage () {
         this.$router.push({ name: 'account_add' })
       },
@@ -165,44 +171,77 @@
         this.$router.push({ name: 'learn_record_student' })
         console.log('open manage')
       },
-      del() {
-        this.$swal.fire({
-          title: '確認要刪除此筆資料?',
-          icon: 'warning',
+      async del() {
+        let self = this
+        const inputOptions = new Promise((resolve) => {
+          setTimeout(() => {
+            resolve({
+              '1.已長期未使用': '已長期未使用',
+              '2.建立錯誤': '建立錯誤',
+              '3.測試用': '測試用'
+            })
+          }, 0)
+        })
+
+        const { value: reason } = await self.$swal.fire({
+          title: '請選擇刪除原因',
+          text: '請協助勾選帳號需刪除原因，以便增進網站管理品質',
+          input: 'radio',
           showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
           confirmButtonText: '刪除',
-          cancelButtonText: '取消'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            this.$swal.fire(
-              'Deleted!',
-              'Your file has been deleted.',
-              'success'
-            )
+          cancelButtonText: '取消',
+          customClass: {
+            title: 'font-bold bg-gray-alert text-2xl text-black',
+            htmlContainer: 'text-sm bg-gray-alert pb-3',
+            actions: 'btns',
+            confirmButton: 'btn btn-confirm',
+            cancelButton: 'btn btn-cancel'
+          },
+          inputOptions: inputOptions,
+          inputValidator: (value) => {
+            if (!value) {
+              return '請選擇原因'
+            }
           }
         })
+
+        if (reason) {
+          console.log(reason)
+          self.$swal.fire({
+            icon: 'success',
+            title: '刪除成功!',
+            text: '您所選擇的檔案已刪除完成',
+            confirmButtonColor: '#808080',
+            confirmButtonText: '確認',
+            iconColor: '#B2B2B2',
+            customClass: {
+              title: 'font-bold text-2xl text-black',
+              htmlContainer: 'text-sm',
+              actions: 'btns',
+              confirmButton: 'btn btn-confirm',
+              cancelButton: 'btn btn-cancel'
+            }
+          })
+        }
       }
     }
   }
 </script>
-<style>
-  .role {
-    width: 6em !important;
-  }
-  .search {
-    width: 10em !important;
-  }
-  /* .mx-datepicker-range {
-    width: 15em;
-    height: 42px !important;
-  } */
-  .mx-input {
-    height: 42px !important;
+<style lang="scss">
+  #user {
+    .role {
+      width: 6em !important;
+    }
+    .search {
+      width: 10em !important;
+    }
+    .mx-input {
+      height: 42px !important;
+    }
+
+    .multiselect {
+      width: fit-content !important;
+    }
   }
 
-  .multiselect {
-    width: fit-content !important;
-  }
 </style>

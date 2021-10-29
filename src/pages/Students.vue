@@ -157,25 +157,59 @@
         this.$router.push({ name: 'SectionalDrawing' })
         console.log(id)
       },
-      del(id) {
+      async del(id) {
         console.log(id)
-        this.$swal.fire({
-          title: '確認要刪除此筆資料?',
-          icon: 'warning',
+        let self = this
+        const inputOptions = new Promise((resolve) => {
+          setTimeout(() => {
+            resolve({
+              '1.已長期未使用': '已長期未使用',
+              '2.建立錯誤': '建立錯誤',
+              '3.測試用': '測試用'
+            })
+          }, 0)
+        })
+
+        const { value: reason } = await self.$swal.fire({
+          title: '請選擇刪除原因',
+          text: '請協助勾選帳號需刪除原因，以便增進網站管理品質',
+          input: 'radio',
           showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
           confirmButtonText: '刪除',
-          cancelButtonText: '取消'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            this.$swal.fire(
-              'Deleted!',
-              'Your file has been deleted.',
-              'success'
-            )
+          cancelButtonText: '取消',
+          customClass: {
+            title: 'font-bold bg-gray-alert text-2xl text-black',
+            htmlContainer: 'text-sm bg-gray-alert pb-3',
+            actions: 'btns',
+            confirmButton: 'btn btn-confirm',
+            cancelButton: 'btn btn-cancel'
+          },
+          inputOptions: inputOptions,
+          inputValidator: (value) => {
+            if (!value) {
+              return '請選擇原因'
+            }
           }
         })
+
+        if (reason) {
+          console.log(reason)
+          self.$swal.fire({
+            icon: 'success',
+            title: '刪除成功!',
+            text: '您所選擇的檔案已刪除完成',
+            confirmButtonColor: '#808080',
+            confirmButtonText: '確認',
+            iconColor: '#B2B2B2',
+            customClass: {
+              title: 'font-bold text-2xl text-black',
+              htmlContainer: 'text-sm',
+              actions: 'btns',
+              confirmButton: 'btn btn-confirm',
+              cancelButton: 'btn btn-cancel'
+            }
+          })
+        }
       }
     }
   }

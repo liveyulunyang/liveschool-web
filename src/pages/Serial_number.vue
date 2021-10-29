@@ -111,17 +111,29 @@
           title: '確認要刪除此筆資料?',
           icon: 'warning',
           showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
           confirmButtonText: '刪除',
-          cancelButtonText: '取消'
+          cancelButtonText: '取消',
+          customClass: {
+            title: 'font-bold text-2xl text-black',
+            actions: 'btns',
+            confirmButton: 'btn btn-confirm',
+            cancelButton: 'btn btn-cancel'
+          }
         }).then((result) => {
           if (result.isConfirmed) {
-            this.$swal.fire(
-              'Deleted!',
-              'Your file has been deleted.',
-              'success'
-            )
+            this.$swal.fire({
+              icon: 'success',
+              title: '刪除成功!',
+              text: '您所選擇的檔案已刪除',
+              confirmButtonColor: '#808080',
+              confirmButtonText: 'OK',
+              customClass: {
+                title: 'font-bold text-2xl text-black',
+                htmlContainer: 'text-sm',
+                actions: 'btns',
+                confirmButton: 'px-10'
+              }
+            })
           }
         })
       },

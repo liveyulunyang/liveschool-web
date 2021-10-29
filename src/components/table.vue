@@ -126,7 +126,7 @@
 }
 
 .rwd-table td:last-child {
-  margin-bottom: .5em;
+  /* margin-bottom: .5em; */
 }
 
 .rwd-table td:before {
