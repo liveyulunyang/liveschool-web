@@ -3,7 +3,7 @@
     <div class="flex flex-col w-full">
       <div class="mb-4 flex justify-between items-center flex-wrap">
         <div class="flex">
-          <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">使用者管理</h1>
+          <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">會議管理</h1>
         </div>
         <div class="flex text-xs flex-wrap">
           <h5 class="mr-3 whitespace-no-wrap">管理者<span class="bg-white rounded-lg px-2 py-1 mx-1">2</span>人</h5>
@@ -39,11 +39,6 @@
                 class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
                 >
                 <img src="@/assets/img/icons/edit.svg" alt="" class="w-8 object-contain">
-              </button>
-              <button @click="open()"
-                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
-                >
-                <img src="@/assets/img/icons/more.svg" alt="" class="w-8 object-contain">
               </button>
               <button @click="del()"
                 class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"

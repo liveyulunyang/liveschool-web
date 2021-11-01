@@ -246,6 +246,11 @@ export default {
             url: "/announce"
           },
           {
+            icon: "fas fa-briefcase",
+            title: "會議管理",
+            url: "/meeting"
+          },
+          {
             icon: "fas fa-info",
             title: "系統資訊",
             url: "/info"

@@ -2,28 +2,95 @@
   <main class="flex items-start p-6">
     <div class="flex flex-col w-full">
         <div class="mb-4 flex justify-between items-center flex-wrap">
-          <div class="flex">
-            <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">系統資訊</h1>
+          <div class="flex items-center">
+            <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">系統教室管理
+            </h1>
           </div>
         </div>
-        <div class="content">
+      <div class="flex flex-wrap">
+
+        <div class="w-full px-2">
+          <Table
+            :columns="tableList.columns"
+            :actions="tableList.actions"
+            :data="tableList.datas"
+            >
+            <template slot="statusLabel">
+              <th class="whitespace-no-wrap text-center">狀態</th>
+            </template>
+            <template slot="actionsLabel">
+              <th class="whitespace-no-wrap text-center">執行動作</th>
+            </template>
+            <template slot="statusText">
+              <td data-th="狀態">
+                <button @click="openDetail()"
+                  class="text-gray-600 mx-1 border rounded border-gray-600 p-1 px-3"
+                  >
+                  idle
+                </button>
+              </td>
+            </template>
+            <template slot="actionsBtn">
+              <td data-th="執行動作">
+                <button @click="openDetail()"
+                  class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
+                  >
+                  <img src="@/assets/img/icons/more.svg" alt="" class="w-8 object-contain">
+                </button>
+              </td>
+            </template>
+          </Table>
+          <Pagination />
         </div>
+      </div>
     </div>
   </main>
 </template>
 
 <script>
+import Table from '@/components/table'
+import Pagination from '@/components/modules/Pagination'
   export default {
-    name: "Info",
+    name: "Teach_record",
     components: {
+      Table,
+      Pagination
     },
     data () {
       return {
+        showItems: {
+          role: false,
+          listStatus: false,
+          classTopic: false,
+          classification: false,
+          branch: false,
+          classType: false,
+          timePeriod: false,
+          search: true,
+          sync: true,
+          approvalStatus: false
+        },
+        tableList: {
+          columns: [
+            { name: 'id', label: '教室編號' },
+            { name: 'number', label: '代碼' }
+          ],
+          datas: [
+            {
+              id: 'ROOM1',
+              number: 'VeZzfU9wR1K7dRccNYpMbg'
+            }
+          ]
+        }
       }
     },
     computed: {
     },
     methods: {
+      submit () {},
+      openDetail () {
+        this.$router.push({ name: 'Learn_record_teacher' })
+      }
     }
   }
 </script>

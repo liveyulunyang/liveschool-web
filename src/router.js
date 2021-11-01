@@ -219,6 +219,11 @@ const router = new Router({
           path: '/pointsTrading',
           name: 'PointsTrading',
           component: () => import('@/pages/PointsTrading.vue')
+        },
+        {
+          path: '/meeting',
+          name: 'meeting',
+          component: () => import('@/pages/Meeting.vue')
         }
       ]
     }
