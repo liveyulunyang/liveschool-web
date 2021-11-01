@@ -2,7 +2,7 @@
 
 <template>
   <div id="vue-instance" class="c-table">
-      <table class="table table-striped table-bordered table-hover w-full rwd-table">
+      <table class="table table-striped table-bordered table-hover w-full rwd-table mb-2 border-separate text-sm">
         <thead>
           <tr>
             <th v-for="(column, index) in columns" :key="index">
@@ -13,7 +13,7 @@
 
       <tbody>
       <template v-for="(item, idx) in testing">
-        <tr :key="idx">
+        <tr :key="idx" class="shadow-lg">
           <td>{{ item.id }}</td>
           <td>{{ item.name }}</td>
           <td data-th="狀態">
@@ -22,58 +22,58 @@
             >
             idle
             </button> -->
-            <button @click="toggle(idx)"
+            <!-- <button @click="toggle(idx)"
             class="mx-1 border rounded p-1 px-3 text-class-blue border-class-blue focus:outline-none"
             >
             reserved <i class="fas fa-chevron-down ml-1" v-if="idx !== selectedIdx"></i> <i class="fas fa-chevron-up ml-1" v-if="idx === selectedIdx"></i>
-            </button>
-            <!-- <button  @click="toggle(idx)"
+            </button> -->
+            <button  @click="toggle(idx)"
             class="text-class-red mx-1 border rounded p-1 px-3 border-class-red focus:outline-none"
             >
               in meeting <i class="fas fa-chevron-down ml-1" v-if="idx !== selectedIdx"></i> <i class="fas fa-chevron-up ml-1" v-if="idx === selectedIdx"></i>
-            </button> -->
+            </button>
           </td>
           <td data-th="執行動作">
-            <!-- <button class="bg-gray-900 mx-1 text-white py-2 px-3 rounded h-full text-sm"
+            <!-- <button class="bg-gray-900 mx-1 text-white py-2 px-3 rounded h-full text-sm focus:outline-none"
             >
             <i class="fas fa-plus mr-1 text-xs"></i> Create
             </button> -->
-            <button class="bg-class-red mx-1 text-white py-2 px-3 rounded h-full text-sm"
+            <button class="bg-class-red mx-1 text-white py-2 px-3 rounded h-full text-sm focus:outline-none"
             >
             <i class="fas fa-plus mr-1 text-xs"></i> Destory
             </button>
           </td>
         </tr>
-        <tr v-if="idx === selectedIdx" class="view" :key="item.id">
+        <tr v-if="idx === selectedIdx" class="view " :key="item.id">
           <td :colspan="columns.length" >
             <div class="accordian-body">
               <div class="w-full px-3 py-3 md:flex">
-                <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2" for="one_choice">ID
+                <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2" for="id">ID
                 </label>
                 <div class="w-full md:w-11/12 flex items-center flex-wrap">
                   <div class="w-full px-1 flex items-center">
                     <input class="w-full appearance-none block text-sm border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-900" spellcheck="false"
-                      id="id" type="text" disabled value="28301">
+                      id="id" type="text" disabled value="28301"  name="id">
                   </div>
                 </div>
               </div>
               <div class="w-full px-3 py-3 md:flex">
-                <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2" for="one_choice">Topic
+                <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2" for="topic">Topic
                 </label>
                 <div class="w-full md:w-11/12 flex items-center flex-wrap">
                   <div class="w-full px-1 flex items-center">
                     <input class="w-full appearance-none block text-sm border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-900" spellcheck="false"
-                      id="topic" type="text" disabled vlaue="CTL測試課程">
+                      id="topic" type="text" disabled value="CTL測試課程" name="topic">
                   </div>
                 </div>
               </div>
               <div class="w-full px-3 py-3 md:flex">
-                <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2" for="one_choice">Time
+                <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2" for="time">Time
                 </label>
                 <div class="w-full md:w-11/12 flex items-center flex-wrap">
                   <div class="w-full px-1 flex items-center">
                     <input class="w-full appearance-none block text-sm border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-900" spellcheck="false"
-                      id="time" type="text" disabled vlaue="2021-06-22 22:00-23:00">
+                      id="time" type="text" disabled value="2021-06-22 22:00-23:00" name="time">
                   </div>
                 </div>
               </div>
@@ -155,10 +155,7 @@
 </template>
 
 <script>
-/* eslint-disable vue/require-v-for-key */
-/* eslint-disable vue/no-template-key */
-/* eslint-disable vue/no-template-key */
-  import TeacherInfoModal from '@/components/popup/TeacherInfoModal'
+  // import TeacherInfoModal from '@/components/popup/TeacherInfoModal'
   export default {
     name: 'Table_accordion',
     components: {
@@ -237,10 +234,6 @@
 .c-table table {
   border-spacing: 0 1rem;
 }
-/* .c-table table tr:nth-of-type(odd) {
-  border-spacing: 0px 0rem !important;
-} */
-
 .rwd-table {
   margin: auto;
   min-width: 300px;

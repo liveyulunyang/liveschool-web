@@ -16,7 +16,7 @@
             :data="tableList.datas"
             :isaccordion="true"
             >
-            <template slot="statusLabel">
+            <!-- <template slot="statusLabel">
               <th class="whitespace-no-wrap text-center">狀態</th>
             </template>
             <template slot="actionsLabel">
@@ -25,7 +25,7 @@
             <template slot="statusText">
               <td data-th="狀態">
                 <button @click="openDetail()"
-                  class="text-gray-600 mx-1 border rounded border-gray-600 p-1 px-3"
+                  class="text-gray-600 mx-1 border rounded border-gray-600 p-1 px-3 focus:outline-none"
                   >
                   idle
                 </button>
@@ -34,12 +34,12 @@
             <template slot="actionsBtn">
               <td data-th="執行動作">
                 <button @click="openDetail()"
-                  class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
+                  class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1 focus:outline-none"
                   >
                   <img src="@/assets/img/icons/more.svg" alt="" class="w-8 object-contain">
                 </button>
               </td>
-            </template>
+            </template> -->
           </Table>
           <Pagination />
         </div>
@@ -52,7 +52,7 @@
 import Table from '@/components/table_accordion'
 import Pagination from '@/components/modules/Pagination'
   export default {
-    name: "Teach_record",
+    name: "Info",
     components: {
       Table,
       Pagination
@@ -72,6 +72,7 @@ import Pagination from '@/components/modules/Pagination'
           approvalStatus: false
         },
         tableList: {
+          // columns: ['教室編號', '代碼', '狀態', '執行動作']
           columns: [
             { name: 'id', label: '教室編號' },
             { name: 'number', label: '代碼' }
