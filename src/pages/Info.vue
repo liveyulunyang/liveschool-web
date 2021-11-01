@@ -14,6 +14,7 @@
             :columns="tableList.columns"
             :actions="tableList.actions"
             :data="tableList.datas"
+            :isaccordion="true"
             >
             <template slot="statusLabel">
               <th class="whitespace-no-wrap text-center">狀態</th>
@@ -48,7 +49,7 @@
 </template>
 
 <script>
-import Table from '@/components/table'
+import Table from '@/components/table_accordion'
 import Pagination from '@/components/modules/Pagination'
   export default {
     name: "Teach_record",
@@ -78,6 +79,14 @@ import Pagination from '@/components/modules/Pagination'
           datas: [
             {
               id: 'ROOM1',
+              number: 'VeZzfU9wR1K7dRccNYpMbg'
+            },
+            {
+              id: 'ROOM2',
+              number: 'VeZzfU9wR1K7dRccNYpMbg'
+            },
+            {
+              id: 'ROOM3',
               number: 'VeZzfU9wR1K7dRccNYpMbg'
             }
           ]
