@@ -49,12 +49,12 @@
             <td data-th="紀錄">
               <button @click="preClass()"
                 class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1">
-                <img :src="require('@/assets/img/icons/list.svg')" alt="" class="h-6 object-contain noData">
+                <img :src="require('@/assets/img/icons/list.svg')" alt="" class="h-8 object-contain noData">
               </button>
               <button @click="reviewClass()"
                 class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1">
-                <img :src="require('@/assets/img/icons/film.svg')" alt="" class="h-6 object-contain noData">
-                <!-- <img src="@/assets/img/icons/film_active.svg" alt="" class="h-6 object-contain hasData"> -->
+                <img :src="require('@/assets/img/icons/film.svg')" alt="" class="h-8 object-contain noData">
+                <!-- <img src="@/assets/img/icons/film_active.svg" alt="" class="h-8 object-contain hasData"> -->
               </button>
             </td>
           </template>

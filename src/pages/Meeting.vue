@@ -5,37 +5,59 @@
         <div class="flex">
           <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">會議管理</h1>
         </div>
-        <div class="flex text-xs flex-wrap">
-          <h5 class="mr-3 whitespace-no-wrap">管理者<span class="bg-white rounded-lg px-2 py-1 mx-1">2</span>人</h5>
-          <h5 class="mr-3 whitespace-no-wrap">主任 / HR<span class="bg-white rounded-lg px-2 py-1 mx-1">915</span>人</h5>
-          <h5 class="mr-3 whitespace-no-wrap">督導<span class="bg-white rounded-lg px-2 py-1 mx-1">9</span>人</h5>
-          <h5 class="mr-3 whitespace-no-wrap">老師<span class="bg-white rounded-lg px-2 py-1 mx-1">99</span>人</h5>
-          <h5 class="whitespace-no-wrap">學生<span class="bg-white rounded-lg px-2 py-1 mx-1">9999</span>人</h5>
-        </div>
       </div>
       <div class="flex items-center w-full flex-wrap lg:flex-no-wrap mb-4">
         <FilterModal :showItems="showItems" />
         <div class="flex justify-end items-center">
-          <button @click="toRecyle" class="px-4 py-2 bg-gray-600 text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
-            <i class="fas fa-trash-alt mr-1"></i> 帳號回收中心
-          </button>
-          <button class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
-            <i class="fas fa-plus mr-1"></i> 匯入帳號
-          </button>
           <button @click="toManage" class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
-            <i class="fas fa-plus mr-1"></i> 新增帳號
+            <i class="fas fa-plus mr-1"></i> 新增會議
           </button>
         </div>
       </div>
       <Table :columns="tableList.columns"
         :actions="tableList.actions"
         :data="tableList.datas">
+          <template slot="statusLabel">
+            <th class="whitespace-no-wrap text-center">狀態</th>
+          </template>
+          <template slot="record">
+            <th class="whitespace-no-wrap text-center">紀錄</th>
+          </template>
           <template slot="actionsLabel">
             <th class="whitespace-no-wrap text-center">執行動作</th>
           </template>
+          <template slot="statusText">
+            <td data-th="狀態" class="bg-white">
+              <button @click="openModal"
+                class="text-white bg-gray-900 mx-1 px-3 py-2 rounded"
+                >
+                開會網址 <i class="fas fa-arrow-right ml-1"></i>
+              </button>
+              <!-- <button
+                class="text-gray-600 border border-gray-600 mx-1 px-3 py-2 rounded"
+                >
+                會議準備中
+              </button> -->
+              <!-- <button
+                class="text-gray-600 border border-gray-600 mx-1 px-3 py-2 rounded"
+                >
+                會議已結束
+              </button> -->
+            </td>
+          </template>
+          <template slot="recordBtn">
+            <td data-th="紀錄" class="bg-white">
+              <MeetingModal :showfirstModal="showModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" />
+              <button
+                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1">
+                <!-- <img :src="require('@/assets/img/icons/film.svg')" alt="" class="h-8 object-contain noData"> -->
+                <img src="@/assets/img/icons/film_active.svg" alt="" class="h-8 object-contain hasData">
+              </button>
+            </td>
+          </template>
           <template slot="actionsBtn">
             <td data-th="執行動作" class="bg-white">
-              <button @click="edit()"
+              <button @click="toManage()"
                 class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
                 >
                 <img src="@/assets/img/icons/edit.svg" alt="" class="w-8 object-contain">
@@ -58,25 +80,25 @@
   import 'vue2-datepicker/index.css'
   import Pagination from "@/components/modules/Pagination"
   import FilterModal from '@/components/FilterModal'
+  import MeetingModal from '@/components/popup/MeetingModal'
   export default {
-    name: "User",
+    name: "Meeting",
     components: {
       Table,
       Pagination,
-      FilterModal
+      FilterModal,
+      MeetingModal
     },
     props: [
       'props'
     ],
     data () {
       return {
+        showModal: false,
+
         showItems: {
-          role: true,
-          listStatus: false,
-          classTopic: false,
-          classification: false,
-          branch: false,
-          classType: false,
+          classroom: true,
+          branch: true,
           timePeriod: true,
           search: true,
           sync: true
@@ -84,46 +106,26 @@
 
         tableList: {
           columns: [
-            { name: 'id', label: '帳號(信箱)', required: true, sortable: true },
-            { name: 'name', label: '姓名/英文姓名', required: true, sortable: true },
-            { name: 'CTL', label: 'CTL帳號', required: true, sortable: true },
-            { name: 'mobile', label: '行動電話', required: true, sortable: true },
-            { name: 'point', label: '點數', required: true, sortable: false},
-            { name: 'role', label: '角色', required: true, sortable: true },
-            { name: 'source', label: '來源', required: true, sortable: true },
-            { name: 'city', label: '縣市', required: true, sortable: true },
-            { name: 'branch', label: '分校', required: true, sortable: true },
-            { name: 'class', label: '班級', required: true, sortable: true },
-            { name: 'time', label: '建立時間', required: true, sortable: true }
+            { name: 'id', label: 'ID', required: true, sortable: true },
+            { name: 'room', label: '教室', required: true, sortable: true },
+            { name: 'time', label: '時間', required: true, sortable: true },
+            { name: 'name', label: '會議名稱', required: true, sortable: true },
+            { name: 'branch', label: '站別', required: true, sortable: false}
           ],
           datas: [
             {
-              id: 'rex_chu1_1@liveabc.com',
-              name: '測試名稱',
-              nameEn: 'Peggy',
-              CTL: '是',
-              mobile: '0912312312',
-              point: 8,
-              role: '管理者',
-              source: '本站',
-              city: '台北市',
-              branch: '總部測試校',
-              class: 'C8',
-              time: '2020-11-30 09:59'
+              id: '28268',
+              room: 'ROOM1',
+              time: '2021-06-22 22:00-23:00',
+              name: '老師面試',
+              branch: '企業站'
             },
             {
-              id: 'rex_chu1@liveabc.com',
-              name: '測試名稱',
-              nameEn: 'Peggy',
-              CTL: '是',
-              mobile: '0912312312',
-              point: 8,
-              role: '管理者',
-              source: '本站',
-              city: '台北市',
-              branch: '總部測試校',
-              class: 'C8',
-              time: '2020-11-30 09:59'
+              id: '28268',
+              room: 'ROOM1',
+              time: '2021-06-22 22:00-23:00',
+              name: '老師面試',
+              branch: '企業站'
             }
           ]
         }
@@ -132,72 +134,51 @@
     computed: {
     },
     methods: {
-      toRecyle () {
-        this.$router.push({ name: 'usersRecycle' })
+      openModal () {
+        this.showModal = true
+      },
+      closeModal (closeModal) {
+        this.showModal = closeModal
+      },
+      submit (submit) {
+        console.log(submit)
       },
       toManage () {
-        this.$router.push({ name: 'account_add' })
+        this.$router.push({ name: 'addMeeting' })
       },
       edit() {
-        this.$router.push({ name: 'account_edit', params: { id: 1 } })
-        console.log('edit manage')
-      },
-      open() {
-        this.$router.push({ name: 'learn_record_student' })
-        console.log('open manage')
+        // this.$router.push({ name: 'account_edit', params: { id: 1 } })
       },
       async del() {
-        let self = this
-        const inputOptions = new Promise((resolve) => {
-          setTimeout(() => {
-            resolve({
-              '1.已長期未使用': '已長期未使用',
-              '2.建立錯誤': '建立錯誤',
-              '3.測試用': '測試用'
-            })
-          }, 0)
-        })
-
-        const { value: reason } = await self.$swal.fire({
-          title: '請選擇刪除原因',
-          text: '請協助勾選帳號需刪除原因，以便增進網站管理品質',
-          input: 'radio',
+        this.$swal.fire({
+          title: '確認要刪除此筆資料?',
+          icon: 'warning',
           showCancelButton: true,
           confirmButtonText: '刪除',
           cancelButtonText: '取消',
           customClass: {
-            title: 'font-bold bg-gray-alert text-2xl text-black',
-            htmlContainer: 'text-sm bg-gray-alert pb-3',
+            title: 'font-bold text-2xl text-black',
             actions: 'btns',
             confirmButton: 'btn btn-confirm',
             cancelButton: 'btn btn-cancel'
-          },
-          inputOptions: inputOptions,
-          inputValidator: (value) => {
-            if (!value) {
-              return '請選擇原因'
-            }
+          }
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this.$swal.fire({
+              icon: 'success',
+              title: '刪除成功!',
+              text: '您所選擇的檔案已刪除',
+              confirmButtonColor: '#808080',
+              confirmButtonText: 'OK',
+              customClass: {
+                title: 'font-bold text-2xl text-black',
+                htmlContainer: 'text-sm',
+                actions: 'btns',
+                confirmButton: 'px-10'
+              }
+            })
           }
         })
-
-        if (reason) {
-          console.log(reason)
-          self.$swal.fire({
-            icon: 'success',
-            title: '刪除成功!',
-            text: '您所選擇的檔案已刪除完成',
-            confirmButtonColor: '#808080',
-            confirmButtonText: '確認',
-            iconColor: '#B2B2B2',
-            customClass: {
-              title: 'font-bold text-2xl text-black',
-              htmlContainer: 'text-sm',
-              actions: 'btns',
-              confirmButton: 'btn btn-confirm',
-              cancelButton: 'btn btn-cancel'
-            }
-          })
-        }
       }
     }
   }

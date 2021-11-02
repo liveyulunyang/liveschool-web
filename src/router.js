@@ -224,6 +224,11 @@ const router = new Router({
           path: '/meeting',
           name: 'meeting',
           component: () => import('@/pages/Meeting.vue')
+        },
+        {
+          path: '/meeting/add',
+          name: 'addMeeting',
+          component: () => import('@/pages/AddMeeting.vue')
         }
       ]
     }
