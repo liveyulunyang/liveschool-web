@@ -3,7 +3,7 @@
     <div class="flex flex-col w-full">
       <div class="mb-4 flex justify-between items-center flex-wrap">
         <div class="flex">
-          <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">LiveTalk預約課程清單</h1>
+          <Title :title="'LiveTalk預約課程清單'" />
         </div>
       </div>
       <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row mb-4">
@@ -53,15 +53,17 @@
 </template>
 
 <script>
-  import Table from "@/components/table"
+  import Table from '@/components/table'
   import FilterModal from '@/components/FilterModal'
   import CommentModal from '@/components/popup/CommentModal'
+  import Title from '@/components/Title'
   export default {
     name: "Book_course",
     components: {
       Table,
       FilterModal,
-      CommentModal
+      CommentModal,
+      Title
     },
     data () {
       return {

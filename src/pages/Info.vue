@@ -3,8 +3,7 @@
     <div class="flex flex-col w-full">
         <div class="mb-4 flex justify-between items-center flex-wrap">
           <div class="flex items-center">
-            <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">系統教室管理
-            </h1>
+            <Title :title="'系統教室管理'" />
           </div>
         </div>
       <div class="flex flex-wrap">
@@ -51,11 +50,13 @@
 <script>
 import Table from '@/components/table_accordion'
 import Pagination from '@/components/modules/Pagination'
+import Title from '@/components/Title'
   export default {
     name: "Info",
     components: {
       Table,
-      Pagination
+      Pagination,
+      Title
     },
     data () {
       return {

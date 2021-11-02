@@ -3,24 +3,25 @@
     <div class="flex flex-col w-full">
         <div class="mb-4 flex justify-between items-center flex-wrap">
           <div class="flex">
-            <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">點數管理</h1>
+            <Title :title="'點數管理'" />
           </div>
         </div>
         <div class="content">
           <section class="w-full mt-2 min-h-screen px-3 lg:px-6 py-4">
             <div class="flex justify-between">
               <ul class="flex cursor-pointer">
-                <li class="py-2 px-6 tag flex items-center justify-center mr-2" :class="{ tagAct: tag === 0 }" @click="tag = 0" v-if="$store.state.userRole === 'admin'">統計</li>
-                <li class="py-2 px-6 tag flex items-center justify-center mx-2" :class="{ tagAct: tag === 1 }" @click="tag = 1">轉移</li>
-                <li class="py-2 px-6 tag flex items-center justify-center mx-2" :class="{ tagAct: tag === 2 }" @click="tag = 2" v-if="$store.state.userRole === 'admin'">新增</li>
-                <li class="py-2 px-6 tag flex items-center justify-center ml-2" :class="{ tagAct: tag === 3 }" @click="tag = 3">交易紀錄</li>
+                <li class="py-4 px-6 tag flex items-center justify-center mr-2" :class="{ tagAct: tag === 0 }" @click="tag = 0" v-if="$store.state.userRole === 'admin'">統計</li>
+                <li class="py-4 px-6 tag flex items-center justify-center mx-2" :class="{ tagAct: tag === 1 }" @click="tag = 1">轉移</li>
+                <li class="py-4 px-6 tag flex items-center justify-center mx-2" :class="{ tagAct: tag === 2 }" @click="tag = 2" v-if="$store.state.userRole === 'admin'">新增</li>
+                <li class="py-4 px-6 tag flex items-center justify-center ml-2" :class="{ tagAct: tag === 3 }" @click="tag = 3">交易紀錄</li>
               </ul>
             </div>
 
             <div class="w-full flex flex-col justify-between leading-normal">
 
               <div v-if="tag === 0 && $store.state.userRole === 'admin'" class="bg-white py-2 lg:p-4">
-                <div class="flex items-center mb-4 flex-wrap">
+                <FilterModal :showItems="showItems" />
+                <!-- <div class="flex items-center mb-4 flex-wrap">
                   <div class="mr-1">
                     <date-picker
                       v-model="periodTime"
@@ -32,10 +33,10 @@
                       <img src="@/assets/img/icons/re.svg" alt="" class="w-8">
                     </a>
                   </div>
-                  <button class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
+                  <button class="px-4 py-2 bg-second-blue text-white text-sm mx-1 rounded whitespace-no-wrap">
                     <i class="fas fa-arrow-down mr-1"></i>匯出資料
                   </button>
-                </div>
+                </div> -->
                 <form>
                   <div class="mb-6">
                     <h6 class="text-left mb-2 text-lg font-bold">點數</h6>
@@ -226,17 +227,25 @@
 <script>
   import DatePicker from 'vue2-datepicker'
   import 'vue2-datepicker/index.css'
-  import Table from "@/components/table"
+  import Table from '@/components/table'
+  import FilterModal from '@/components/FilterModal'
+  import Title from '@/components/Title'
   export default {
     name: "Point",
     components: {
       Table,
-      DatePicker
+      DatePicker,
+      FilterModal,
+      Title
     },
     data () {
       return {
         tag: 0,
-        periodTime: null,
+        showItems: {
+          isExportBtn: true,
+          timePeriod: true,
+          sync: true
+        },
         tableList: {
           columns: [
             { name: 'id', label: '交易日期', required: true },

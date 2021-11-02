@@ -3,7 +3,7 @@
     <div class="flex flex-col w-full">
         <div class="mb-4 flex justify-between items-center flex-wrap">
           <div class="flex">
-            <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">預約課程設定</h1>
+            <Title :title="'預約課程設定'" />
           </div>
         </div>
         <div class="content w-full">
@@ -175,12 +175,14 @@
   import timeGridPlugin from '@fullcalendar/timegrid'
   import interactionPlugin from '@fullcalendar/interaction'
   import listPlugin   from '@fullcalendar/list'
+  import Title from '@/components/Title'
   export default {
     name: "Course_setting",
     components: {
       DatePicker,
       CalenderDot,
       FullCalendar,
+      Title
     },
     data () {
       return {

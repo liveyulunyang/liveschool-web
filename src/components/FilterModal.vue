@@ -199,7 +199,7 @@
       </div>
       <!-- 重整按鈕 -->
       <div class="w-auto syncBtn p-1 cursor-pointer" v-if="showItems.sync">
-        <a class="flex items-center justify-center bg-gray-700 text-white">
+        <a class="flex items-center justify-center bg-blue-main-dark text-white rounded">
           <i class="fas fa-sync-alt"></i>
         </a>
       </div>

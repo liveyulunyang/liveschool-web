@@ -3,9 +3,10 @@
     <div class="flex flex-col w-full">
         <div class="mb-4 flex justify-between items-center flex-wrap">
           <div class="flex">
-            <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">帳號資料</h1>
+            <Title :title="'帳號資料'" />
           </div>
         </div>
+
         <div class="content">
           <section class="w-full mt-2 min-h-screen px-3 lg:px-6 py-4">
             <div class="flex justify-between">
@@ -195,11 +196,13 @@
 </template>
 
 <script>
-  import Table from "@/components/table"
+  import Table from '@/components/table'
+  import Title from '@/components/Title'
   export default {
     name: "Point",
     components: {
-      Table
+      Table,
+      Title
     },
     data () {
       return {

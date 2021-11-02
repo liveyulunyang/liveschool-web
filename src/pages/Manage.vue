@@ -1,8 +1,8 @@
 
 <template>
 	<main class="p-6" id="manage">
-		<h1 class="text-xl text-black-1 mr-2 font-bold text-left" v-if="$route.name === 'account_add'">新增帳號</h1>
-		<h1 class="text-xl text-black-1 mr-2 font-bold text-left" v-if="$route.name === 'account_edit'">編輯帳號資料</h1>
+    <Title v-if="$route.name === 'account_add'" :title="'新增帳號'" />
+    <Title v-if="$route.name === 'account_edit'" :title="'編輯帳號資料'" />
 
     <div class="flex w-full mt-8 items-center">
       <div class="mr-6">
@@ -392,6 +392,7 @@
   import dayGridPlugin from '@fullcalendar/daygrid'
   import timeGridPlugin from '@fullcalendar/timegrid'
   import interactionPlugin from '@fullcalendar/interaction'
+  import Title from '@/components/Title'
   export default {
     name: 'Manage',
     components: {
@@ -399,7 +400,8 @@
       myUpload,
       DatePicker,
       CalenderDot,
-      FullCalendar
+      FullCalendar,
+      Title
     },
     data () {
       return {

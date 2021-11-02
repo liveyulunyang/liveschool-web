@@ -5,8 +5,7 @@
 
         <div class="mb-4 flex justify-between items-center flex-wrap">
           <div>
-            <h1 class="text-xl ading-none text-black-1 mr-2 font-bold text-left mb-4">我的課程
-            </h1>
+            <Title :title="'我的課程'" />
             <div class="menu-bar flex items-center mb-2 flex-wrap">
               <div class="flex items-center">
                 <a @click="isCalender = true" class="block px-1 py-1 btn-toggle cursor-pointer" :class="{ isType: isCalender }"><i class="fas fa-border-all text-4xl"></i></a>
@@ -586,6 +585,7 @@ import FilterModal from '@/components/FilterModal'
 import MyClassCommentModal from '@/components/popup/MyClassCommentModal'
 import CourseRecordModal from '@/components/popup/CourseRecordModal'
 import Pagination from "@/components/modules/Pagination"
+import Title from '@/components/Title'
 // import NoData from '@/components/NoData'
   export default {
     name: "MyClass",
@@ -598,7 +598,8 @@ import Pagination from "@/components/modules/Pagination"
       FilterModal,
       MyClassCommentModal,
       Pagination,
-      CourseRecordModal
+      CourseRecordModal,
+      Title
       // NoData
     },
     data () {

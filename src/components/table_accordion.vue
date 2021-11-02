@@ -227,59 +227,42 @@
   }
 </script>
 
-<style scoped>
-.cursorPointer {
-  cursor: pointer;
-}
-.c-table table {
-  border-spacing: 0 1rem;
-}
+<style scoped lang="scss">
 .rwd-table {
   margin: auto;
   min-width: 300px;
   max-width: 100%;
-  /* border-collapse: collapse; */
   border-collapse: separate;
-}
-
-.rwd-table tr:first-child {
-  border-top: none;
-}
-
-.rwd-table tr:not(:first-child) {
-  /* box-shadow: 0 2px 4px 0 rgb(0 0 0 / 5%); */
-  /* margin-bottom: 0.75rem; */
-}
-
-.rwd-table th {
-  display: none;
-}
-
-.rwd-table td {
-  display: block;
-  background: white;
-}
-
-.rwd-table td:before {
-  content: attr(data-th) ": ";
-  font-weight: bold;
-  width: 120px;
-  display: inline-block;
-  color: #000;
-}
-
-.rwd-table th,
-.rwd-table td {
-  text-align: center;
-}
-
-.rwd-table {
+  border-spacing: 0 1rem;
   color: #333;
   overflow: hidden;
+  tr {
+    text-align: center;
+    &:first-child {
+      border-top: none;
+    }
+    th {
+      display: none;
+    }
+  }
+  td {
+    text-align: center;
+    display: block;
+    background: white;
+    &:before {
+      content: attr(data-th) ": ";
+      font-weight: bold;
+      width: 120px;
+      display: inline-block;
+      color: #000;
+    }
+  }
 }
 
 @media screen and (max-width: 1025px) {
-  .c-table table { border-spacing: 0 0rem !important; }
+  .rwd-table {
+    border-spacing: 0 0rem !important;
+  }
   .rwd-table tr:nth-child(2) {
     border-top: none;
   }
@@ -291,7 +274,6 @@
   .rwd-table td {
     padding: .5em 1em;
   }
-
 }
 @media screen and (min-width: 1024px) {
   .rwd-table tr:hover:not(:first-child) {
@@ -314,8 +296,7 @@
     padding-right: 0;
   }
   .rwd-table td {
-    padding: .75em !important;
+    padding: .8em !important;
   }
 }
-
 </style>

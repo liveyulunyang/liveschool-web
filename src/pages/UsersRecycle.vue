@@ -3,7 +3,7 @@
     <div class="flex flex-col w-full">
       <div class="mb-4 flex justify-between items-center flex-wrap">
         <div class="flex">
-          <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">帳號回收中心</h1>
+          <Title :title="'帳號回收中心'" />
         </div>
         <div class="flex text-xs flex-wrap">
           <h5 class="mr-3 whitespace-no-wrap">管理者<span class="bg-white rounded-lg px-2 py-1 mx-1">2</span>人</h5>
@@ -46,16 +46,18 @@
 </template>
 
 <script>
-  import Table from "@/components/table"
+  import Table from '@/components/table'
   import 'vue2-datepicker/index.css'
   import Pagination from "@/components/modules/Pagination"
   import FilterModal from '@/components/FilterModal'
+  import Title from '@/components/Title'
   export default {
     name: "User",
     components: {
       Table,
       Pagination,
-      FilterModal
+      FilterModal,
+      Title
     },
     props: [
       'props'

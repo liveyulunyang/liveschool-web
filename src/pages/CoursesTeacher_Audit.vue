@@ -3,7 +3,7 @@
     <div class="flex flex-col w-full">
       <div class="mb-4 flex justify-between items-center flex-wrap">
         <div class="flex">
-          <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">LiveTeacher報名審核</h1>
+          <Title :title="'LiveTeacher報名審核'" />
         </div>
 
       </div>
@@ -110,6 +110,7 @@
   import 'vue2-datepicker/index.css'
   import ReviewRegistrationMaterials from '@/components/modules/Review_Registration_Materials'
   import StudentListModal from '@/components/popup/StudentListModal'
+  import Title from '@/components/Title'
   export default {
     name: 'CoursesTeacher',
     components: {
@@ -117,7 +118,8 @@
       FilterModal,
       Pagination,
       ReviewRegistrationMaterials,
-      StudentListModal
+      StudentListModal,
+      Title
     },
     props: [
       'props'

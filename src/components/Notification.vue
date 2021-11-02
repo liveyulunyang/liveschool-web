@@ -1,10 +1,10 @@
 <template>
     <div class="flex items-center px-2 py-4  hover:bg-gray-600">
         <Icon class="mx-1 flex-shrink-0 w-8 h-8 text-primary-normal bg-gray-1"
-              :name="icon"
-              size="5"
-              round
-              notify />
+          :name="icon"
+          size="5"
+          round
+          notify />
         <div class="flex flex-col items-start mx-3">
             <p class="uppercase text-gray-1 text-sm">{{ title }}</p>
             <p class="content text-left text-black-1 text-base mt-2 h-12">{{ content }}</p>

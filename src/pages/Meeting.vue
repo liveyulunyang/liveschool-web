@@ -3,13 +3,13 @@
     <div class="flex flex-col w-full">
       <div class="mb-4 flex justify-between items-center flex-wrap">
         <div class="flex">
-          <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">會議管理</h1>
+          <Title :title="'會議管理'" />
         </div>
       </div>
       <div class="flex items-center w-full flex-wrap lg:flex-no-wrap mb-4">
         <FilterModal :showItems="showItems" />
         <div class="flex justify-end items-center">
-          <button @click="toManage" class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
+          <button @click="toManage" class="px-4 py-2 bg-second-red text-white text-sm mx-1 rounded whitespace-no-wrap">
             <i class="fas fa-plus mr-1"></i> 新增會議
           </button>
         </div>
@@ -76,18 +76,20 @@
 </template>
 
 <script>
-  import Table from "@/components/table"
+  import Table from '@/components/table'
   import 'vue2-datepicker/index.css'
   import Pagination from "@/components/modules/Pagination"
   import FilterModal from '@/components/FilterModal'
   import MeetingModal from '@/components/popup/MeetingModal'
+  import Title from '@/components/Title'
   export default {
     name: "Meeting",
     components: {
       Table,
       Pagination,
       FilterModal,
-      MeetingModal
+      MeetingModal,
+      Title
     },
     props: [
       'props'

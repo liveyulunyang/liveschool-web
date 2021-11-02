@@ -3,8 +3,7 @@
     <div class="flex flex-col w-full">
         <div class="mb-4 flex justify-between items-center flex-wrap">
           <div class="flex">
-            <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">學習紀錄列表
-            </h1>
+            <Title :title="'學習紀錄列表'" />
           </div>
         </div>
         <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row mb-4">
@@ -37,16 +36,18 @@
 </template>
 
 <script>
-import Table from "@/components/table"
+import Table from '@/components/table'
 import 'vue2-datepicker/index.css'
 import FilterModal from '@/components/FilterModal'
 import ExportBtn from '@/components/modules/ExportBtn'
+import Title from '@/components/Title'
   export default {
     name: "Learn_record",
     components: {
       Table,
       FilterModal,
-      ExportBtn
+      ExportBtn,
+      Title
     },
     props: [
       'props'

@@ -1,7 +1,7 @@
 
 <template>
 	<main class="flex flex-wrap p-6">
-		<h1 class="text-2xl leading-none text-black-1 mr-2">新增帳號</h1>
+    <Title :title="'新增帳號'" />
 
     <div class="flex w-full mt-8 items-center">
       <div class="mr-6">
@@ -164,10 +164,12 @@
 <script>
 /* eslint-disable no-console */
   import FilterModal from '@/components/FilterModal'
+  import Title from '@/components/Title'
   export default {
     name: 'Manage',
     components: {
-      FilterModal
+      FilterModal,
+      Title
     },
     data () {
       return {

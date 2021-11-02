@@ -3,11 +3,10 @@
     <div class="flex flex-col w-full">
         <div class="mb-4 flex justify-between items-center flex-wrap">
           <div class="flex items-center">
-            <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">老師授課紀錄列表
-            </h1>
+            <Title :title="'老師授課紀錄列表'" />
           </div>
         </div>
-        <div class="w-full flex items-center lg:justify-between flex-wrap flex-col lg:flex-row mb-4">
+        <div class="w-full flex items-center lg:justify-between flex-wrap lg:flex-no-wrap mb-4">
           <FilterModal :showItems="showItems" />
           <ExportBtn />
         </div>
@@ -44,13 +43,15 @@ import Table from '@/components/table'
 import FilterModal from '@/components/FilterModal'
 import Pagination from '@/components/modules/Pagination'
 import ExportBtn from '@/components/modules/ExportBtn'
+import Title from '@/components/Title'
   export default {
     name: "Teach_record",
     components: {
       FilterModal,
       ExportBtn,
       Table,
-      Pagination
+      Pagination,
+      Title
     },
     data () {
       return {

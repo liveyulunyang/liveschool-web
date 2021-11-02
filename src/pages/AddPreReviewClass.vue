@@ -1,7 +1,7 @@
 
 <template>
 	<main class="flex flex-wrap p-3 xl:p-6">
-		<h1 class="text-2xl leading-none text-black-1 mr-2">課前 / 課後</h1>
+    <Title :title="'課前 / 課後'" />
 
     <section class="w-full mt-2 min-h-screen px-3 lg:px-6 py-4">
       <div class="flex justify-between">
@@ -63,23 +63,24 @@
 <script>
 /* eslint-disable no-console */
   // import DatePicker from 'vue2-datepicker';
-  import 'vue2-datepicker/index.css';
+  import 'vue2-datepicker/index.css'
   import NoData from '@/components/NoData'
   import Word from '@/components/ctl_class/Word'
   import Choice from '@/components/ctl_class/Choice'
   import Reorganization from '@/components/ctl_class/Reorganization'
   import Phrase from '@/components/ctl_class/Phrase'
   import TypeContent from '@/components/ctl_class/TypeContent'
+  import Title from '@/components/Title'
   export default {
     name: "AddTalkClass",
     components: {
-      // DatePicker,
       NoData,
       Word,
       Choice,
       Phrase,
       Reorganization,
-      TypeContent
+      TypeContent,
+      Title
     },
     data () {
       return {

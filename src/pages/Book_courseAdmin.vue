@@ -12,7 +12,7 @@
           <FilterModal :showItems="showItems" />
         </div>
         <div class="flex justify-end items-center">
-          <button @click="addBook" class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
+          <button @click="addBook" class="px-4 py-2 bg-second-blue-light text-white text-sm mx-1 rounded whitespace-no-wrap">
             <i class="fas fa-cog mr-1"></i>預約設定
           </button>
         </div>
@@ -43,7 +43,7 @@
 </template>
 
 <script>
-  import Table from "@/components/table"
+  import Table from '@/components/table'
   import FilterModal from '@/components/FilterModal'
   import CommentModal from '@/components/popup/BookingModal'
   export default {

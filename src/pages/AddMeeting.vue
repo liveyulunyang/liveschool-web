@@ -1,7 +1,7 @@
 
 <template>
 <main class="flex flex-wrap p-3 xl:p-6">
-  <h1 class="text-2xl leading-none text-black-1 mr-2">新增會議</h1>
+  <Title :title="'新增會議'" />
 
   <section class="w-full mt-2 min-h-screen px-3 lg:px-6 py-4">
     <div class="flex justify-between">
@@ -393,11 +393,13 @@
   import DatePicker from 'vue2-datepicker';
   import 'vue2-datepicker/index.css';
   import NoData from '@/components/NoData'
+  import Title from '@/components/Title'
   export default {
     name: 'AddMeeting',
     components: {
       DatePicker,
-      NoData
+      NoData,
+      Title
     },
     data () {
       return {

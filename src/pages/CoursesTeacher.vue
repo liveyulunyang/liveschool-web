@@ -3,7 +3,7 @@
     <div class="flex flex-col w-full">
       <div class="mb-4 flex justify-between items-center flex-wrap">
         <div class="flex">
-          <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">LiveTeacher課程管理</h1>
+          <Title :title="'LiveTeacher課程管理'" />
         </div>
         <div class="flex text-xs flex-wrap">
           <h5 class="mr-3 whitespace-no-wrap">上線中<span class="bg-white rounded-lg px-2 py-1 mx-1">999</span>課</h5>
@@ -11,14 +11,14 @@
           <h5 class="mr-3 whitespace-no-wrap">結束<span class="bg-white rounded-lg px-2 py-1 mx-1">9</span>課</h5>
         </div>
       </div>
-      <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row mb-4">
+      <div class="flex items-center justify-between w-full flex-wrap lg:flex-no-wrap mb-4">
         <FilterModal :showItems="showItems" />
 
         <div class="flex justify-end items-center">
-          <button class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
+          <button class="px-4 py-2 bg-second-blue text-white text-sm mx-1 rounded whitespace-no-wrap">
             批次匯入
           </button>
-          <button @click="addClass" class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
+          <button @click="addClass" class="px-4 py-2  bg-second-red text-white text-sm mx-1 rounded whitespace-no-wrap">
             <i class="fas fa-plus mr-1"></i> 新增課程
           </button>
         </div>
@@ -80,13 +80,15 @@
   import Pagination from '@/components/modules/Pagination'
   import 'vue2-datepicker/index.css'
   import CommentModal from '@/components/popup/CourseModel'
+  import Title from '@/components/Title'
   export default {
     name: 'CoursesTeacher',
     components: {
       Table,
       FilterModal,
       Pagination,
-      CommentModal
+      CommentModal,
+      Title
     },
     props: [
       'props'

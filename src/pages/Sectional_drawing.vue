@@ -3,7 +3,7 @@
     <div class="flex flex-col w-full">
         <div class="mb-4 flex justify-between items-center flex-wrap">
           <div class="flex items-center">
-            <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">學生能力圖</h1>
+            <Title :title="'學生能力圖'" />
             <a class="text-gray-700 block cursor-pointer mr-4"><i class="far fa-question-circle"></i></a>
             <h2>abc@gmail.com</h2>
           </div>
@@ -88,12 +88,14 @@
   import LineChart from "@/components/LineChart"
   import Radarchart from "@/components/Radarchart"
   import FilterModal from '@/components/FilterModal'
+  import Title from '@/components/Title'
   export default {
     name: "Sectional_drawing",
     components: {
       LineChart,
       Radarchart,
-      FilterModal
+      FilterModal,
+      Title
     },
     data () {
       return {

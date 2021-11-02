@@ -3,7 +3,7 @@
     <div class="flex flex-col p-6 w-full">
       <div class="mb-4 flex justify-between items-center flex-wrap">
         <div class="flex">
-          <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">新增報名</h1>
+          <Title :title="'新增報名'" />
         </div>
       </div>
       <div class="flex w-full mb-4">
@@ -289,13 +289,15 @@ import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import interactionPlugin from '@fullcalendar/interaction'
 // import BookingModal from '@/components/popup/BookingModal'
+import Title from '@/components/Title'
   export default {
     name: "AddBooking",
     components: {
       // Calender,
       // CalenderDot,
       // FullCalendar,
-      Drag
+      Drag,
+      Title
       // BookingModal
     },
     data () {

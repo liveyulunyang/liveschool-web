@@ -54,7 +54,7 @@
 </template>
 
 <script>
-  import Table from "@/components/table"
+  import Table from '@/components/table'
   import Pagination from "@/components/modules/Pagination"
   import FilterModal from '@/components/FilterModal'
   import ExportBtn from '@/components/modules/ExportBtn'

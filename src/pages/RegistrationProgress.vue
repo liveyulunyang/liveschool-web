@@ -3,7 +3,7 @@
     <div class="flex flex-col w-full">
       <div class="mb-4 flex justify-between items-center flex-wrap">
         <div class="flex">
-          <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">LiveTeacher報名進度</h1>
+          <Title :title="'LiveTeacher報名進度'" />
         </div>
       </div>
       <div class="flex items-center justify-between w-full flex-wrap  mb-4">
@@ -52,13 +52,15 @@
   import Pagination from '@/components/modules/Pagination'
   import 'vue2-datepicker/index.css'
   import CommentModal from '@/components/popup/CourseModel'
+  import Title from '@/components/Title'
   export default {
     name: 'CoursesTeacher',
     components: {
       Table,
       FilterModal,
       Pagination,
-      CommentModal
+      CommentModal,
+      Title
     },
     props: [
       'props'

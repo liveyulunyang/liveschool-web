@@ -1,22 +1,22 @@
 
 <template>
 	<main class="flex flex-wrap p-3 xl:p-6">
-		<h1 class="text-xl ading-none text-black-1 mr-2 font-bold" v-if="selectedFirst === null && selectedSecond === null && selectedThird === null">分類管理</h1>
-		<h1 class="text-xl ading-none text-black-1 mr-2 font-bold" v-if="(selectedFirst !== null && selectedSecond === null && selectedThird === null) || selectedFirst !== null && selectedSecond !== null && selectedThird === null">課程分類管理</h1>
+    <Title v-if="selectedFirst === null && selectedSecond === null && selectedThird === null" :title="'分類管理'" />
+    <Title v-if="(selectedFirst !== null && selectedSecond === null && selectedThird === null) || selectedFirst !== null && selectedSecond !== null && selectedThird === null" :title="'課程分類管理'" />
 
     <section class="w-full mt-2 min-h-screen px-3 lg:px-6 py-4">
       <div class="flex justify-between mb-4">
         <ul class='flex cursor-pointer text-sm'>
-          <li class='py-2 mr-1'>
+          <!-- <li class='py-2 mr-1'>
             <Button @click="$router.back(-1)" class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
               <i class="fas fa-chevron-left mr-1"></i>回上層
             </Button>
-          </li>
+          </li> -->
         </ul>
 
         <ul class='flex cursor-pointer text-sm'>
           <li class='py-2 mr-1'>
-            <Button @click="$router.back(-1)" class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
+            <Button @click="$router.back(-1)" class="px-4 py-2 bg-second-red text-white text-sm rounded whitespace-no-wrap">
               <i class="fas fa-plus mr-1"></i>新增分類
             </Button>
           </li>
@@ -89,10 +89,12 @@
 <script>
 /* eslint-disable no-console */
   import NoData from '@/components/NoData'
+  import Title from '@/components/Title'
   export default {
     name: "Classification",
     components: {
-      NoData
+      NoData,
+      Title
     },
     data () {
       return {
