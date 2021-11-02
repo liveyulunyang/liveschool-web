@@ -18,10 +18,10 @@
           <FilterModal :showItems="showItems" />
         </div>
         <div class="w-full lg:w-auto flex justify-end">
-          <button class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
+          <button class="px-4 py-2 bg-second-blue text-white text-sm mx-1 rounded whitespace-no-wrap">
             <i class="fas fa-plus mr-1"></i>匯入學生清單
           </button>
-          <button @click="toManage" class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
+          <button @click="toManage" class="px-4 py-2 btn-red text-white  text-sm mx-1 rounded whitespace-no-wrap">
             <i class="fas fa-plus mr-1"></i>新增學生
           </button>
         </div>

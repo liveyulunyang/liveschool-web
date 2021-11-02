@@ -108,6 +108,8 @@
     }
     th {
       display: none;
+      font-size: 0.875rem;
+      color: #808080;
     }
   }
   td {
@@ -148,7 +150,7 @@
   }
   .rwd-table th,
   .rwd-table td {
-    display: table-cell;
+    display: table-cell !important;
     padding: .25em .5em;
   }
   .rwd-table th:first-child,

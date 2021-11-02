@@ -4,8 +4,7 @@
     <div class="flex flex-col w-full">
         <div class="mb-4 flex justify-between items-center flex-wrap">
           <div class="flex items-center">
-            <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">主任預約紀錄
-            </h1>
+            <Title :title="'主任預約紀錄'" />
             <span>ALEX/ALEX WU(test@gmail.com)</span>
           </div>
         </div>
@@ -127,6 +126,7 @@ import FilterModal from '@/components/FilterModal'
 import Pagination from '@/components/modules/Pagination'
 import ExportBtn from '@/components/modules/ExportBtn'
 import StudentsModal from '@/components/popup/StudentsModal'
+import Title from '@/components/Title'
   export default {
     name: 'Learn_record_supervise',
     components: {
@@ -134,7 +134,8 @@ import StudentsModal from '@/components/popup/StudentsModal'
       FilterModal,
       Pagination,
       ExportBtn,
-      StudentsModal
+      StudentsModal,
+      Title
     },
     data () {
       return {

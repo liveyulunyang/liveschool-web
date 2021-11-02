@@ -15,7 +15,7 @@
         <FilterModal :showItems="showItems" />
 
         <div class="flex justify-end items-center">
-          <button @click="openModal" class="px-4 py-2 bg-second-red text-white text-sm mx-1 rounded whitespace-no-wrap">
+          <button @click="openModal" class="px-4 py-2 btn-red text-white text-sm mx-1 rounded whitespace-no-wrap">
             <i class="fas fa-plus mr-1"></i> 新增序號
           </button>
         </div>

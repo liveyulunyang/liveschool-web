@@ -1,6 +1,6 @@
 <template>
   <nav class="c-nav bg-white" :class="{ 'is-closed': isClosed }">
-    <div class="c-nav__header">
+    <div class="c-nav__header border-b-2 border-gray-900">
       <button @click="isClosed = !isClosed" class="focus:outline-none">
         <svg xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -14,15 +14,14 @@
         <li class="c-nav__menuitem" v-for="(item, index) in menuListItem" :key="index">
           <router-link :to="item.url"
               :class="{ 'active': item.isActive }"
-              class="flex items-center py-4 px-6 text-gray-1 hover:border-l-3 hover:border-solid hover:border-primary-normal  hover:bg-gray-600 hover:text-primary-normal">
+              class="flex items-center py-4 px-6 text-blue-main-mid hover:border-l-3 hover:border-solid hover:border-primary-normal  hover:bg-gray-600 hover:text-primary-normal">
             <i :class="item.icon"></i>
             <span class="ml-3 text-sm font-bold">{{ item.title }}</span>
           </router-link>
         </li>
         <li class="c-nav__menuitem">
           <router-link :to="{ name: 'SelectLesson' }"
-              
-              class="flex items-center py-4 px-6 text-gray-1 hover:border-l-3 hover:border-solid hover:border-primary-normal  hover:bg-gray-600 hover:text-primary-normal">
+              class="flex items-center py-4 px-6 text-blue-main-mid hover:border-l-3 hover:border-solid hover:border-primary-normal  hover:bg-gray-600 hover:text-primary-normal">
             <i class="fas fa-school"></i>
             <span class="ml-3 text-sm font-bold">學習平台</span>
           </router-link>
@@ -75,6 +74,8 @@
   }
 
   .c-nav__header {
+    width: 100%;
+    height: 80px;
     padding: 30px;
     display: flex;
     justify-content: left;
@@ -122,9 +123,9 @@
   .c-nav__menuitem a.is-active {
     border-left-width: 3px;
     border-style: solid;
-    border-color: #2e5bff;
-    background-color: rgba(46,91,255,.2);
-    color: #2e5bff;
+    border-color: #0F455C;
+    background-color: #91DAE4;
+    color: #0F455C;
   }
   @media (min-width: 768px) {
     .c-nav__menuitem a { width: 215px; }

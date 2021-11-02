@@ -2,7 +2,7 @@
 <div>
 <div id="backView" class="min-h-screen overflow-auto">
   <Nav class="hidden md:block" :menu-list-item="roleMenu" :user="user"></Nav>
-  <header class="bg-white flex justify-between px-2 lg:px-20 border-b border-gray-3 border-solid h-20">
+  <header class="bg-white flex justify-between px-2 lg:px-20 border-b-2 border-gray-900 border-solid h-20">
     <Nav class="md:hidden" mode="mobile" :menu-list-item="roleMenu" :user="user"></Nav>
     <router-link class="flex items-center" to="/">
       <img alt="Velocity" src="@/assets/logo.png" class="w-24 md:w-48 h-auto">
@@ -382,7 +382,7 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     display: block;
-    background-color: #F4F6FC;
+    background-color: #DEECF0;
     grid-template-columns: 100%;
     grid-template-rows: 1fr;
     grid-template-areas: "head"

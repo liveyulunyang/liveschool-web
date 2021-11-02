@@ -1,5 +1,5 @@
 <template>
-  <main class="p-6">
+  <main class="p-6" id="myclass">
     <div class="flex items-start">
       <div class="flex flex-col w-full" v-if="$store.state.userRole === 'director'">
 
@@ -11,7 +11,7 @@
                 <a @click="isCalender = true" class="block px-1 py-1 btn-toggle cursor-pointer" :class="{ isType: isCalender }"><i class="fas fa-border-all text-4xl"></i></a>
                 <a @click="isCalender = false" class="block px-1 py-1 btn-toggle cursor-pointer" :class="{ isType: !isCalender }"><i class="fas fa-list-alt text-4xl"></i></a>
               </div>
-              <div class="flex items-center flex-1 justify-between sm:justify-start">
+              <div class="radio flex items-center flex-1 justify-between sm:justify-start" id="radio-myclass">
                 <section style="background: none; border: none; box-shadow: none;" class="flex items-center mx-2">
                   <div class="roundedOne booking">
                     <input type="checkbox" value="None" id="booking" name="check" checked="">
@@ -242,8 +242,8 @@
 
         </div>
       </div>
-      <div class="flex flex-col w-full" v-if="$store.state.userRole === 'student'">
-        <div class="flex flex-wrap items-stretch py-3 bg-gray-600">
+      <div class="student flex flex-col w-full" v-if="$store.state.userRole === 'student'">
+        <div class="flex flex-wrap items-stretch py-3 student-basic-info">
           <div class="md:flex-none py-4 text-white font-bold flex items-center justify-center md:border-r-2 px-3 w-full md:w-2/6">
             <div class="mx-2">
               <img src="@/assets/img/vector.svg" alt="" class="block object-contain w-32">
@@ -253,11 +253,11 @@
               <h6 class="text-3xl">賈伯斯</h6>
             </div>
           </div>
-          <div class="md:flex-1 bg-gray-600 text-white font-bold md:border-r-2 flex flex-col justify-center w-1/2 md:w-auto py-4 md:py-0">
+          <div class="md:flex-1 text-white font-bold md:border-r-2 flex flex-col justify-center w-1/2 md:w-auto py-4 md:py-0">
             <h6 class="text-base lg:text-lg">累積上課時數</h6>
             <p class="text-2xl lg:text-3xl">1:05:20</p>
           </div>
-          <div class="md:flex-1 bg-gray-600 text-white font-bold md:border-r-2 flex flex-col justify-center w-1/2 md:w-auto py-4 md:py-0">
+          <div class="md:flex-1 text-white font-bold md:border-r-2 flex flex-col justify-center w-1/2 md:w-auto py-4 md:py-0">
             <h6 class="text-base lg:text-lg">累積完成課程數</h6>
             <p class="text-2xl lg:text-3xl">20</p>
           </div>
@@ -265,7 +265,7 @@
             <h6 class="text-base lg:text-lg">取得證書數</h6>
             <p class="text-2xl lg:text-3xl">3</p>
           </div> -->
-          <div class="md:flex-1 bg-gray-600 text-white font-bold flex flex-col justify-center w-1/2 md:w-auto py-4 md:py-0">
+          <div class="md:flex-1 text-white font-bold flex flex-col justify-center w-1/2 md:w-auto py-4 md:py-0">
             <h6 class="text-base lg:text-lg">剩餘點數</h6>
             <p class="text-2xl lg:text-3xl">8</p>
           </div>
@@ -296,12 +296,11 @@
             <p class="text-2xl">8</p>
           </div>
         </div> -->
-        <div class="flex justify-between items-center flex-wrap py-4">
-          <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">我的課程
-          </h1>
+        <div class="flex justify-between items-center flex-wrap">
+          <Title :title="'我的課程'" />
         </div>
           <div class="content">
-            <div class="menu-bar flex items-center mb-2 flex-wrap">
+            <div class="menu-bar flex items-center mb-2 flex-wrap lg:flex-no-wrap justify-start">
               <div class="flex items-center">
                 <a @click="isCalender = false" class="block px-1 py-1 btn-toggle cursor-pointer" :class="{ isType: !isCalender }"><i class="fas fa-list-alt text-4xl"></i></a>
                 <a @click="isCalender = true" class="block px-1 py-1 btn-toggle cursor-pointer" :class="{ isType: isCalender }"><i class="fas fa-border-all text-4xl"></i></a>
@@ -441,9 +440,9 @@
                   <div class="md:w-5/12 p-1 flex items-center justify-center md:justify-end">
                     <a @click="showCommentModal = true" class="border px-2 py-1 text-gray-600 mr-2 rounded border-gray-600 cursor-pointer"><i class="fas fa-clipboard-list"></i></a>
                     <a class="border px-2 py-1 text-gray-600 mr-2 rounded border-gray-600 cursor-pointer"><i class="fas fa-film"></i></a>
-                    <a @click="showfirstModal = true" class="border px-2 py-1 text-white bg-gray-900 mr-8 rounded"><i class="fas fa-folder-open"></i></a>
+                    <a  @click="showDetailModal = true" class="border px-2 py-1 text-white bg-gray-900 mr-8 rounded"><i class="fas fa-folder-open"></i></a>
                     <!-- <a href="" class="border px-2 py-1">課程準備中</a> -->
-                    <a @click="showDetailModal = true" class="border px-2 py-1 bg-gray-900 text-white cursor-pointer">前往上課<i class="fas fa-arrow-right ml-1 text-sm"></i></a>
+                    <a @click="showfirstModal = true" class="border px-2 py-1 bg-gray-900 text-white cursor-pointer">前往上課<i class="fas fa-arrow-right ml-1 text-sm"></i></a>
                   </div>
                 </div>
               </div>
@@ -453,9 +452,8 @@
 
       </div>
       <div class="flex flex-col w-full" v-if="$store.state.userRole === 'teacher'">
-        <div class="flex justify-between items-center flex-wrap py-4">
-          <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">我的課程
-          </h1>
+        <div class="flex justify-between items-center flex-wrap">
+          <Title :title="'我的課程'" />
         </div>
           <div class="content">
             <div class="menu-bar flex items-center mb-2 flex-wrap">
@@ -646,85 +644,25 @@ import Title from '@/components/Title'
 </script>
 <style src="vue-multiselect/dist/vue-multiselect.min.css"></style>
 <style lang="scss">
-.text-xs {
-  font-size: 12px !important;
-}
+#myclass {
+  .student-basic-info {
+    background-repeat: repeat;
+    background-image: url('~@/assets/img/background_top_01.jpg');
+    background-size: contain;
+    @media screen and (max-width: 1025px) {
+      background-image: none;
+      background-color: #0F455C;
+    }
+  }
+  .text-xs {
+    font-size: 12px !important;
+  }
 
-.btn-toggle {
-  color: #B2B2B2;
-}
-.isType {
-  color: black;
-}
-
-.ondisplay section {
-  width: 100px;
-  height: 100px;
-  background: #555;
-  display: inline-block;
-  position: relative;
-  text-align: center;
-  margin-top: 5px;
-  border: 1px solid gray;
-  border-radius: 5px;
-}
-.roundedOne {
-  width: 28px;
-  height: 28px;
-  position: relative;
-  border-radius: 50px;
-}
-.roundedOne.personal {
-  background: #C76565;
-}
-.roundedOne.booking {
-  background: #55ACB8;
-}
-.roundedOne.finish {
-  background: #FCC823;
-}
-.roundedOne input[type=checkbox] {
-  visibility: hidden;
-}
-.roundedOne label {
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-  position: absolute;
-  left: 4px;
-  top: 4px;
-  background: white;
-  border-radius: 50px;
-}
-.roundedOne input[type=checkbox]:checked + label:after {
-  opacity: 1;
-}
-.roundedOne label:after {
-  content: '';
-  width: 10px;
-  height: 10px;
-  position: absolute;
-  top: 5px;
-  left: 5px;
-  opacity: 0;
-  border-radius: 50px;
-}
-.roundedOne.personal label:after {
-  background: #C76565;
-}
-.roundedOne.booking label:after {
-  background: #55ACB8;
-}
-.roundedOne.finish label:after {
-  background: #FCC823;
-}
-.row {
-  display: flex;
-}
-
-.col {
-  flex-basis: 30%;
-  box-sizing: border-box;
-  border: solid;
+  .btn-toggle {
+    color: #B2B2B2;
+  }
+  .isType {
+    color: black;
+  }
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <Modal :based-on="showfirstModal" :modalClass="'modal-outer head-bg'" @close="$emit('closeModal', false)">
+  <Modal :based-on="showfirstModal" :modalClass="'modal-outer head-bg student-bg'" @close="$emit('closeModal', false)">
     <div class="relative">
       <div class="flex flex-wrap">
         <div class="w-full md:w-1/6 mb-4">
@@ -169,15 +169,7 @@ export default {
 }
 </script>
 
-<style>
-.head-bg {
-  width: 100% !important;
-  max-width: 64em !important;
-  background: rgb(255,255,255);
-  height: calc(100vh - 100px);
-  overflow-y: scroll;
-  /* background: linear-gradient(0deg, #ffffff 88%, #E6E6E6 88%); */
-}
+<style lang="scss">
 .modal-footer {
   padding: 15px 0px 0px 0px;
   border-top: 1px solid #e5e5e5;

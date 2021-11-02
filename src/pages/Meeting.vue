@@ -9,7 +9,7 @@
       <div class="flex items-center w-full flex-wrap lg:flex-no-wrap mb-4">
         <FilterModal :showItems="showItems" />
         <div class="flex justify-end items-center">
-          <button @click="toManage" class="px-4 py-2 bg-second-red text-white text-sm mx-1 rounded whitespace-no-wrap">
+          <button @click="toManage" class="px-4 py-2 btn-red text-white text-sm mx-1 rounded whitespace-no-wrap">
             <i class="fas fa-plus mr-1"></i> 新增會議
           </button>
         </div>

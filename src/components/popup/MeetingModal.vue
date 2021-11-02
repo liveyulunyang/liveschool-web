@@ -1,7 +1,7 @@
 <template>
   <Modal :based-on="showfirstModal" :modalClass="'modal-outer meetingNodal'" @close="$emit('closeModal', false)">
     <div class="">
-      <h1 class="text-center font-bold text-xl bg-gray-500 py-3 mb-4">會議網址</h1>
+      <Title :title="'會議網址'" />
       <div class="flex flex-wrap">
         <div class="w-full px-3 py-3 md:flex mb-4">
           <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2" for="one_choice">主持人URL
@@ -42,6 +42,7 @@
 <script>
 import Modal from '@kouts/vue-modal'
 import '@kouts/vue-modal/dist/vue-modal.css'
+import Title from '@/components/Title'
 export default {
   name: 'MeetingNodal',
 
@@ -58,7 +59,8 @@ export default {
   },
 
   components: {
-    Modal
+    Modal,
+    Title
   },
   computed: {
   },
@@ -72,7 +74,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .meetingNodal {
   width: 100% !important;
   background: rgb(255,255,255);

@@ -6,9 +6,9 @@
           <h3 class="text-xl font-bold">課程互動講義(含課程講義)</h3>
 
           <div>
-            <label for="toggle">
+            <label for="toggle" class="toggle-apple">
               <input type="checkbox" id="toggle" :checked="isHandout" />
-              <span></span>
+              <span class="span"></span>
             </label>
           </div>
         </div>
@@ -83,7 +83,12 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
+  .img-bg {
+    background-repeat: repeat;
+    background-image: url('~@/assets/img/background_top_02.jpg');
+    background-size: contain;
+  }
   .max-w-modal {
     max-width: 50em !important;
   }
@@ -93,68 +98,66 @@ export default {
       outline: none;
     }
   }
-  .modal-outer {
-    width: 100% !important;
-  }
   .modal-footer {
-    padding: 15px 0px 0px 0px;
-    border-top: 1px solid #e5e5e5;
-    margin-left: -14px;
-    margin-right: -14px;
+      padding: 15px 0px 0px 0px;
+      border-top: 1px solid #e5e5e5;
+      margin-left: -14px;
+      margin-right: -14px;
   }
   .htmlContent {
-    height: calc(100vh - 350px);
-    overflow-y: scroll;
+      height: calc(100vh - 350px);
+      overflow-y: scroll;
+  }
+  :root {
+    --wrapper-width: 50px;
+    --wrapper-height: 29.5px;
+    --button-width: 25.5px;
+    --button-toggle-width: 33.3px;
+    --padding: calc((var(--wrapper-height) - var(--button-width)) / 2);
+  }
+  .toggle-apple {
+    span {
+        position: relative;
+        display: inline-block;
+        width: var(--wrapper-width);
+        height: var(--wrapper-height);
+        background-color: #e9e9ea;
+        border-radius: calc(var(--wrapper-height) / 2);
+        transition: all 0.3s ease-in-out;
+        &:after {
+            content: '';
+            position: absolute;
+            width: var(--button-width);
+            height: var(--button-width);
+            background-color: #fff;
+            border-radius: calc(var(--button-width) / 2);
+            top: var(--padding);
+            transform: translateX(var(--padding));
+            transition: all 0.3s ease-in-out;
+            box-shadow: 10px 0 40px rgba(0, 0, 0, 0.1);
+          }
+    }
+    input[type='checkbox']:checked + span {
+      background-color: #000000;
+    }
+    input[type='checkbox']:active + span::after {
+      width: var(--button-toggle-width);
+    }
+    input[type='checkbox']:checked + span::after {
+      box-shadow: -10px 0 40px rgba(0, 0, 0, 0.1);
+      transform: translateX(
+        calc(var(--wrapper-width) - var(--padding) - var(--button-width))
+      );
+    }
+    input[type='checkbox']:checked:active + span::after {
+      transform: translateX(
+        calc(var(--wrapper-width) - var(--padding) - var(--button-toggle-width))
+      );
+    }
+    input[type='checkbox'] {
+      display: none;
+    }
   }
 
 
-
-:root {
-  --wrapper-width: 50px;
-  --wrapper-height: 29.5px;
-  --button-width: 25.5px;
-  --button-toggle-width: 33.3px;
-  --padding: calc((var(--wrapper-height) - var(--button-width)) / 2);
-}
-span {
-  position: relative;
-  display: inline-block;
-  width: var(--wrapper-width);
-  height: var(--wrapper-height);
-  background-color: #e9e9ea;
-  border-radius: calc(var(--wrapper-height) / 2);
-  transition: all 0.3s ease-in-out;
-}
-span::after {
-  content: '';
-  position: absolute;
-  width: var(--button-width);
-  height: var(--button-width);
-  background-color: #fff;
-  border-radius: calc(var(--button-width) / 2);
-  top: var(--padding);
-  transform: translateX(var(--padding));
-  transition: all 0.3s ease-in-out;
-  box-shadow: 10px 0 40px rgba(0, 0, 0, 0.1);
-}
-input[type='checkbox']:checked + span {
-  background-color: #000000;
-}
-input[type='checkbox']:active + span::after {
-  width: var(--button-toggle-width);
-}
-input[type='checkbox']:checked + span::after {
-  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.1);
-  transform: translateX(
-    calc(var(--wrapper-width) - var(--padding) - var(--button-width))
-  );
-}
-input[type='checkbox']:checked:active + span::after {
-  transform: translateX(
-    calc(var(--wrapper-width) - var(--padding) - var(--button-toggle-width))
-  );
-}
-input[type='checkbox'] {
-  display: none;
-}
 </style>

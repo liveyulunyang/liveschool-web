@@ -3,10 +3,12 @@ import Vue from 'vue'
 import App from './App.vue';
 import { Icon } from 'leaflet';
 import '@/assets/css/tailwind.css';
-import '@/assets/css/main.css';
+import '@/assets/css/main.scss';
 import '@/assets/css/checkbox.css';
 import '@/assets/css/sweatalert.scss';
 import 'leaflet/dist/leaflet.css';
+import '@/assets/css/popup.scss';
+import '@/assets/css/radioBox.scss';
 
 import router from './router';
 import store from './store';
@@ -20,9 +22,6 @@ Vue.use(VCalendar)
 Vue.use(VueSweetalert2)
 
 import VueI18n from 'vue-i18n'
-// import zh from './i18n/zh'
-// import en from './i18n/en'
-// import cn from './i18n/cn'
 Vue.use(VueI18n)
 let locale = 'zh'
 

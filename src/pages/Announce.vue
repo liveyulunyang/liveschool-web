@@ -3,12 +3,12 @@
     <div class="flex flex-col w-full">
         <div class="mb-4 flex justify-between items-center flex-wrap">
           <div class="flex">
-            <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">公告管理</h1>
+            <Title :title="'公告管理'" />
           </div>
         </div>
         <div class="content">
           <div class="flex justify-end items-center mb-4">
-            <button @click="openModal(true)" class="px-4 py-2 bg-second-red text-white text-sm mx-1 rounded whitespace-no-wrap">
+            <button @click="openModal(true)" class="px-4 py-2 btn-red text-white text-sm mx-1 rounded whitespace-no-wrap">
               <i class="fas fa-plus mr-1"></i> 新增公告
             </button>
           </div>
@@ -54,12 +54,14 @@
 <script>
   import Pagination from "@/components/modules/Pagination"
   import AnnounceModal from '@/components/popup/AnnounceModal'
+  import Title from '@/components/Title'
   // import DatePicker from 'vue2-datepicker'
   export default {
     name: "Announce",
     components: {
       Pagination,
       AnnounceModal,
+      Title
       // DatePicker
     },
     data () {

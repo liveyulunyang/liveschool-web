@@ -42,9 +42,12 @@ export default {
 }
 </script>
 <style lang="scss">
+#calender-dots {
   .isFull {
     .vc-weeks {
       min-width: 80vw !important;
     }
   }
+}
+
 </style>

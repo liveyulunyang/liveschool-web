@@ -119,10 +119,6 @@ export default {
 </script>
 
 <style>
-.modal-outer {
-  width: 100% !important;
-  max-width: 64em !important;
-}
 .modal-footer {
   padding: 15px 0px 0px 0px;
   border-top: 1px solid #e5e5e5;

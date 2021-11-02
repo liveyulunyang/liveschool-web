@@ -3,8 +3,8 @@
     <div class="flex flex-col w-full">
       <div class="mb-4 flex justify-between items-center flex-wrap">
         <div class="flex">
-          <h1 class="text-xl ading-none text-black-1 mr-2 font-bold" v-if="$store.state.userRole === 'admin'">預約課程審核列表</h1>
-          <h1 class="text-xl ading-none text-black-1 mr-2 font-bold" v-if="$store.state.userRole === 'director'">預約課程清單</h1>
+          <Title v-if="$store.state.userRole === 'admin'" :title="'預約課程審核列表'" />
+          <Title v-if="$store.state.userRole === 'director'" :title="'預約課程清單'" />
         </div>
       </div>
       <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row mb-4">
@@ -29,7 +29,7 @@
           <template slot="actionsBtn">
             <td data-th="動作">
               <button @click="openModal"
-                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1 text-white bg-gray-900 px-2 py-2 rounded"
+                class="text-primary-normal hover:text-black-1 mx-1 text-white bg-gray-900 px-3 py-2 rounded"
                 >
                 審核<i class="fas fa-arrow-right ml-1"></i>
               </button>
@@ -46,12 +46,14 @@
   import Table from '@/components/table'
   import FilterModal from '@/components/FilterModal'
   import CommentModal from '@/components/popup/BookingModal'
+  import Title from '@/components/Title'
   export default {
     name: "Book_course",
     components: {
       Table,
       FilterModal,
-      CommentModal
+      CommentModal,
+      Title
     },
     data () {
       return {

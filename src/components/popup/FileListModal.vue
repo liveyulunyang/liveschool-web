@@ -1,6 +1,6 @@
 <template>
     <Modal :based-on="showfirstModal" :title="''" :modalClass="'modal-outer bg-gray-300 pb-4 main-w'" @close="$emit('closeModal', false)">
-      <FilterModal :showItems="showItems" />
+
       <div class="h-table">
         <Table
           :columns="returnData.columns"
@@ -73,11 +73,9 @@
 <script>
 import Modal from '@kouts/vue-modal'
 import '@kouts/vue-modal/dist/vue-modal.css'
-import FilterModal from '@/components/FilterModal'
 import Table from '@/components/table'
-import CommentContentModal from '@/components/popup/CommentContentModal'
 export default {
-  name: 'StudentsModal',
+  name: 'FileListModal',
 
   data () {
     return {
@@ -143,9 +141,7 @@ export default {
 
   components: {
     Modal,
-    FilterModal,
-    Table,
-    CommentContentModal
+    Table
   },
   computed: {
     returnData () {

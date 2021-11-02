@@ -1,5 +1,5 @@
 <template>
-    <Modal :based-on="showfirstModal" :title="'課程紀錄'" :modalClass="'modal-outer bg-gray-300 pb-4'" @close="$emit('closeModal', false)">
+    <Modal :based-on="showfirstModal" :title="'課程紀錄'" :modalClass="'modal-outer bg-gray-300 pb-4 main-w'" @close="$emit('closeModal', false)">
       <FilterModal :showItems="showItems" />
       <div class="h-table">
         <Table
@@ -146,11 +146,7 @@ export default {
 }
 </script>
 
-<style>
-  .modal-outer {
-    width: 100% !important;
-    /* max-width: 64em !important; */
-  }
+<style lang="scss">
   .modal-footer {
     padding: 15px 0px 0px 0px;
     border-top: 1px solid #e5e5e5;

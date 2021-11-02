@@ -16,7 +16,7 @@
 
         <ul class='flex cursor-pointer text-sm'>
           <li class='py-2 mr-1'>
-            <Button @click="$router.back(-1)" class="px-4 py-2 bg-second-red text-white text-sm rounded whitespace-no-wrap">
+            <Button @click="$router.back(-1)" class="px-4 py-2 btn-red text-white text-sm rounded whitespace-no-wrap">
               <i class="fas fa-plus mr-1"></i>新增分類
             </Button>
           </li>

@@ -18,7 +18,7 @@
           <button class="px-4 py-2 bg-second-blue text-white text-sm mx-1 rounded whitespace-no-wrap">
             批次匯入
           </button>
-          <button @click="addClass" class="px-4 py-2  bg-second-red text-white text-sm mx-1 rounded whitespace-no-wrap">
+          <button @click="addClass" class="px-4 py-2  btn-red text-white text-sm mx-1 rounded whitespace-no-wrap">
             <i class="fas fa-plus mr-1"></i> 新增課程
           </button>
         </div>
@@ -51,17 +51,17 @@
           <template slot="RegistrationReview">
             <td data-th="報名審核動作">
               <button @click="toAudit()"
-                class="text-white bg-gray-900 hover:text-black-1 hover:bg-gray-600 mx-1 px-2 py-1 rounded"
+                class="text-white bg-gray-900 hover:text-black-1 hover:bg-gray-600 mx-1 px-3 py-2 rounded"
                 >
                 查看<i class="fas fa-arrow-right ml-1"></i>
               </button>
               <!-- <button @click="toAudit()"
-                class="border border-gray-900 hover:text-black-1 hover:bg-gray-600 mx-1 px-2 py-1 rounded"
+                class="border border-gray-900 hover:text-black-1 hover:bg-gray-600 mx-1 px-3 py-2 rounded"
                 >
                 額滿<i class="far fa-folder-open ml-1"></i>
               </button> -->
               <!-- <button @click="toAudit()"
-                class="border border-gray-900 hover:text-black-1 hover:bg-gray-600 mx-1 px-2 py-1 rounded"
+                class="border border-gray-900 hover:text-black-1 hover:bg-gray-600 mx-1 px-3 py-2 rounded"
                 >
                 紀錄<i class="far fa-folder-open ml-1"></i>
               </button> -->

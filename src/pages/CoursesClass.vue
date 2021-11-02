@@ -17,7 +17,7 @@
           <button class="px-4 py-2 bg-second-blue text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
             批次匯入
           </button>
-          <button @click="addClass" class="px-4 py-2  bg-second-red text-white text-sm mx-1 rounded whitespace-no-wrap">
+          <button @click="addClass" class="px-4 py-2  btn-red text-white text-sm mx-1 rounded whitespace-no-wrap">
             <i class="fas fa-plus mr-1"></i> 新增課程
           </button>
         </div>
@@ -116,7 +116,7 @@
       },
 
       edit(id) {
-        console.log()
+        console.log(id)
         this.$router.push({ name: 'addLiveClassClass', params: { status: 'edit'} })
       },
       open(id) {

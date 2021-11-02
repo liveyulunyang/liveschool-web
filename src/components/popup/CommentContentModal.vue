@@ -1,5 +1,5 @@
 <template>
-    <Modal :based-on="showfirstModal" :title="'老師評語'" :modalClass="'modal-outer pb-4 leading-loose font-bold'" @close="$emit('closeModal', false)">
+    <Modal :based-on="showfirstModal" :title="'老師評語'" :modalClass="'modal-outer pb-4 leading-loose font-bold main-w'" @close="$emit('closeModal', false)">
       <h3>日期: 2021-03-08 課名: Test01</h3>
       <h4 class="mb-3">學生: Peggy</h4>
       <h5 class="bg-gray-400 py-1 text-lg">一、老師教學 Teacher's teaching</h5>
@@ -80,16 +80,9 @@ export default {
 }
 </script>
 
-<style>
-/* .vm-titlebar {
-  background: gray !important;
-} */
+<style lang="scss">
   .vm-title {
     font-weight: 800;
-  }
-  .modal-outer {
-    width: 100% !important;
-    max-width: 64em !important;
   }
   .modal-footer {
     padding: 15px 0px 0px 0px;

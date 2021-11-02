@@ -16,13 +16,13 @@
       <div class="flex items-center w-full flex-wrap lg:flex-no-wrap mb-4">
         <FilterModal :showItems="showItems" />
         <div class="flex justify-end items-center">
-          <button @click="toRecyle" class="px-4 py-2 bg-gray-600 text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
+          <button @click="toRecyle" class="px-4 py-2 bg-second-blue-light text-white text-sm mx-1 rounded whitespace-no-wrap">
             <i class="fas fa-trash-alt mr-1"></i> 帳號回收中心
           </button>
           <button class="px-4 py-2 bg-second-blue text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
             <i class="fas fa-plus mr-1"></i> 匯入帳號
           </button>
-          <button @click="toManage" class="px-4 py-2 bg-second-red text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
+          <button @click="toManage" class="px-4 py-2 btn-red text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
             <i class="fas fa-plus mr-1"></i> 新增帳號
           </button>
         </div>

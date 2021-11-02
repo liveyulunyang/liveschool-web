@@ -36,11 +36,11 @@
           <td data-th="執行動作">
             <!-- <button class="bg-gray-900 mx-1 text-white py-2 px-3 rounded h-full text-sm focus:outline-none"
             >
-            <i class="fas fa-plus mr-1 text-xs"></i> Create
+            Create
             </button> -->
             <button class="bg-class-red mx-1 text-white py-2 px-3 rounded h-full text-sm focus:outline-none"
             >
-            <i class="fas fa-plus mr-1 text-xs"></i> Destory
+            Destory
             </button>
           </td>
         </tr>
@@ -80,68 +80,74 @@
               <div class="w-full px-3 py-3 md:flex">
                 <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2" for="one_choice">Start URL
                 </label>
-                <div class="w-full md:w-9/12 flex items-center flex-wrap">
+                <div class="w-full flex items-center flex-wrap">
                   <div class="w-full px-1 flex items-center">
                     <input class="w-full appearance-none block text-sm border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-900" spellcheck="false"
                       id="startUrl" type="text" value="https://zoom.us/s/95354191093?zak=eyJ0eXAiOiJKV1QiLCJzdiI6IjAwMDAwMSIsInptX3NrbSI6InptX28ybSIsImFsZyI6IkhTMjU2In0.eyJhdWQiOiJjbGllbnRzbSIsInVpZCI6ImZxLU52N2FTVDNpNzVKbzRoTlhVSEEiLCJpc3MiOiJ3ZWIiLCJzdHkiOjEwMCwid2NkIjoiYXcxIiwiY2x0IjowLCJtbnVtIjoiOTUzNTQxOTEwOTMiLCJzdGsiOiJiVUszMHFDTnpLTjBqaEpjS0hwOG8zVTg4bENnckZwLVhRaHZVNi1XMTd3LkJnWWdRVVV2T1hSSFluSm1ORVYyU0hKQmNXaHRhVE5oTjJsRFptUm5WVlUyWlRkQVptRmpOV1JtTURjM1pqRXhNVEExWlRGaVlXSmhPVEkxWVRGbVpqYzFNV1EzTWpKa05XWTFNV0U0Tm1SbFkyUTNaVGRqWmpaak5UQmxPRFkzWTJRNE5nQU1jbVZzY0hoWEwxVkRaMEU5QUFOaGR6RUFBQUY4dTkwVVZnQVNkUUFBQUEiLCJleHAiOjE2MzUyNDY2MDAsImlhdCI6MTYzNTIzOTQwMCwiYWlkIjoiekZVdEpUYkZRb3V0WXNNWVhNeEFnUSIsImNpZCI6IiJ9.eDK60DHi29oNK77_KyGBLh_M8gD0ajhyWSoOKhcYXF8">
                   </div>
                 </div>
-                <div class="w-full md:w-2/12 flex items-center flex-wrap px-1">
+                <div class="w-full md:flex-1 flex items-center px-1">
                   <button
-                  class="bg-gray-900 mx-1 text-white py-1 px-2 w-full rounded h-full text-sm"
+                    class="bg-gray-900 mx-1 text-white py-1 px-6 rounded h-full text-sm">
+                    Copy
+                  </button>
+                  <button
+                  class="bg-gray-900 mx-1 text-white py-1 px-4 rounded h-full text-sm"
                   >
-                  Copy (For teacher)
+                  <i class="fas fa-arrow-right"></i>
                   </button>
                 </div>
               </div>
               <div class="w-full px-3 py-3 md:flex">
                 <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2" for="one_choice">Join URL
                 </label>
-                <div class="w-full md:w-9/12 flex items-center flex-wrap">
+                <div class="w-full flex items-center flex-wrap">
                   <div class="w-full px-1 flex items-center">
                     <input class="w-full appearance-none block text-sm border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-900" spellcheck="false"
                       id="joinUrl" type="text" value="https://zoom.us/j/95354191093">
                   </div>
                 </div>
-                <div class="w-full md:w-2/12 flex items-center flex-wrap px-1">
+                <div class="w-full md:flex-1 flex items-center px-1">
                   <button
-                  class="bg-gray-900 mx-1 text-white py-1 px-2 w-full rounded h-full text-sm"
+                    class="bg-gray-900 mx-1 text-white py-1 px-6 rounded h-full text-sm">
+                    Copy
+                  </button>
+                  <button
+                  class="bg-gray-900 mx-1 text-white py-1 px-4 rounded h-full text-sm"
                   >
-                  Copy (For student)
+                  <i class="fas fa-arrow-right"></i>
                   </button>
                 </div>
               </div>
               <div class="w-full px-3 py-3 md:flex">
                 <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2" for="one_choice">HostID
                 </label>
-                <div class="w-full md:w-10/12 flex items-center flex-wrap">
+                <div class="w-full flex items-center flex-wrap">
                   <div class="w-full px-1 flex items-center">
                     <input class="w-full appearance-none block text-sm border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-900" spellcheck="false"
                       id="startUrl" type="text" value="KyGBLh_M8gD0ajhyWSoOKhcYXF8">
                   </div>
                 </div>
-                <div class="w-full md:w-1/12 flex items-center flex-wrap px-1">
+                <div class="w-full md:flex-1 flex items-center px-1">
                   <button
-                  class="bg-gray-900 mx-1 text-white py-1 px-2 w-full rounded h-full text-sm"
-                  >
-                  Copy
+                    class="bg-gray-900 mx-1 text-white py-1 px-6 rounded h-full text-sm">
+                    Copy
                   </button>
                 </div>
               </div>
               <div class="w-full px-3 py-3 md:flex">
                 <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2" for="one_choice">Password
                 </label>
-                <div class="w-full md:w-10/12 flex items-center flex-wrap">
+                <div class="w-full flex items-center flex-wrap">
                   <div class="w-full px-1 flex items-center">
                     <input class="w-full appearance-none block text-sm border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-900" spellcheck="false"
                       id="joinUrl" type="text" value="">
                   </div>
                 </div>
-                <div class="w-full md:w-1/12 flex items-center flex-wrap px-1">
+                <div class="w-full md:flex-1 flex items-center px-1">
                   <button
-                  class="bg-gray-900 mx-1 text-white py-1 px-2 w-full rounded h-full text-sm"
-                  >
-                  Copy
+                    class="bg-gray-900 mx-1 text-white py-1 px-6 rounded h-full text-sm">
+                    Copy
                   </button>
                 </div>
               </div>
@@ -243,6 +249,8 @@
     }
     th {
       display: none;
+      font-size: 0.875rem;
+      color: #808080;
     }
   }
   td {
@@ -284,7 +292,7 @@
   }
   .rwd-table th,
   .rwd-table td {
-    display: table-cell;
+    display: table-cell !important;
     padding: .25em .5em;
   }
   .rwd-table th:first-child,

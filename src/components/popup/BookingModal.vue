@@ -1,5 +1,5 @@
 <template>
-  <Modal :based-on="showfirstModal" :title="title" :modalClass="'modal-outer'" @close="$emit('closeModal', false)">
+  <Modal :based-on="showfirstModal" :title="title" :modalClass="'modal-outer main-w'" @close="$emit('closeModal', false)">
     <form novalidate>
       <div class="w-full px-3 mb-2 md:mb-4 md:flex">
         <label class="md:pt-2 md:w-1/12 tracking-wide text-sm mb-2 text-right px-2" for="booker">
@@ -273,18 +273,14 @@ export default {
 }
 </script>
 
-<style>
-.modal-outer {
-  width: 100% !important;
-  max-width: 64em !important;
-}
-.modal-footer {
-  padding: 15px 0px 0px 0px;
-  border-top: 1px solid #e5e5e5;
-  margin-left: -14px;
-  margin-right: -14px;
-}
-.vm-btn-close {
-  outline: none !important;
-}
+<style lang="scss">
+  .modal-footer {
+    padding: 15px 0px 0px 0px;
+    border-top: 1px solid #e5e5e5;
+    margin-left: -14px;
+    margin-right: -14px;
+  }
+  .vm-btn-close {
+    outline: none !important;
+  }
 </style>

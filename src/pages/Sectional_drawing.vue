@@ -57,10 +57,10 @@
           <div class="flex flex-wrap">
             <section class="w-full lg:w-1/2 px-2 mb-4 lg:mb-0">
               <div class="bg-white px-4 py-5 rounded-lg shadow-lg">
-                <div class="flex justify-between items-start mb-5">
-                  <div>
-                    <p class="text-left font-bold text-xl">成長曲線圖</p>
-                    <p class="text-left font-bold text-gray-500">近10堂課程積分</p>
+                <div class="flex justify-between items-start mb-5 flex-wrap md:flex-no-wrap">
+                  <div class="mr-2">
+                    <p class="text-left font-bold text-xl whitespace-no-wrap">成長曲線圖</p>
+                    <p class="text-left font-bold text-gray-500 whitespace-no-wrap">近10堂課程積分</p>
                   </div>
                   <FilterModal :showItems="showItems" />
                 </div>

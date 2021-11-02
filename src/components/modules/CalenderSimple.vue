@@ -1,5 +1,5 @@
 <template>
-  <div id="calendar">
+  <div id="calendar-simple">
     <calendar-view
       :displayPeriodUom="Calendertype"
       :displayPeriodCount="1"
@@ -102,43 +102,44 @@
     }
   }
 </script>
-<style>
-	#calendar {
+<style lang="scss">
+	#calendar-simple {
 		color: #2c3e50;
 		height: calc(100vh - 250px);
 		width: 100%;
 		margin-left: auto;
 		margin-right: auto;
-	}
-  .cv-day {
-    min-height: 80px;
-  }
+    .cv-day {
+      min-height: 80px;
+    }
 
-  .personalClass {
-    border-radius: 0 !important;
-    border-left: 2px solid #C76565 !important;
-    background: rgba(199, 101, 101, 0.1) !important;
-    padding-left: 4px !important;
-    text-align: left;
-  }
-  .reservelClass {
-    border-radius: 0 !important;
-    border-left: 2px solid #55ACB8 !important;
-    background: rgba(85, 172, 184, 0.1) !important;
-    padding-left: 4px !important;
-    text-align: left;
-  }
-  .alreadyDone {
-    border-radius: 0 !important;
-    border-left: 2px solid rgb(54, 0, 50) !important;
-    background: rgba(86, 86, 86, 0.1) !important;
-    padding-left: 4px !important;
-    text-align: left;
-  }
-  .theme-default .cv-header, .theme-default .cv-header-day {
-    background-color: #ffffff !important;
-  }
-  .theme-default .cv-day.past {
-    background-color: #ffffff !important;
-  }
+    .personalClass {
+      border-radius: 0 !important;
+      border-left: 2px solid #C76565 !important;
+      background: rgba(199, 101, 101, 0.1) !important;
+      padding-left: 4px !important;
+      text-align: left;
+    }
+    .reservelClass {
+      border-radius: 0 !important;
+      border-left: 2px solid #55ACB8 !important;
+      background: rgba(85, 172, 184, 0.1) !important;
+      padding-left: 4px !important;
+      text-align: left;
+    }
+    .alreadyDone {
+      border-radius: 0 !important;
+      border-left: 2px solid rgb(54, 0, 50) !important;
+      background: rgba(86, 86, 86, 0.1) !important;
+      padding-left: 4px !important;
+      text-align: left;
+    }
+    .theme-default .cv-header, .theme-default .cv-header-day {
+      background-color: #ffffff !important;
+    }
+    .theme-default .cv-day.past {
+      background-color: #ffffff !important;
+    }
+	}
+
 </style>

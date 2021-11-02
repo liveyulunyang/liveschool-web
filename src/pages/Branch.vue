@@ -3,7 +3,7 @@
     <div class="flex flex-col w-full">
       <div class="mb-4 flex justify-between items-center">
         <div class="flex">
-          <h1 class="text-xl ading-none text-black-1 mr-2 font-bold">主任分校列表</h1>
+          <Title :title="'主任分校列表'" />
         </div>
         <div class="flex text-xs flex-wrap">
           <h5 class="mr-3 whitespace-no-wrap">管理者<span class="bg-white rounded-lg px-2 py-1 mx-1">2</span>人</h5>
@@ -58,13 +58,15 @@
   import Pagination from "@/components/modules/Pagination"
   import FilterModal from '@/components/FilterModal'
   import ExportBtn from '@/components/modules/ExportBtn'
+  import Title from '@/components/Title'
   export default {
     name: "User",
     components: {
       Table,
       Pagination,
       FilterModal,
-      ExportBtn
+      ExportBtn,
+      Title
     },
     data () {
       return {

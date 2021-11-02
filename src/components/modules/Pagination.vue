@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="m-6 flex justify-center">
+  <div id="app" class="pagination m-6 flex justify-center">
     <div class="w-full mb-6 flex justify-center">
       <vue-ads-pagination
         :page="page"
@@ -58,6 +58,7 @@ export default {
 }
 </script>
 <style lang="scss">
+.pagination {
   .vue-ads-pr-2 {
     display: none;
   }
@@ -68,8 +69,13 @@ export default {
     width: auto;
     padding: .5rem .75rem;
     border: 2px solid rgb(0, 0, 0) !important;
+    background: white;
   }
+
   .vue-ads-cursor-default {
     border: none !important;
+    background: rgb(0, 0, 0, 0);
   }
+}
+
 </style>
