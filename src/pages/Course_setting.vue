@@ -9,12 +9,7 @@
         <div class="content w-full">
           <section class="w-full mt-2 px-3 lg:px-6 py-4">
             <div class="flex justify-between">
-              <ul class="flex cursor-pointer">
-                <li class="py-2 px-6 tag flex items-center justify-center mr-2" :class="{ tagAct: tag === 0 }" @click="tag = 0">班型</li>
-                <li class="py-2 px-6 tag flex items-center justify-center mx-2" :class="{ tagAct: tag === 1 }" @click="tag = 1">師資</li>
-                <li class="py-2 px-6 tag flex items-center justify-center mx-2" :class="{ tagAct: tag === 2 }" @click="tag = 2">開課</li>
-                <li class="py-2 px-6 tag flex items-center justify-center mx-2" :class="{ tagAct: tag === 3 }" @click="tag = 3">停課</li>
-              </ul>
+              <TabComponent :tag="tag" :tagArr="tagArr" v-on:tagIdx="tagIdx" />
             </div>
 
             <div class="w-full flex flex-col justify-between leading-normal">
@@ -176,17 +171,26 @@
   import interactionPlugin from '@fullcalendar/interaction'
   import listPlugin   from '@fullcalendar/list'
   import Title from '@/components/Title'
+  import TabComponent from '@/components/Tab'
   export default {
     name: "Course_setting",
     components: {
       DatePicker,
       CalenderDot,
       FullCalendar,
-      Title
+      Title,
+      TabComponent
     },
     data () {
       return {
         tag: 0,
+        tagArr: [
+          { name: '班型', role: '' },
+          { name: '師資', role: '' },
+          { name: '開課', role: '' },
+          { name: '停課', role: '' }
+        ],
+
         periodTime: null,
         value1: null,
 
@@ -236,6 +240,9 @@
     mounted () {
     },
     methods: {
+      tagIdx (tagIdx) {
+        this.tag = tagIdx
+      }
     }
   }
 </script>

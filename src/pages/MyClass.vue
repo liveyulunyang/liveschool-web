@@ -209,7 +209,7 @@
                     <i class="fas fa-folder-open text-white"></i></button>
                 </div>
                 <div class="w-3/12">
-                  <a href="" class="flex whitespace-no-wrap items-center text-white bg-gray-900 text-sm py-2 px-2">
+                  <a href="" class="flex whitespace-no-wrap items-center text-white bg-gray-900 text-sm py-2 px-2 rounded">
                     前往上課<i class="fas fa-arrow-right ml-1"></i>
                   </a>
                 </div>
@@ -232,8 +232,8 @@
                 <div class="md:w-1/12 p-1 flex items-center justify-center"><p>兒童生活英語</p></div>
                 <div class="md:w-1/12 p-1 flex items-center justify-center"><p>B1 U1-U3 Class 2</p></div>
                 <div class="md:w-5/12 p-1 flex items-center justify-center md:justify-end">
-                  <a href="" class="border px-2 py-1 text-white bg-gray-900"><i class="fas fa-folder-open"></i></a>
-                  <a href="" class="border px-2 py-1 ml-8">課程準備中</a>
+                  <a href="" class="border px-2 py-1 text-white bg-gray-900 rounded"><i class="fas fa-folder-open"></i></a>
+                  <a href="" class="border px-2 py-1 ml-8 rounded">課程準備中</a>
                   <!-- <a href="" class="border px-2 py-1">前往上課</a> -->
                 </div>
               </div>
@@ -412,7 +412,7 @@
                       <i class="fas fa-folder-open text-white"></i></button>
                   </div>
                   <div class="w-3/12">
-                    <a href="" class="flex whitespace-no-wrap items-center text-white bg-gray-900 text-sm py-2 px-2">
+                    <a href="" class="flex whitespace-no-wrap items-center text-white bg-gray-900 text-sm py-2 px-2 rounded">
                       前往上課<i class="fas fa-arrow-right ml-1"></i>
                     </a>
                   </div>
@@ -442,7 +442,7 @@
                     <a class="border px-2 py-1 text-gray-600 mr-2 rounded border-gray-600 cursor-pointer"><i class="fas fa-film"></i></a>
                     <a  @click="showDetailModal = true" class="border px-2 py-1 text-white bg-gray-900 mr-8 rounded"><i class="fas fa-folder-open"></i></a>
                     <!-- <a href="" class="border px-2 py-1">課程準備中</a> -->
-                    <a @click="showfirstModal = true" class="border px-2 py-1 bg-gray-900 text-white cursor-pointer">前往上課<i class="fas fa-arrow-right ml-1 text-sm"></i></a>
+                    <a @click="showfirstModal = true" class="border px-2 py-1 bg-gray-900 text-white cursor-pointer rounded">前往上課<i class="fas fa-arrow-right ml-1 text-sm"></i></a>
                   </div>
                 </div>
               </div>
@@ -527,7 +527,7 @@
                       <i class="fas fa-folder-open text-white"></i></button>
                   </div>
                   <div class="w-3/12">
-                    <a href="" class="flex whitespace-no-wrap items-center text-white bg-gray-900 text-sm py-2 px-2">
+                    <a href="" class="flex whitespace-no-wrap items-center text-white bg-gray-900 text-sm py-2 px-2 rounded">
                       前往上課<i class="fas fa-arrow-right ml-1"></i>
                     </a>
                   </div>
@@ -558,7 +558,7 @@
                     <a class="border px-2 py-1 text-gray-600 mr-2 rounded border-gray-600 cursor-pointer"><i class="fas fa-film"></i></a>
                     <a @click="showDetailModal = true" class="border px-2 py-1 text-white bg-gray-900 mr-8 rounded"><i class="fas fa-folder-open"></i></a>
                     <!-- <a href="" class="border px-2 py-1">課程準備中</a> -->
-                    <a @click="showfirstModal = true" class="border px-2 py-1 bg-gray-900 text-white cursor-pointer">前往上課<i class="fas fa-arrow-right ml-1 text-sm"></i></a>
+                    <a @click="showfirstModal = true" class="border px-2 py-1 bg-gray-900 text-white cursor-pointer rounded">前往上課<i class="fas fa-arrow-right ml-1 text-sm"></i></a>
                   </div>
                 </div>
               </div>

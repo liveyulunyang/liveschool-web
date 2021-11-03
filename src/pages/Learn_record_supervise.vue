@@ -12,7 +12,7 @@
           <div class="flex items-center justify-start flex-wrap">
             <div class="mr-1">
               <router-link :to="{ name: 'branch' }"  class="px-4 py-2 bg-white  text-sm rounded whitespace-no-wrap border border-gray-500">
-                <i class="fas fa-chevron-left"></i>返回
+                <i class="fas fa-chevron-left mr-1"></i>返回
               </router-link>
             </div>
             <FilterModal :showItems="showItems" />

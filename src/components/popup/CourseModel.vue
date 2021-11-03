@@ -95,20 +95,20 @@
               <button
                 class="text-primary-normal hover:text-black-1  mx-1"
                 >
-                <!-- <img src="@/assets/img/icons/file.svg" alt="" class="h-6 object-contain noData"> -->
-                <img :src="require('@/assets/img/icons/file_active.svg')" alt="" class="h-6 object-contain hasData">
+                <!-- <img src="@/assets/img/icons/file.svg" alt="" class="h-8 object-contain noData"> -->
+                <img :src="require('@/assets/img/icons/file_active.svg')" alt="" class="h-8 object-contain hasData">
               </button>
               <button
                 class="text-primary-normal hover:text-black-1  mx-1"
                 >
-                <!-- <img src="@/assets/img/icons/before_test.svg" alt="" class="h-6 object-contain noData"> -->
-                <img :src="require('@/assets/img/icons/before_test_active.svg')" alt="" class="h-6 object-contain hasData">
+                <!-- <img src="@/assets/img/icons/before_test.svg" alt="" class="h-8 object-contain noData"> -->
+                <img :src="require('@/assets/img/icons/before_test_active.svg')" alt="" class="h-8 object-contain hasData">
               </button>
               <button
                 class="text-primary-normal hover:text-black-1  mx-1 isActive"
                 >
-                <!-- <img src="@/assets/img/icons/after_test.svg" alt="" class="h-6 object-contain noData"> -->
-                <img :src="require('@/assets/img/icons/after_test_active.svg')" alt="" class="h-6 object-contain hasData">
+                <!-- <img src="@/assets/img/icons/after_test.svg" alt="" class="h-8 object-contain noData"> -->
+                <img :src="require('@/assets/img/icons/after_test_active.svg')" alt="" class="h-8 object-contain hasData">
               </button>
             </div>
             <div class="w-full md:w-1/6 text-xl md:mb-4 md:border-r-2 border-gray-900 px-3 text-left md:text-right py-2 font-semibold">
@@ -117,12 +117,12 @@
             <div  class="w-full md:w-5/6 mb-4 px-3 py-2">
               <button
                 class="text-primary-normal hover:text-black-1  mx-1">
-                <img :src="require('@/assets/img/icons/list.svg')" alt="" class="h-6 object-contain noData">
+                <img :src="require('@/assets/img/icons/list.svg')" alt="" class="h-8 object-contain noData">
               </button>
               <button
                 class="text-primary-normal hover:text-black-1  mx-1">
-                <img :src="require('@/assets/img/icons/film.svg')" alt="" class="h-6 object-contain noData">
-                <!-- <img src="@/assets/img/icons/film_active.svg" alt="" class="h-6 object-contain hasData"> -->
+                <img :src="require('@/assets/img/icons/film.svg')" alt="" class="h-8 object-contain noData">
+                <!-- <img src="@/assets/img/icons/film_active.svg" alt="" class="h-8 object-contain hasData"> -->
               </button>
             </div>
           </div>

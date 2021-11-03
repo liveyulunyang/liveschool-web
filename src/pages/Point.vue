@@ -9,12 +9,13 @@
         <div class="content">
           <section class="w-full mt-2 min-h-screen px-3 lg:px-6 py-4">
             <div class="flex justify-between">
-              <ul class="flex cursor-pointer">
+              <TabComponent :tag="tag" :tagArr="tagArr" v-on:tagIdx="tagIdx" />
+              <!-- <ul class="flex cursor-pointer">
                 <li class="py-4 px-6 tag flex items-center justify-center mr-2" :class="{ tagAct: tag === 0 }" @click="tag = 0" v-if="$store.state.userRole === 'admin'">統計</li>
                 <li class="py-4 px-6 tag flex items-center justify-center mx-2" :class="{ tagAct: tag === 1 }" @click="tag = 1">轉移</li>
                 <li class="py-4 px-6 tag flex items-center justify-center mx-2" :class="{ tagAct: tag === 2 }" @click="tag = 2" v-if="$store.state.userRole === 'admin'">新增</li>
                 <li class="py-4 px-6 tag flex items-center justify-center ml-2" :class="{ tagAct: tag === 3 }" @click="tag = 3">交易紀錄</li>
-              </ul>
+              </ul> -->
             </div>
 
             <div class="w-full flex flex-col justify-between leading-normal">
@@ -147,7 +148,7 @@
                   </div>
                 </form>
               </div>
-              <div v-if="tag === 2 && $store.state.userRole === 'admin'" class="bg-white py-2 lg:p-4">
+              <div v-if="(tag === 2 && $store.state.userRole === 'admin')" class="bg-white py-2 lg:p-4">
                 <form>
                   <div class="mb-4">
                     <label class="block text-md mb-2 text-left" for="email">帳號</label>
@@ -193,24 +194,7 @@
               </div>
               <div v-if="tag === 3">
                 <div class="flex items-center mb-4 flex-wrap bg-white py-2 lg:p-4">
-                  <div class="mr-1">
-                    <date-picker
-                      v-model="periodTime"
-                      type="date" range placeholder="選擇時間區間"
-                      :input-class="'mx-input'"></date-picker>
-                  </div>
-                  <div class="mx-1 flex bg-white border">
-                    <input type="text" placeholder="Search.." name="search" class="py-2 px-2 border-0 focus:outline-none w-20">
-                    <button type="submit" class="px-2"><i class="fa fa-search"></i></button>
-                  </div>
-                  <div class="ml-1">
-                    <a href="" class="block">
-                      <img src="@/assets/img/icons/re.svg" alt="" class="w-8">
-                    </a>
-                  </div>
-                  <button class="px-4 py-2 bg-gray-900 text-white  text-sm mx-1 rounded whitespace-no-wrap">
-                    匯出資料
-                  </button>
+                  <FilterModal :showItems="showItems" />
                 </div>
                 <Table :columns="tableList.columns"
                   :actions="tableList.actions"
@@ -225,18 +209,20 @@
 </template>
 
 <script>
-  import DatePicker from 'vue2-datepicker'
+  // import DatePicker from 'vue2-datepicker'
   import 'vue2-datepicker/index.css'
   import Table from '@/components/table'
   import FilterModal from '@/components/FilterModal'
   import Title from '@/components/Title'
+  import TabComponent from '@/components/Tab'
   export default {
     name: "Point",
     components: {
       Table,
-      DatePicker,
+      // DatePicker,
       FilterModal,
-      Title
+      Title,
+      TabComponent
     },
     data () {
       return {
@@ -293,8 +279,27 @@
       }
     },
     computed: {
+      tagArr () {
+        if (this.$store.state.userRole === 'admin') {
+          return [
+            { name: '統計', role: 'admin' },
+            { name: '轉移', role: '' },
+            { name: '新增', role: 'admin' },
+            { name: '交易紀錄', role: '' }
+          ]
+        } else {
+          return [
+            { name: '轉移', role: '' },
+            { name: '交易紀錄', role: '' }
+          ]
+        }
+
+      }
     },
     methods: {
+      tagIdx (tagIdx) {
+        this.tag = tagIdx
+      }
     }
   }
 </script>

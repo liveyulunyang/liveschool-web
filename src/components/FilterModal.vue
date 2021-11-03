@@ -197,9 +197,16 @@
           <button type="submit" class="px-2"><i class="fa fa-search"></i></button>
         </div>
       </div>
+      <!-- 搜尋欄位/只有輸入框 -->
+      <div class="w-full lg:w-auto md:flex p-1 items-center md:mb-0" v-if="showItems.searchOnlyInput">
+        <div class="flex bg-white w-full border border-gray-500 h-43">
+          <input type="text" placeholder="輸入關鍵字搜索" name="search" class="text-sm px-2 border-0 focus:outline-none w-full h-full">
+          <button type="submit" class="px-2"><i class="fa fa-search"></i></button>
+        </div>
+      </div>
       <!-- 重整按鈕 -->
       <div class="w-auto syncBtn p-1 cursor-pointer" v-if="showItems.sync">
-        <a class="flex items-center justify-center bg-blue-main-dark text-white rounded">
+        <a class="flex items-center justify-center btn-main text-white rounded">
           <i class="fas fa-sync-alt"></i>
         </a>
       </div>

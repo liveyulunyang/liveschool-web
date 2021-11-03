@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="flex items-center justify-between w-full lg:flex-row mb-4 flex-wrap lg:flex-no-wrap">
-        <router-link :to="{ name: 'Users' }"  class="px-4 py-2 bg-gray-900 text-white text-sm rounded whitespace-no-wrap">
+        <router-link :to="{ name: 'Users' }"  class="px-4 py-2 bg-gray-900 text-white hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
           <i class="fas fa-chevron-left"></i>返回
         </router-link>
         <FilterModal :showItems="showItems" />

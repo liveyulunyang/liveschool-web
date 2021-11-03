@@ -8,7 +8,7 @@
         <ul class='flex cursor-pointer text-sm'>
           <li class='py-2 mr-1'>
             <Button @click="$router.back(-1)" class="px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
-              <i class="fas fa-chevron-left"></i>返回
+              <i class="fas fa-chevron-left mr-1"></i>返回
             </Button>
           </li>
           <li class='ml-2'>
@@ -127,20 +127,9 @@
 
     },
     methods: {
-			cropSuccess(imgDataUrl) {
-				console.log('-------- crop success --------')
-				this.imgDataUrl = imgDataUrl
-			},
-			cropUploadSuccess(jsonData, field){
-				console.log('-------- upload success --------')
-				console.log(jsonData);
-				console.log('field: ' + field);
-			},
-			cropUploadFail(status, field){
-				console.log('-------- upload fail --------')
-				console.log(status)
-				console.log('field: ' + field)
-			}
+      tagIdx (tagIdx) {
+        this.tag = tagIdx
+      }
     }
   }
 </script>

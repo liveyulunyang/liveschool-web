@@ -20,7 +20,7 @@
       <Button @click.native="openSideBar"
           class="mx-2 relative text-gray-1 hover:text-primary-normal focus:outline-none"
           round>
-        <span class="absolute top-0 right-0 h-2 w-2 rounded-full bg-primary-normal"></span>
+        <span class="absolute top-0 right-0 h-2 w-2 rounded-full bg-gray-900"></span>
         <svg xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
           height="35"

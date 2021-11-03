@@ -15,11 +15,7 @@
         <FilterModal :showItems="showItems" />
       </div>
       <div class="flex justify-between mx-1">
-        <ul class="flex cursor-pointer font-bold">
-          <li class="py-4 px-6 tag flex items-center justify-center mr-2" :class="{ tagAct: tag === 0 }" @click="tag = 0">基本資料</li>
-          <li class="py-4 px-6 tag flex items-center justify-center mx-2" :class="{ tagAct: tag === 1 }" @click="tag = 1">授課時間</li>
-          <li class="py-4 px-6 tag flex items-center justify-center mx-2" :class="{ tagAct: tag === 2 }" @click="tag = 2">停課時間</li>
-        </ul>
+        <TabComponent :tag="tag" :tagArr="tagArr" v-on:tagIdx="tagIdx" />
       </div>
     </div>
 
@@ -393,6 +389,7 @@
   import timeGridPlugin from '@fullcalendar/timegrid'
   import interactionPlugin from '@fullcalendar/interaction'
   import Title from '@/components/Title'
+  import TabComponent from '@/components/Tab'
   export default {
     name: 'Manage',
     components: {
@@ -401,11 +398,18 @@
       DatePicker,
       CalenderDot,
       FullCalendar,
-      Title
+      Title,
+      TabComponent
     },
     data () {
       return {
         tag: 2,
+        tagArr: [
+          { name: '基本資料', role: '' },
+          { name: '授課時間', role: '' },
+          { name: '停課時間', role: '' }
+        ],
+
         showItems: {
           role: true,
           listStatus: false,
@@ -497,23 +501,9 @@
 
     },
     methods: {
-			cropSuccess(imgDataUrl) {
-				console.log('-------- crop success --------')
-				this.imgDataUrl = imgDataUrl
-			},
-			cropUploadSuccess(jsonData, field){
-				console.log('-------- upload success --------')
-				console.log(jsonData);
-				console.log('field: ' + field);
-			},
-			cropUploadFail(status, field){
-				console.log('-------- upload fail --------')
-				console.log(status)
-				console.log('field: ' + field)
-			}
-      // notBeforeTodayTwelveOClock(date) {
-      //   return date > new Date(new Date().setHours(20, 0, 0, 0));
-      // }
+      tagIdx (tagIdx) {
+        this.tag = tagIdx
+      }
     }
   }
 </script>

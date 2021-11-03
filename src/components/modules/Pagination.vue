@@ -16,7 +16,7 @@
             v-for="(button, key) in props.buttons"
             :key="key"
             v-bind="button"
-            :class="{ 'bg-gray-900 pagination-btn': button.active }"
+            :class="{ 'vue-pagination-active pagination-btn': button.active }"
             @page-change="page = button.page"
             @range-change="start = button.start; end = button.end"
           />
@@ -62,13 +62,10 @@ export default {
   .vue-ads-pr-2 {
     display: none;
   }
-  .flex {
-    display: flex !important;
-  }
   .vue-ads-w-6 {
     width: auto;
     padding: .5rem .75rem;
-    border: 2px solid rgb(0, 0, 0) !important;
+    border: 2px solid #0F455C !important;
     background: white;
   }
 
@@ -76,6 +73,11 @@ export default {
     border: none !important;
     background: rgb(0, 0, 0, 0);
   }
+  .vue-pagination-active {
+    background: #0F455C;
+    &:hover {
+      background: #011F2C;
+    }
+  }
 }
-
 </style>

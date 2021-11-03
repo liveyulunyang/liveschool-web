@@ -5,18 +5,22 @@
 
   <section class="w-full mt-2 min-h-screen px-3 lg:px-6 py-4">
     <div class="flex justify-between">
-      <ul class="flex cursor-pointer text-sm">
+      <!-- <ul class="flex cursor-pointer text-sm">
         <li class="py-2 mr-1">
           <button @click="$router.back(-1)" class="px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
             <i class="fas fa-chevron-left mr-1"></i>返回
           </button>
         </li>
         <li class="py-2 px-6 tag flex items-center justify-center mx-1" :class="{ tagAct: tag === 0 }" @click="tag = 0">課程基本資料</li>
-        <!-- <li class="py-2 px-6 tag flex items-center justify-center mx-1" :class="{ tagAct: tag === 1 }" @click="tag = 1">課程章節</li> -->
         <li class="py-2 px-6 tag flex items-center justify-center mx-1" :class="{ tagAct: tag === 1 }" @click="tag = 1">堂數設定</li>
         <li class="py-2 px-6 tag flex items-center justify-center mx-1" :class="{ tagAct: tag === 2 }" @click="tag = 2">課程時間</li>
-      </ul>
-
+      </ul> -->
+      <div class="py-2 mr-1">
+        <button @click="$router.back(-1)" class="px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
+          <i class="fas fa-chevron-left mr-1"></i>返回
+        </button>
+      </div>
+      <TabComponent :tag="tag" :tagArr="tagArr" v-on:tagIdx="tagIdx" />
       <ul class="flex cursor-pointer font-semibold" v-if="tag === 1">
         <li class="py-2 mr-2">
           <p class="font-bold">已建立 <span class="text-red-800">5</span>堂</p>
@@ -415,32 +419,32 @@
             <div class="flex items-center mx-2">
               <button
                 class="text-primary-normal hover:text-black-1  mx-1">
-                <img :src="require('@/assets/img/icons/list.svg')" alt="" class="h-6 object-contain noData">
+                <img :src="require('@/assets/img/icons/list.svg')" alt="" class="h-8 object-contain noData">
               </button>
               <button
                 class="text-primary-normal hover:text-black-1  mx-1">
-                <img :src="require('@/assets/img/icons/film.svg')" alt="" class="h-6 object-contain noData">
-                <!-- <img src="@/assets/img/icons/film_active.svg" alt="" class="h-6 object-contain hasData"> -->
+                <img :src="require('@/assets/img/icons/film.svg')" alt="" class="h-8 object-contain noData">
+                <!-- <img src="@/assets/img/icons/film_active.svg" alt="" class="h-8 object-contain hasData"> -->
               </button>
             </div>
             <div class="flex items-center mx-2">
               <button
                 class="text-primary-normal hover:text-black-1  mx-1"
                 >
-                <!-- <img src="@/assets/img/icons/file.svg" alt="" class="h-6 object-contain noData"> -->
-                <img :src="require('@/assets/img/icons/file_active.svg')" alt="" class="h-6 object-contain hasData">
+                <!-- <img src="@/assets/img/icons/file.svg" alt="" class="h-8 object-contain noData"> -->
+                <img :src="require('@/assets/img/icons/file_active.svg')" alt="" class="h-8 object-contain hasData">
               </button>
               <button @click="toPreview"
                 class="text-primary-normal hover:text-black-1  mx-1"
                 >
-                <!-- <img src="@/assets/img/icons/before_test.svg" alt="" class="h-6 object-contain noData"> -->
-                <img :src="require('@/assets/img/icons/before_test_active.svg')" alt="" class="h-6 object-contain hasData">
+                <!-- <img src="@/assets/img/icons/before_test.svg" alt="" class="h-8 object-contain noData"> -->
+                <img :src="require('@/assets/img/icons/before_test_active.svg')" alt="" class="h-8 object-contain hasData">
               </button>
               <button @click="toReview"
                 class="text-primary-normal hover:text-black-1  mx-1 isActive"
                 >
-                <!-- <img src="@/assets/img/icons/after_test.svg" alt="" class="h-6 object-contain noData"> -->
-                <img :src="require('@/assets/img/icons/after_test_active.svg')" alt="" class="h-6 object-contain hasData">
+                <!-- <img src="@/assets/img/icons/after_test.svg" alt="" class="h-8 object-contain noData"> -->
+                <img :src="require('@/assets/img/icons/after_test_active.svg')" alt="" class="h-8 object-contain hasData">
               </button>
             </div>
             <div class="flex items-center mx-2">
@@ -524,19 +528,27 @@
   import NoData from '@/components/NoData'
   import Calender from '@/components/modules/Calender'
   import Title from '@/components/Title'
+  import TabComponent from '@/components/Tab'
   export default {
     name: 'AddTalkClass',
     components: {
       DatePicker,
       NoData,
       Calender,
-      Title
+      Title,
+      TabComponent
     },
     data () {
       return {
         isData: true,
 
         tag: 2,
+        tagArr: [
+          { name: '課程基本資料', role: '' },
+          { name: '堂數設定', role: '' },
+          { name: '課程時間', role: '' }
+        ],
+
         time: null,
         value1: null,
         value2: null,
@@ -548,6 +560,9 @@
 
     },
     methods: {
+      tagIdx (tagIdx) {
+        this.tag = tagIdx
+      }
     }
   }
 </script>

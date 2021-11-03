@@ -4,8 +4,14 @@
   <Title :title="'新增LiveClass課程'" />
 
   <section class="w-full mt-2 min-h-screen px-3 lg:px-6 py-4">
-    <div class="flex justify-between">
-      <ul class="flex cursor-pointer text-sm">
+    <div class="flex items-center">
+      <div class="mr-1">
+        <button @click="$router.back(-1)" class="px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
+          <i class="fas fa-chevron-left mr-1"></i>返回
+        </button>
+      </div>
+      <TabComponent :tag="tag" :tagArr="tagArr" v-on:tagIdx="tagIdx" />
+      <!-- <ul class="flex cursor-pointer text-sm">
         <li class="py-2 mr-1">
           <button @click="$router.back(-1)" class="px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
             <i class="fas fa-chevron-left mr-1"></i>返回
@@ -13,13 +19,11 @@
         </li>
         <li class="py-2 px-6 tag flex items-center justify-center mx-1" :class="{ tagAct: tag === 0 }" @click="tag = 0">課程基本資料</li>
         <li class="py-2 px-6 tag flex items-center justify-center mx-1" :class="{ tagAct: tag === 1 }" @click="tag = 1">課程章節</li>
-        <!-- <li class="py-2 px-6 tag flex items-center justify-center mx-1" :class="{ tagAct: tag === 1 }" @click="tag = 1">堂數設定</li>
-        <li class="py-2 px-6 tag flex items-center justify-center mx-1" :class="{ tagAct: tag === 2 }" @click="tag = 2">課程時間</li> -->
-      </ul>
+      </ul> -->
 
       <ul class="flex cursor-pointer text-sm" v-if="tag === 1">
         <li class="py-2 mr-1">
-          <Button @click="$router.back(-1)" class="px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
+          <Button @click="$router.back(-1)" class="px-4 py-2 btn-red text-white  text-sm rounded whitespace-no-wrap">
             <i class="fas fa-plus mr-1"></i>新增章節
           </Button>
         </li>
@@ -445,17 +449,24 @@
   import 'vue2-datepicker/index.css';
   import NoData from '@/components/NoData'
   import Title from '@/components/Title'
+  import TabComponent from '@/components/Tab'
   export default {
     name: 'AddTalkClass',
     components: {
       NoData,
-      Title
+      Title,
+      TabComponent
     },
     data () {
       return {
         isData: true,
 
         tag: 1,
+        tagArr: [
+          { name: '課程基本資料', role: '' },
+          { name: '課程章節', role: '' }
+        ],
+
         time: null,
         value1: null,
         value2: null,
@@ -470,6 +481,9 @@
 
     },
     methods: {
+      tagIdx (tagIdx) {
+        this.tag = tagIdx
+      }
     }
   }
 </script>

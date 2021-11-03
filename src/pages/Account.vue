@@ -10,11 +10,7 @@
         <div class="content">
           <section class="w-full mt-2 min-h-screen px-3 lg:px-6 py-4">
             <div class="flex justify-between">
-              <ul class="flex cursor-pointer">
-                <li class="py-2 px-6 tag flex items-center justify-center mr-2" :class="{ tagAct: tag === 0 }" @click="tag = 0">帳號</li>
-                <li class="py-2 px-6 tag flex items-center justify-center mx-2" :class="{ tagAct: tag === 1 }" @click="tag = 1">點數</li>
-                <li class="py-2 px-6 tag flex items-center justify-center mx-2" :class="{ tagAct: tag === 2 }" @click="tag = 2">密碼</li>
-              </ul>
+              <TabComponent :tag="tag" :tagArr="tagArr" v-on:tagIdx="tagIdx" />
             </div>
 
             <div class="w-full flex flex-col justify-between leading-normal">
@@ -116,10 +112,10 @@
                     </div>
                   </div>
                   <div class="md:flex mt-3 md:mb-4 w-full lg:pt-6 justify-end px-6">
-                    <button class="button-main py-2 px-4 rounded text-sm whitespace-no-wrap mx-1">
+                    <button class="button-main py-2 px-6 rounded text-sm whitespace-no-wrap mx-1">
                       取消修改
                     </button>
-                    <button class="button-main py-2 px-4 rounded text-sm whitespace-no-wrap mx-1">
+                    <button class="button-main py-2 px-6 rounded text-sm whitespace-no-wrap mx-1">
                       <i class="fas fa-check mr-1"></i>更新
                     </button>
                   </div>
@@ -131,10 +127,10 @@
                     <div class="w-full h-full bg-white  font-semibold py-4 lg:py-0 flex flex-col items-center justify-center">
                       <div class="flex items-center justify-center w-full">
                         <h6 class="text-xl mx-2 whitespace-no-wrap">現在點數</h6>
-                        <span class="bg-gray-300 py-4 px-12 w-3/5 text-3xl whitespace-no-wrap">666</span>
+                        <span class="bg-blue-main-light py-4 px-12 w-3/5 text-3xl whitespace-no-wrap">666</span>
                         <h6 class="text-xl mx-2 whitespace-no-wrap">點</h6>
                       </div>
-                      <p class="text-sm mt-3">即將於<span class="text-red-500 mx-1 font-bold">2021.09.07</span>過期<span class="text-red-500 mx-1 font-bold">50</span>點</p>
+                      <!-- <p class="text-sm mt-3">即將於<span class="text-red-500 mx-1 font-bold">2021.09.07</span>過期<span class="text-red-500 mx-1 font-bold">50</span>點</p> -->
                     </div>
                   </div>
                   <div class="w-1/2 lg:w-1/4 lg:pt-0 pr-2 lg:px-2 text-3xl text-white font-bold">
@@ -149,22 +145,7 @@
                   </div>
                 </div>
                 <div class="flex flex-wrap bg-white py-6 px-6 items-center">
-                  <date-picker
-                    class="mr-1"
-                    v-model="periodTime"
-                    type="date" range placeholder="選擇時間區間"
-                    :input-class="'mx-input'">
-                  </date-picker>
-                  <div class="mr-1 flex bg-white border">
-                    <input type="text" placeholder="Search.." name="search" class="py-2 px-2 border-0 focus:outline-none">
-                    <button type="submit" class="px-2"><i class="fa fa-search"></i></button>
-                  </div>
-                  <a href="" class="block mr-1">
-                    <img src="@/assets/img/icons/re.svg" alt="" class="w-8">
-                  </a>
-                  <button class="px-4 py-2 bg-gray-900 text-white  text-sm mx-1 rounded whitespace-no-wrap">
-                    <i class="fas fa-arrow-down mr-1"></i>匯出資料
-                  </button>
+                  <FilterModal :showItems="showItems" />
                 </div>
                 <Table :columns="tableList.columns"
                   :actions="tableList.actions"
@@ -182,7 +163,7 @@
                     <input class="w-full md:w-11/12 bg-drabya-gray border-gray-500 appearance-none border p-4 font-light leading-tight focus:outline-none focus:shadow-outline" type="text" name="password-check" id="" placeholder="">
                   </div>
                   <div class="">
-                    <button class="button-main py-2 px-4 rounded text-sm whitespace-no-wrap">
+                    <button class="button-main py-2 px-6 rounded text-sm whitespace-no-wrap">
                       <i class="fas fa-check mr-1"></i>更新
                     </button>
                   </div>
@@ -198,16 +179,32 @@
 <script>
   import Table from '@/components/table'
   import Title from '@/components/Title'
+  import FilterModal from '@/components/FilterModal'
+  import TabComponent from '@/components/Tab'
   export default {
-    name: "Point",
+    name: "Account",
     components: {
       Table,
-      Title
+      Title,
+      FilterModal,
+      TabComponent
     },
     data () {
       return {
         tag: 0,
-        periodTime: null,
+        tagArr: [
+          { name: '帳號', role: '' },
+          { name: '點數', role: '' },
+          { name: '密碼', role: '' }
+        ],
+
+        showItems: {
+          timePeriod: true,
+          searchOnlyInput: true,
+          sync: true,
+          isExportBtn: true
+        },
+
         tableList: {
           columns: [
             { name: 'id', label: '交易日期', required: true },
@@ -257,16 +254,12 @@
     computed: {
     },
     methods: {
+      tagIdx (tagIdx) {
+        this.tag = tagIdx
+      }
     }
   }
 </script>
 <style lang="scss">
-  .tag {
-    background: #CCCCCC;
-    color: #808080;
-  }
-  .tagAct {
-    background: white;
-    color: black;
-  }
+
 </style>

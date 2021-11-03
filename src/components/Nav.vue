@@ -62,7 +62,7 @@
   }
 </script>
 
-<style>
+<style lang="scss">
   .c-nav {
     grid-area: nav;
     width: 215px;
@@ -108,6 +108,10 @@
       width .25s cubic-bezier(0.4,0.0,0.2,1),
       background-color .25s cubic-bezier(0.4,0.0,0.2,1),
       color .25s cubic-bezier(0.4,0.0,0.2,1);
+      &:hover {
+        background: #91DAE4;
+        color: white;
+      }
   }
   .c-nav__menuitem a svg {
     width: 24px;

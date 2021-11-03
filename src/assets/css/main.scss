@@ -93,7 +93,7 @@
 .btn-green {
   background: #2D9AA9;
   &:hover {
-    background: #2D9AA9;
+    background: #21808D;
   }
   &:focus {
     outline: none;
@@ -102,7 +102,7 @@
 .btn-blue {
   background: #3180B5;
   &:hover {
-    background: #3180B5;
+    background: #1F628F;
   }
   &:focus {
     outline: none;
@@ -111,25 +111,33 @@
 .btn-red {
   background: #FC5649;
   &:hover {
-    background: #FC5649;
+    background: #BA352B;
   }
   &:focus {
     outline: none;
   }
 }
-
-.table-btn {
-  background: #ffffff;
-  border: 1px solid black;
-  color: black;
+.btn-main {
+  background: #0F455C;
+  &:hover {
+    background: #011F2C;
+  }
+  &:focus {
+    outline: none;
+  }
 }
-.table-btn--active {
-  background: #3d3d3d;
-  border: 1px solid black;
-  color: black;
-}
-.table-Btn--disable {
-  background: #3d3d3d;
-  border: 1px solid #3d3d3d;
-  color: white;
-}
+// .table-btn {
+//   background: #3D3D3D;
+//   border: 1px solid #3D3D3D;
+//   color: white;
+// }
+// .table-btn--active {
+//   background: #3D3D3D;
+//   border: 1px solid #3D3D3D;
+//   color: #333333;
+// }
+// .table-Btn--disable {
+//   background: #3D3D3D;
+//   border: 1px solid #3D3D3D;
+//   color: white;
+// }

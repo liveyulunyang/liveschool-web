@@ -5,14 +5,20 @@
 
   <section class="w-full mt-2 min-h-screen px-3 lg:px-6 py-4">
     <div class="flex justify-between">
-      <ul class="flex cursor-pointer text-sm">
+      <!-- <ul class="flex cursor-pointer text-sm">
         <li class="py-2 mr-1">
           <button @click="$router.push({ name: 'meeting' })" class="px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
             <i class="fas fa-chevron-left mr-1"></i>返回
           </button>
         </li>
         <li class="py-2 px-6 tag flex items-center justify-center mx-1" :class="{ tagAct: tag === 0 }" @click="tag = 0">會議基本資料</li>
-      </ul>
+      </ul> -->
+      <div class="py-2 mr-1">
+        <button @click="$router.back(-1)" class="px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
+          <i class="fas fa-chevron-left mr-1"></i>返回
+        </button>
+      </div>
+      <TabComponent :tag="tag" :tagArr="tagArr" v-on:tagIdx="tagIdx" />
     </div>
     <div v-if="isData">
       <form action="javascript:void(0);" class="text-NotoSansRegular textColorblack mx-auto" v-if="tag === 0">
@@ -406,6 +412,10 @@
         isData: true,
 
         tag: 0,
+        tagArr: [
+          { name: '會議基本資料', role: '' }
+        ],
+
         time: null,
         value1: null,
         value2: null,
@@ -447,20 +457,9 @@
 
     },
     methods: {
-			cropSuccess(imgDataUrl) {
-				console.log('-------- crop success --------')
-				this.imgDataUrl = imgDataUrl
-			},
-			cropUploadSuccess(jsonData, field){
-				console.log('-------- upload success --------')
-				console.log(jsonData);
-				console.log('field: ' + field);
-			},
-			cropUploadFail(status, field){
-				console.log('-------- upload fail --------')
-				console.log(status)
-				console.log('field: ' + field)
-			}
+      tagIdx (tagIdx) {
+        this.tag = tagIdx
+      }
     }
   }
 </script>
