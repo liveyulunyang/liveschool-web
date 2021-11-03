@@ -33,7 +33,7 @@
                       <img src="@/assets/img/icons/re.svg" alt="" class="w-8">
                     </a>
                   </div>
-                  <button class="px-4 py-2 bg-second-blue text-white text-sm mx-1 rounded whitespace-no-wrap">
+                  <button class="px-4 py-2 btn-blue text-white text-sm mx-1 rounded whitespace-no-wrap">
                     <i class="fas fa-arrow-down mr-1"></i>匯出資料
                   </button>
                 </div> -->
@@ -208,7 +208,7 @@
                       <img src="@/assets/img/icons/re.svg" alt="" class="w-8">
                     </a>
                   </div>
-                  <button class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
+                  <button class="px-4 py-2 bg-gray-900 text-white  text-sm mx-1 rounded whitespace-no-wrap">
                     匯出資料
                   </button>
                 </div>

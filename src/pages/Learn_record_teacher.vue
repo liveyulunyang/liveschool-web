@@ -10,14 +10,14 @@
         <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row mb-4">
           <div class="flex items-center justify-start flex-wrap">
             <div class="mr-1">
-              <router-link :to="{ name: 'learn_record' }"  class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
+              <router-link :to="{ name: 'learn_record' }"  class="px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
                 <i class="fas fa-chevron-left"></i>返回
               </router-link>
             </div>
             <FilterModal :showItems="showItems" />
           </div>
           <div>
-            <a class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
+            <a class="px-4 py-3 btn-blue text-white text-sm mx-1 rounded whitespace-no-wrap">
               <i class="fas fa-arrow-down mr-1"></i>匯出資料
             </a>
           </div>

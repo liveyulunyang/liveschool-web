@@ -33,7 +33,7 @@
             <template slot="actionsBtn">
               <td data-th="執行動作">
                 <button @click="openDetail()"
-                  class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1 focus:outline-none"
+                  class="text-primary-normal hover:text-black-1  mx-1 focus:outline-none"
                   >
                   <img src="@/assets/img/icons/more.svg" alt="" class="w-8 object-contain">
                 </button>

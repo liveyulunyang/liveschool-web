@@ -12,7 +12,7 @@
           <FilterModal :showItems="showItems" />
         </div>
         <div class="flex justify-end items-center">
-          <button @click="addBook" class="px-4 py-2 bg-second-blue-light text-white text-sm mx-1 rounded whitespace-no-wrap">
+          <button @click="addBook" class="px-4 py-2 btn-green text-white text-sm mx-1 rounded whitespace-no-wrap">
             <i class="fas fa-cog mr-1"></i>預約設定
           </button>
         </div>

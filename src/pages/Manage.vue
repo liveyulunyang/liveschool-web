@@ -6,7 +6,7 @@
 
     <div class="flex w-full mt-8 items-center">
       <div class="mr-6">
-        <Button @click="$router.back(-1)" class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
+        <Button @click="$router.back(-1)" class="px-4 py-2 bg-gray-900 text-white  text-sm mx-1 rounded whitespace-no-wrap">
           <i class="fas fa-chevron-left mr-1"></i>返回
         </Button>
       </div>
@@ -364,11 +364,11 @@
             </div>
           </div>
           <div class="flex justify-center items-center">
-            <button @click="step = 2" class="mx-4 px-6 py-1 bg-gray-900 text-white  hover:bg-gray-600 rounded whitespace-no-wrap">
+            <button @click="step = 2" class="mx-4 px-6 py-1 bg-gray-900 text-white  rounded whitespace-no-wrap">
               停課
             </button>
 
-            <button @click="step = 4" class="mx-4 px-6 py-1 bg-gray-400 text-white  hover:bg-gray-600 rounded whitespace-no-wrap">
+            <button @click="step = 4" class="mx-4 px-6 py-1 bg-gray-400 text-white  rounded whitespace-no-wrap">
               取消
             </button>
           </div>

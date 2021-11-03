@@ -18,7 +18,7 @@
           <FilterModal :showItems="showItems" />
         </div>
         <div class="w-full lg:w-auto flex justify-end">
-          <button class="px-4 py-2 bg-second-blue text-white text-sm mx-1 rounded whitespace-no-wrap">
+          <button class="px-4 py-2 btn-blue text-white text-sm mx-1 rounded whitespace-no-wrap">
             <i class="fas fa-plus mr-1"></i>匯入學生清單
           </button>
           <button @click="toManage" class="px-4 py-2 btn-red text-white  text-sm mx-1 rounded whitespace-no-wrap">
@@ -35,27 +35,27 @@
         <template scope="props" slot="actionsBtn" class="flex items-center">
           <td data-th="執行動作">
             <button @click="toEditAccount"
-              class="text-primary-normal hover:text-black-1 hover:bg-gray-600 mx-1"
+              class="text-primary-normal hover:text-black-1 mx-1"
               >
               <img src="@/assets/img/icons/edit.svg" alt="" class="w-8 object-contain">
             </button>
             <button @click="openDetail"
-              class="text-primary-normal hover:text-black-1 hover:bg-gray-600 mx-1"
+              class="text-primary-normal hover:text-black-1 mx-1"
               >
               <img src="@/assets/img/icons/more.svg" alt="" class="w-8 object-contain">
             </button>
             <button @click="toPoint"
-              class="hover:text-black-1 hover:bg-gray-600 mx-1"
+              class="hover:text-black-1 mx-1"
               >
               <img src="@/assets/img/icons/tick.svg" alt="" class="w-8 object-contain">
             </button>
             <button @click="toSectionalDrawing(props.item.id)"
-              class="hover:text-black-1 hover:bg-gray-600 mx-1"
+              class="hover:text-black-1 mx-1"
               >
               <img src="@/assets/img/icons/ability.svg" alt="" class="w-8 object-contain">
             </button>
             <button @click="del(props.item.id)"
-              class="text-primary-normal hover:text-black-1 hover:bg-gray-600 mx-1 ml-3"
+              class="text-primary-normal hover:text-black-1 mx-1 ml-3"
               >
               <img src="@/assets/img/icons/delete.svg" alt="" class="w-8 object-contain">
             </button>

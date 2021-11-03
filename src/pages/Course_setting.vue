@@ -40,12 +40,12 @@
 
                     <div class="flex items-center mx-2">
                       <button
-                        class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
+                        class="text-primary-normal hover:text-black-1  mx-1"
                         >
                         <img src="@/assets/img/icons/edit.svg" alt="" class="w-8 object-contain">
                       </button>
                       <button
-                        class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
+                        class="text-primary-normal hover:text-black-1  mx-1"
                         >
                         <img src="@/assets/img/icons/delete.svg" alt="" class="w-8 object-contain">
                       </button>
@@ -74,12 +74,12 @@
 
                     <div class="flex items-center mx-2">
                       <button
-                        class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
+                        class="text-primary-normal hover:text-black-1  mx-1"
                         >
                         <img src="@/assets/img/icons/edit.svg" alt="" class="w-8 object-contain">
                       </button>
                       <button
-                        class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
+                        class="text-primary-normal hover:text-black-1  mx-1"
                         >
                         <img src="@/assets/img/icons/delete.svg" alt="" class="w-8 object-contain">
                       </button>
@@ -141,11 +141,11 @@
                       </div>
                     </div>
                     <div class="flex justify-center items-center">
-                      <button class="mx-4 px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 rounded whitespace-no-wrap">
+                      <button class="mx-4 px-4 py-2 bg-gray-900 text-white  rounded whitespace-no-wrap">
                         停課
                       </button>
 
-                      <button class="mx-4 px-4 py-2 bg-gray-400 text-white  hover:bg-gray-600 rounded whitespace-no-wrap">
+                      <button class="mx-4 px-4 py-2 bg-gray-400 text-white  rounded whitespace-no-wrap">
                         取消
                       </button>
                     </div>

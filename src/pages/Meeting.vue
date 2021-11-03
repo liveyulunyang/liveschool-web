@@ -49,7 +49,7 @@
             <td data-th="紀錄" class="bg-white">
               <MeetingModal :showfirstModal="showModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" />
               <button
-                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1">
+                class="text-primary-normal hover:text-black-1  mx-1">
                 <!-- <img :src="require('@/assets/img/icons/film.svg')" alt="" class="h-8 object-contain noData"> -->
                 <img src="@/assets/img/icons/film_active.svg" alt="" class="h-8 object-contain hasData">
               </button>
@@ -58,12 +58,12 @@
           <template slot="actionsBtn">
             <td data-th="執行動作" class="bg-white">
               <button @click="toManage()"
-                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
+                class="text-primary-normal hover:text-black-1  mx-1"
                 >
                 <img src="@/assets/img/icons/edit.svg" alt="" class="w-8 object-contain">
               </button>
               <button @click="del()"
-                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
+                class="text-primary-normal hover:text-black-1  mx-1"
                 >
                 <img src="@/assets/img/icons/delete.svg" alt="" class="w-8 object-contain">
               </button>

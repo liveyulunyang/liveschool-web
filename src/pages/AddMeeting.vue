@@ -7,7 +7,7 @@
     <div class="flex justify-between">
       <ul class="flex cursor-pointer text-sm">
         <li class="py-2 mr-1">
-          <button @click="$router.push({ name: 'meeting' })" class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
+          <button @click="$router.push({ name: 'meeting' })" class="px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
             <i class="fas fa-chevron-left mr-1"></i>返回
           </button>
         </li>

@@ -3,8 +3,8 @@
     <div class="flex items-start">
       <div class="flex flex-col w-full" v-if="$store.state.userRole === 'director'">
 
-        <div class="mb-4 flex justify-between items-center flex-wrap">
-          <div>
+        <div class="mb-4 flex justify-between flex-wrap">
+          <div class="flex justify-between flex-col">
             <Title :title="'我的課程'" />
             <div class="menu-bar flex items-center mb-2 flex-wrap">
               <div class="flex items-center">

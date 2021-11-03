@@ -19,10 +19,10 @@
         </div>
         <div class="flex justify-end items-center">
           <ExportBtn />
-          <!-- <button class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
+          <!-- <button class="px-4 py-2 bg-gray-900 text-white  text-sm mx-1 rounded whitespace-no-wrap">
             <i class="fas fa-plus mr-1"></i> 匯出報表
           </button> -->
-          <!-- <Button @click="toManage" class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
+          <!-- <Button @click="toManage" class="px-4 py-2 bg-gray-900 text-white  text-sm mx-1 rounded whitespace-no-wrap">
             <i class="fas fa-plus mr-1"></i> 新增分校
           </Button> -->
         </div>
@@ -36,12 +36,12 @@
           <template slot="actionsBtn">
             <td data-th="執行動作">
               <button @click="$router.push({ name: 'Learn_record_supervise' })"
-                class="bg-gray-900 text-white hover:text-black-1  hover:bg-gray-600 mx-1 w-8 h-8 rounded actionBtn"
+                class="bg-gray-900 text-white hover:text-black-1  mx-1 w-8 h-8 rounded actionBtn"
                 >
                 <i class="far fa-folder-open text-lg"></i>
               </button>
               <button @click="$router.push({ name: 'PointsTrading' })"
-                class="bg-gray-900 text-white hover:text-black-1  hover:bg-gray-600 mx-1 w-8 h-8 rounded actionBtn"
+                class="bg-gray-900 text-white hover:text-black-1  mx-1 w-8 h-8 rounded actionBtn"
                 >
                 <i class="fas fa-ticket-alt text-lg"></i>
               </button>

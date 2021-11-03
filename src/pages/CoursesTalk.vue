@@ -16,10 +16,10 @@
         <FilterModal :showItems="showItems" />
 
         <div class="flex justify-end items-center">
-          <button class="px-4 py-2 bg-second-blue text-white text-sm mx-1 rounded whitespace-no-wrap">
+          <button class="px-4 py-2 btn-blue text-white text-sm mx-1 rounded whitespace-no-wrap">
             批次匯入
           </button>
-          <button @click="toEdit" class="px-4 py-2 bg-second-blue-light text-white text-sm mx-1 rounded whitespace-no-wrap">
+          <button @click="toEdit" class="px-4 py-2 btn-green text-white text-sm mx-1 rounded whitespace-no-wrap">
             編輯模板
           </button>
           <button @click="addClass" class="px-4 py-2 btn-red text-white text-sm mx-1 rounded whitespace-no-wrap">
@@ -48,11 +48,11 @@
           <template slot="recordBtn">
             <td data-th="紀錄">
               <button @click="preClass()"
-                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1">
+                class="text-primary-normal hover:text-black-1  mx-1">
                 <img :src="require('@/assets/img/icons/list.svg')" alt="" class="h-8 object-contain noData">
               </button>
               <button @click="reviewClass()"
-                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1">
+                class="text-primary-normal hover:text-black-1  mx-1">
                 <img :src="require('@/assets/img/icons/film.svg')" alt="" class="h-8 object-contain noData">
                 <!-- <img src="@/assets/img/icons/film_active.svg" alt="" class="h-8 object-contain hasData"> -->
               </button>
@@ -61,19 +61,19 @@
           <template slot="supplementaryMaterialsBtn">
             <td data-th="補充教材">
               <button
-                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
+                class="text-primary-normal hover:text-black-1  mx-1"
                 >
                 <!-- <img src="@/assets/img/icons/file.svg" alt="" class="h-6 object-contain noData"> -->
                 <img :src="require('@/assets/img/icons/file_active.svg')" alt="" class="h-6 object-contain hasData">
               </button>
               <button @click="toPreview"
-                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
+                class="text-primary-normal hover:text-black-1  mx-1"
                 >
                 <!-- <img src="@/assets/img/icons/before_test.svg" alt="" class="h-6 object-contain noData"> -->
                 <img :src="require('@/assets/img/icons/before_test_active.svg')" alt="" class="h-6 object-contain hasData">
               </button>
               <button @click="toReview"
-                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1 isActive"
+                class="text-primary-normal hover:text-black-1  mx-1 isActive"
                 >
                 <!-- <img src="@/assets/img/icons/after_test.svg" alt="" class="h-6 object-contain noData"> -->
                 <img :src="require('@/assets/img/icons/after_test_active.svg')" alt="" class="h-6 object-contain hasData">
@@ -83,17 +83,17 @@
           <template scope="props" slot="actionsBtn">
             <td data-th="執行動作">
               <button @click="edit(props.item.id)"
-                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
+                class="text-primary-normal hover:text-black-1  mx-1"
                 >
                 <img :src="require('@/assets/img/icons/edit.svg')" alt="" class="w-8 object-contain">
               </button>
               <button @click="open(props.item.id)"
-                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
+                class="text-primary-normal hover:text-black-1  mx-1"
                 >
                 <img :src="require('@/assets/img/icons/more.svg')" alt="" class="w-8 object-contain">
               </button>
               <button @click="del(props.item.id)"
-                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
+                class="text-primary-normal hover:text-black-1  mx-1"
                 >
                 <img :src="require('@/assets/img/icons/delete.svg')" alt="" class="w-8 object-contain">
               </button>

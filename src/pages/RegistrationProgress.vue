@@ -6,11 +6,11 @@
           <Title :title="'LiveTeacher報名進度'" />
         </div>
       </div>
-      <div class="flex items-center justify-between w-full flex-wrap  mb-4">
+      <div class="flex items-center justify-between w-full flex-wrap lg:flex-no-wrap mb-4">
         <FilterModal :showItems="showItems" />
 
         <div class="w-full lg:w-auto flex justify-end">
-          <button @click="addClass" class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm mx-1 whitespace-no-wrap">
+          <button @click="addClass" class="px-4 py-2 btn-red text-white text-sm mx-1 whitespace-no-wrap rounded">
             <i class="fas fa-plus mr-1"></i> 新增報名
           </button>
         </div>
@@ -33,7 +33,7 @@
           <template slot="actionsBtn">
             <td data-th="課程資料">
               <button @click="openModal"
-                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
+                class="text-primary-normal hover:text-black-1  mx-1"
                 >
                 <img :src="require('@/assets/img/icons/more.svg')" alt="" class="w-8 object-contain">
               </button>

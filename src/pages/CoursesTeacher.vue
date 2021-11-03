@@ -15,7 +15,7 @@
         <FilterModal :showItems="showItems" />
 
         <div class="flex justify-end items-center">
-          <button class="px-4 py-2 bg-second-blue text-white text-sm mx-1 rounded whitespace-no-wrap">
+          <button class="px-4 py-2 btn-blue text-white text-sm mx-1 rounded whitespace-no-wrap">
             批次匯入
           </button>
           <button @click="addClass" class="px-4 py-2  btn-red text-white text-sm mx-1 rounded whitespace-no-wrap">
@@ -32,17 +32,17 @@
           <template scope="props" slot="actionsBtn">
             <td data-th="課程動作">
               <button @click="edit(props.item.id)"
-                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
+                class="text-primary-normal hover:text-black-1  mx-1"
                 >
                 <img :src="require('@/assets/img/icons/edit.svg')" alt="" class="w-8 object-contain">
               </button>
               <button @click="openModal"
-                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
+                class="text-primary-normal hover:text-black-1  mx-1"
                 >
                 <img :src="require('@/assets/img/icons/more.svg')" alt="" class="w-8 object-contain">
               </button>
               <button @click="del(props.item.id)"
-                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
+                class="text-primary-normal hover:text-black-1  mx-1"
                 >
                 <img :src="require('@/assets/img/icons/delete.svg')" alt="" class="w-8 object-contain">
               </button>
@@ -51,17 +51,17 @@
           <template slot="RegistrationReview">
             <td data-th="報名審核動作">
               <button @click="toAudit()"
-                class="text-white bg-gray-900 hover:text-black-1 hover:bg-gray-600 mx-1 px-3 py-2 rounded"
+                class="text-white bg-gray-900 hover:text-black-1 mx-1 px-3 py-2 rounded"
                 >
                 查看<i class="fas fa-arrow-right ml-1"></i>
               </button>
               <!-- <button @click="toAudit()"
-                class="border border-gray-900 hover:text-black-1 hover:bg-gray-600 mx-1 px-3 py-2 rounded"
+                class="border border-gray-900 hover:text-black-1 mx-1 px-3 py-2 rounded"
                 >
                 額滿<i class="far fa-folder-open ml-1"></i>
               </button> -->
               <!-- <button @click="toAudit()"
-                class="border border-gray-900 hover:text-black-1 hover:bg-gray-600 mx-1 px-3 py-2 rounded"
+                class="border border-gray-900 hover:text-black-1 mx-1 px-3 py-2 rounded"
                 >
                 紀錄<i class="far fa-folder-open ml-1"></i>
               </button> -->

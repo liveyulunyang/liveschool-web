@@ -1,5 +1,5 @@
 <template>
-  <button class="px-4 py-2 bg-second-blue text-white text-sm mx-1 rounded whitespace-no-wrap" @click="exportAction">
+  <button class="px-4 py-2 btn-blue text-white text-sm mx-1 rounded whitespace-no-wrap" @click="exportAction">
     <i class="fas fa-arrow-down mr-1"></i>{{ title }}
   </button>
 </template>

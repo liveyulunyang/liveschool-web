@@ -8,7 +8,7 @@
 
       </div>
       <div class="flex justify-between items-center w-full flex-wrap mb-4">
-        <button @click="$router.back(-1)" class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap w-full lg:w-auto">
+        <button @click="$router.back(-1)" class="px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap w-full lg:w-auto">
           <i class="fas fa-chevron-left mr-1"></i>返回
         </button>
         <div class="flex items-center flex-wrap w-full lg:w-11/12 justify-between px-2 bg-white text-sm shadow-md">
@@ -51,17 +51,17 @@
             <span class="lg:hidden">ID: </span>
             <div class="flex">
               <router-link :to="{ name: 'addTeacherClass', params: { status: 'edit' }}"
-                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
+                class="text-primary-normal hover:text-black-1  mx-1"
                 >
                 <img :src="require('@/assets/img/icons/edit.svg')" alt="" class="w-8 object-contain">
               </router-link>
               <button
-                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
+                class="text-primary-normal hover:text-black-1  mx-1"
                 >
                 <img :src="require('@/assets/img/icons/more.svg')" alt="" class="w-8 object-contain">
               </button>
               <button @click="del"
-                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
+                class="text-primary-normal hover:text-black-1  mx-1"
                 >
                 <img :src="require('@/assets/img/icons/delete.svg')" alt="" class="w-8 object-contain">
               </button>
@@ -89,7 +89,7 @@
           <template slot="RegistrationReview">
             <td data-th="報名審核動作">
               <button @click="showfirstModal = true"
-                class="text-white bg-gray-900 hover:text-black-1  hover:bg-gray-600 mx-1 px-2 py-1 rounded"
+                class="text-white bg-gray-900 hover:text-black-1  mx-1 px-2 py-1 rounded"
                 >
                 審核<i class="fas fa-arrow-right ml-1"></i>
               </button>

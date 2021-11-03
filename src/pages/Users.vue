@@ -16,13 +16,13 @@
       <div class="flex items-center w-full flex-wrap lg:flex-no-wrap mb-4">
         <FilterModal :showItems="showItems" />
         <div class="flex justify-end items-center">
-          <button @click="toRecyle" class="px-4 py-2 bg-second-blue-light text-white text-sm mx-1 rounded whitespace-no-wrap">
+          <button @click="toRecyle" class="px-4 py-2 btn-green text-white text-sm mx-1 rounded whitespace-no-wrap">
             <i class="fas fa-trash-alt mr-1"></i> 帳號回收中心
           </button>
-          <button class="px-4 py-2 bg-second-blue text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
+          <button class="px-4 py-2 btn-blue text-white text-sm mx-1 rounded whitespace-no-wrap">
             <i class="fas fa-plus mr-1"></i> 匯入帳號
           </button>
-          <button @click="toManage" class="px-4 py-2 btn-red text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
+          <button @click="toManage" class="px-4 py-2 btn-red text-white  text-sm mx-1 rounded whitespace-no-wrap">
             <i class="fas fa-plus mr-1"></i> 新增帳號
           </button>
         </div>
@@ -36,17 +36,17 @@
           <template slot="actionsBtn">
             <td data-th="執行動作" class="bg-white">
               <button @click="edit()"
-                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
+                class="text-primary-normal hover:text-black-1  mx-1"
                 >
                 <img src="@/assets/img/icons/edit.svg" alt="" class="w-8 object-contain">
               </button>
               <button @click="open()"
-                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
+                class="text-primary-normal hover:text-black-1  mx-1"
                 >
                 <img src="@/assets/img/icons/more.svg" alt="" class="w-8 object-contain">
               </button>
               <button @click="del()"
-                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
+                class="text-primary-normal hover:text-black-1  mx-1"
                 >
                 <img src="@/assets/img/icons/delete.svg" alt="" class="w-8 object-contain">
               </button>

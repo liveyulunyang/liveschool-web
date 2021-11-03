@@ -14,14 +14,14 @@
         <li class="c-nav__menuitem" v-for="(item, index) in menuListItem" :key="index">
           <router-link :to="item.url"
               :class="{ 'active': item.isActive }"
-              class="flex items-center py-4 px-6 text-blue-main-mid hover:border-l-3 hover:border-solid hover:border-primary-normal  hover:bg-gray-600 hover:text-primary-normal">
+              class="flex items-center py-4 px-6 text-blue-main-mid hover:border-l-3 hover:border-solid hover:border-primary-normal  hover:text-primary-normal">
             <i :class="item.icon"></i>
             <span class="ml-3 text-sm font-bold">{{ item.title }}</span>
           </router-link>
         </li>
         <li class="c-nav__menuitem">
           <router-link :to="{ name: 'SelectLesson' }"
-              class="flex items-center py-4 px-6 text-blue-main-mid hover:border-l-3 hover:border-solid hover:border-primary-normal  hover:bg-gray-600 hover:text-primary-normal">
+              class="flex items-center py-4 px-6 text-blue-main-mid hover:border-l-3 hover:border-solid hover:border-primary-normal  hover:text-primary-normal">
             <i class="fas fa-school"></i>
             <span class="ml-3 text-sm font-bold">學習平台</span>
           </router-link>

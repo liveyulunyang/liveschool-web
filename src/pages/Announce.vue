@@ -23,17 +23,17 @@
             <div class="w-full md:w-1/4 flex flex-col justify-center items-end">
               <div class="flex mb-4 order-2 md:order-1">
                 <button @click="openModal(false)"
-                  class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
+                  class="text-primary-normal hover:text-black-1  mx-1"
                   >
                   <img src="@/assets/img/icons/more.svg" alt="" class="w-8 object-contain">
                 </button>
                 <button @click="openModal(true)"
-                  class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
+                  class="text-primary-normal hover:text-black-1  mx-1"
                   >
                   <img src="@/assets/img/icons/edit.svg" alt="" class="w-8 object-contain">
                 </button>
                 <button @click="del()"
-                  class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
+                  class="text-primary-normal hover:text-black-1  mx-1"
                   >
                   <img src="@/assets/img/icons/delete.svg" alt="" class="w-8 object-contain">
                 </button>

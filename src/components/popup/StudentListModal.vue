@@ -5,7 +5,7 @@
         <div class="flex items-center">
           <input type="email" placeholder="輸入帳號信箱加入學生" class="py-1 px-1">
           <a class="block text-lg text-white bg-gray-800 p-1 px-2 mx-2 rounded cursor-pointer"><i class="fas fa-user-plus"></i></a>
-          <button @click="importList" class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
+          <button @click="importList" class="px-4 py-2 bg-gray-900 text-white  text-sm mx-1 rounded whitespace-no-wrap">
             <i class="fas fa-plus mr-1"></i> 匯入名單
           </button>
         </div>
@@ -43,7 +43,7 @@
             <template slot="actionsBtn">
               <td data-th="執行動作">
                 <button @click="del"
-                  class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1"
+                  class="text-primary-normal hover:text-black-1  mx-1"
                   >
                   <img :src="require('@/assets/img/icons/delete.svg')" alt="" class="w-8 object-contain">
                 </button>

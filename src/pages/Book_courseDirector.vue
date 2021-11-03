@@ -11,7 +11,7 @@
           <FilterModal :showItems="showItems" />
         </div>
         <div class="flex justify-end items-center"  v-if="$store.state.userRole === 'director'">
-          <button @click="addBook" class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
+          <button @click="addBook" class="px-4 py-2 btn-red text-white  text-sm mx-1 rounded whitespace-no-wrap">
             <i class="fas fa-plus mr-1"></i> 新增預約
           </button>
         </div>
@@ -35,12 +35,12 @@
           <template slot="actionsBtn">
             <td data-th="紀錄">
               <button @click="openModal"
-                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1 text-white bg-gray-900 px-2 py-1 rounded text-lg"
+                class="text-primary-normal hover:text-black-1  mx-1 text-white bg-gray-900 px-2 py-1 rounded text-lg"
                 >
                 <i class="fas fa-clipboard-list"></i>
               </button>
               <button @click="openModal"
-                class="text-primary-normal hover:text-black-1  hover:bg-gray-600 mx-1 text-white bg-gray-900 px-2 py-1 rounded text-lg"
+                class="text-primary-normal hover:text-black-1  mx-1 text-white bg-gray-900 px-2 py-1 rounded text-lg"
                 >
                 <i class="fas fa-film"></i>
               </button>

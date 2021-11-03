@@ -37,7 +37,7 @@
               <div class="control__indicator"></div>
             </label>
 
-            <button @click="step = 1" class="mx-4 px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
+            <button @click="step = 1" class="mx-4 px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
               下一步
             </button>
           </div>
@@ -99,11 +99,11 @@
             </div>
           </div>
           <div class="flex justify-center items-center">
-            <button @click="step = 0" class="mx-4 px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
+            <button @click="step = 0" class="mx-4 px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
               上一步
             </button>
 
-            <button @click="step = 2" class="mx-4 px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
+            <button @click="step = 2" class="mx-4 px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
               下一步
             </button>
           </div>
@@ -111,11 +111,11 @@
         <div v-if="step === 2">
           <Drag class="mb-4" />
           <div class="flex justify-center items-center">
-            <button @click="step = 1" class="mx-4 px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
+            <button @click="step = 1" class="mx-4 px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
               上一步
             </button>
 
-            <button @click="step = 3" class="mx-4 px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
+            <button @click="step = 3" class="mx-4 px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
               下一步
             </button>
           </div>
@@ -147,7 +147,7 @@
             </div>
           </div>
           <div class="flex justify-center items-center">
-            <button @click="step = 2" class="mx-4 px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
+            <button @click="step = 2" class="mx-4 px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
               上一步
             </button>
           </div>

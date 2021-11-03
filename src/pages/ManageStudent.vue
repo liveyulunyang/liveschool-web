@@ -5,7 +5,7 @@
 
     <div class="flex w-full mt-8 items-center">
       <div class="mr-6">
-        <Button @click="$router.back(-1)" class="px-4 py-2 bg-primary-normal text-white  hover:bg-gray-600 text-sm mx-1 rounded whitespace-no-wrap">
+        <Button @click="$router.back(-1)" class="px-4 py-2 bg-primary-normal text-white  text-sm mx-1 rounded whitespace-no-wrap">
           <i class="fas fa-chevron-left"></i>返回
         </Button>
       </div>

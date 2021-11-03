@@ -22,13 +22,13 @@
                 <div class="w-1/3 xl:w-1/12">C8</div>
                 <!-- <div class="w-1/3 xl:w-1/12">88</div> -->
                 <div class="w-1/12 hidden xl:block">
-                  <button class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
+                  <button class="px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
                     加入
                   </button>
                 </div>
               </div>
               <!-- <div class="w-1/4 xl:hidden flex justify-end">
-                <button class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
+                <button class="px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
                   選擇
                 </button>
               </div> -->
@@ -60,13 +60,13 @@
                 <div class="w-1/3 xl:w-1/12">C8</div>
                 <!-- <div class="w-1/3 xl:w-1/12">88</div> -->
                 <div class="w-1/12 hidden xl:block">
-                  <button class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
+                  <button class="px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
                     移除
                   </button>
                 </div>
               </div>
               <!-- <div class="w-1/4 xl:hidden flex justify-end">
-                <button class="px-4 py-2 bg-gray-900 text-white  hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
+                <button class="px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
                   移除
                 </button>
               </div> -->
