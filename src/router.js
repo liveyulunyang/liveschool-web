@@ -45,7 +45,7 @@ const router = new Router({
           component: () => import('@/pages/UsersRecycle.vue')
         },
         {
-          path: '/courses',
+          path: '/courses_talk',
           name: 'courses',
           component: () => import('@/pages/CoursesTalk.vue')
         },
@@ -55,7 +55,7 @@ const router = new Router({
           component: () => import('@/pages/RegistrationProgress.vue')
         },
         {
-          path: '/CoursesTeacher',
+          path: '/courses_teacher',
           name: 'CoursesTeacher',
           component: () => import('@/pages/CoursesTeacher.vue')
         },
@@ -65,7 +65,7 @@ const router = new Router({
           component: () => import('@/pages/CoursesTeacher_Audit.vue')
         },
         {
-          path: '/CoursesClass',
+          path: '/courses_class',
           name: 'CoursesClass',
           component: () => import('@/pages/CoursesClass.vue')
         },

@@ -8,7 +8,7 @@
 
       </div>
       <div class="flex justify-between items-center w-full flex-wrap mb-4">
-        <button @click="$router.back(-1)" class="px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap w-full lg:w-auto">
+        <button @click="$router.back(-1)" class="px-4 py-2 btn-main text-white text-sm rounded whitespace-no-wrap w-full lg:w-auto">
           <i class="fas fa-chevron-left mr-1"></i>返回
         </button>
         <div class="flex items-center flex-wrap w-full lg:w-11/12 justify-between px-2 bg-white text-sm shadow-md">
@@ -51,19 +51,19 @@
             <span class="lg:hidden">ID: </span>
             <div class="flex">
               <router-link :to="{ name: 'addTeacherClass', params: { status: 'edit' }}"
-                class="text-primary-normal hover:text-black-1  mx-1"
+                class="mx-1 table-btn-actions rounded"
                 >
-                <img :src="require('@/assets/img/icons/edit.svg')" alt="" class="w-8 object-contain">
+                <i class="fas fa-edit"></i>
               </router-link>
               <button
-                class="text-primary-normal hover:text-black-1  mx-1"
+                class="mx-1 table-btn-actions rounded"
                 >
-                <img :src="require('@/assets/img/icons/more.svg')" alt="" class="w-8 object-contain">
+                <i class="far fa-folder-open"></i>
               </button>
-              <button @click="del"
-                class="text-primary-normal hover:text-black-1  mx-1"
+              <button @click="del()"
+                class="mx-1 table-btn-actions rounded"
                 >
-                <img :src="require('@/assets/img/icons/delete.svg')" alt="" class="w-8 object-contain">
+                <i class="far fa-trash-alt"></i>
               </button>
             </div>
           </div>

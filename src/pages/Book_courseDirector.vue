@@ -34,13 +34,13 @@
           </template>
           <template slot="actionsBtn">
             <td data-th="紀錄">
-              <button @click="openModal"
-                class="text-primary-normal hover:text-black-1  mx-1 text-white bg-gray-900 px-2 py-1 rounded text-lg"
+              <button @click="openModal()"
+                class="mx-1 table-btn-record rounded"
                 >
                 <i class="fas fa-clipboard-list"></i>
               </button>
-              <button @click="openModal"
-                class="text-primary-normal hover:text-black-1  mx-1 text-white bg-gray-900 px-2 py-1 rounded text-lg"
+              <button @click="openModal()"
+                class="mx-1 table-btn-record rounded"
                 >
                 <i class="fas fa-film"></i>
               </button>

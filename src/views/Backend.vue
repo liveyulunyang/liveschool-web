@@ -198,17 +198,17 @@ export default {
           {
             icon: "fas fa-comments",
             title: "課程管理",
-            url: "/courses"
+            url: "/courses_talk"
           },
           {
             icon: "fas fa-chalkboard-teacher",
             title: "Live Teacher",
-            url: "/CoursesTeacher"
+            url: "/courses_teacher"
           },
           {
             icon: "fab fa-youtube",
             title: "Live Class",
-            url: "/CoursesClass"
+            url: "/courses_class"
           },
           {
             icon: "fas fa-list-ul",

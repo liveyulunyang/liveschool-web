@@ -8,13 +8,13 @@
         </div>
         <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row">
           <div class="flex items-center justify-start flex-wrap">
-            <button @click="$router.back(-1)" class="mr-3 px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
+            <button @click="$router.back(-1)" class="mr-3 px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
               <i class="fas fa-chevron-left mr-1"></i>返回
             </button>
             <FilterModal :showItems="showItems" />
           </div>
           <div class="w-full lg:w-auto flex justify-end items-center">
-            <Button @click="addClass" class="px-4 py-2 bg-gray-900 text-white  text-sm mx-1 rounded whitespace-no-wrap">
+            <Button @click="addClass" class="px-4 py-2 btn-red text-white  text-sm mx-1 rounded whitespace-no-wrap">
               <i class="fas fa-plus mr-1"></i> 新增模板
             </Button>
           </div>
@@ -35,35 +35,31 @@
           <template slot="supplementaryMaterialsBtn">
             <td data-th="補充教材">
               <button
-                class="text-primary-normal hover:text-black-1  mx-1"
+                class="table-btn text-white  mx-1 w-8 h-8 rounded"
                 >
-                <!-- <img src="@/assets/img/icons/file.svg" alt="" class="h-8 object-contain noData"> -->
-                <img src="@/assets/img/icons/file_active.svg" alt="" class="h-8 object-contain hasData">
+                <i class="fas fa-folder-plus"></i>
               </button>
               <button @click="toPreview"
-                class="text-primary-normal hover:text-black-1  mx-1"
+                class="table-btn mx-1 px-3 rounded"
                 >
-                <!-- <img src="@/assets/img/icons/before_test.svg" alt="" class="h-8 object-contain noData"> -->
-                <img src="@/assets/img/icons/before_test_active.svg" alt="" class="h-8 object-contain hasData">
+                <i class="fas fa-book-open mr-1"></i>課前
               </button>
               <button @click="toReview"
-                class="text-primary-normal hover:text-black-1  mx-1 isActive"
+                class="table-btn mx-1 px-3 rounded"
                 >
-                <!-- <img src="@/assets/img/icons/after_test.svg" alt="" class="h-8 object-contain noData"> -->
-                <img src="@/assets/img/icons/after_test_active.svg" alt="" class="h-8 object-contain hasData">
+                <i class="fas fa-book-open mr-1"></i>課後
               </button>
-              <!-- {{ item.materials }} -->
             </td>
           </template>
           <template slot="actionsBtn">
             <td data-th="執行動作">
               <button @click="$router.push({ name: 'Learn_record_supervise' })"
-                class="bg-gray-900 text-white hover:text-black-1  mx-1 w-8 h-8 rounded actionBtn"
+                class="table-btn text-white  mx-1 w-8 h-8 rounded"
                 >
                 <i class="far fa-folder-open text-lg"></i>
               </button>
               <button
-                class="bg-gray-900 text-white hover:text-black-1  mx-1 w-8 h-8 rounded actionBtn"
+                class="table-btn text-white mx-1 w-8 h-8 rounded"
                 >
                 <i class="fas fa-ticket-alt text-lg"></i>
               </button>
@@ -71,10 +67,15 @@
           </template>
           <template slot="startClass">
             <td data-th="開課">
-              <button
+              <!-- <button
                 class="bg-gray-900 text-white hover:text-black-1  mx-1 px-2 py-1 rounded"
                 >
                 <i class="fas fa-plus mr-1"></i> 開課
+              </button> -->
+              <button
+                class="text-white table-btn mx-1 px-3 rounded"
+                >
+                <i class="fas fa-arrow-right mr-1"></i>開課
               </button>
             </td>
           </template>

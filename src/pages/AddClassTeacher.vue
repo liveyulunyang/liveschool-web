@@ -5,33 +5,25 @@
 
   <section class="w-full mt-2 min-h-screen px-3 lg:px-6 py-4">
     <div class="flex justify-between">
-      <!-- <ul class="flex cursor-pointer text-sm">
-        <li class="py-2 mr-1">
-          <button @click="$router.back(-1)" class="px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
+      <div class="flex">
+        <div class="py-2 mr-1">
+          <button @click="$router.back(-1)" class="px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
             <i class="fas fa-chevron-left mr-1"></i>返回
           </button>
-        </li>
-        <li class="py-2 px-6 tag flex items-center justify-center mx-1" :class="{ tagAct: tag === 0 }" @click="tag = 0">課程基本資料</li>
-        <li class="py-2 px-6 tag flex items-center justify-center mx-1" :class="{ tagAct: tag === 1 }" @click="tag = 1">堂數設定</li>
-        <li class="py-2 px-6 tag flex items-center justify-center mx-1" :class="{ tagAct: tag === 2 }" @click="tag = 2">課程時間</li>
-      </ul> -->
-      <div class="py-2 mr-1">
-        <button @click="$router.back(-1)" class="px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
-          <i class="fas fa-chevron-left mr-1"></i>返回
-        </button>
+        </div>
+        <TabComponent :tag="tag" :tagArr="tagArr" v-on:tagIdx="tagIdx" />
       </div>
-      <TabComponent :tag="tag" :tagArr="tagArr" v-on:tagIdx="tagIdx" />
       <ul class="flex cursor-pointer font-semibold" v-if="tag === 1">
         <li class="py-2 mr-2">
           <p class="font-bold">已建立 <span class="text-red-800">5</span>堂</p>
         </li>
         <li class="py-2 mr-2">
-          <a class="px-4 py-2 bg-gray-500 text-white  rounded whitespace-no-wrap font-semibold">
+          <a class="px-4 py-2 btn-blue text-white rounded whitespace-no-wrap font-semibold">
             批次匯入
           </a>
         </li>
         <li class="py-2 mr-1">
-          <a class="px-4 py-2 bg-gray-900 text-white rounded whitespace-no-wrap font-semibold">
+          <a class="px-4 py-2 btn-red text-white rounded whitespace-no-wrap font-semibold">
             <i class="fas fa-plus mr-1"></i>新增課堂
           </a>
         </li>
@@ -418,42 +410,41 @@
           <div class="flex items-center">
             <div class="flex items-center mx-2">
               <button
-                class="text-primary-normal hover:text-black-1  mx-1">
-                <img :src="require('@/assets/img/icons/list.svg')" alt="" class="h-8 object-contain noData">
+                class="mx-1 table-btn-record rounded"
+                >
+                <i class="fas fa-clipboard-list"></i>
               </button>
               <button
-                class="text-primary-normal hover:text-black-1  mx-1">
-                <img :src="require('@/assets/img/icons/film.svg')" alt="" class="h-8 object-contain noData">
-                <!-- <img src="@/assets/img/icons/film_active.svg" alt="" class="h-8 object-contain hasData"> -->
+                class="mx-1 table-btn-record rounded"
+                >
+                <i class="fas fa-film"></i>
               </button>
             </div>
             <div class="flex items-center mx-2">
               <button
-                class="text-primary-normal hover:text-black-1  mx-1"
+                class="table-btn text-white  mx-1 w-8 h-8 rounded"
                 >
-                <img :src="require('@/assets/img/icons/file_active.svg')" alt="" class="h-8 object-contain hasData">
+                <i class="fas fa-folder-plus"></i>
               </button>
               <button @click="toPreview"
-                class="text-primary-normal hover:text-black-1  mx-1"
+                class="table-btn mx-1 px-3 rounded"
                 >
-                <img :src="require('@/assets/img/icons/before_test_active.svg')" alt="" class="h-8 object-contain hasData">
+                <i class="fas fa-book-open mr-1"></i>課前
               </button>
               <button @click="toReview"
-                class="text-primary-normal hover:text-black-1  mx-1 isActive"
+                class="table-btn mx-1 px-3 rounded"
                 >
-                <img :src="require('@/assets/img/icons/after_test_active.svg')" alt="" class="h-8 object-contain hasData">
+                <i class="fas fa-book-open mr-1"></i>課後
               </button>
             </div>
             <div class="flex items-center mx-2">
               <button
-                class="text-primary-normal hover:text-black-1  mx-1"
-                >
-                <img src="@/assets/img/icons/edit.svg" alt="" class="w-8 object-contain">
+                class="mx-1 table-btn-actions rounded">
+                <i class="fas fa-edit"></i>
               </button>
               <button
-                class="text-primary-normal hover:text-black-1  mx-1"
-                >
-                <img src="@/assets/img/icons/delete.svg" alt="" class="w-8 object-contain">
+                class="mx-1 table-btn-actions rounded">
+                <i class="far fa-trash-alt"></i>
               </button>
             </div>
             <div class="flex flex-col ml-4 font-light justify-center">

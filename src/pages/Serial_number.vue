@@ -29,9 +29,9 @@
           <template scope="props" slot="actionsBtn">
             <td data-th="動作">
               <button @click="del(props.item.id)"
-                class="text-primary-normal hover:text-black-1  mx-1"
+                class="mx-1 table-btn-actions rounded"
                 >
-                <img :src="require('@/assets/img/icons/delete.svg')" alt="" class="w-8 object-contain">
+                <i class="far fa-trash-alt"></i>
               </button>
             </td>
           </template>

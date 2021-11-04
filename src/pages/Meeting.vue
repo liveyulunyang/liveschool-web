@@ -48,10 +48,6 @@
           <template slot="recordBtn">
             <td data-th="紀錄" class="bg-white">
               <MeetingModal :showfirstModal="showModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" />
-              <!-- <button
-                class="text-primary-normal hover:text-black-1  mx-1">
-                <img src="@/assets/img/icons/film_active.svg" alt="" class="h-8 object-contain hasData">
-              </button> -->
               <button
                 class="mx-1 rounded table-btn-record table-btn-record--active"
                 >

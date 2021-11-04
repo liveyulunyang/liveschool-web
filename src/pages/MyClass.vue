@@ -141,7 +141,7 @@
             <div class="md:hidden">
               <CalenderDot class="mb-4" />
               <div class="mb-4 w-full flex justify-between items-center">
-                <div class="relative text-sm w-full sm:w-auto">
+                <!-- <div class="relative text-sm w-full sm:w-auto">
                   <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="invoice"
                   >
                     <option value="s">課程狀態</option>
@@ -167,7 +167,8 @@
                   <a href="" class="block">
                     <img src="@/assets/img/icons/re.svg" alt="" class="w-8">
                   </a>
-                </div>
+                </div> -->
+                <FilterModal :showItems="showItems" />
 
               </div>
               <div class="w-full flex flex-wrap items-center border-l-3 border-gray-900 bg-white py-2 pr-3 mb-2" v-for="n in 5" :key="n">
