@@ -22,7 +22,7 @@
                 <div class="w-1/3 xl:w-1/12">C8</div>
                 <!-- <div class="w-1/3 xl:w-1/12">88</div> -->
                 <div class="w-1/12 hidden xl:block">
-                  <button class="px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
+                  <button class="px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
                     加入
                   </button>
                 </div>
@@ -60,7 +60,7 @@
                 <div class="w-1/3 xl:w-1/12">C8</div>
                 <!-- <div class="w-1/3 xl:w-1/12">88</div> -->
                 <div class="w-1/12 hidden xl:block">
-                  <button class="px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
+                  <button class="px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
                     移除
                   </button>
                 </div>

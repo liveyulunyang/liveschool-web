@@ -89,7 +89,7 @@
           <template slot="RegistrationReview">
             <td data-th="報名審核動作">
               <button @click="showfirstModal = true"
-                class="text-white bg-gray-900 hover:text-black-1  mx-1 px-2 py-1 rounded"
+                class="table-btn mx-1 px-2 rounded"
                 >
                 審核<i class="fas fa-arrow-right ml-1"></i>
               </button>

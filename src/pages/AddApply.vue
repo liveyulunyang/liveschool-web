@@ -7,7 +7,7 @@
         </div>
       </div>
       <div class="flex w-full mb-4">
-        <a @click="$router.back(-1)" class="px-4 py-2 bg-gray-900 text-white text-sm rounded whitespace-no-wrap hidden lg:block">
+        <a @click="$router.back(-1)" class="px-4 py-2 btn-main text-white text-sm rounded whitespace-no-wrap hidden lg:block">
           <i class="fas fa-chevron-left mr-1"></i>取消
         </a>
         <nav class="font-bold w-full">
@@ -37,7 +37,7 @@
               <div class="control__indicator"></div>
             </label>
 
-            <button @click="step = 1" class="mx-4 px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
+            <button @click="step = 1" class="mx-4 px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
               下一步
             </button>
           </div>
@@ -86,12 +86,17 @@
                     <div class="xl:w-1/2">CTL口說升級測驗Starter</div>
                 </div>
                 <div class="w-4/5 lg:w-auto flex items-center justify-end">
-                  <button
-                    class="text-primary-normal hover:text-black-1  hover:bg-gray-600"
+                  <!-- <button
+                    class="table-btn"
                     >
                     <img src="@/assets/img/icons/more.svg" alt="" class="object-contain w-full">
+                  </button> -->
+                  <button
+                    class="mx-1 table-btn-actions rounded"
+                    >
+                    <i class="far fa-folder-open"></i>
                   </button>
-                  <button class="ml-2 xl:ml-6 px-3 py-1 bg-gray-900 text-white hover:bg-gray-700 text-sm rounded whitespace-no-wrap">
+                  <button class="ml-2 xl:ml-6 px-3 py-1 btn-main text-white hover:bg-gray-700 text-sm rounded whitespace-no-wrap">
                     選擇
                   </button>
                 </div>
@@ -99,11 +104,11 @@
             </div>
           </div>
           <div class="flex justify-center items-center">
-            <button @click="step = 0" class="mx-4 px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
+            <button @click="step = 0" class="mx-4 px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
               上一步
             </button>
 
-            <button @click="step = 2" class="mx-4 px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
+            <button @click="step = 2" class="mx-4 px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
               下一步
             </button>
           </div>
@@ -111,11 +116,11 @@
         <div v-if="step === 2">
           <Drag class="mb-4" />
           <div class="flex justify-center items-center">
-            <button @click="step = 1" class="mx-4 px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
+            <button @click="step = 1" class="mx-4 px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
               上一步
             </button>
 
-            <button @click="step = 3" class="mx-4 px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
+            <button @click="step = 3" class="mx-4 px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
               下一步
             </button>
           </div>
@@ -147,7 +152,7 @@
             </div>
           </div>
           <div class="flex justify-center items-center">
-            <button @click="step = 2" class="mx-4 px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
+            <button @click="step = 2" class="mx-4 px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
               上一步
             </button>
           </div>
@@ -268,11 +273,11 @@
           </div>
         </div>
         <!-- <div class="w-full px-3 mb-2 md:mb-4 flex justify-end">
-          <a class="px-4 py-2 bg-gray-900 m-1 cursor-pointer text-white" @click="close()"><i class="fas fa-times mr-1"></i>駁回</a>
-          <a class="px-4 py-2 bg-gray-900 m-1 cursor-pointer text-white" @click="close()"><i class="fas fa-check mr-1"></i>通過</a>
+          <a class="px-4 py-2 btn-main m-1 cursor-pointer text-white" @click="close()"><i class="fas fa-times mr-1"></i>駁回</a>
+          <a class="px-4 py-2 btn-main m-1 cursor-pointer text-white" @click="close()"><i class="fas fa-check mr-1"></i>通過</a>
         </div> -->
         <div class="w-full px-3 mb-2 md:mb-4 flex justify-center">
-          <a class="px-4 py-2 bg-gray-900 m-1 cursor-pointer text-white block w-full" @click="addBooking()"><i class="fas fa-check mr-1"></i>送出</a>
+          <a class="px-4 py-2 btn-main m-1 cursor-pointer text-white block w-full" @click="addBooking()"><i class="fas fa-check mr-1"></i>送出</a>
         </div>
       </form>
     </div>

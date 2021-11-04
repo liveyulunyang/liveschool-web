@@ -36,19 +36,19 @@
           <template slot="actionsBtn">
             <td data-th="執行動作" class="bg-white">
               <button @click="edit()"
-                class="text-primary-normal hover:text-black-1  mx-1"
+                class="mx-1 table-btn-actions rounded"
                 >
-                <img src="@/assets/img/icons/edit.svg" alt="" class="w-8 object-contain">
+                <i class="fas fa-edit"></i>
               </button>
               <button @click="open()"
-                class="text-primary-normal hover:text-black-1  mx-1"
+                class="mx-1 table-btn-actions rounded"
                 >
-                <img src="@/assets/img/icons/more.svg" alt="" class="w-8 object-contain">
+                <i class="far fa-folder-open"></i>
               </button>
               <button @click="del()"
-                class="text-primary-normal hover:text-black-1  mx-1"
+                class="mx-1 table-btn-actions rounded"
                 >
-                <img src="@/assets/img/icons/delete.svg" alt="" class="w-8 object-contain">
+                <i class="far fa-trash-alt"></i>
               </button>
             </td>
           </template>

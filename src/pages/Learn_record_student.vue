@@ -116,10 +116,10 @@
                 <!-- <button class="bg-gray-900 text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1">
                   問券調查
                 </button> -->
-                <button class="bg-gray-900 text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1" @click="showCommentModal = true">
+                <button class="table-btn px-3 rounded text-sm whitespace-no-wrap mx-1" @click="showCommentModal = true">
                   老師評語
                 </button>
-                <button class="bg-gray-900 text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1" @click="showCommentModal = true">
+                <button class="table-btn text-white px-3 rounded text-sm whitespace-no-wrap mx-1" @click="showCommentModal = true">
                   學生評語
                 </button>
               </td>
@@ -127,8 +127,10 @@
             <template slot="classDetail">
               <CalenderModel :showfirstModal="showDetailModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" />
               <td data-th="課程詳情">
-                <button class="bg-gray-900 text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1" @click="openCommentModal">
-                  <i class="fas fa-folder-open"></i>
+                <button @click="openCommentModal()"
+                  class="mx-1 table-btn-actions rounded"
+                  >
+                  <i class="far fa-folder-open"></i>
                 </button>
               </td>
             </template>

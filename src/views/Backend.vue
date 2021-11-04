@@ -252,8 +252,13 @@ export default {
           },
           {
             icon: "fas fa-info",
-            title: "系統資訊",
+            title: "系統教室資訊",
             url: "/info"
+          },
+          {
+            icon: "far fa-newspaper",
+            title: "首頁管理",
+            url: "/index_manage"
           }
         ],
         directorList: [

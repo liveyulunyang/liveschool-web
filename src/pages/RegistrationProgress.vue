@@ -32,10 +32,10 @@
           </template>
           <template slot="actionsBtn">
             <td data-th="課程資料">
-              <button @click="openModal"
-                class="text-primary-normal hover:text-black-1  mx-1"
+              <button @click="openModal()"
+                class="mx-1 table-btn-actions rounded"
                 >
-                <img :src="require('@/assets/img/icons/more.svg')" alt="" class="w-8 object-contain">
+                <i class="far fa-folder-open"></i>
               </button>
             </td>
           </template>

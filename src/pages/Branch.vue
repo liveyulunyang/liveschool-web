@@ -36,14 +36,14 @@
           <template slot="actionsBtn">
             <td data-th="執行動作">
               <button @click="$router.push({ name: 'Learn_record_supervise' })"
-                class="bg-gray-900 text-white hover:text-black-1  mx-1 w-8 h-8 rounded actionBtn"
+                class="mx-1 table-btn-actions rounded"
                 >
-                <i class="far fa-folder-open text-lg"></i>
+                <i class="far fa-folder-open"></i>
               </button>
               <button @click="$router.push({ name: 'PointsTrading' })"
-                class="bg-gray-900 text-white hover:text-black-1  mx-1 w-8 h-8 rounded actionBtn"
+                class="mx-1 table-btn-actions rounded"
                 >
-                <i class="fas fa-ticket-alt text-lg"></i>
+                <i class="fas fa-ticket-alt"></i>
               </button>
             </td>
           </template>

@@ -126,11 +126,54 @@
     outline: none;
   }
 }
-// .table-btn {
-//   background: #3D3D3D;
-//   border: 1px solid #3D3D3D;
-//   color: white;
-// }
+// 執行動作按鈕
+.table-btn-actions {
+  width: 32px;
+  height: 32px;
+  background: #0F455C;
+  color: white;
+  font-size: 18px;
+  line-height: 32px;
+  &:hover {
+    background: #011F2C;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+// 只有icon
+.table-btn {
+  background: #0F455C;
+  color: white;
+  height: 32px;
+  line-height: 32px;
+  &:hover {
+    background: #011F2C;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+// 紀錄
+.table-btn-record {
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+  line-height: 32px;
+  color: #0F455C;
+  border: 1px solid #0F455C;
+  &:hover {
+    background: #0F455C;
+    color: white;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+.table-btn-record--active {
+  background: #0F455C;
+  color: white;
+}
 // .table-btn--active {
 //   background: #3D3D3D;
 //   border: 1px solid #3D3D3D;
@@ -141,3 +184,18 @@
 //   border: 1px solid #3D3D3D;
 //   color: white;
 // }
+
+// other
+.svg-btn {
+  .hover-btn {
+    display: none;
+  }
+  &:hover {
+    .default-btn {
+      display: none;
+    }
+    .hover-btn {
+      display: block;
+    }
+  }
+}

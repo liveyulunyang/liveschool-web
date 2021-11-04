@@ -431,19 +431,16 @@
               <button
                 class="text-primary-normal hover:text-black-1  mx-1"
                 >
-                <!-- <img src="@/assets/img/icons/file.svg" alt="" class="h-8 object-contain noData"> -->
                 <img :src="require('@/assets/img/icons/file_active.svg')" alt="" class="h-8 object-contain hasData">
               </button>
               <button @click="toPreview"
                 class="text-primary-normal hover:text-black-1  mx-1"
                 >
-                <!-- <img src="@/assets/img/icons/before_test.svg" alt="" class="h-8 object-contain noData"> -->
                 <img :src="require('@/assets/img/icons/before_test_active.svg')" alt="" class="h-8 object-contain hasData">
               </button>
               <button @click="toReview"
                 class="text-primary-normal hover:text-black-1  mx-1 isActive"
                 >
-                <!-- <img src="@/assets/img/icons/after_test.svg" alt="" class="h-8 object-contain noData"> -->
                 <img :src="require('@/assets/img/icons/after_test_active.svg')" alt="" class="h-8 object-contain hasData">
               </button>
             </div>

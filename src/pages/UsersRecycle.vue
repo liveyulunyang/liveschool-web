@@ -27,15 +27,15 @@
           </template>
           <template slot="actionsBtn">
             <td data-th="執行動作" class="flex items-center justify-center bg-white">
-              <button @click="recyle"
-                class="text-white bg-gray-900 mx-1 py-1 px-2 rounded"
+              <button @click="recyle()"
+                class="table-btn mx-1 px-3 rounded"
                 >
                 <i class="fas fa-redo-alt mr-1"></i>回復
               </button>
               <button @click="open()"
-                class="mx-1"
+                class="mx-1 table-btn-actions rounded"
                 >
-                <img src="@/assets/img/icons/more.svg" alt="" class="w-8 object-contain">
+                <i class="far fa-folder-open"></i>
               </button>
             </td>
           </template>

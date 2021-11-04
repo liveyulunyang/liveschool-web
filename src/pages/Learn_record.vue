@@ -24,9 +24,9 @@
           <template scope="props" slot="actionsBtn">
             <td data-th="執行動作">
               <button @click="open(props.item.id)"
-                class="text-primary-normal hover:text-black-1  mx-1"
+                class="mx-1 table-btn-actions rounded"
                 >
-                <img src="@/assets/img/icons/more.svg" alt="" class="w-8 object-contain">
+                <i class="far fa-folder-open"></i>
               </button>
             </td>
           </template>

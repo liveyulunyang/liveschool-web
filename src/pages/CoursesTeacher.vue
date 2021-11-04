@@ -32,26 +32,26 @@
           <template scope="props" slot="actionsBtn">
             <td data-th="課程動作">
               <button @click="edit(props.item.id)"
-                class="text-primary-normal hover:text-black-1  mx-1"
+                class="mx-1 table-btn-actions rounded"
                 >
-                <img :src="require('@/assets/img/icons/edit.svg')" alt="" class="w-8 object-contain">
+                <i class="fas fa-edit"></i>
               </button>
               <button @click="openModal"
-                class="text-primary-normal hover:text-black-1  mx-1"
+                class="mx-1 table-btn-actions rounded"
                 >
-                <img :src="require('@/assets/img/icons/more.svg')" alt="" class="w-8 object-contain">
+                <i class="far fa-folder-open"></i>
               </button>
               <button @click="del(props.item.id)"
-                class="text-primary-normal hover:text-black-1  mx-1"
+                class="mx-1 table-btn-actions rounded"
                 >
-                <img :src="require('@/assets/img/icons/delete.svg')" alt="" class="w-8 object-contain">
+                <i class="far fa-trash-alt"></i>
               </button>
             </td>
           </template>
           <template slot="RegistrationReview">
             <td data-th="報名審核動作">
               <button @click="toAudit()"
-                class="text-white bg-gray-900 hover:text-black-1 mx-1 px-3 py-2 rounded"
+                class="text-white table-btn mx-1 px-3 rounded"
                 >
                 查看<i class="fas fa-arrow-right ml-1"></i>
               </button>

@@ -1,6 +1,7 @@
 <template>
   <main class="p-6" id="myclass">
     <div class="flex items-start">
+      <!-- 主任 -->
       <div class="flex flex-col w-full" v-if="$store.state.userRole === 'director'">
 
         <div class="mb-4 flex justify-between flex-wrap">
@@ -56,37 +57,7 @@
                 </section>
               </div> -->
               <div class="flex items-center text-xs flex-wrap" v-if="!isCalender">
-                <div class="mx-1">
-                  <date-picker
-                    v-model="periodTime"
-                    type="date" range placeholder="選擇時間區間"
-                    :input-class="'mx-input text-xs'"></date-picker>
-                </div>
-                <div class="relative w-auto mx-1">
-                  <select class="block appearance-none w-full py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="maxNum"
-                    >
-                    <option value="31">課程狀態</option>
-                  </select>
-                  <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
-                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                  </div>
-                </div>
-                <div class="relative w-auto mx-1">
-                  <select class="block appearance-none w-full py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="maxNum"
-                    >
-                    <option value="31">選擇搜尋欄位</option>
-                  </select>
-                  <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
-                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                  </div>
-                </div>
-                <div class="flex bg-white">
-                  <input type="text" placeholder="輸入關鍵字搜尋" name="search" class="py-2 px-2 border-0 focus:outline-none w-32">
-                  <button type="submit" class="px-2"><i class="fa fa-search"></i></button>
-                </div>
-                <a href="" class="block ml-1">
-                  <img src="@/assets/img/icons/re.svg" alt="" class="w-8">
-                </a>
+                <FilterModal :showItems="showItems" />
               </div>
             </div>
           </div>
@@ -232,7 +203,7 @@
                 <div class="md:w-1/12 p-1 flex items-center justify-center"><p>兒童生活英語</p></div>
                 <div class="md:w-1/12 p-1 flex items-center justify-center"><p>B1 U1-U3 Class 2</p></div>
                 <div class="md:w-5/12 p-1 flex items-center justify-center md:justify-end">
-                  <a href="" class="border px-2 py-1 text-white bg-gray-900 rounded"><i class="fas fa-folder-open"></i></a>
+                  <a class="mx-1 table-btn-actions rounded table-btn-actions cursor-pointer"><i class="fas fa-folder-open"></i></a>
                   <a href="" class="border px-2 py-1 ml-8 rounded">課程準備中</a>
                   <!-- <a href="" class="border px-2 py-1">前往上課</a> -->
                 </div>
@@ -242,6 +213,7 @@
 
         </div>
       </div>
+      <!-- 學生 -->
       <div class="student flex flex-col w-full" v-if="$store.state.userRole === 'student'">
         <div class="flex flex-wrap items-stretch py-3 student-basic-info">
           <div class="md:flex-none py-4 text-white font-bold flex items-center justify-center md:border-r-2 px-3 w-full md:w-2/6">
@@ -412,7 +384,7 @@
                       <i class="fas fa-folder-open text-white"></i></button>
                   </div>
                   <div class="w-3/12">
-                    <a href="" class="flex whitespace-no-wrap items-center text-white bg-gray-900 text-sm py-2 px-2 rounded">
+                    <a href="" class="flex whitespace-no-wrap items-center text-white btn-main text-sm py-2 px-2 rounded">
                       前往上課<i class="fas fa-arrow-right ml-1"></i>
                     </a>
                   </div>
@@ -440,9 +412,9 @@
                   <div class="md:w-5/12 p-1 flex items-center justify-center md:justify-end">
                     <a @click="showCommentModal = true" class="border px-2 py-1 text-gray-600 mr-2 rounded border-gray-600 cursor-pointer"><i class="fas fa-clipboard-list"></i></a>
                     <a class="border px-2 py-1 text-gray-600 mr-2 rounded border-gray-600 cursor-pointer"><i class="fas fa-film"></i></a>
-                    <a  @click="showDetailModal = true" class="border px-2 py-1 text-white bg-gray-900 mr-8 rounded"><i class="fas fa-folder-open"></i></a>
+                    <a @click="showDetailModal = true" class="mx-1 table-btn-actions rounded table-btn-actions cursor-pointer"><i class="fas fa-folder-open"></i></a>
                     <!-- <a href="" class="border px-2 py-1">課程準備中</a> -->
-                    <a @click="showfirstModal = true" class="border px-2 py-1 bg-gray-900 text-white cursor-pointer rounded">前往上課<i class="fas fa-arrow-right ml-1 text-sm"></i></a>
+                    <a @click="showfirstModal = true" class="border px-2 py-1 btn-main text-white cursor-pointer rounded">前往上課<i class="fas fa-arrow-right ml-1 text-sm"></i></a>
                   </div>
                 </div>
               </div>
@@ -451,6 +423,7 @@
           </div>
 
       </div>
+      <!-- 老師 -->
       <div class="flex flex-col w-full" v-if="$store.state.userRole === 'teacher'">
         <div class="flex justify-between items-center flex-wrap">
           <Title :title="'我的課程'" />
@@ -527,7 +500,7 @@
                       <i class="fas fa-folder-open text-white"></i></button>
                   </div>
                   <div class="w-3/12">
-                    <a href="" class="flex whitespace-no-wrap items-center text-white bg-gray-900 text-sm py-2 px-2 rounded">
+                    <a href="" class="flex whitespace-no-wrap items-center text-white btn-main text-sm py-2 px-2 rounded">
                       前往上課<i class="fas fa-arrow-right ml-1"></i>
                     </a>
                   </div>
@@ -556,7 +529,7 @@
                   <div class="md:w-5/12 p-1 flex items-center justify-center md:justify-end">
                     <a @click="showCommentModal = true" class="border px-2 py-1 text-gray-600 mr-2 rounded border-gray-600 cursor-pointer"><i class="fas fa-clipboard-list"></i></a>
                     <a class="border px-2 py-1 text-gray-600 mr-2 rounded border-gray-600 cursor-pointer"><i class="fas fa-film"></i></a>
-                    <a @click="showDetailModal = true" class="border px-2 py-1 text-white bg-gray-900 mr-8 rounded"><i class="fas fa-folder-open"></i></a>
+                    <a @click="showDetailModal = true" class="mx-1 table-btn-actions rounded table-btn-actions cursor-pointer"><i class="fas fa-folder-open"></i></a>
                     <!-- <a href="" class="border px-2 py-1">課程準備中</a> -->
                     <a @click="showfirstModal = true" class="border px-2 py-1 bg-gray-900 text-white cursor-pointer rounded">前往上課<i class="fas fa-arrow-right ml-1 text-sm"></i></a>
                   </div>
@@ -575,7 +548,6 @@
 import Calender from '@/components/modules/Calender'
 // import Calender from '@/components/modules/CalenderSimple'
 import CalenderDot from '@/components/modules/CalenderDot'
-import DatePicker from 'vue2-datepicker'
 import 'vue2-datepicker/index.css'
 import startClassModal from '@/components/popup/startClassModal'
 import CourseModel from '@/components/popup/CalenderModel'
@@ -589,7 +561,6 @@ import Title from '@/components/Title'
     name: "MyClass",
     components: {
       Calender,
-      DatePicker,
       CalenderDot,
       startClassModal,
       CourseModel,

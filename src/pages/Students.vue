@@ -35,29 +35,29 @@
         <template scope="props" slot="actionsBtn" class="flex items-center">
           <td data-th="執行動作">
             <button @click="toEditAccount"
-              class="text-primary-normal hover:text-black-1 mx-1"
+              class="mx-1 table-btn-actions rounded"
               >
-              <img src="@/assets/img/icons/edit.svg" alt="" class="w-8 object-contain">
+              <i class="fas fa-edit"></i>
             </button>
             <button @click="openDetail"
-              class="text-primary-normal hover:text-black-1 mx-1"
+              class="mx-1 table-btn-actions rounded"
               >
-              <img src="@/assets/img/icons/more.svg" alt="" class="w-8 object-contain">
+              <i class="far fa-folder-open"></i>
             </button>
             <button @click="toPoint"
-              class="hover:text-black-1 mx-1"
+              class="mx-1 table-btn-actions rounded"
               >
-              <img src="@/assets/img/icons/tick.svg" alt="" class="w-8 object-contain">
+              <i class="fas fa-ticket-alt"></i>
             </button>
             <button @click="toSectionalDrawing(props.item.id)"
-              class="hover:text-black-1 mx-1"
+              class="mx-1 table-btn-actions rounded"
               >
-              <img src="@/assets/img/icons/ability.svg" alt="" class="w-8 object-contain">
+              <i class="fas fa-chart-line"></i>
             </button>
             <button @click="del(props.item.id)"
-              class="text-primary-normal hover:text-black-1 mx-1 ml-3"
+              class="mx-1 table-btn-actions rounded"
               >
-              <img src="@/assets/img/icons/delete.svg" alt="" class="w-8 object-contain">
+              <i class="far fa-trash-alt"></i>
             </button>
           </td>
         </template>

@@ -7,10 +7,10 @@
             <span>測試學生(test@gmail.com)</span>
           </div>
         </div>
-        <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row mb-4">
-          <div class="flex items-center justify-start flex-wrap">
+        <div class="flex items-center justify-between w-full flex-wrap lg:flex-no-wrap mb-4">
+          <div class="flex items-center justify-start flex-wrap lg:flex-no-wrap">
             <div class="mr-1">
-              <router-link :to="{ name: 'learn_record' }"  class="px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
+              <router-link :to="{ name: 'learn_record' }"  class="px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
                 <i class="fas fa-chevron-left mr-1"></i>返回
               </router-link>
             </div>
@@ -116,10 +116,10 @@
                 <!-- <button class="bg-gray-900 text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1">
                   問券調查
                 </button> -->
-                <button class="bg-gray-900 text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1" @click="showCommentModal = true">
+                <button class="btn-main text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1" @click="showCommentModal = true">
                   老師評語
                 </button>
-                <button class="bg-gray-900 text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1" @click="showCommentModal = true">
+                <button class="btn-main text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1" @click="showCommentModal = true">
                   學生評語
                 </button>
               </td>
@@ -127,8 +127,13 @@
             <template slot="classDetail">
               <CalenderModel :showfirstModal="showDetailModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" />
               <td data-th="課程詳情">
-                <button class="bg-gray-900 text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1">
+                <!-- <button class="bg-gray-900 text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1">
                   <i class="fas fa-folder-open"></i>
+                </button> -->
+                <button
+                  class="mx-1 table-btn-actions rounded"
+                  >
+                  <i class="far fa-folder-open"></i>
                 </button>
               </td>
             </template>

@@ -3,7 +3,7 @@
     <div class="flex flex-col w-full">
       <div class="mb-4 flex justify-between items-center flex-wrap">
         <div class="flex">
-          <Title :title="'LiveClass課程管理'" />
+          <Title :title="'LiveTalk課程管理'" />
         </div>
         <div class="flex text-xs flex-wrap">
           <h5 class="mr-3 whitespace-no-wrap">已結束<span class="bg-white rounded-lg px-2 py-1 mx-1">999</span>課</h5>
@@ -47,60 +47,67 @@
 
           <template slot="recordBtn">
             <td data-th="紀錄">
-              <button @click="preClass()"
+              <!-- <button @click="preClass()"
                 class="text-primary-normal hover:text-black-1  mx-1">
                 <img :src="require('@/assets/img/icons/list.svg')" alt="" class="h-8 object-contain noData">
               </button>
               <button @click="reviewClass()"
                 class="text-primary-normal hover:text-black-1  mx-1">
                 <img :src="require('@/assets/img/icons/film.svg')" alt="" class="h-8 object-contain noData">
-                <!-- <img src="@/assets/img/icons/film_active.svg" alt="" class="h-8 object-contain hasData"> -->
+              </button> -->
+              <button @click="edit()"
+                class="mx-1 table-btn-record rounded"
+                >
+                <i class="fas fa-clipboard-list"></i>
+              </button>
+              <button @click="edit()"
+                class="mx-1 table-btn-record rounded"
+                >
+                <i class="fas fa-film"></i>
               </button>
             </td>
           </template>
           <template slot="supplementaryMaterialsBtn">
             <td data-th="補充教材">
-              <button
-                class="text-primary-normal hover:text-black-1 mx-1"
+              <button @click="edit()"
+                class="mx-1 table-btn-actions rounded"
                 >
-                <!-- <img src="@/assets/img/icons/file.svg" alt="" class="h-8 object-contain noData"> -->
-                <img :src="require('@/assets/img/icons/file_active.svg')" alt="" class="h-8 object-contain hasData">
+                <i class="fas fa-folder-plus"></i>
               </button>
               <button @click="toPreview"
-                class="text-primary-normal hover:text-black-1 mx-1"
+                class="table-btn mx-1 px-3 rounded"
                 >
-                <!-- <img src="@/assets/img/icons/before_test.svg" alt="" class="h-8 object-contain noData"> -->
-                <img :src="require('@/assets/img/icons/before_test_active.svg')" alt="" class="h-8 object-contain hasData">
+                <i class="fas fa-book-open mr-1"></i>課前
               </button>
               <button @click="toReview"
-                class="text-primary-normal hover:text-black-1 mx-1 isActive"
+                class="table-btn mx-1 px-3 rounded"
                 >
-                <!-- <img src="@/assets/img/icons/after_test.svg" alt="" class="h-8 object-contain noData"> -->
-                <img :src="require('@/assets/img/icons/after_test_active.svg')" alt="" class="h-8 object-contain hasData">
+                <i class="fas fa-book-open mr-1"></i>課後
               </button>
             </td>
           </template>
           <template scope="props" slot="actionsBtn">
             <td data-th="執行動作">
               <button @click="edit(props.item.id)"
-                class="text-primary-normal hover:text-black-1  mx-1"
+                class="mx-1 table-btn-actions rounded"
                 >
-                <img :src="require('@/assets/img/icons/edit.svg')" alt="" class="w-8 object-contain">
+                <i class="fas fa-edit"></i>
               </button>
               <button @click="open(props.item.id)"
-                class="text-primary-normal hover:text-black-1  mx-1"
+                class="mx-1 table-btn-actions rounded"
                 >
-                <img :src="require('@/assets/img/icons/more.svg')" alt="" class="w-8 object-contain">
+                <i class="far fa-folder-open"></i>
               </button>
               <button @click="del(props.item.id)"
-                class="text-primary-normal hover:text-black-1  mx-1"
+                class="mx-1 table-btn-actions rounded"
                 >
-                <img :src="require('@/assets/img/icons/delete.svg')" alt="" class="w-8 object-contain">
+                <i class="far fa-trash-alt"></i>
               </button>
             </td>
           </template>
       </Table>
       <CommentModal :showfirstModal="showfirstModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" />
+      <CourseFileList :showfirstModal="showFileListModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" />
       <Pagination />
     </div>
   </main>
@@ -113,6 +120,7 @@
   import 'vue2-datepicker/index.css'
   import CommentModal from '@/components/popup/CommentModal'
   import StudentListModal from '@/components/popup/StudentListModal'
+  import CourseFileList from '@/components/popup/CourseFileList'
   import Title from '@/components/Title'
   export default {
     name: 'CoursesTalk',
@@ -122,7 +130,8 @@
       Pagination,
       CommentModal,
       StudentListModal,
-      Title
+      Title,
+      CourseFileList
     },
     props: [
       'props'
@@ -131,6 +140,7 @@
       return {
         showfirstModal: false,
         showStudentsListModal: false,
+        showFileListModal: false,
 
         showItems: {
           role: false,

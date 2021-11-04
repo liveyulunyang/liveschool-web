@@ -229,6 +229,11 @@ const router = new Router({
           path: '/meeting/add',
           name: 'addMeeting',
           component: () => import('@/pages/AddMeeting.vue')
+        },
+        {
+          path: '/index_manage',
+          name: 'IndexManage',
+          component: () => import('@/pages/IndexManage.vue')
         }
       ]
     }

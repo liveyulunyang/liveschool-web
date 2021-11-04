@@ -23,11 +23,11 @@
             </template>
             <template slot="actionsBtn">
               <td data-th="執行動作">
-                <button @click="openDetail()"
-                  class="text-primary-normal hover:text-black-1  mx-1"
-                  >
-                  <img src="@/assets/img/icons/more.svg" alt="" class="w-8 object-contain">
-                </button>
+              <button @click="openDetail()"
+                class="mx-1 table-btn-actions rounded"
+                >
+                <i class="far fa-folder-open"></i>
+              </button>
               </td>
             </template>
           </Table>
