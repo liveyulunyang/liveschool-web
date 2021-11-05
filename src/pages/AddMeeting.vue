@@ -14,7 +14,7 @@
         <li class="py-2 px-6 tag flex items-center justify-center mx-1" :class="{ tagAct: tag === 0 }" @click="tag = 0">會議基本資料</li>
       </ul> -->
       <div class="py-2 mr-1">
-        <button @click="$router.back(-1)" class="px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
+        <button @click="$router.back(-1)" class="px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
           <i class="fas fa-chevron-left mr-1"></i>返回
         </button>
       </div>
@@ -132,7 +132,7 @@
             </div>
 
             <div class="md:flex mt-3 md:mb-4 w-full lg:pt-6 justify-end px-2">
-              <button class="button-main py-3 px-8 md:px-12 rounded text-sm whitespace-no-wrap">
+              <button class="btn-main text-white py-3 px-8 md:px-12 rounded text-sm whitespace-no-wrap">
                 <i class="fas fa-check mr-1"></i> 建立
               </button>
             </div>

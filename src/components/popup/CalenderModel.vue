@@ -44,11 +44,23 @@
       <div class="w-full md:w-1/6 text-xl md:mb-4 md:border-r-2 border-gray-900 px-3 text-left md:text-right py-2 font-semibold">
         <h4>補充教材</h4>
       </div>
-      <div class="w-full md:w-5/6 mb-4 px-3 py-2 text-lg flex">
-        <a class="block mx-2 cursor-pointer"><img :src="require('@/assets/img/icons/file_active.svg')" alt="" class="h-8 object-contain hasData"></a>
-        <a class="block mx-2 cursor-pointer"><img :src="require('@/assets/img/icons/before_test_active.svg')" alt="" class="h-8 object-contain hasData"></a>
-        <a class="block mx-2 cursor-pointer"><img :src="require('@/assets/img/icons/after_test_active.svg')" alt="" class="h-8 object-contain hasData"></a>
-        <a class="block mx-2 cursor-pointer"><img :src="require('@/assets/img/icons/film_active.svg')" alt="" class="h-8 object-contain hasData"></a>
+      <div class="w-full md:w-5/6 mb-4 px-3 py-2 flex">
+        <button
+        class="mx-1 table-btn-actions rounded">
+        <i class="fas fa-folder-plus"></i>
+        </button>
+        <button
+          class="table-btn mx-1 px-3 rounded">
+          <i class="fas fa-book-open mr-1"></i>課前
+        </button>
+        <button
+          class="table-btn mx-1 px-3 rounded">
+          <i class="fas fa-book-open mr-1"></i>課後
+        </button>
+        <button
+          class="mx-1 table-btn-actions rounded">
+          <i class="fas fa-film"></i>
+        </button>
       </div>
     </div>
   </Modal>

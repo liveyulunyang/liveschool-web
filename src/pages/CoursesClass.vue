@@ -29,16 +29,6 @@
 
           <template slot="RegistrationReview">
             <td data-th="執行動作">
-              <!-- <button @click="edit()"
-                class="text-primary-normal hover:text-black-1  mx-1"
-                >
-                <img :src="require('@/assets/img/icons/edit.svg')" alt="" class="w-8 object-contain">
-              </button>
-              <button @click="del()"
-                class="text-primary-normal hover:text-black-1  mx-1"
-                >
-                <img :src="require('@/assets/img/icons/delete.svg')" alt="" class="w-8 object-contain">
-              </button> -->
               <button @click="edit()"
                 class="mx-1 table-btn-actions rounded"
                 >

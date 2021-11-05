@@ -1,5 +1,5 @@
 <template>
-  <Modal :based-on="showfirstModal" :modalClass="'modal-outer head-bg student-bg'" @close="$emit('closeModal', false)">
+  <Modal :based-on="showfirstModal" :modalClass="'modal-outer student-w student-bg'" @close="$emit('closeModal', false)">
     <div class="relative">
       <div class="flex flex-wrap">
         <div class="w-full md:w-1/6 mb-4">
@@ -93,42 +93,45 @@
             </div>
             <div  class="w-full md:w-5/6 mb-4 px-3 py-2 flex flex-wrap">
               <button
-                class="text-primary-normal hover:text-black-1  mx-1"
-                >
-                <!-- <img src="@/assets/img/icons/file.svg" alt="" class="h-8 object-contain noData"> -->
-                <img :src="require('@/assets/img/icons/file_active.svg')" alt="" class="h-8 object-contain hasData">
+              class="mx-1 table-btn-actions rounded">
+              <i class="fas fa-folder-plus"></i>
               </button>
               <button
-                class="text-primary-normal hover:text-black-1  mx-1"
-                >
-                <!-- <img src="@/assets/img/icons/before_test.svg" alt="" class="h-8 object-contain noData"> -->
-                <img :src="require('@/assets/img/icons/before_test_active.svg')" alt="" class="h-8 object-contain hasData">
+                class="table-btn mx-1 px-3 rounded">
+                <i class="fas fa-book-open mr-1"></i>課前
               </button>
               <button
-                class="text-primary-normal hover:text-black-1  mx-1 isActive"
-                >
-                <!-- <img src="@/assets/img/icons/after_test.svg" alt="" class="h-8 object-contain noData"> -->
-                <img :src="require('@/assets/img/icons/after_test_active.svg')" alt="" class="h-8 object-contain hasData">
+                class="table-btn mx-1 px-3 rounded">
+                <i class="fas fa-book-open mr-1"></i>課後
               </button>
             </div>
             <div class="w-full md:w-1/6 text-xl md:mb-4 md:border-r-2 border-gray-900 px-3 text-left md:text-right py-2 font-semibold">
               <h4>課程紀錄</h4>
             </div>
             <div  class="w-full md:w-5/6 mb-4 px-3 py-2">
-              <button
+              <!-- <button
                 class="text-primary-normal hover:text-black-1  mx-1">
                 <img :src="require('@/assets/img/icons/list.svg')" alt="" class="h-8 object-contain noData">
               </button>
               <button
                 class="text-primary-normal hover:text-black-1  mx-1">
                 <img :src="require('@/assets/img/icons/film.svg')" alt="" class="h-8 object-contain noData">
-                <!-- <img src="@/assets/img/icons/film_active.svg" alt="" class="h-8 object-contain hasData"> -->
+              </button> -->
+              <button
+                class="mx-1 table-btn-record rounded"
+                >
+                <i class="fas fa-clipboard-list"></i>
+              </button>
+              <button
+                class="mx-1 table-btn-record rounded"
+                >
+                <i class="fas fa-film"></i>
               </button>
             </div>
           </div>
         </div>
       </div>
-      <a class="inline-block text-white bg-gray-900 px-3 py-2 text-lg absolute bottom-0 right-0">
+      <a class="inline-block text-white btn-main px-3 py-2 text-lg absolute bottom-0 right-0">
         <i class="fas fa-arrow-up"></i>
       </a>
     </div>

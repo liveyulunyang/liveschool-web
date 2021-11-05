@@ -14,7 +14,7 @@
         </div>
 
         <div class="pb-6">
-          <a class="bg-gray-900 text-white w-full block text-center text-2xl py-2 font-semibold mb-6 cursor-pointer">開始上課</a>
+          <a class="btn-main text-white w-full block text-center text-2xl py-2 font-semibold mb-6 cursor-pointer">開始上課</a>
           <p class="text-xl text-gray-700 text-center">進入課程後須手動點選錄製按鈕</p>
         </div>
       </div>

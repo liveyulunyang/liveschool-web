@@ -5,9 +5,9 @@
 
     <section class="w-full mt-2 min-h-screen px-3 lg:px-6 py-4">
       <div class="flex justify-between">
-        <ul class='flex cursor-pointer text-sm'>
+        <ul class='flex cursor-pointer text-sm items-center'>
           <li class='py-2 mr-1'>
-            <Button @click="$router.back(-1)" class="px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
+            <Button @click="$router.back(-1)" class="px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
               <i class="fas fa-chevron-left mr-1"></i>返回
             </Button>
           </li>
@@ -26,8 +26,8 @@
 
         <ul class='flex cursor-pointer text-sm'>
           <li class='py-2 mr-1'>
-            <Button class="px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
-              <i class="fas fa-plus"></i>新增章節
+            <Button class="px-4 py-2 btn-red text-white  text-sm rounded whitespace-no-wrap">
+              <i class="fas fa-plus mr-1"></i>新增章節
             </Button>
           </li>
         </ul>
