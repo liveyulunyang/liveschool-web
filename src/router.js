@@ -37,13 +37,23 @@ const router = new Router({
         {
           path: '/users',
           name: 'Users',
-          component: () => import('@/pages/Users.vue')
+          components: {
+            default: () => import('@/pages/Users.vue')
+          },
+          children: [
+            {
+              path: 'users_recycle',
+              name: 'usersRecycle',
+              component: () => import('@/pages/UsersRecycle.vue')
+            }
+          ]
+          // component: () => import('@/pages/Users.vue')
         },
-        {
-          path: '/users_recycle',
-          name: 'usersRecycle',
-          component: () => import('@/pages/UsersRecycle.vue')
-        },
+        // {
+        //   path: '/users_recycle',
+        //   name: 'usersRecycle',
+        //   component: () => import('@/pages/UsersRecycle.vue')
+        // },
         {
           path: '/courses_talk',
           name: 'courses',

@@ -1,11 +1,11 @@
 <template>
-    <Modal :based-on="showfirstModal" :title="''" :modalClass="'modal-outer bg-gray-300 pb-4'" @close="$emit('closeModal', false)">
+    <Modal :based-on="showfirstModal" :title="''" :modalClass="'modal-outer bg-gray-300 pb-4 head-bg'" @close="$emit('closeModal', false)">
       <div class="flex justify-between items-center">
         <FilterModal :showItems="showItems" />
         <div class="flex items-center">
           <input type="email" placeholder="輸入帳號信箱加入學生" class="py-1 px-1">
-          <a class="block text-lg text-white bg-gray-800 p-1 px-2 mx-2 rounded cursor-pointer"><i class="fas fa-user-plus"></i></a>
-          <button @click="importList" class="px-4 py-2 bg-gray-900 text-white  text-sm mx-1 rounded whitespace-no-wrap">
+          <a class="block btn-main text-white p-1 px-2 mx-2 rounded cursor-pointer"><i class="fas fa-user-plus"></i></a>
+          <button @click="importList" class="px-4 py-2 btn-blue text-white text-sm mx-1 rounded whitespace-no-wrap">
             <i class="fas fa-plus mr-1"></i> 匯入名單
           </button>
         </div>

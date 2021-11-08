@@ -7,9 +7,9 @@
       </div>
     </fullscreen>
 
-    <!-- <div class="container max-h-screen">
+    <div class="container max-h-screen">
       <pdf src="/test.pdf" :page="currentPage" @num-pages="pageCount = $event" @page-loaded="currentPage = $event" ref="myPdfComponent"></pdf>
-    </div> -->
+    </div>
 
     <div class="absolute w-full left-0 bottom-0">
       <div class="flex items-stretch py-3 video-mode-play-bar flex-wrap">

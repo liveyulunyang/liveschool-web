@@ -39,7 +39,7 @@
             <td data-th="人數">
               <StudentListModal :showfirstModal="showStudentsListModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" />
               <button @click="openPeopleNumModal()"
-                class="text-primary-normal hover:text-black-1 hover:underline">
+                class="text-primary-normal hover:text-black-1 underline">
                 0/0
               </button>
             </td>
@@ -55,7 +55,7 @@
                 class="text-primary-normal hover:text-black-1  mx-1">
                 <img :src="require('@/assets/img/icons/film.svg')" alt="" class="h-8 object-contain noData">
               </button> -->
-              <button @click="edit()"
+              <button @click="showfirstModal = true"
                 class="mx-1 table-btn-record rounded"
                 >
                 <i class="fas fa-clipboard-list"></i>
@@ -69,7 +69,7 @@
           </template>
           <template slot="supplementaryMaterialsBtn">
             <td data-th="補充教材">
-              <button @click="edit()"
+              <button @click="showFileListModal = true"
                 class="mx-1 table-btn-actions rounded"
                 >
                 <i class="fas fa-folder-plus"></i>
@@ -107,7 +107,7 @@
           </template>
       </Table>
       <CommentModal :showfirstModal="showfirstModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" />
-      <CourseFileList :showfirstModal="showFileListModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" />
+      <FileListModal :showfirstModal="showFileListModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" />
       <Pagination />
     </div>
   </main>
@@ -120,7 +120,7 @@
   import 'vue2-datepicker/index.css'
   import CommentModal from '@/components/popup/CommentModal'
   import StudentListModal from '@/components/popup/StudentListModal'
-  import CourseFileList from '@/components/popup/CourseFileList'
+  import FileListModal from '@/components/popup/FileListModal'
   import Title from '@/components/Title'
   export default {
     name: 'CoursesTalk',
@@ -131,7 +131,7 @@
       CommentModal,
       StudentListModal,
       Title,
-      CourseFileList
+      FileListModal
     },
     props: [
       'props'
@@ -286,6 +286,7 @@
       closeModal (closeModal) {
         this.showfirstModal = closeModal
         this.showStudentsListModal = closeModal
+        this.showFileListModal = closeModal
       },
       submit (submit) {
         // this.$router.push({ name: submit })

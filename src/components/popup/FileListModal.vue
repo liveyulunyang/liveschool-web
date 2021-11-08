@@ -1,73 +1,38 @@
 <template>
     <Modal :based-on="showfirstModal" :title="''" :modalClass="'modal-outer bg-gray-300 pb-4 main-w'" @close="$emit('closeModal', false)">
-
+      <h2 class="text-center text-2xl font-bold">檔案清單</h2>
+      <div class="flex items-center">
+        <button class="px-4 py-2 btn-red text-white text-sm mx-1 rounded whitespace-no-wrap">
+          <i class="fas fa-plus mr-1"></i> 上傳檔案
+        </button>
+        <p class="ml-2">上傳的檔案大小總和不得超過 1 GB。</p>
+      </div>
       <div class="h-table">
         <Table
-          :columns="returnData.columns"
-          :actions="returnData.actions"
-          :data="returnData.datas">
-            <template slot="attend">
-              <th class="whitespace-no-wrap text-center">出席</th>
-            </template>
-            <template slot="record">
-              <th class="whitespace-no-wrap text-center">課前分數</th>
-            </template>
-            <template slot="statusLabel">
-              <th class="whitespace-no-wrap text-center">課後分數</th>
-            </template>
+          :columns="tableList.columns"
+          :actions="tableList.actions"
+          :data="tableList.datas">
+
             <template slot="actionsLabel">
-              <th class="whitespace-no-wrap text-center">其他</th>
+              <th class="whitespace-no-wrap text-center">動作</th>
             </template>
 
-            <template slot="attendContent">
-              <td data-th="有無出席">
-                <i class="fas fa-check-circle text-center"></i>
-              </td>
-            </template>
-            <template slot="recordBtn">
-              <td data-th="課前分數">
-                <p class="px-1 py-2">-</p>
-              </td>
-            </template>
-            <template slot="statusText">
-              <td data-th="課後分數">
-                <p class="px-1 py-2">-</p>
-              </td>
-            </template>
-            <!-- <template slot="recordBtn">
-              <td data-th="課前分數">
-                <p class="px-1 py-2 border border-gray-300 text-gray-300" v-if="$store.state.userRole !== 'admin'">課後練習成績</p>
-                <p class="px-1 py-2 border border-gray-300 text-gray-300" v-if="$store.state.userRole === 'admin'">請輸入課程成績</p>
-              </td>
-            </template>
-            <template slot="statusText">
-              <td data-th="課後分數">
-                <p class="px-1 py-2 border border-gray-300 text-gray-300" v-if="$store.state.userRole !== 'admin'">課後練習成績</p>
-                <p class="px-1 py-2 border border-gray-300 text-gray-300" v-if="$store.state.userRole === 'admin'">請輸入課程成績</p>
-              </td>
-            </template> -->
             <template slot="actionsBtn">
-              <td data-th="其他">
-                <button @click="openModal"
-                  class="text-sm btn-main  mx-1 text-white bg-gray-900 px-2 py-2 rounded"
+              <td data-th="動作">
+                <button
+                  class="mx-1 table-btn-actions rounded"
                   >
-                  <i class="far fa-star mr-1"></i>老師評語
+                  <i class="far fa-folder-open"></i>
                 </button>
-                <button @click="openModal"
-                  class="text-sm btn-main  mx-1 text-white bg-gray-900 px-2 py-2 rounded"
+                <button @click="del(0)"
+                  class="mx-1 table-btn-actions rounded"
                   >
-                  <i class="far fa-star mr-1"></i>學生評語
-                </button>
-                <button v-if="$store.userRole === 'student'"
-                  class="text-sm btn-main  mx-1 text-white bg-gray-900 px-2 py-2 rounded"
-                  >
-                  <i class="far fa-gem mr-1"></i>成績證書
+                  <i class="far fa-trash-alt"></i>
                 </button>
               </td>
             </template>
         </Table>
       </div>
-      <CommentContentModal :showfirstModal="showSecondModal" v-on:closeModal="closeModal" :isDisabled="true" :title="''" v-on:submit="submit" />
   </Modal>
 </template>
 <script>
@@ -95,15 +60,13 @@ export default {
       },
       tableList: {
         columns: [
-          { name: 'email', label: '帳號信箱', required: true },
-          { name: 'name', label: '學生姓名', required: true },
-          { name: 'point', label: '剩餘點數', required: true, uesrRole: 'student' }
+          { name: 'email', label: '檔名', required: true },
+          { name: 'name', label: '大小', required: true }
         ],
         datas: [
           {
-            email: 'Peggy@gmail',
-            name: 'Peggy',
-            point: '88',
+            email: 'Life English 01. Fast-Food Restaurant.pdf',
+            name: '33,5 MB'
           }
         ]
       },
@@ -144,33 +107,47 @@ export default {
     Table
   },
   computed: {
-    returnData () {
-      if (this.$store.state.userRole === 'admin') {
-        return this.tableListAdmin
-      } else {
-        return this.tableList
-      }
-    }
   },
   methods: {
     close () {
       let self = this
       self.$emit('closeModal', false)
     },
-
-    openModal () {
-      this.showSecondModal = true
-    },
-    closeModal (closeModal) {
-      this.showSecondModal = closeModal
+    del(id) {
+      console.log(id)
+      this.$swal.fire({
+        title: '確認要刪除此筆資料?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: '刪除',
+        cancelButtonText: '取消',
+        customClass: {
+          title: 'font-bold text-2xl text-black',
+          actions: 'btns',
+          confirmButton: 'btn btn-confirm',
+          cancelButton: 'btn btn-cancel'
+        }
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.$swal.fire({
+            icon: 'success',
+            title: '刪除成功!',
+            text: '您所選擇的檔案已刪除',
+            confirmButtonColor: '#808080',
+            confirmButtonText: 'OK',
+            customClass: {
+              title: 'font-bold text-2xl text-black',
+              htmlContainer: 'text-sm',
+              actions: 'btns',
+              confirmButton: 'px-10'
+            }
+          })
+        }
+      })
     },
     submit (submit) {
       // this.$router.push({ name: submit })
     }
-    // addBooking () {
-    //   this.close()
-    //   // this.$emit('submit', 'book_course')
-    // }
   }
 }
 </script>

@@ -20,7 +20,7 @@
         </tr>
         <tr v-for="(item, index) in data" :key="index">
           <slot name="AdmissionStatusContent"></slot>
-          <td :data-th="column.label" v-for="(column, indexColumn) in columns" :key="indexColumn" @click="openModal" :class="{ cursorPointer: $route.name === 'Learn_record_supervise' }">
+          <td :data-th="column.label" v-for="(column, indexColumn) in columns" :key="indexColumn" @click="openModal" :class="{ cursorPointer: $route.name === 'Learn_record_supervise' || column.name === 'teacher' }">
             <span class="lg:hidden" @click="openTeacherInfo(column.name)">
               <img v-if="column.name === 'teacher'" src="@/assets/img/vector.svg" alt="" class="inline-block object-contain w-8 mb-2 mr-2">
               {{ item[column.name] }}

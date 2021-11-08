@@ -1,5 +1,7 @@
 <template>
   <main class="flex items-start" id="Front">
+    <Applaud v-if="isShowApplaud" />
+    <Cheer v-if="isShowCheer" />
     <div class="w-full h-screen">
       <router-view></router-view>
     </div>
@@ -22,21 +24,21 @@
               </div>
               <div class="flex" :class="{ hidden: isHddenScore }">
                 <input type="text" value="1" class="w-12 border mx-1 text-center font-bold">
-                <a class="block p-1"><i class="fas fa-plus-circle"></i></a>
-                <a class="block p-1"><i class="fas fa-minus-circle"></i></a>
+                <a class="block p-1 text-main cursor-pointer"><i class="fas fa-plus-circle"></i></a>
+                <a class="block p-1 text-main cursor-pointer"><i class="fas fa-minus-circle"></i></a>
               </div>
             </div>
           </div>
 
           <div class="flex text-sm text-center py-4">
             <div class="w-full px-2" v-if="isHddenScore">
-              <a class="text-white w-full bg-gray-700 block py-2 rounded-lg cursor-pointer" @click="isHddenScore = false">Open Score</a>
+              <a class="text-white w-full btn-main block py-2 rounded-lg cursor-pointer" @click="isHddenScore = false">Open Score</a>
             </div>
             <div class="w-1/2 pr-2" v-if="!isHddenScore">
-              <a class="text-white w-full bg-gray-700 block py-2 rounded-lg cursor-pointer" @click="isHddenScore = true">Hide Score</a>
+              <a class="text-white w-full btn-main block py-2 rounded-lg cursor-pointer" @click="isHddenScore = true">Hide Score</a>
             </div>
             <div class="w-1/2 pl-2" v-if="!isHddenScore">
-              <a class="text-white w-full bg-gray-700 block py-2 rounded-lg cursor-pointer">Clean Score</a>
+              <a class="text-white w-full btn-main block py-2 rounded-lg cursor-pointer">Clean Score</a>
             </div>
           </div>
 
@@ -88,13 +90,15 @@
                   </div>
 
                   <div class="w-1/4 px-2">
-                    <a href="" class="bg-gray-800 text-white px-3 py-2 block text-center rounded">Go</a>
+                    <a href="" class="bg-gray-800 text-white px-3 py-2 block text-center rounded cursor-pointer">Go</a>
                   </div>
                 </div>
               </div>
               <div class="" v-if="gameIdx === 3">
                 <div class="w-full py-4 px-3">
-                  <a href="" class="bg-gray-800 text-white px-3 py-1 block text-center rounded">拍手</a>
+                  <a class="btn-main text-white px-3 py-1 block text-center rounded cursor-pointer mb-4" @click="openApplaud">拍手</a>
+                  <a class="btn-main text-white px-3 py-1 block text-center rounded cursor-pointer mb-4" @click="openCheer">歡呼</a>
+                  <!-- <a class="bg-gray-800 text-white px-3 py-1 block text-center rounded cursor-pointer" @click="openApplaud">叮咚</a> -->
                 </div>
               </div>
             </div>
@@ -106,7 +110,8 @@
 </template>
 
 <script>
-// import { Slide } from 'vue-burger-menu'
+import Applaud from '@/components/startClass/Applaud'
+import Cheer from '@/components/startClass/Cheer'
 export default {
   name: 'Front',
   data () {
@@ -117,11 +122,15 @@ export default {
       isShowForm: false,
       step: 0,
 
-      showfirstModal: false
+      showfirstModal: false,
+
+      isShowApplaud: false,
+      isShowCheer: false
     }
   },
   components: {
-    // Slide
+    Applaud,
+    Cheer
   },
   computed: {
   },
@@ -130,6 +139,42 @@ export default {
   updated () {
   },
   methods: {
+    async openApplaud () {
+      let self = this
+
+      var delay = (r,s) => {
+        return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve([r,s])
+        }, s)
+        })
+      }
+
+      delay('a', 0).then(() => {
+        self.isShowApplaud = true
+        return delay('b', 5000)
+      }).then(() => {
+        self.isShowApplaud = false
+      })
+    },
+    async openCheer () {
+      let self = this
+
+      var delay = (r,s) => {
+        return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve([r,s])
+        }, s)
+        })
+      }
+
+      delay('a', 0).then(() => {
+        self.isShowCheer = true
+        return delay('b', 5000)
+      }).then(() => {
+        self.isShowCheer = false
+      })
+    }
   }
 }
 </script>
