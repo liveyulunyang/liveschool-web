@@ -121,6 +121,8 @@ export default {
       controlOnStart: true,
 
       showItems: {
+        classTopic: true,
+        classification: true,
         searchOnlyInput: true,
         sync: true,
       }

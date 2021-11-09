@@ -12,31 +12,50 @@
       </div>
 
       <section v-if="tag === 0">
-        <div class="flex justify-between flex-wrap bg-white py-6 px-6 mb-4 hover:bg-gray-300 shadow-lg" v-for="n in 3" :key="n">
-          <div class="w-full md:w-3/5 text-left mb-3 md:mb-0">
-            <div class="flex items-center justify-between">
-              <img src="@/assets/img/Rectangle 116.png" alt="">
-              <p>2021-05-26 15:03:25</p>
-              <p>Leo/李奧</p>
-              <p>pic_main_bg_04.jpg</p>
-            </div>
-          </div>
-          <div class="w-full md:w-1/5 flex justify-end items-center">
+        <div class="row flex">
 
-          <div class="w-1/2">
-            <button
-              class="mx-1 table-btn-actions rounded"
-              >
-              <i class="far fa-trash-alt"></i>
-            </button>
+          <div class="w-full">
+            <draggable
+              :list="bannerList"
+              :disabled="!enabled"
+              class="list-group"
+              ghost-class="ghost"
+              :move="checkMove"
+              @start="dragging = true"
+              @end="dragging = false"
+            >
+              <div class="flex justify-between flex-wrap bg-white py-6 px-6 mb-4 hover:bg-gray-300 shadow-lg" v-for="(item, index) in bannerList" :key="index">
+                <div class="w-full md:w-3/5 text-left mb-3 md:mb-0">
+                  <div class="flex items-center justify-between">
+                    <img src="@/assets/img/Rectangle 116.png" alt="">
+                    <p>2021-05-26 15:03:25</p>
+                    <p>Leo/李奧{{ item.id }}</p>
+                    <p>pic_main_bg_04.jpg</p>
+                  </div>
+                </div>
+                <div class="w-full md:w-1/5 flex justify-end items-center">
+
+                <div class="w-1/2">
+                  <button @click="del(0)"
+                    class="mx-1 table-btn-actions rounded"
+                    >
+                    <i class="far fa-trash-alt"></i>
+                  </button>
+                </div>
+
+                  <a class="flex flex-col justify-between cursor-pointer py-3 px-3">
+                    <img src="@/assets/img/icons/line_bar.png" alt="" class="py-2">
+                    <img src="@/assets/img/icons/line_bar.png" alt="" class="py-2">
+                    <img src="@/assets/img/icons/line_bar.png" alt="" class="py-2">
+                    <img src="@/assets/img/icons/line_bar.png" alt="" class="py-2">
+                    <img src="@/assets/img/icons/line_bar.png" alt="" class="py-2">
+                  </a>
+                </div>
+              </div>
+            </draggable>
           </div>
 
-            <a href="" class="flex flex-col justify-between">
-              <i class="fas fa-grip-lines"></i>
-              <i class="fas fa-grip-lines"></i>
-              <i class="fas fa-grip-lines"></i>
-            </a>
-          </div>
+          <rawDisplayer class="col-3" :value="bannerList" title="List" />
         </div>
       </section>
       <section v-if="tag === 1">
@@ -133,9 +152,11 @@
   import TabComponent from '@/components/Tab'
   import drag_class from '@/components/modules/drag_class'
   import Drag_Teacher from '@/components/modules/drag_teachers'
+  import draggable from 'vuedraggable'
   export default {
     name: "IndexManage",
     components: {
+      draggable,
       Title,
       TabComponent,
       drag_class,
@@ -143,20 +164,76 @@
     },
     data () {
       return {
-        tag: 1,
+        tag: 0,
         tagArr: [
           { name: '首頁banner' },
           { name: '課程介紹與消息' },
           { name: '成功見證' },
           { name: '專業師資' }
-        ]
+        ],
+
+      enabled: true,
+      bannerList: [
+        { name: "John", id: 0 },
+        { name: "Joao", id: 1 },
+        { name: "Jean", id: 2 },
+        { name: "Jean", id: 3 },
+        { name: "Jean", id: 4 }
+      ],
+      dragging: false
       }
     },
     computed: {
+      draggingInfo() {
+        return this.dragging ? "under drag" : "";
+      }
     },
     methods: {
       tagIdx (tagIdx) {
         this.tag = tagIdx
+      },
+
+      add: function() {
+        this.list.push({ name: "Juan " + id, id: id++ });
+      },
+      replace: function() {
+        this.list = [{ name: "Edgard", id: id++ }];
+      },
+      checkMove: function(e) {
+        window.console.log("Future index: " + e.draggedContext.futureIndex);
+      },
+
+      del(id) {
+        console.log(id)
+        this.$swal.fire({
+          title: '確認要刪除此筆資料?',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: '刪除',
+          cancelButtonText: '取消',
+          customClass: {
+            title: 'font-bold text-2xl text-black',
+            actions: 'btns',
+            confirmButton: 'btn btn-confirm',
+            cancelButton: 'btn btn-cancel'
+          }
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this.$swal.fire({
+              icon: 'success',
+              title: '刪除成功!',
+              text: '您所選擇的檔案已刪除',
+              confirmButtonColor: '#808080',
+              confirmButtonText: 'OK',
+              customClass: {
+                title: 'font-bold text-2xl text-black',
+                htmlContainer: 'text-sm',
+                actions: 'btns',
+                confirmButton: 'px-10'
+              }
+            })
+          }
+        })
       }
     }
   }
@@ -180,4 +257,12 @@
     background: #4D4D4D;
     border-radius: 8px;
   }
+
+.buttons {
+  margin-top: 35px;
+}
+.ghost {
+  opacity: 0.5;
+  background: #c8ebfb;
+}
 </style>

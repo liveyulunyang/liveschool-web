@@ -1,9 +1,9 @@
 <template>
   <!-- <div class="flex items-center justify-start flex-wrap" id="filterBtn"> -->
-    <div class="w-full flex flex-wrap items-center" id="filterBtn">
+    <div class="w-full flex flex-wrap items-center text-sm" id="filterBtn">
       <!-- 狀態 -->
       <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.ProgressStatus">
-        <div class="relative text-sm w-full">
+        <div class="relative w-full">
           <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
             >
             <option value="">狀態</option>
@@ -15,7 +15,7 @@
       </div>
       <!-- 教室 -->
       <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.classroom">
-        <div class="relative text-sm w-full">
+        <div class="relative w-full">
           <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
             >
             <option value="">教室</option>
@@ -27,7 +27,7 @@
       </div>
       <!-- 權限 -->
       <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.role">
-        <div class="relative text-sm w-full">
+        <div class="relative w-full">
           <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
             >
             <option value="">權限</option>
@@ -44,7 +44,7 @@
       </div>
       <!-- 刪除原因 -->
       <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.delReason">
-        <div class="relative text-sm w-full">
+        <div class="relative w-full">
           <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
             >
             <option value="">刪除原因</option>
@@ -59,7 +59,7 @@
       </div>
       <!-- 身份 -->
       <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.listStatus">
-        <div class="relative text-sm w-full">
+        <div class="relative w-full">
           <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
             >
             <option value="">身份</option>
@@ -71,7 +71,7 @@
       </div>
       <!-- 課程主題 -->
       <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.classTopic">
-        <div class="relative text-sm w-full">
+        <div class="relative w-full">
           <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
             >
             <option value="">課程主題</option>
@@ -95,7 +95,7 @@
       </div>
       <!-- 課程狀態 -->
       <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.classStatus">
-        <div class="relative text-sm w-full">
+        <div class="relative w-full">
           <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
             >
             <option value="">課程狀態</option>
@@ -119,7 +119,7 @@
       </div>
       <!-- 主題分類 -->
       <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.classification">
-        <div class="relative text-sm w-full">
+        <div class="relative w-full">
           <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
             >
             <option>主題分類</option>
@@ -131,7 +131,7 @@
       </div>
       <!-- 站別 -->
       <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.branch">
-        <div class="relative text-sm w-full">
+        <div class="relative w-full">
           <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
             >
             <option value="">站別</option>
@@ -143,7 +143,7 @@
       </div>
       <!-- 課程種類 -->
       <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.classType">
-        <div class="relative text-sm w-full">
+        <div class="relative w-full">
           <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
             >
             <option value="">課程種類</option>
@@ -162,7 +162,7 @@
       </div>
       <!-- 審核狀態 -->
       <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.approvalStatus">
-        <div class="relative text-sm w-full">
+        <div class="relative w-full">
           <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
             >
             <option value="">狀態</option>
@@ -177,7 +177,7 @@
       </div>
       <!-- 搜尋欄位 -->
       <div class="w-full lg:w-auto md:flex p-1 items-center md:mb-0" v-if="showItems.search">
-        <div class="relative text-sm w-full">
+        <div class="relative w-full">
           <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
             >
             <option value="">請選擇搜尋欄位</option>
@@ -193,14 +193,14 @@
           </div>
         </div>
         <div class="flex bg-white w-full border border-gray-500 h-43">
-          <input type="text" placeholder="輸入關鍵字搜索" name="search" class="text-sm px-2 border-0 focus:outline-none w-full h-full">
+          <input type="text" placeholder="輸入關鍵字搜索" name="search" class="px-2 border-0 focus:outline-none w-full h-full">
           <button type="submit" class="px-2"><i class="fa fa-search"></i></button>
         </div>
       </div>
       <!-- 搜尋欄位/只有輸入框 -->
       <div class="w-full lg:w-auto md:flex p-1 items-center md:mb-0" v-if="showItems.searchOnlyInput">
         <div class="flex bg-white w-full border border-gray-500 h-43">
-          <input type="text" placeholder="輸入關鍵字搜索" name="search" class="text-sm px-2 border-0 focus:outline-none w-full h-full">
+          <input type="text" placeholder="輸入關鍵字搜索" name="search" class="px-2 border-0 focus:outline-none w-full h-full">
           <button type="submit" class="px-2"><i class="fa fa-search"></i></button>
         </div>
       </div>
