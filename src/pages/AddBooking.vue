@@ -440,9 +440,6 @@ import Title from '@/components/Title'
   .fc-view-harness {
     height: 700px !important;
   }
-  .h-screen-50 {
-    height: calc(100vh - 450px);
-  }
   .h-screen-form {
     height: calc(100vh - 200px);
   }

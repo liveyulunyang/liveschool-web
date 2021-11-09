@@ -1,9 +1,12 @@
 <template>
   <div class="flex flex-wrap">
     <div class="w-full md:w-1/2 pr-2 lg:px-3">
-      <div class="text-left md::px-4 leading-loose font-semibold text-lg mb-4">
-        <div class="bg-white w-full px-6 py-4">
-          <h6 class="text-xl font-bold">學生名單</h6>
+      <div class="bg-white text-left md::px-4 leading-loose font-semibold text-lg mb-4 flex items-center px-6 flex-wrap">
+        <div class="py-4 mr-3">
+          <h6 class="text-xl font-bold">帳號清單</h6>
+        </div>
+        <div>
+          <FilterModal :showItems="showItems" />
         </div>
       </div>
       <div class="h-screen-50">
@@ -20,7 +23,6 @@
                 <div class="w-full xl:w-5/12">student_peggy@liveabc.com</div>
                 <div class="w-1/3 xl:w-4/12">傅以樂/Sol</div>
                 <div class="w-1/3 xl:w-1/12">C8</div>
-                <!-- <div class="w-1/3 xl:w-1/12">88</div> -->
                 <div class="w-1/12 hidden xl:block">
                   <button class="px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
                     加入
@@ -34,15 +36,20 @@
 
     </div>
     <div class="w-full md:w-1/2 pl-2 lg:px-3">
-      <div class="text-left md::px-4 leading-loose font-semibold text-lg mb-4">
-        <div class="bg-white w-full px-6 py-4">
-          <h6 class="text-xl font-bold">上課名單</h6>
+      <div class="bg-white text-left md::px-4 leading-loose font-semibold text-lg mb-4 flex justify-between items-center px-6">
+        <div class=" w-full py-4">
+          <h6 class="text-xl font-bold">首頁名單</h6>
+        </div>
+        <div>
+          <button class="px-4 py-2 btn-main text-white text-sm rounded whitespace-no-wrap" @click="revertData">
+            清空
+          </button>
         </div>
       </div>
       <div class="h-screen-50">
         <div class="overflow-y-scroll overflow-x-hidden h-full">
           <draggable
-            class="dragArea list-group flex flex-col pl-0 mb-0  h-full"
+            class="dragArea list-group flex flex-col pl-0 mb-0 h-full"
             :list="list2"
             :clone="clone"
             :group="{ name: 'people', pull: pullFunction }"
@@ -53,18 +60,12 @@
                 <div class="w-full xl:w-5/12">student_peggy@liveabc.com</div>
                 <div class="w-1/3 xl:w-4/12">傅以樂/Sol</div>
                 <div class="w-1/3 xl:w-1/12">C8</div>
-                <!-- <div class="w-1/3 xl:w-1/12">88</div> -->
                 <div class="w-1/12 hidden xl:block">
                   <button class="px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
                     移除
                   </button>
                 </div>
               </div>
-              <!-- <div class="w-1/4 xl:hidden flex justify-end">
-                <button class="px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
-                  移除
-                </button>
-              </div> -->
             </div>
           </draggable>
         </div>
@@ -74,7 +75,8 @@
 </template>
 
 <script>
-import draggable from "vuedraggable"
+import draggable from 'vuedraggable'
+import FilterModal from '@/components/FilterModal'
 let idGlobal = 8
 export default {
   name: "clone-on-control",
@@ -82,7 +84,8 @@ export default {
   instruction: "Press Ctrl to clone element from list 1",
   order: 4,
   components: {
-    draggable
+    draggable,
+    FilterModal
   },
   data () {
     return {
@@ -101,18 +104,28 @@ export default {
         { name: 'Thomas', id: 6 },
         { name: 'John', id: 7 }
       ],
-      controlOnStart: true
-    };
+      controlOnStart: true,
+
+      showItems: {
+        role: true,
+        searchOnlyInput: true,
+        sync: true,
+      }
+    }
   },
   methods: {
     clone ({ name }) {
       return { name, id: idGlobal++ }
     },
     pullFunction () {
-      return this.controlOnStart ? "clone" : true
+      return this.controlOnStart ? 'clone' : true
     },
     start ({ originalEvent }) {
       this.controlOnStart = originalEvent.ctrlKey
+    },
+    revertData () {
+      this.$data.list1 = this.$options.data().list1
+      this.$data.list2 = this.$options.data().list2
     }
   }
 };

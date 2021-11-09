@@ -233,15 +233,18 @@
             ProgressStatus: false,
             classroom: false,
             role: false,
+            delReason: false,
             listStatus: false,
             classTopic: false,
+            classStatus: false,
             classification: false,
             branch: false,
             classType: false,
             timePeriod: false,
+            approvalStatus: false,
             search: false,
+            searchOnlyInput: false,
             sync: false,
-            approvalStatus: true,
             isExportBtn: false
           }
         }

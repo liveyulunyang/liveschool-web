@@ -191,7 +191,7 @@
     },
     data () {
       return {
-        tag: 0,
+        tag: 3,
         tagArr: [
           { name: '帳號', role: '' },
           { name: '點數', role: '' },
