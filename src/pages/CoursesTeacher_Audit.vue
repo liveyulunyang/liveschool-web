@@ -130,7 +130,7 @@
         showStudentsModal: false,
 
         showItems: {
-          ProgressStatus: true,
+          progressStatus: true,
           classroom: false,
           role: false,
           listStatus: false,

@@ -35,14 +35,14 @@
 
                     <div class="flex items-center mx-2">
                       <button
-                        class="text-primary-normal hover:text-black-1  mx-1"
+                        class="mx-1 table-btn-actions rounded"
                         >
-                        <img src="@/assets/img/icons/edit.svg" alt="" class="w-8 object-contain">
+                        <i class="far fa-folder-open"></i>
                       </button>
-                      <button
-                        class="text-primary-normal hover:text-black-1  mx-1"
+                      <button @click="del()"
+                        class="mx-1 table-btn-actions rounded"
                         >
-                        <img src="@/assets/img/icons/delete.svg" alt="" class="w-8 object-contain">
+                        <i class="far fa-trash-alt"></i>
                       </button>
                     </div>
                   </div>
@@ -69,14 +69,14 @@
 
                     <div class="flex items-center mx-2">
                       <button
-                        class="text-primary-normal hover:text-black-1  mx-1"
+                        class="mx-1 table-btn-actions rounded"
                         >
-                        <img src="@/assets/img/icons/edit.svg" alt="" class="w-8 object-contain">
+                        <i class="far fa-folder-open"></i>
                       </button>
-                      <button
-                        class="text-primary-normal hover:text-black-1  mx-1"
+                      <button @click="del()"
+                        class="mx-1 table-btn-actions rounded"
                         >
-                        <img src="@/assets/img/icons/delete.svg" alt="" class="w-8 object-contain">
+                        <i class="far fa-trash-alt"></i>
                       </button>
                     </div>
                   </div>
@@ -136,7 +136,7 @@
                       </div>
                     </div>
                     <div class="flex justify-center items-center">
-                      <button class="mx-4 px-4 py-2 bg-gray-900 text-white  rounded whitespace-no-wrap">
+                      <button class="mx-4 px-4 py-2 btn-main text-white  rounded whitespace-no-wrap">
                         停課
                       </button>
 
@@ -242,6 +242,37 @@
     methods: {
       tagIdx (tagIdx) {
         this.tag = tagIdx
+      },
+      async del() {
+        this.$swal.fire({
+          title: '確認要刪除此筆資料?',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: '刪除',
+          cancelButtonText: '取消',
+          customClass: {
+            title: 'font-bold text-2xl text-black',
+            actions: 'btns',
+            confirmButton: 'btn btn-confirm',
+            cancelButton: 'btn btn-cancel'
+          }
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this.$swal.fire({
+              icon: 'success',
+              title: '刪除成功!',
+              text: '您所選擇的檔案已刪除',
+              confirmButtonColor: '#808080',
+              confirmButtonText: 'OK',
+              customClass: {
+                title: 'font-bold text-2xl text-black',
+                htmlContainer: 'text-sm',
+                actions: 'btns',
+                confirmButton: 'px-10'
+              }
+            })
+          }
+        })
       }
     }
   }

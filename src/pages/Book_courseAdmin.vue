@@ -60,7 +60,7 @@
         showfirstModal: false,
 
         showItems: {
-          ProgressStatus: true,
+          progressStatus: true,
           classType: true,
           timePeriod: true,
           search: true,

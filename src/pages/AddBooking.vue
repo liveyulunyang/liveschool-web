@@ -122,9 +122,9 @@
                 </div>
                 <div class="w-4/5 lg:w-auto flex items-center justify-end">
                   <button
-                    class="text-primary-normal hover:text-black-1  hover:bg-gray-600"
+                    class="mx-1 table-btn-actions rounded"
                     >
-                    <img src="@/assets/img/icons/more.svg" alt="" class="object-contain w-full">
+                    <i class="far fa-folder-open"></i>
                   </button>
                   <button class="ml-2 xl:ml-6 px-3 py-1 bg-gray-900 text-white hover:bg-gray-700 text-sm rounded whitespace-no-wrap">
                     選擇

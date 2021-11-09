@@ -66,7 +66,7 @@
         showfirstModal: false,
 
         showItems: {
-          ProgressStatus: true,
+          progressStatus: true,
           timePeriod: true,
           search: true,
           sync: true
