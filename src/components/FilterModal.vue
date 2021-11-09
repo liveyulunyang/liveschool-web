@@ -30,11 +30,11 @@
         <select @change="onChange" v-model="role" class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
           >
           <option value="">權限</option>
-          <option value="">管理者</option>
-          <option value="">主任/HR</option>
-          <option value="">督導</option>
-          <option value="">老師</option>
-          <option value="">學生</option>
+          <option value="0">管理者</option>
+          <option value="1">主任/HR</option>
+          <option value="2">督導</option>
+          <option value="3">老師</option>
+          <option value="4">學生</option>
         </select>
         <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
           <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -47,9 +47,9 @@
         <select @change="onChange" v-model="delReason" class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
           >
           <option value="">刪除原因</option>
-          <option value="">長期未使用</option>
-          <option value="">建立錯誤</option>
-          <option value="">測試用</option>
+          <option value="0">長期未使用</option>
+          <option value="1">建立錯誤</option>
+          <option value="2">測試用</option>
         </select>
         <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
           <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -57,7 +57,7 @@
       </div>
     </div>
     <!-- 身份 -->
-    <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.listStatus">
+    <!-- <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.listStatus">
       <div class="relative w-full">
         <select @change="onChange" v-model="listStatus" class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
           >
@@ -67,7 +67,7 @@
           <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- 課程主題 -->
     <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.classTopic">
       <div class="relative w-full">
@@ -121,7 +121,7 @@
       <div class="relative w-full">
         <select @change="onChange" v-model="classification" class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
           >
-          <option>主題分類</option>
+          <option value="">主題分類</option>
         </select>
         <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
           <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -165,9 +165,9 @@
         <select @change="onChange" v-model="approvalStatus" class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
           >
           <option value="">狀態</option>
-          <option value="">審核中</option>
-          <option value="">未通過</option>
-          <option value="">審核成功</option>
+          <option value="0">審核中</option>
+          <option value="1">未通過</option>
+          <option value="2">審核成功</option>
         </select>
         <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
           <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -180,12 +180,12 @@
         <select @change="onChange" v-model="searchType" class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role"
           >
           <option value="">請選擇搜尋欄位</option>
-          <option value="">姓名/英文姓名</option>
-          <option value="">行動電話</option>
-          <option value="">縣市</option>
-          <option value="">分校</option>
-          <option value="">班級</option>
-          <option value="">來源</option>
+          <option value="0">姓名/英文姓名</option>
+          <option value="1">行動電話</option>
+          <option value="2">縣市</option>
+          <option value="3">分校</option>
+          <option value="4">班級</option>
+          <option value="5">來源</option>
         </select>
         <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
           <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -205,7 +205,7 @@
     </div>
     <!-- 重整按鈕 -->
     <div class="w-auto syncBtn p-1 cursor-pointer" v-if="showItems.sync">
-      <a class="flex items-center justify-center btn-main text-white rounded">
+      <a class="flex items-center justify-center btn-main text-white rounded" @click="revertData">
         <i class="fas fa-sync-alt"></i>
       </a>
     </div>
@@ -232,7 +232,7 @@
             classroom: false,
             role: false,
             delReason: false,
-            listStatus: false,
+            // listStatus: false,
             classTopic: false,
             classStatus: false,
             classification: false,
@@ -258,7 +258,7 @@
         classroom: '',
         role: '',
         delReason: '',
-        listStatus: '',
+        // listStatus: '',
         classTopic: '',
         classStatus: '',
         classification: '',
@@ -270,8 +270,6 @@
         searchWord: ''
       }
     },
-    computed: {
-    },
     methods: {
       onChange () {
         let self = this
@@ -281,7 +279,7 @@
         self.showItems.role ?  filterArr.role = self.role : null
         self.showItems.delReason ?  filterArr.delReason = self.delReason : null
         self.showItems.classTopic ?  filterArr.classTopic = self.classTopic : null
-        self.showItems.listStatus ?  filterArr.listStatus = self.listStatus : null
+        // self.showItems.listStatus ?  filterArr.listStatus = self.listStatus : null
         self.showItems.classStatus ?  filterArr.classStatus = self.classStatus : null
         self.showItems.classification ?  filterArr.classification = self.classification : null
         self.showItems.branch ?  filterArr.branch = self.branch : null
@@ -293,7 +291,8 @@
         console.log(filterArr)
       },
       revertData () {
-        this.$data = this.$options.data()
+        let self = this
+        Object.assign(self.$data,self.$options.data())
       }
     }
   }

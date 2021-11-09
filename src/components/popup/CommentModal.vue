@@ -83,17 +83,8 @@ export default {
     return {
       showSecondModal: false,
       showItems: {
-        role: false,
-        listStatus: false,
-        classTopic: false,
-        classification: false,
-        branch: false,
-        classType: false,
-        timePeriod: false,
         search: true,
-        sync: true,
-        approvalStatus: false,
-        isExportBtn: false
+        sync: true
       },
       tableList: {
         columns: [

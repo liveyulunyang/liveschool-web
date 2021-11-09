@@ -70,12 +70,8 @@
         showfirstModal: false,
 
         showItems: {
-          role: false,
-          listStatus: true,
-          classTopic: false,
-          classification: false,
-          branch: false,
-          classType: false,
+          progressStatus: true,
+          classType: true,
           timePeriod: true,
           search: true,
           sync: true,
