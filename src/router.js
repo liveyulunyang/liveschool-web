@@ -35,25 +35,30 @@ const router = new Router({
       },
       children: [
         {
+          path: '/',
+          name: 'home',
+          component: () => import('@/pages/Home.vue')
+        },
+        {
           path: '/users',
           name: 'Users',
-          components: {
-            default: () => import('@/pages/Users.vue')
-          },
-          children: [
-            {
-              path: 'users_recycle',
-              name: 'usersRecycle',
-              component: () => import('@/pages/UsersRecycle.vue')
-            }
-          ]
-          // component: () => import('@/pages/Users.vue')
+          // components: {
+          //   default: () => import('@/pages/Users.vue')
+          // },
+          // children: [
+          //   {
+          //     path: 'users_recycle',
+          //     name: 'usersRecycle',
+          //     component: () => import('@/pages/UsersRecycle.vue')
+          //   }
+          // ]
+          component: () => import('@/pages/Users.vue')
         },
-        // {
-        //   path: '/users_recycle',
-        //   name: 'usersRecycle',
-        //   component: () => import('@/pages/UsersRecycle.vue')
-        // },
+        {
+          path: '/users_recycle',
+          name: 'usersRecycle',
+          component: () => import('@/pages/UsersRecycle.vue')
+        },
         {
           path: '/courses_talk',
           name: 'courses',

@@ -2,7 +2,7 @@
   <main class="p-6" id="myclass">
     <div class="flex items-start">
       <!-- 主任 -->
-      <div class="flex flex-col w-full" v-if="$store.state.userRole === 'director'">
+      <div class="flex flex-col w-full" v-if="$store.state.auth.userRole === 'director'">
 
         <div class="mb-4 flex justify-between flex-wrap">
           <div class="flex justify-between flex-col">
@@ -215,7 +215,7 @@
         </div>
       </div>
       <!-- 學生 -->
-      <div class="student flex flex-col w-full" v-if="$store.state.userRole === 'student'">
+      <div class="student flex flex-col w-full" v-if="$store.state.auth.userRole === 'student'">
         <div class="flex flex-wrap items-stretch py-3 student-basic-info">
           <div class="md:flex-none py-4 text-white font-bold flex items-center justify-center md:border-r-2 px-3 w-full md:w-2/6">
             <div class="mx-2">
@@ -425,7 +425,7 @@
 
       </div>
       <!-- 老師 -->
-      <div class="flex flex-col w-full" v-if="$store.state.userRole === 'teacher'">
+      <div class="flex flex-col w-full" v-if="$store.state.auth.userRole === 'teacher'">
         <div class="flex justify-between items-center flex-wrap">
           <Title :title="'我的課程'" />
         </div>

@@ -3,8 +3,8 @@
     <div class="flex flex-col w-full">
       <div class="mb-4 flex justify-between items-center flex-wrap">
         <div class="flex">
-          <Title v-if="$store.state.userRole === 'admin'" :title="'預約課程審核列表'" />
-          <Title v-if="$store.state.userRole === 'director'" :title="'預約課程清單'" />
+          <Title v-if="$store.state.auth.userRole === 'admin'" :title="'預約課程審核列表'" />
+          <Title v-if="$store.state.auth.userRole === 'director'" :title="'預約課程清單'" />
         </div>
       </div>
       <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row mb-4">

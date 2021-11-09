@@ -47,7 +47,7 @@
       }
     },
     watch: {
-      '$store.state.userRole' (newVal, oldVal) {
+      '$store.state.auth.userRole' (newVal, oldVal) {
         if (newVal !== oldVal) {
           this.$router.push({ path: this.menuListItem[0].url }).catch(()=>{})
         }

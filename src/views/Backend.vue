@@ -1,14 +1,19 @@
 <template>
 <div>
 <div id="backView" class="min-h-screen overflow-auto">
-  <Nav class="hidden md:block" :menu-list-item="roleMenu" :user="user"></Nav>
+  <Nav class="hidden md:block" :menu-list-item="roleMenu" :user="user" v-if="$store.state.auth.authorized"></Nav>
   <header class="bg-white flex justify-between px-2 lg:px-20 border-b-2 border-gray-900 border-solid h-20">
     <Nav class="md:hidden" mode="mobile" :menu-list-item="roleMenu" :user="user"></Nav>
     <router-link class="flex items-center" to="/">
       <img alt="Velocity" src="@/assets/logo.png" class="w-24 md:w-48 h-auto">
+      <span class="mt-4 ml-3">遠距教學平台</span>
     </router-link>
     <div class="flex items-center">
-      <div class="dropdown">
+      <div v-if="!$store.state.auth.authorized" class="flex items-center">
+        <a class="block cursor-pointer px-3 py-2 text-main font-bold mr-3">合作開課</a>
+        <a class="block cursor-pointer border-2 rounded-xl px-3 py-2 text-main font-bold border-main">登入 / 免費註冊</a>
+      </div>
+      <div class="dropdown" v-if="$store.state.auth.authorized">
         <button class="dropbtn focus:outline-none" @click="isOpenUser = !isOpenUser">Hi! Peggy<i class="fas fa-sort-down ml-2"></i></button>
         <div id="myDropdown" class="dropdown-content" :class=" { hidden: !isOpenUser }">
 
@@ -17,7 +22,7 @@
           <a href="#base">登出</a>
         </div>
       </div>
-      <Button @click.native="openSideBar"
+      <button @click.native="openSideBar" v-if="$store.state.auth.authorized"
           class="mx-2 relative text-gray-1 hover:text-primary-normal focus:outline-none"
           round>
         <span class="absolute top-0 right-0 h-2 w-2 rounded-full bg-gray-900"></span>
@@ -28,7 +33,7 @@
           class="fill-current">
         <use xlink:href="#c-icon-bell"></use>
         </svg>
-      </Button>
+      </button>
     </div>
   </header>
   <router-view class="min-h-full" @click.native="outside" />
@@ -37,7 +42,7 @@
   <div class="fixed bottom-0 right-0 z-40 cursor-pointer">
     <div class="relative w-auto mx-1">
       <select class="block appearance-none py-3 px-4 pr-8 rounded leading-tight focus:outline-none border" id="setRole"
-        @change="setRole($event)" v-model="$store.state.userRole">
+        @change="setRole($event)" v-model="$store.state.auth.userRole">
         <option value="admin">管理者</option>
         <option value="director">主任</option>
         <option value="student">學生</option>
@@ -83,7 +88,6 @@
 
 <script>
   import Nav from '@/components/Nav'
-  import Button from "@/components/Button"
   import SideBar from "@/components/SideBar"
   import { mapGetters } from 'vuex'
 export default {
@@ -323,7 +327,6 @@ export default {
   },
   components: {
     Nav,
-    Button,
     SideBar
   },
   mounted () {

@@ -102,9 +102,9 @@
           >
           <option value="">課程狀態</option>
           <option value="">課程準備中</option>
-          <option value="" v-if="$store.state.userRole === 'admin' || $store.state.userRole === 'director'">上課中</option>
+          <option value="" v-if="$store.state.auth.userRole === 'admin' || $store.state.auth.userRole === 'director'">上課中</option>
           <option value="">已結束</option>
-          <option value="" v-if="$store.state.userRole === 'student' || $store.state.userRole === 'teacher'">前往上課</option>
+          <option value="" v-if="$store.state.auth.userRole === 'student' || $store.state.auth.userRole === 'teacher'">前往上課</option>
         </select>
         <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
           <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>

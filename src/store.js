@@ -6,7 +6,11 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     lang: 'zh',
-    userRole: 'admin', // admin director supervise student teacher
+    auth: {
+      authorized: false,
+      userRole: 'admin', // admin director supervise student teacher
+      user: null
+    },
     items: {
         needed: [
             {

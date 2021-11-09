@@ -11,16 +11,16 @@
             <div class="flex justify-between">
               <TabComponent :tag="tag" :tagArr="tagArr" v-on:tagIdx="tagIdx" />
               <!-- <ul class="flex cursor-pointer">
-                <li class="py-4 px-6 tag flex items-center justify-center mr-2" :class="{ tagAct: tag === 0 }" @click="tag = 0" v-if="$store.state.userRole === 'admin'">統計</li>
+                <li class="py-4 px-6 tag flex items-center justify-center mr-2" :class="{ tagAct: tag === 0 }" @click="tag = 0" v-if="$store.state.auth.userRole === 'admin'">統計</li>
                 <li class="py-4 px-6 tag flex items-center justify-center mx-2" :class="{ tagAct: tag === 1 }" @click="tag = 1">轉移</li>
-                <li class="py-4 px-6 tag flex items-center justify-center mx-2" :class="{ tagAct: tag === 2 }" @click="tag = 2" v-if="$store.state.userRole === 'admin'">新增</li>
+                <li class="py-4 px-6 tag flex items-center justify-center mx-2" :class="{ tagAct: tag === 2 }" @click="tag = 2" v-if="$store.state.auth.userRole === 'admin'">新增</li>
                 <li class="py-4 px-6 tag flex items-center justify-center ml-2" :class="{ tagAct: tag === 3 }" @click="tag = 3">交易紀錄</li>
               </ul> -->
             </div>
 
             <div class="w-full flex flex-col justify-between leading-normal">
 
-              <div v-if="tag === 0 && $store.state.userRole === 'admin'" class="bg-white py-2 lg:p-4">
+              <div v-if="tag === 0 && $store.state.auth.userRole === 'admin'" class="bg-white py-2 lg:p-4">
                 <FilterModal :showItems="showItems" />
                 <!-- <div class="flex items-center mb-4 flex-wrap">
                   <div class="mr-1">
@@ -148,7 +148,7 @@
                   </div>
                 </form>
               </div>
-              <div v-if="(tag === 2 && $store.state.userRole === 'admin')" class="bg-white py-2 lg:p-4">
+              <div v-if="(tag === 2 && $store.state.auth.userRole === 'admin')" class="bg-white py-2 lg:p-4">
                 <form>
                   <div class="mb-4">
                     <label class="block text-md mb-2 text-left" for="email">帳號</label>
@@ -280,7 +280,7 @@
     },
     computed: {
       tagArr () {
-        if (this.$store.state.userRole === 'admin') {
+        if (this.$store.state.auth.userRole === 'admin') {
           return [
             { name: '統計', role: 'admin' },
             { name: '轉移', role: '' },

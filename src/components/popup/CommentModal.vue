@@ -36,14 +36,14 @@
             </template>
             <!-- <template slot="recordBtn">
               <td data-th="課前分數">
-                <p class="px-1 py-2 border border-gray-300 text-gray-300" v-if="$store.state.userRole !== 'admin'">課後練習成績</p>
-                <p class="px-1 py-2 border border-gray-300 text-gray-300" v-if="$store.state.userRole === 'admin'">請輸入課程成績</p>
+                <p class="px-1 py-2 border border-gray-300 text-gray-300" v-if="$store.state.auth.userRole !== 'admin'">課後練習成績</p>
+                <p class="px-1 py-2 border border-gray-300 text-gray-300" v-if="$store.state.auth.userRole === 'admin'">請輸入課程成績</p>
               </td>
             </template>
             <template slot="statusText">
               <td data-th="課後分數">
-                <p class="px-1 py-2 border border-gray-300 text-gray-300" v-if="$store.state.userRole !== 'admin'">課後練習成績</p>
-                <p class="px-1 py-2 border border-gray-300 text-gray-300" v-if="$store.state.userRole === 'admin'">請輸入課程成績</p>
+                <p class="px-1 py-2 border border-gray-300 text-gray-300" v-if="$store.state.auth.userRole !== 'admin'">課後練習成績</p>
+                <p class="px-1 py-2 border border-gray-300 text-gray-300" v-if="$store.state.auth.userRole === 'admin'">請輸入課程成績</p>
               </td>
             </template> -->
             <template slot="actionsBtn">
@@ -140,7 +140,7 @@ export default {
   },
   computed: {
     returnData () {
-      if (this.$store.state.userRole === 'admin') {
+      if (this.$store.state.auth.userRole === 'admin') {
         return this.tableListAdmin
       } else {
         return this.tableList

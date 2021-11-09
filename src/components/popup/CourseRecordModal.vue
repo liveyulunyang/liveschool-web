@@ -116,7 +116,7 @@ export default {
   },
   computed: {
     returnData () {
-      if (this.$store.state.userRole === 'admin') {
+      if (this.$store.state.auth.userRole === 'admin') {
         return this.tableListAdmin
       } else {
         return this.tableList

@@ -10,7 +10,7 @@
         <div class="flex items-center justify-start flex-wrap">
           <FilterModal :showItems="showItems" />
         </div>
-        <div class="flex justify-end items-center"  v-if="$store.state.userRole === 'director'">
+        <div class="flex justify-end items-center"  v-if="$store.state.auth.userRole === 'director'">
           <button @click="addBook" class="px-4 py-2 btn-red text-white  text-sm mx-1 rounded whitespace-no-wrap">
             <i class="fas fa-plus mr-1"></i> 新增預約
           </button>
