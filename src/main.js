@@ -33,10 +33,15 @@ const i18n = new VueI18n({
     'cn': require('@/i18n/cn.json')
   }
 })
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+
+import 'swiper/dist/css/swiper.css'
+
+Vue.use(VueAwesomeSwiper)
 
 Vue.config.productionTip = false
 
-delete Icon.Default.prototype._getIconUrl;
+delete Icon.Default.prototype._getIconUrl
 
 Icon.Default.mergeOptions({
   iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),

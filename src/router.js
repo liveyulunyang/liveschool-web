@@ -29,7 +29,7 @@ const router = new Router({
     },
     {
       path: '/',
-      name: 'liveTalkBackView',
+      name: '',
       components: {
         default: () => import('@/views/Backend.vue')
       },
