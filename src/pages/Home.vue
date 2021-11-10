@@ -40,8 +40,7 @@
           <img src="@/assets/img/home/btn_home_Teacher_on.png" class="on cursor-pointer">
         </a>
       </div>
-      <div class="h-3 w-full absolute bg-class-red"></div>
-      <!-- :class="{ bg-class-red: type === 'talk', bg-class-blue: type === 'class', bg-class-yellow: type === 'teacher' }" -->
+      <div class="h-3 w-full absolute bg-class-red"   :class="{[`bg-class-red`]: type === 'talk', [`bg-class-blue`]: type === 'class', [`bg-class-yellow`]: type === 'teacher' }"></div>
     </section>
     <!-- 課程介紹/最新消息/熱門課程 -->
     <section class="py-16 container text-main px-2">
@@ -51,7 +50,7 @@
           <h4 class="text-3xl md:text-4xl font-semibold mr-2">課程介紹</h4>
           <p class="text-2xl font-light">Course Introduction</p>
         </div>
-        <img src="@/assets/img/home/pic_home_introduce.png" class="block">
+        <img src="@/assets/img/home/pic_home_introduce.png" class="block shadow-lg">
       </div>
 
       <div class="py-8">
@@ -60,7 +59,7 @@
           <h4 class="text-3xl md:text-4xl font-semibold mr-2">最新消息</h4>
           <p class="text-2xl font-light">News</p>
         </div>
-        <img src="@/assets/img/home/pic_home_news.png" class="block">
+        <img src="@/assets/img/home/pic_home_news.png" class="block shadow-lg">
       </div>
 
       <div class="py-8">
@@ -249,9 +248,7 @@ import Classes from '@/components/index/Classes'
       background: #FAF6EF;
       background-image: url('~@/assets/img/home/background_home_03.png');
       background-repeat: no-repeat;
-      background-size: contain;
-    }
-    #professional_teachers {
+      background-size: cover;
     }
     #login_free {
       background-image: url('~@/assets/img/home/background_home_04.png');

@@ -40,14 +40,10 @@ export default {
       Teachersoption: {
         slidesPerView: 4,
         spaceBetween: 20,
-        // preloadImages: true,
+        preloadImages: true,
         updateOnImagesReady: true,
         // autoplay: {
         //   delay: 5000
-        // },
-        // pagination: {
-        //   el: '.swiper-pagination',
-        //   clickable: true
         // },
         centeredSlides: false,
         watchOverflow: true,
@@ -85,26 +81,26 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.mugShot {
-    width: 100%;
-    height: 100%;
-    max-width: 260px;
-    max-height: 260px;
-  .mugShot-img {
-    border-radius: 50%;
-    overflow: hidden;
-  }
-  .btn-volume {
-    right: 2%;
-    bottom: 2%;
-    width: 70px;
-    height: 70px;
-    .fa-volume-up {
-      font-size: 30px;
-    }
-  }
-}
   .slider-teachers {
+    .mugShot {
+        width: 100%;
+        height: 100%;
+        max-width: 260px;
+        max-height: 260px;
+      .mugShot-img {
+        border-radius: 50%;
+        overflow: hidden;
+      }
+      .btn-volume {
+        right: 2%;
+        bottom: 2%;
+        width: 70px;
+        height: 70px;
+        .fa-volume-up {
+          font-size: 30px;
+        }
+      }
+    }
     .swiper-button-next-banner {
       right: -3em !important;
     }

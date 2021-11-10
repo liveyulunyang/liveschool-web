@@ -2,7 +2,7 @@
   <div class="slider-classes relative">
     <swiper :options="Classesoption" class="swiper" v-if="bannerData">
       <swiper-slide v-for="item in bannerData" :key="item.image_url">
-        <ClassModule />
+        <ClassModule class="shadow-lg" />
       </swiper-slide>
     </swiper>
       <div class="swiper-button-next swiper-button-next-banner focus:outline-none cursor-pointer hidden xl:block mt-0"></div>
@@ -65,23 +65,5 @@ export default {
     .swiper-button-prev-banner {
       left: -3em !important;
     }
-    // .swiper-button-next-banner {
-    //   background-image: url('~@/assets/btn/arrowRight.png');
-    //   background-size: contain;
-    //   background-size: 35px 35px;
-    //   background-position: center;
-    //   width: 6vw;
-    //   height: 100%;
-    //   transform: translateY(-50%);
-    // }
-    // .swiper-button-prev-banner {
-    //   background-image: url('~@/assets/btn/arrowLeft.png');
-    //   background-size: contain;
-    //   background-size: 35px 35px;
-    //   background-position: center;
-    //   width: 6vw;
-    //   height: 100%;
-    //   transform: translateY(-50%);
-    // }
   }
 </style>

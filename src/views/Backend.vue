@@ -10,7 +10,7 @@
     </router-link>
     <div class="flex items-center">
       <div v-if="!$store.state.auth.authorized" class="flex items-center">
-        <a class="block cursor-pointer px-3 py-2 text-main font-bold mr-3">合作開課</a>
+        <a class="block cursor-pointer px-3 py-2 text-main font-bold mr-3" href="https://docs.google.com/forms/d/e/1FAIpQLSfw_Q9scdFhVp5iNFO8exubkbloQGILu3rbdsnmMFANnFqHDA/viewform" target="_blank">合作開課</a>
         <a class="block cursor-pointer border-2 rounded-xl px-3 py-2 text-main font-bold border-main">登入 / 免費註冊</a>
       </div>
       <div class="dropdown" v-if="$store.state.auth.authorized">

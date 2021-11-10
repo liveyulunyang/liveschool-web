@@ -22,7 +22,7 @@ export default {
     return {
       bannerOption: {
         slidesPerView: 1,
-        // preloadImages: true,
+        preloadImages: true,
         updateOnImagesReady: true,
         autoplay: {
           delay: 5000
