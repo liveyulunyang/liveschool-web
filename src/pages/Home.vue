@@ -1,5 +1,5 @@
 <template>
-  <main class="" id="index">
+  <main id="index">
     <!-- fixed-btn -->
     <div class="fixed-btn fixed z-50">
       <div class="fixed-btn-arrow">
@@ -7,13 +7,13 @@
         <img src="@/assets/img/home/btn_arrow_right.png" class="cursor-pointer right">
       </div>
       <div class="absolute fixed-btn-items">
-        <a href="">
+        <a @click="jump('intro')">
           <img src="@/assets/img/home/btn_01.png" class="cursor-pointer">
         </a>
-        <a href="">
+        <a @click="jump('howtoclass')">
           <img src="@/assets/img/home/btn_02.png" class="cursor-pointer">
         </a>
-        <a href="">
+        <a @click="jump('successWitness')">
           <img src="@/assets/img/home/btn_03.png" class="cursor-pointer">
         </a>
       </div>
@@ -26,57 +26,61 @@
         <h3 class="text-3xl md:text-4xl font-semibold">課程種類</h3>
         <h3 class="text-3xl font-light">Course type</h3>
       </div>
-      <div class="classType-items flex w-full justify-center">
-        <a class="mx-3 classType-items-talk classType-items-card" :class="{ active: type === 'talk' }"  @click="type = 'talk'">
+      <div class="classType-items flex w-full justify-center container">
+        <a class="mx-1 md:mx-3 classType-items-talk classType-items-card" :class="{ active: type === 'talk' }"  @click="type = 'talk'">
           <img src="@/assets/img/home/btn_home_Talk_off.png" class="off cursor-pointer">
           <img src="@/assets/img/home/btn_home_Talk_on.png" class="on cursor-pointer">
         </a>
-        <a class="mx-3 classType-items-class classType-items-card" :class="{ active: type === 'class' }" @click="type = 'class'">
+        <a class="mx-1 md:mx-3 classType-items-class classType-items-card" :class="{ active: type === 'class' }" @click="type = 'class'">
           <img src="@/assets/img/home/btn_home_Class_off.png" class="off cursor-pointer">
           <img src="@/assets/img/home/btn_home_Class_on.png" class="on cursor-pointer">
         </a>
-        <a class="mx-3 classType-items-teacher classType-items-card" :class="{ active: type === 'teacher' }"  @click="type = 'teacher'">
+        <a class="mx-1 md:mx-3 classType-items-teacher classType-items-card" :class="{ active: type === 'teacher' }"  @click="type = 'teacher'">
           <img src="@/assets/img/home/btn_home_Teacher_off.png" class="off cursor-pointer">
           <img src="@/assets/img/home/btn_home_Teacher_on.png" class="on cursor-pointer">
         </a>
       </div>
-      <div class="h-3 w-full absolute bg-class-red"   :class="{[`bg-class-red`]: type === 'talk', [`bg-class-blue`]: type === 'class', [`bg-class-yellow`]: type === 'teacher' }"></div>
+      <!-- <div class="h-3 w-full absolute bg-class-red"   :class="{[`bg-class-red`]: type === 'talk', [`bg-class-blue`]: type === 'class', [`bg-class-yellow`]: type === 'teacher' }"></div> -->
     </section>
     <!-- 課程介紹/最新消息/熱門課程 -->
-    <section class="py-16 container text-main px-2">
-      <div class="py-8">
-        <div class="flex items-center mb-6">
-          <img src="@/assets/img/home/icon_home_bulleted.png" class="block">
-          <h4 class="text-3xl md:text-4xl font-semibold mr-2">課程介紹</h4>
-          <p class="text-2xl font-light">Course Introduction</p>
-        </div>
-        <img src="@/assets/img/home/pic_home_introduce.png" class="block shadow-lg">
-      </div>
-
-      <div class="py-8">
-        <div class="flex items-center mb-6">
-          <img src="@/assets/img/home/icon_home_bulleted.png" class="block">
-          <h4 class="text-3xl md:text-4xl font-semibold mr-2">最新消息</h4>
-          <p class="text-2xl font-light">News</p>
-        </div>
-        <img src="@/assets/img/home/pic_home_news.png" class="block shadow-lg">
-      </div>
-
-      <div class="py-8">
-        <div class="flex flex-col justify-start md:flex-row md:items-center mb-6 md:justify-between">
-          <div class="flex items-center">
-            <img src="@/assets/img/home/icon_home_bulleted.png" class="block">
-            <h4 class="text-3xl md:text-4xl font-semibold mr-2">熱門課程</h4>
-            <p class="text-2xl font-light">Popular courses</p>
+    <section ref="intro" id="intro" class="py-16 text-main px-2" :class="{ talk: type === 'talk', class: type === 'class', teacher: type === 'teacher'}">
+      <div class="container">
+        <div class="py-8">
+          <div class="flex flex-col justify-start md:flex-row md:items-center mb-6 md:justify-between">
+            <div class="flex items-center">
+              <img src="@/assets/img/home/icon_home_bulleted.png" class="block mr-2">
+              <h4 class="text-2xl sm:text-3xl md:text-4xl font-bold mr-2">課程介紹</h4>
+              <p class="text-2xl font-light">Course Introduction</p>
+            </div>
           </div>
-
-          <a class="text-xl md:text-2xl font-semibold cursor-pointer">點我查看更多課程 >></a>
+          <img src="@/assets/img/home/pic_home_introduce.png" class="block shadow-lg">
         </div>
-        <Classes :bannerData="bannerData" />
+
+        <div class="py-8">
+          <div class="flex items-center mb-6">
+            <img src="@/assets/img/home/icon_home_bulleted.png" class="block mr-2">
+            <h4 class="text-2xl sm:text-3xl md:text-4xl font-bold mr-2">最新消息</h4>
+            <p class="text-2xl font-light">News</p>
+          </div>
+          <img src="@/assets/img/home/pic_home_news.png" class="block shadow-lg">
+        </div>
+
+        <div class="py-8">
+          <div class="flex flex-col justify-start md:flex-row md:items-center mb-6 md:justify-between">
+            <div class="flex items-center">
+              <img src="@/assets/img/home/icon_home_bulleted.png" class="block mr-2">
+              <h4 class="text-2xl sm:text-3xl md:text-4xl font-bold mr-2">熱門課程</h4>
+              <p class="text-2xl font-light">Popular courses</p>
+            </div>
+
+            <a class="text-xl md:text-2xl font-semibold cursor-pointer">點我查看更多課程 >></a>
+          </div>
+          <Classes :bannerData="bannerData" />
+        </div>
       </div>
     </section>
     <!-- 如何上課 -->
-    <section id="howtoclass" class="bg-blue-main-dark overflow-hidden py-16 lg:py-24">
+    <section ref="howtoclass" id="howtoclass" class="bg-blue-main-dark overflow-hidden py-16 lg:py-24">
       <div class="container px-2">
         <div class="text-white tracking-widest mb-16">
           <h3 class="text-3xl md:text-4xl font-semibold">如何上課</h3>
@@ -90,7 +94,7 @@
       </div>
     </section>
     <!-- 成功見證 -->
-    <section id="successWitness" class="overflow-hidden py-16 lg:py-24">
+    <section ref="successWitness" id="successWitness" class="overflow-hidden py-16 lg:py-24">
       <div class="container px-2">
         <div class="text-white tracking-widest mb-16">
           <h3 class="text-3xl md:text-4xl font-semibold text-main">成功見證</h3>
@@ -148,6 +152,7 @@ import axios from 'axios'
 import IndexBanner from '@/components/index/Banner'
 import Teachers from '@/components/index/Teachers'
 import Classes from '@/components/index/Classes'
+import jump from 'jump.js'
   export default {
     name: "Index",
     components: {
@@ -173,6 +178,25 @@ import Classes from '@/components/index/Classes'
           .then((response) => {
             self.bannerData = response.data
           })
+      },
+      jump (val) {
+        let self =this
+        if (val === 'intro') {
+        jump(self.$refs.intro, {
+          duration: 1000,
+          offset: 0
+        })
+        } else if (val === 'howtoclass') {
+        jump(self.$refs.howtoclass, {
+          duration: 1000,
+          offset: 0
+        })
+        } else {
+        jump(self.$refs.successWitness, {
+          duration: 1000,
+          offset: 0
+        })
+        }
       }
     }
   }
@@ -207,13 +231,22 @@ import Classes from '@/components/index/Classes'
         display: none;
       }
     }
-
+    #intro.talk {
+      border-top: .8em solid #FF725A;
+    }
+    #intro.class {
+      border-top: .8em solid #5DA0DE;
+    }
+    #intro.teacher {
+      border-top: .8em solid #FCC823;
+    }
     #classType {
       background-image: url('~@/assets/img/home/background_home_01.png');
       background-repeat: no-repeat;
-      background-size: contain;
+      background-size: cover;
       @media (max-width: 768px) {
         background-position: bottom;
+        background-size: contain;
       }
       .classType-items {
         .classType-items-card {
@@ -253,9 +286,10 @@ import Classes from '@/components/index/Classes'
     #login_free {
       background-image: url('~@/assets/img/home/background_home_04.png');
       background-repeat: no-repeat;
-      background-size: contain;
+      background-size: cover;
       @media (max-width: 768px) {
         background-position: bottom;
+        background-size: contain;
       }
     }
   }

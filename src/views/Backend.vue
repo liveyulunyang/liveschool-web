@@ -2,15 +2,17 @@
 <div>
 <div id="backView" class="min-h-screen overflow-auto">
   <Nav class="hidden md:block" :menu-list-item="roleMenu" :user="user" v-if="$store.state.auth.authorized"></Nav>
-  <header class="bg-white flex justify-between px-2 lg:px-20 border-b-2 border-gray-900 border-solid h-20">
+
+  <HeaderSection :roleMenu="roleMenu" />
+  <!-- <header class="bg-white flex justify-between px-2 lg:px-20 border-b-2 border-gray-900 border-solid h-20">
     <Nav class="md:hidden" mode="mobile" :menu-list-item="roleMenu" :user="user"></Nav>
     <router-link class="flex items-center" to="/">
       <img alt="Velocity" src="@/assets/logo.png" class="w-24 md:w-48 h-auto">
-      <span class="mt-4 ml-3">遠距教學平台</span>
+      <span class="mt-4 ml-3 hidden md:block">遠距教學平台</span>
     </router-link>
     <div class="flex items-center">
       <div v-if="!$store.state.auth.authorized" class="flex items-center">
-        <a class="block cursor-pointer px-3 py-2 text-main font-bold mr-3" href="https://docs.google.com/forms/d/e/1FAIpQLSfw_Q9scdFhVp5iNFO8exubkbloQGILu3rbdsnmMFANnFqHDA/viewform" target="_blank">合作開課</a>
+        <a class="hidden md:block cursor-pointer px-3 py-2 text-main font-bold mr-3" href="https://docs.google.com/forms/d/e/1FAIpQLSfw_Q9scdFhVp5iNFO8exubkbloQGILu3rbdsnmMFANnFqHDA/viewform" target="_blank">合作開課</a>
         <a class="block cursor-pointer border-2 rounded-xl px-3 py-2 text-main font-bold border-main">登入 / 免費註冊</a>
       </div>
       <div class="dropdown" v-if="$store.state.auth.authorized">
@@ -35,7 +37,7 @@
         </svg>
       </button>
     </div>
-  </header>
+  </header> -->
   <router-view class="min-h-full" @click.native="outside" />
   <SideBar :is-visible="isOpenSideBar" @click="outside"></SideBar>
 
@@ -89,6 +91,7 @@
 <script>
   import Nav from '@/components/Nav'
   import SideBar from "@/components/SideBar"
+  import HeaderSection from "@/components/modules/HeaderSection"
   import { mapGetters } from 'vuex'
 export default {
   name: 'Backend',
@@ -313,19 +316,20 @@ export default {
             url: "/myClass"
           }
         ],
-        user: {
-          img: {
-            src: require('@/assets/img/avatar.png'),
-            alt: 'avatar'
-          },
-          firstName: "Anna",
-          lastName: "Black",
-          professionnalFunction: "Sr. Customer Manager"
-        },
+        // user: {
+        //   img: {
+        //     src: require('@/assets/img/avatar.png'),
+        //     alt: 'avatar'
+        //   },
+        //   firstName: "Anna",
+        //   lastName: "Black",
+        //   professionnalFunction: "Sr. Customer Manager"
+        // },
         isOpenSideBar: false
     }
   },
   components: {
+    HeaderSection,
     Nav,
     SideBar
   },

@@ -1,6 +1,6 @@
 <template>
   <section class="h-full">
-    <div class="ClassModule overflow-hidden relative h-full flex-col justify-between web hidden sm:flex bg-library shadow-lg">
+    <div class="ClassModule overflow-hidden relative h-full flex-col justify-between web bg-library shadow-lg">
       <a class="cursor-pointer">
         <div class="outer overflow-hidden">
           <div class="inner mx-auto absolute w-full h-full">

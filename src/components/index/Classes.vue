@@ -32,7 +32,7 @@ export default {
         updateOnImagesReady: true,
         centeredSlides: false,
         watchOverflow: true,
-        // loop: true,
+        loop: true,
         effect: 'slide',
         autoHeight: true,
         navigation: {

@@ -41,10 +41,10 @@
       },
       menuListItem: {
         type: Array
-      },
-      user: {
-        type: Object
       }
+      // user: {
+      //   type: Object
+      // }
     },
     watch: {
       '$store.state.auth.userRole' (newVal, oldVal) {
@@ -55,8 +55,8 @@
     },
     data () {
       return {
-        isClosed: true,
-        personName: this.user.firstName + ' ' + this.user.lastName
+        isClosed: true
+        // personName: this.user.firstName + ' ' + this.user.lastName
       }
     }
   }
