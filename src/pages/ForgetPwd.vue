@@ -21,7 +21,7 @@
           </div>
         </div>
         <div class="md:flex w-full justify-center px-3">
-          <button class="btn-main py-3 rounded text-sm whitespace-no-wrap mx-1 text-white w-full md:w-1/3 font-bold">
+          <button class="btn-main py-3 rounded text-sm whitespace-no-wrap mx-1 text-white w-full md:w-1/3 font-bold" @click="success">
             寄送密碼重置連結
           </button>
         </div>
@@ -42,6 +42,15 @@
     computed: {
     },
     methods: {
+      success () {
+        this.$swal.fire({
+          icon: 'success',
+          title: '信件已寄出',
+          text: '請至信箱點選密碼重置連結，以便輸入新的密碼',
+          showConfirmButton: false,
+          iconColor: '#91DAE4'
+        })
+      }
     }
   }
 </script>
