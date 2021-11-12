@@ -104,10 +104,10 @@
         <div class="w-full h-full">
           <video controls width="100%">
 
-            <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm"
+            <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.webm"
                     type="video/webm">
 
-            <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+            <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4"
                     type="video/mp4">
 
               Sorry, your browser doesn't support embedded videos.

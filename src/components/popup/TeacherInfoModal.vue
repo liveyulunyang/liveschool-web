@@ -64,14 +64,13 @@ export default {
 </script>
 
 <style>
-.modal-footer {
-  padding: 15px 0px 0px 0px;
-  border-top: 1px solid #e5e5e5;
-  margin-left: -14px;
-  margin-right: -14px;
-}
-.vm-btn-close {
-  outline: none !important;
-}
-
+  .modal-footer {
+    padding: 15px 0px 0px 0px;
+    border-top: 1px solid #e5e5e5;
+    margin-left: -14px;
+    margin-right: -14px;
+  }
+  .vm-btn-close {
+    outline: none !important;
+  }
 </style>

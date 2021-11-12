@@ -1,17 +1,21 @@
 <template>
-  <div class="relative w-full h-screen bg-gray-800">
+  <div class="relative w-full h-screen bg-gray-800 overflow-hidden">
 
-    <fullscreen :fullscreen.sync="fullscreen">
+    <!-- <fullscreen :fullscreen.sync="fullscreen">
       <div class="container">
         <pdf :src="src" :page="currentPage" @num-pages="pageCount = $event" @page-loaded="currentPage = $event" ref="myPdfComponent"></pdf>
       </div>
-    </fullscreen>
+    </fullscreen> -->
 
-    <div class="container max-h-screen">
-      <pdf src="/test.pdf" :page="currentPage" @num-pages="pageCount = $event" @page-loaded="currentPage = $event" ref="myPdfComponent"></pdf>
+    <div class="container" id="preview">
+      <VideoJs />
+      <!-- <video id="my-video" class="video-js" controls preload="auto" poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg" data-setup='' loop>
+      <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4" type='video/mp4'>
+      </video> -->
+      <!-- <pdf src="/test.pdf" :page="currentPage" @num-pages="pageCount = $event" @page-loaded="currentPage = $event" ref="myPdfComponent"></pdf> -->
     </div>
 
-    <div class="absolute w-full left-0 bottom-0">
+    <!-- <div class="absolute w-full left-0 bottom-0">
       <div class="flex items-stretch py-3 video-mode-play-bar flex-wrap">
         <div class="w-full md:w-1/3 text-white flex items-center">
           <div class="dropup w-full">
@@ -54,19 +58,21 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
 <script>
-  import VueFullscreen from 'vue-fullscreen'
-  import Vue from 'vue'
-  Vue.use(VueFullscreen)
-  import pdf from 'vue-pdf'
+import VideoJs from '@/components/VideoJs'
+  // import VueFullscreen from 'vue-fullscreen'
+  // import Vue from 'vue'
+  // Vue.use(VueFullscreen)
+  // import pdf from 'vue-pdf'
   export default {
-    name: "startClass",
+    name: "PreviewClassModule",
     components: {
-      pdf
+      VideoJs
+      // pdf
     },
     data () {
       return {
@@ -97,22 +103,22 @@
         if (this.currentPage < this.pageCount) {
           this.currentPage ++
         }
-      },
-      toggle () {
-        this.fullscreen = !this.fullscreen
-      },
-      toggleApi () {
-        this.$fullscreen.toggle(this.$el.querySelector('.fullscreen-wrapper'), {
-          teleport: this.teleport,
-          callback: (isFullscreen) => {
-            this.fullscreen = isFullscreen
-          },
-        })
       }
+      // toggle () {
+      //   this.fullscreen = !this.fullscreen
+      // },
+      // toggleApi () {
+      //   this.$fullscreen.toggle(this.$el.querySelector('.fullscreen-wrapper'), {
+      //     teleport: this.teleport,
+      //     callback: (isFullscreen) => {
+      //       this.fullscreen = isFullscreen
+      //     },
+      //   })
+      // }
     }
   }
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .video-mode-play-bar {
   background: rgb(15, 69, 92, .7);
 }
@@ -174,4 +180,5 @@
 // .dropup:hover .dropbtn {
 //   background-color: #2980B9;
 // }
+
 </style>

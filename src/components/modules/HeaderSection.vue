@@ -2,8 +2,13 @@
   <header class="bg-white flex justify-between px-2 lg:px-20 border-b-2 border-gray-900 border-solid h-20">
     <Nav class="md:hidden" mode="mobile" :menu-list-item="roleMenu"></Nav>
     <router-link class="flex items-center" to="/">
-      <img alt="Velocity" src="@/assets/logo.png" class="w-24 md:w-48 h-auto">
-      <span class="mt-4 ml-3 hidden md:block">遠距教學平台</span>
+      <img alt="logo" src="@/assets/logo.png" class="w-24 md:w-48 h-auto" v-if="$route.name !== 'bookingClass'">
+      <span class="mt-4 ml-3 hidden md:block" v-if="$route.name !== 'bookingClass'">遠距教學平台</span>
+    </router-link>
+    <router-link class="flex items-center" to="/" v-if="$route.name === 'bookingClass'">
+      <img alt="logo" src="@/assets/logo_class.png" class="w-24 md:w-48 h-auto" v-if="$route.params.type === 'class'">
+      <img alt="logo" src="@/assets/logo_talk.png" class="w-24 md:w-48 h-auto" v-if="$route.params.type === 'talk'">
+      <img alt="logo" src="@/assets/logo_teacher.png" class="w-24 md:w-48 h-auto" v-if="$route.params.type === 'teacher'">
     </router-link>
     <div class="flex items-center">
       <div v-if="!$store.state.auth.authorized" class="flex items-center">
@@ -11,8 +16,8 @@
         <a class="block cursor-pointer border-2 rounded-xl px-3 py-2 text-main font-bold border-main" @click="$emit('toggleLogin', true)">登入 / 免費註冊</a>
       </div>
       <div class="dropdown" v-if="$store.state.auth.authorized">
-        <button class="dropbtn focus:outline-none" @click="isOpenUser = !isOpenUser">Hi! Peggy<i class="fas fa-sort-down ml-2"></i></button>
-        <div id="myDropdown" class="dropdown-content" :class=" { hidden: !isOpenUser }">
+        <button class="dropbtn focus:outline-none font-bold" @click="isOpenUser = !isOpenUser">Hi! Peggy<i class="fas fa-sort-down ml-2"></i></button>
+        <div id="myDropdown" class="dropdown-content font-bold" :class=" { hidden: !isOpenUser }">
 
           <router-link :to="{ name: 'account' }">帳號資料</router-link>
           <router-link :to="{ name: 'learn_record_student' }">查詢紀錄</router-link>
@@ -22,14 +27,15 @@
       <button @click="toggleSideBar" v-if="$store.state.auth.authorized"
           class="mx-2 relative text-gray-1 hover:text-primary-normal focus:outline-none"
           round>
-        <span class="absolute top-0 right-0 h-2 w-2 rounded-full bg-gray-900"></span>
-        <svg xmlns="http://www.w3.org/2000/svg"
+        <span class="absolute top-0 right-0 h-2 w-2 rounded-full bg-red-999"></span>
+        <!-- <svg xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
           height="35"
           width="35"
           class="fill-current">
         <use xlink:href="#c-icon-bell"></use>
-        </svg>
+        </svg> -->
+        <i class="fas fa-bell text-3xl text-main"></i>
       </button>
     </div>
   </header>
@@ -79,6 +85,7 @@ export default {
 .dropdown{
   position: relative;
   display: inline-block;
+  color: #4D4D4D;
   a {
     &:hover {
       background-color: #ddd;
@@ -89,12 +96,8 @@ export default {
     font-size: 16px;
     border: none;
     cursor: pointer;
+    color: #4D4D4D;
   }
-
-  .dropbtn:hover, .dropbtn:focus {
-    /* background-color: #3e8e41; */
-  }
-
 
   .dropdown-content {
     /* display: none; */

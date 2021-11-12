@@ -264,7 +264,28 @@ const router = new Router({
           path: '/index_manage',
           name: 'IndexManage',
           component: () => import('@/pages/IndexManage.vue')
+        },
+        // 學生預約
+        {
+          path: '/booking_class/:type',
+          name: 'bookingClass',
+          component: () => import('@/pages/booking/BookingClass.vue')
+        },
+        {
+          path: '/booking_class/talk/:id',
+          name: 'class_Detail',
+          component: () => import('@/pages/booking/ClassDetail.vue')
+        },
+        {
+          path: '/booking_class/class/:id',
+          name: 'classPreview',
+          component: () => import('@/pages/booking/ClassPreview.vue')
         }
+        // {
+        //   path: '/booking_class/teacher/:id',
+        //   name: 'classPreview',
+        //   component: () => import('@/pages/booking/ClassPreview.vue')
+        // }
       ]
     }
   ]
