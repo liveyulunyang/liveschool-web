@@ -49,11 +49,11 @@ const router = new Router({
           name: 'policy',
           component: () => import('@/pages/Policy.vue')
         },
-        // {
-        //   path: '/forget_password',
-        //   name: 'forgetPwd',
-        //   component: () => import('@/pages/ForgetPwd.vue')
-        // },
+        {
+          path: '/forget_password',
+          name: 'forgetPwd',
+          component: () => import('@/pages/ForgetPwd.vue')
+        },
         {
           path: '/users',
           name: 'Users',

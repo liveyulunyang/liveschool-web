@@ -20,7 +20,7 @@
                 <label for="remember" class="font-medium text-gray-900">記住我</label>
                 </div>
               </div>
-              <a class="underline cursor-pointer">忘記密碼</a>
+              <router-link :to="{ name: 'forgetPwd' }" @click.native="close" class="underline cursor-pointer">忘記密碼</router-link>
             </div>
           </form>
         </div>
@@ -29,7 +29,7 @@
             <h3 class="mb-5 text-3xl uppercase text-white">免費註冊</h3>
             <p class="mb-3 text-lg text-white text-left">還沒有帳號？</p>
             <p class="mb-12 md:mb-20 text-lg text-white text-left">快點加入線上真人口說家教，開口說英語吧!</p>
-            <button class="bg-white text-main w-full py-2 rounded font-bold" id="register"><span>免費註冊</span></button>
+            <router-link :to="{ name: 'register' }" @click.native="close" class="bg-white text-main w-full py-2 rounded font-bold cursor-pointer"><span>免費註冊</span></router-link>
           </form>
         </div>
     </div>
