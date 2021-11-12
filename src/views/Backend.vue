@@ -3,7 +3,8 @@
 <div id="backView" class="min-h-screen overflow-auto">
   <Nav class="hidden md:block" :menu-list-item="roleMenu" :user="user" v-if="$store.state.auth.authorized"></Nav>
 
-  <HeaderSection :roleMenu="roleMenu" />
+  <HeaderSection :roleMenu="roleMenu" v-on:toggleLogin="toggleLogin" />
+  <Login v-if="isOpenLogin" v-on:toggleLogin="toggleLogin" />
   <!-- <header class="bg-white flex justify-between px-2 lg:px-20 border-b-2 border-gray-900 border-solid h-20">
     <Nav class="md:hidden" mode="mobile" :menu-list-item="roleMenu" :user="user"></Nav>
     <router-link class="flex items-center" to="/">
@@ -92,11 +93,13 @@
   import Nav from '@/components/Nav'
   import SideBar from "@/components/SideBar"
   import HeaderSection from "@/components/modules/HeaderSection"
+  import Login from "@/components/popup/Login"
   import { mapGetters } from 'vuex'
 export default {
   name: 'Backend',
   data () {
     return {
+      isOpenLogin: false,
         isOpenUser: false,
         menuListItems: [
           {
@@ -331,7 +334,8 @@ export default {
   components: {
     HeaderSection,
     Nav,
-    SideBar
+    SideBar,
+    Login
   },
   mounted () {
   },
@@ -382,6 +386,9 @@ export default {
       setLang (lang) {
         this.$store.dispatch('setLang', lang)
         this.$i18n.locale = lang
+      },
+      toggleLogin (toggleLogin) {
+        this.isOpenLogin = toggleLogin
       }
     }
 }

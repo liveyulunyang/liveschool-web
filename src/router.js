@@ -40,6 +40,21 @@ const router = new Router({
           component: () => import('@/pages/Home.vue')
         },
         {
+          path: '/register',
+          name: 'register',
+          component: () => import('@/pages/Register.vue')
+        },
+        {
+          path: '/policy',
+          name: 'policy',
+          component: () => import('@/pages/Policy.vue')
+        },
+        // {
+        //   path: '/forget_password',
+        //   name: 'forgetPwd',
+        //   component: () => import('@/pages/ForgetPwd.vue')
+        // },
+        {
           path: '/users',
           name: 'Users',
           // components: {
