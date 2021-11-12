@@ -53,7 +53,6 @@ export default {
   },
   methods: {
     close () {
-      console.log('f')
       let self = this
       self.$emit('toggleLogin', false)
     }

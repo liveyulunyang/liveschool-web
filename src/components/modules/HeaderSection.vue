@@ -19,7 +19,7 @@
           <a href="#base">登出</a>
         </div>
       </div>
-      <button @click.native="openSideBar" v-if="$store.state.auth.authorized"
+      <button @click="toggleSideBar" v-if="$store.state.auth.authorized"
           class="mx-2 relative text-gray-1 hover:text-primary-normal focus:outline-none"
           round>
         <span class="absolute top-0 right-0 h-2 w-2 rounded-full bg-gray-900"></span>
@@ -42,6 +42,8 @@ export default {
 
   data () {
     return {
+      isOpenUser: false
+      // isOpenSideBar: false
     }
   },
 
@@ -61,9 +63,61 @@ export default {
     ])
   },
   methods: {
+    outside () {
+      // this.isOpenSideBar = false
+      // this.isOpenUser = false
+    },
+    toggleSideBar () {
+      let self = this
+      self.$emit('toggleSideBar', false)
+    }
   }
 }
 </script>
 
-<style>
+<style lang="scss">
+.dropdown{
+  position: relative;
+  display: inline-block;
+  a {
+    &:hover {
+      background-color: #ddd;
+    }
+  }
+  .dropbtn {
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .dropbtn:hover, .dropbtn:focus {
+    /* background-color: #3e8e41; */
+  }
+
+
+  .dropdown-content {
+    /* display: none; */
+    position: absolute;
+    left: -2em;
+    background-color: #ffffff;
+    min-width: 140px;
+    overflow: auto;
+    border: 1px solid #ddd;
+    z-index: 1;
+    font-size: 14px;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+
+  // .dropdown 
+
+  .show {display: block;}
+}
+
 </style>

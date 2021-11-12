@@ -1,9 +1,9 @@
 <template>
 <div>
 <div id="backView" class="min-h-screen overflow-auto">
-  <Nav class="hidden md:block" :menu-list-item="roleMenu" :user="user" v-if="$store.state.auth.authorized"></Nav>
+  <Nav class="hidden md:block" :menu-list-item="roleMenu" v-if="$store.state.auth.authorized"></Nav>
 
-  <HeaderSection :roleMenu="roleMenu" v-on:toggleLogin="toggleLogin" />
+  <HeaderSection :roleMenu="roleMenu" v-on:toggleLogin="toggleLogin" v-on:toggleSideBar="toggleSideBar" />
   <Login v-if="isOpenLogin" v-on:toggleLogin="toggleLogin" />
   <!-- <header class="bg-white flex justify-between px-2 lg:px-20 border-b-2 border-gray-900 border-solid h-20">
     <Nav class="md:hidden" mode="mobile" :menu-list-item="roleMenu" :user="user"></Nav>
@@ -100,7 +100,7 @@ export default {
   data () {
     return {
       isOpenLogin: false,
-        isOpenUser: false,
+        // isOpenUser: false,
         menuListItems: [
           {
             icon: "fas fa-users",
@@ -389,6 +389,10 @@ export default {
       },
       toggleLogin (toggleLogin) {
         this.isOpenLogin = toggleLogin
+      },
+      toggleSideBar (toggleSideBar) {
+        console.log(toggleSideBar)
+        this.isOpenSideBar = !this.isOpenSideBar
       }
     }
 }
@@ -428,44 +432,4 @@ export default {
     }
   }
 
-.dropbtn {
-  /* background-color: #04AA6D; */
-  /* color: white; */
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-}
-
-.dropbtn:hover, .dropbtn:focus {
-  /* background-color: #3e8e41; */
-}
-
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-.dropdown-content {
-  /* display: none; */
-  position: absolute;
-  left: -2em;
-  background-color: #ffffff;
-  min-width: 140px;
-  overflow: auto;
-  border: 1px solid #ddd;
-  z-index: 1;
-  font-size: 14px;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown a:hover {background-color: #ddd;}
-
-.show {display: block;}
 </style>

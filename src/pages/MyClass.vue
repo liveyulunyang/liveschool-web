@@ -181,7 +181,7 @@
                     <i class="fas fa-folder-open text-white"></i></button>
                 </div>
                 <div class="w-3/12">
-                  <a href="" class="flex whitespace-no-wrap items-center text-white bg-gray-900 text-sm py-2 px-2 rounded">
+                  <a href="" class="flex whitespace-no-wrap items-center text-white btn-main text-sm py-2 px-2 rounded">
                     前往上課<i class="fas fa-arrow-right ml-1"></i>
                   </a>
                 </div>
@@ -532,7 +532,7 @@
                     <a class="border px-2 py-1 text-gray-600 mr-2 rounded border-gray-600 cursor-pointer"><i class="fas fa-film"></i></a>
                     <a @click="showDetailModal = true" class="mx-1 table-btn-actions rounded table-btn-actions cursor-pointer"><i class="fas fa-folder-open"></i></a>
                     <!-- <a href="" class="border px-2 py-1">課程準備中</a> -->
-                    <a @click="showfirstModal = true" class="border px-2 py-1 bg-gray-900 text-white cursor-pointer rounded">前往上課<i class="fas fa-arrow-right ml-1 text-sm"></i></a>
+                    <a @click="showfirstModal = true" class="border px-2 py-1 btn-main text-white cursor-pointer rounded">前往上課<i class="fas fa-arrow-right ml-1 text-sm"></i></a>
                   </div>
                 </div>
               </div>
