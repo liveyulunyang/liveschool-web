@@ -1,24 +1,30 @@
 <template>
   <main class="p-6 max-w-8xl mx-auto w-full">
-    <div class="flex justify-between items-center mb-6">
-      <div class="flex items-center">
+    <div class="flex justify-between items-center mb-6 flex-wrap">
+      <div class="flex flex-col lg:flex-row items-start lg:items-center">
         <div class="tag flex text-white text-xs">
           <span class="px-2 py-1 bg-class-purple-01 mx-1 rounded">親子教養</span>
           <span class="px-2 py-1 bg-class-purple-02 mx-1 rounded">單字應用</span>
         </div>
-        <div>
-          <h2 class="text-3xl font-bold">老師希望你別再說錯的 英語易混淆字！</h2>
-        </div>
+        <!-- <div> -->
+          <h2 class="text-2xl lg:text-3xl font-bold text-left">老師希望你別再說錯的 英語易混淆字！</h2>
+        <!-- </div> -->
       </div>
       <div>
         <button class="btn-red py-3 px-12 rounded text-lg whitespace-no-wrap text-center font-bold text-white" @click="isOpen = true">
-          我要預約
+          購買課程
         </button>
         <!-- <ChoosePurchaseWay v-if="isOpen" v-on:toggle="toggle" /> -->
       </div>
     </div>
-    <div>
-      <PreviewClassModule />
+    <div class="">
+      <div class="relative w-full h-max-video">
+        <div class="video-player flex items-stretch" id="preview">
+          <VideoJs class="VideoJs" />
+          <List class="item-list-container hidden lg:block"/>
+        </div>
+        <div class="list-toggle py-2 bg-gray-900 text-white lg:hidden font-bold tracking-wider">單元一覽</div>
+      </div>
     </div>
     <!-- <div>
       <TabComponent :tag="tag" :tagArr="tagArr" v-on:tagIdx="tagIdx" />
@@ -76,12 +82,13 @@
   // import TabComponent from '@/components/Tab'
   // import MugShot from '@/components/MugShot'
   // import ChoosePurchaseWay from '@/components/booking/ChoosePurchaseWay'
-  import PreviewClassModule from '@/components/booking/PreviewClassModule'
-  // ChoosePurchaseWay
+  import VideoJs from '@/components/booking/VideoJs'
+  import List from '@/components/booking/VideoJsList'
   export default {
     name: "ClassPreview",
     components: {
-      PreviewClassModule
+      VideoJs,
+      List
       // TabComponent,
       // MugShot,
       // ChoosePurchaseWay
@@ -109,5 +116,39 @@
     }
   }
 </script>
-<style>
+<style lang="scss">
+.video-player {
+  position: relative;
+  overflow: hidden;
+  margin-top: 40px;
+  width: 100%;
+  height: 417px;
+  background-color: rgba(0, 0, 0, 0.65);
+  display: flex;
+  transition: height 0.3s ease 0s;
+}
+@media (max-width: 1199px) {
+  .video-player {
+      height: 343px;
+  }
+}
+
+
+.VideoJs {
+  width: 65%;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+.item-list-container {
+  width: 35%;
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+.h-max-video {
+  min-height: calc(100vh - 160px);
+}
+
+
 </style>
