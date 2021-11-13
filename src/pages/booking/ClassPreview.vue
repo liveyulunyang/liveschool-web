@@ -7,7 +7,7 @@
           <span class="px-2 py-1 bg-class-purple-02 mx-1 rounded">單字應用</span>
         </div>
         <!-- <div> -->
-          <h2 class="text-2xl lg:text-3xl font-bold text-left">老師希望你別再說錯的 英語易混淆字！</h2>
+          <h2 class="text-2xl font-bold text-left">老師希望你別再說錯的 英語易混淆字！</h2>
         <!-- </div> -->
       </div>
       <div>
@@ -21,9 +21,9 @@
       <div class="relative w-full h-max-video">
         <div class="video-player flex items-stretch" id="preview">
           <VideoJs class="VideoJs" />
-          <List class="item-list-container hidden lg:block"/>
+          <List class="item-list-container" :class="{ open: isOpenList }" v-on:close="close" />
         </div>
-        <div class="list-toggle py-2 bg-gray-900 text-white lg:hidden font-bold tracking-wider">單元一覽</div>
+        <div class="list-toggle py-2 bg-gray-btn text-white font-bold tracking-wider cursor-pointer" @click="isOpenList = true">單元一覽</div>
       </div>
     </div>
     <!-- <div>
@@ -101,7 +101,9 @@
           { name: '講師介紹', role: '' }
         ],
 
-        isOpen: false,
+        // isOpen: false,
+
+        isOpenList: false
       }
     },
     computed: {
@@ -112,6 +114,9 @@
       },
       toggle (toggle) {
         this.isOpen = toggle
+      },
+      close (close) {
+        this.isOpenList = close
       }
     }
   }
@@ -122,33 +127,43 @@
   overflow: hidden;
   margin-top: 40px;
   width: 100%;
-  height: 417px;
+  height: 500px;
   background-color: rgba(0, 0, 0, 0.65);
   display: flex;
   transition: height 0.3s ease 0s;
 }
-@media (max-width: 1199px) {
-  .video-player {
-      height: 343px;
-  }
-}
-
 
 .VideoJs {
   width: 65%;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     width: 100%;
   }
 }
 .item-list-container {
   width: 35%;
-  @media (max-width: 768px) {
+  @media (max-width: 1024px) {
     display: none;
   }
 }
+  @media (max-width: 1024px) {
+    .item-list-container.open {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+    }
+  }
+
 .h-max-video {
   min-height: calc(100vh - 160px);
 }
-
+.list-toggle {
+  display: none;
+  @media (max-width: 1024px) {
+    display: block;
+  }
+}
 
 </style>

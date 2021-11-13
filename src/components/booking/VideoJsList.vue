@@ -1,45 +1,58 @@
 <template>
-<div>
-  <ul id="accordion" class="accordion text-left">
-    <li class="" v-for="n in 5" :key="n" :class="{ open: n === 1}">
-      <div class="link text-lg"><span class="font-light mr-2 chapter">Chapter {{n}}</span><span class=" font-bold">八大詞類五大句型</span><i class="fa fa-chevron-down"></i></div>
-      <ul class="submenu" :class="{ block: n === 1}">
-        <li class="flex justify-between items-center px-3" v-for="k in 3" :key="k">
-          <div class="w-4/5 flex items-center">
-            <a href="#" class="title block relative ">
-              <i class="fas fa-lock text-sm"></i>
-              <span class="chapter mr-2">Unit {{k}}</span>
-              <span>八大詞類從零開始學起</span>
-            </a>
-            <span class="flex items-center justify-center text-white">
-              <a class="btn-main mx-1 w-6 h-6 rounded-full flex items-center justify-center text-xs cursor-pointer"><i class="fas fa-download"></i></a>
-              <a class="btn-main mx-1 w-6 h-6 rounded-full flex items-center justify-center text-xs cursor-pointer"><i class="far fa-file-alt"></i></a>
-            </span>
-          </div>
-          <span class="text-white">11:11</span>
-        </li>
-        <!-- <li><a href="#" class="flex justify-between items-center relative"><i class="fas fa-lock text-sm hidden"></i><span>片語與子句秒懂</span><span><i class="fas fa-download"></i><i class="fas fa-file-alt"></i></span><span>11:11</span></a></li>
-        <li><a href="#" class="flex justify-between items-center relative"><i class="fas fa-lock text-sm hidden"></i><span>五大基本句型—不及物動詞</span><span>11:11</span></a></li> -->
-      </ul>
-    </li>
-  </ul>
-</div>
+  <div class="z-50">
+    <a class="clostBtn flex justify-end items-center text-white py-2 px-3 lg:hidden cursor-pointer" @click="close">關閉視窗<i class="far fa-times-circle text-2xl ml-2"></i></a>
+    <ul id="accordion" class="accordion text-left">
+      <li class="" v-for="n in 10" :key="n" :class="{ open: n === seletedIdx }">
+        <div class="link" @click="seletedIdx = n"><span class="font-light mr-2 chapter">Chapter {{n}}</span><span class=" font-bold">八大詞類五大句型</span><i class="fa fa-chevron-down"></i></div>
+        <ul class="submenu" :class="{ block: n === seletedIdx }">
+          <li class="flex justify-between items-center px-3" v-for="k in 3" :key="k">
+            <div class="w-4/5 flex items-center">
+              <a href="#" class="title block relative ">
+                <i class="fas fa-lock text-sm chapter"></i>
+                <span class="chapter mr-2">Unit {{k}}</span>
+                <span class="">八大詞類從零開始學起</span>
+              </a>
+              <span class="flex items-center justify-center text-white">
+                <a class="btn-main mx-1 w-6 h-6 rounded-full flex items-center justify-center text-xs cursor-pointer"><i class="fas fa-download"></i></a>
+                <a class="btn-main mx-1 w-6 h-6 rounded-full flex items-center justify-center text-xs cursor-pointer"><i class="far fa-file-alt"></i></a>
+              </span>
+            </div>
+            <span class="text-white">11:11</span>
+          </li>
+          <!-- <li><a href="#" class="flex justify-between items-center relative"><i class="fas fa-lock text-sm hidden"></i><span>片語與子句秒懂</span><span><i class="fas fa-download"></i><i class="fas fa-file-alt"></i></span><span>11:11</span></a></li>
+          <li><a href="#" class="flex justify-between items-center relative"><i class="fas fa-lock text-sm hidden"></i><span>五大基本句型—不及物動詞</span><span>11:11</span></a></li> -->
+        </ul>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
   export default {
     name: "VideoJsList",
     // props: ['type','content'],
+    data () {
+      return {
+        seletedIdx: 1
+      }
+    },
     computed: {
     },
     mounted () {
     },
     methods: {
+      close () {
+        let self = this
+        self.$emit('close', false)
+      }
     }
   }
 </script>
 
 <style lang="scss" scoped>
+.clostBtn {
+  background: #666666;
+}
 .dropbtn {
   color: white;
   font-size: 16px;
@@ -94,13 +107,16 @@
   display: block;
   padding: 15px;
   color: #ffffff;
-  font-size: 14px;
+  // font-size: 14px;
   font-weight: 700;
   border-bottom: 1px solid rgb(255, 255, 255);
   position: relative;
-  -webkit-transition: all 0.4s ease;
-  -o-transition: all 0.4s ease;
-  transition: all 0.4s ease;
+  // -webkit-transition: all 0.4s ease;
+  // -o-transition: all 0.4s ease;
+  // transition: all 0.4s ease;
+  &:hover {
+    background: #333333;
+  }
 }
   .chapter {
     color: #CCCCCC;
@@ -131,8 +147,10 @@
 
 .accordion li.open .link { color: #ffffff; }
 
-.accordion li.open i { color: #ffffff; }
-
+// .accordion li.open i { color: #ffffff; }
+.fa-lock {
+  color: #CCCCCC;
+}
 .accordion li.open i.fa-chevron-down {
   -webkit-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
@@ -148,7 +166,7 @@
 .submenu {
   display: none;
   background: #666666;
-  font-size: 14px;
+  // font-size: 14px;
 }
 
 .submenu li { border-bottom: 1px solid #ccc; }
