@@ -32,8 +32,13 @@ import 'video.js/dist/video-js.css'
     },
     methods: {
       videoPlayer () {
-        videojs(document.getElementById('my_video_1'))
-        // document.querySelector('.vjs-control-bar').setAttribute('style', 'opacity:1 !important;')
+
+        // ControlBar.prototype.options_ = {
+        // loadEvent: 'play',
+        // children: ['playToggle', 'volumeMenuButton', 'currentTimeDisplay', 'timeDivider', 'durationDisplay', 'progressControl', 'liveDisplay', 'remainingTimeDisplay', 'customControlSpacer', 'playbackRateMenuButton', 'chaptersButton', 'subtitlesButton', 'captionsButton', 'fullscreenToggle']
+        // }
+        var player = videojs('#my_video_1')
+        player.fluid(true)
       }
     }
   }

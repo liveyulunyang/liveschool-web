@@ -19,7 +19,7 @@
     </div>
     <div class="">
       <div class="relative w-full h-max-video">
-        <div class="video-player flex items-stretch" id="preview">
+        <div class="video-player flex items-stretch mx-auto" id="preview">
           <VideoJs class="VideoJs" />
           <List class="item-list-container" :class="{ open: isOpenList }" v-on:close="close" />
         </div>
@@ -122,48 +122,57 @@
   }
 </script>
 <style lang="scss">
-.video-player {
-  position: relative;
-  overflow: hidden;
-  margin-top: 40px;
-  width: 100%;
-  height: 500px;
-  background-color: rgba(0, 0, 0, 0.65);
-  display: flex;
-  transition: height 0.3s ease 0s;
+.h-max-video {
+  min-height: calc(100vh - 160px);
+  .video-player {
+    position: relative;
+    overflow: hidden;
+    margin-top: 40px;
+    width: 100%;
+    max-width: 1350px;
+    height: 500px;
+    background-color: rgba(0, 0, 0, 0.65);
+    display: flex;
+    transition: height 0.3s ease 0s;
+    @media (max-width: 1024px) {
+      height: 343px;
+    }
+    @media (max-width: 991px) {
+      width: 100%;
+      height: auto;
+    }
+
+    .VideoJs {
+      width: 65%;
+      @media (max-width: 1024px) {
+        width: 100%;
+      }
+    }
+    .item-list-container {
+      width: 35%;
+      @media (max-width: 1024px) {
+        display: none;
+      }
+    }
+  }
 }
 
-.VideoJs {
-  width: 65%;
-  @media (max-width: 1024px) {
+@media (max-width: 1024px) {
+  .item-list-container.open {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
     width: 100%;
   }
 }
-.item-list-container {
-  width: 35%;
-  @media (max-width: 1024px) {
-    display: none;
-  }
-}
-  @media (max-width: 1024px) {
-    .item-list-container.open {
-      display: block;
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-    }
-  }
 
-.h-max-video {
-  min-height: calc(100vh - 160px);
-}
+
 .list-toggle {
   display: none;
   @media (max-width: 1024px) {
     display: block;
   }
 }
-
 </style>
