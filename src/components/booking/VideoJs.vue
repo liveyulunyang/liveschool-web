@@ -148,6 +148,10 @@ import 'video.js/dist/video-js.css'
     border: none;
     border-radius: 50%;
     font-size: 3.5em;
+    transition: .1s;
+    &:hover {
+      background: rgba(255, 255, 255, 0.4);
+    }
   }
   .video-js .vjs-control-bar,
   .video-js .vjs-big-play-button,
