@@ -57,6 +57,12 @@ import 'video.js/dist/video-js.css'
 .progess-bar-bg {
   background: rgba(255, 255, 255, 0.3);
 }
+.vjs-picture-in-picture-control {
+  display: none !important;
+}
+.vjs-playback-rate {
+  display: none !important;
+}
 #videoPlayer {
   // .content {
     .audio {
@@ -131,7 +137,18 @@ import 'video.js/dist/video-js.css'
       top: 0.5em;
     }
   }
-
+  .video-js .vjs-big-play-button {
+    top: 50%;
+    left: 50%;
+    margin-left: -1em;
+    margin-top: -1em;
+    width: 2em;
+    height: 2em;
+    line-height: 2em;
+    border: none;
+    border-radius: 50%;
+    font-size: 3.5em;
+  }
   .video-js .vjs-control-bar,
   .video-js .vjs-big-play-button,
   .video-js .vjs-menu-button .vjs-menu-content {
