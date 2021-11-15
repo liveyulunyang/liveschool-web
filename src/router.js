@@ -280,12 +280,12 @@ const router = new Router({
           path: '/booking_class/class/:id',
           name: 'classPreview',
           component: () => import('@/pages/booking/ClassPreview.vue')
+        },
+        {
+          path: '/booking_class/teacher/:id',
+          name: 'classPreviewTeacher',
+          component: () => import('@/pages/booking/ClassPreview.vue')
         }
-        // {
-        //   path: '/booking_class/teacher/:id',
-        //   name: 'classPreview',
-        //   component: () => import('@/pages/booking/ClassPreview.vue')
-        // }
       ]
     }
   ]

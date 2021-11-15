@@ -1,5 +1,5 @@
 <template>
-  <main class="p-6 max-w-8xl mx-auto w-full">
+  <main class="p-6 max-w-7xl mx-auto w-full">
     <div class="flex justify-between items-center mb-6 flex-wrap">
       <div class="flex flex-col lg:flex-row items-start lg:items-center">
         <div class="tag flex text-white text-xs">
@@ -11,10 +11,10 @@
 
       </div>
       <div>
-        <button class="btn-red py-3 px-12 rounded text-lg whitespace-no-wrap text-center font-bold text-white hidden lg:block" @click="isOpen = true">
+        <button class="btn-red py-3 px-12 rounded text-lg whitespace-no-wrap text-center font-bold text-white hidden lg:block" @click="isOpenPurchaseWay = true">
           購買課程
         </button>
-        <!-- <ChoosePurchaseWay v-if="isOpen" v-on:toggle="toggle" /> -->
+        <ChoosePurchaseWay v-if="isOpenPurchaseWay" v-on:toggle="toggle" />
       </div>
     </div>
     <div class="">
@@ -24,7 +24,7 @@
           <List class="item-list-container" :class="{ openList: isOpenList }" v-on:close="close" />
         </div>
         <div class="list-toggle py-2 bg-gray-btn text-white font-bold tracking-wider cursor-pointer mb-4" @click="isOpenList = true">單元一覽</div>
-        <button class="btn-red py-3 w-full rounded text-lg whitespace-no-wrap text-center font-bold text-white lg:hidden" @click="isOpen = true">
+        <button class="btn-red py-3 w-full rounded text-lg whitespace-no-wrap text-center font-bold text-white lg:hidden" @click="isOpenPurchaseWay = true">
           購買課程
         </button>
 
@@ -51,20 +51,20 @@
               </div>
             </div>
 
-            <div class="flex flex-wrap p-6 w-full" v-if="tag === 1">
+            <div class="teacher flex flex-wrap p-6 xl:pt-20 w-full" v-if="tag === 1">
               <div  class="w-full mb-4 px-3 py-2 flex flex-wrap">
                 <MugShot />
-                <div class="teacher-name flex flex-col justify-center">
+                <div class="teacher-name flex flex-col justify-center text-white text-left pl-3">
                   <h6 class="text-2xl font-bold">ALEX</h6>
                   <h6 class="text-lg mb-3">ALEX WU</h6>
-                  <p class="text-lg">alex_teacherdemo88@liveabc.com</p>
+                  <p class="text-lg text-main">alex_teacherdemo88@liveabc.com</p>
                 </div>
               </div>
               <div class="w-full md:w-1/6 text-xl md:mb-4 md:border-r-2 border-gray-900 px-3 text-left md:text-right py-2 font-semibold">
                 <h4>專業領域</h4>
               </div>
               <div  class="w-full md:w-5/6 mb-4 px-3 py-2 text-lg flex flex-wrap">
-                <div class="w-1/4 p-2" v-for="n in 5" :key="n">
+                <div class="w-1/2 lg:w-1/4 p-2" v-for="n in 5" :key="n">
                   <div class="border shadow-md text-center text-sm font-bold border-gray-700 rounded-lg py-1">國中升學</div>
                 </div>
               </div>
@@ -73,6 +73,50 @@
               </div>
               <div  class="w-full md:w-5/6 mb-4 px-3 py-2 text-lg font-semibold">
                 <p>Hello, my name's Jeremy and I'm originally from Chicago, Illinois in the United States. I'm 33 years old and have been all around the world but currently living in Taiwan. Taiwan is very different from my home city, but in many ways better. I've been teaching English for about 4 years. My students range from small children who are just starting to learn, to working professionals who need to use English at their place of employment. with each student, my goal is to help them express themselves clearly as well as gain confidence in their speaking ability. I've also been learning Chinese for four years, so I know how it feels to learn another language and the struggles that come with it, such as practicing or finding ways to improve. If you're learning English for work, school, or just personal improvement, I'm happy to help and look forward to working with you in the future!</p>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap p-6 w-full" v-if="tag === 2">
+              <div class="flex flex-wrap w-full mt-4">
+                <div class="w-full md:w-1/4 p-2 mb-4" v-for="n in 8" :key="n">
+                  <div class="rounded-lg border">
+                    <p class="bg-gray-300 py-2 text-center font-bold">第一堂</p>
+                    <div class="p-2 pb-4">
+                      <span class="border border-gray-700 px-1 ">2021</span>
+                      <h6 class="text-4xl text-center font-bold tracking-wider">7/14</h6>
+                      <h6 class="text-xl text-center font-bold tracking-wider">大自然的百寶箱</h6>
+                      <p class="text-center tracking-wide font-semibold">Unit 1 落葉的美</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="w-full mt-4">
+                <div class="flex mb-4 md:p-3 md:px-5 md:text-2xl font-bold whitespace-no-wrap w-full justify-between bg-gray-300">
+                  <div class="py-1 px-2 md:px-5">第一堂 2021.07.04</div>
+                  <div class="text-right py-1 px-2 md:px-5">12:00-12:50</div>
+                </div>
+                <div class="flex flex-wrap">
+                  <div class="w-full md:w-1/6 text-xl md:mb-4 md:border-r-2 border-gray-900 px-3 text-left md:text-right py-2 font-semibold">
+                    <h4>課程大綱</h4>
+                  </div>
+                  <div  class="w-full md:w-5/6 mb-4 px-3 py-2">
+                    <p>1.學習如何自我介紹。</p>
+                    <p>2.學習三種不同的方式來問候朋友。</p>
+                    <p>3.知道如何說家庭成員。</p>
+                    <p>4.學習如何在不同時間迎接朋友。</p>
+                    <p>5.在課堂上學習一些實用的句子。</p>
+                  </div>
+                  <div class="w-full md:w-1/6 text-xl md:mb-4 md:border-r-2 border-gray-900 px-3 text-left md:text-right py-2 font-semibold">
+                    <h4>課程目標</h4>
+                  </div>
+                  <div  class="w-full md:w-5/6 mb-4 px-3 py-2">
+                    <p>1.學習如何自我介紹。</p>
+                    <p>2.學習三種不同的方式來問候朋友。</p>
+                    <p>3.知道如何說家庭成員。</p>
+                    <p>4.學習如何在不同時間迎接朋友。</p>
+                    <p>5.在課堂上學習一些實用的句子。</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -86,7 +130,7 @@
 <script>
   import TabComponent from '@/components/Tab'
   import MugShot from '@/components/MugShot'
-  // import ChoosePurchaseWay from '@/components/booking/ChoosePurchaseWay'
+  import ChoosePurchaseWay from '@/components/booking/ChoosePurchaseWay'
   import VideoJs from '@/components/booking/VideoJs'
   import List from '@/components/booking/VideoJsList'
   export default {
@@ -95,30 +139,40 @@
       VideoJs,
       List,
       TabComponent,
-      MugShot
-      // ChoosePurchaseWay
+      MugShot,
+      ChoosePurchaseWay
     },
     data () {
       return {
         tag: 0,
-        tagArr: [
-          { name: '課程特色', role: '' },
-          { name: '講師介紹', role: '' }
-        ],
 
-        // isOpen: false,
+        isOpenPurchaseWay: false,
 
         isOpenList: false
       }
     },
     computed: {
+      tagArr () {
+        if (this.$route.name === 'classPreview') {
+          return [
+            { name: '課程特色', role: '' },
+            { name: '講師介紹', role: '' }
+          ]
+        } else {
+          return [
+            { name: '課程特色', role: '' },
+            { name: '講師介紹', role: '' },
+            { name: '課堂時間', role: '' }
+          ]
+        }
+      }
     },
     methods: {
       tagIdx (tagIdx) {
         this.tag = tagIdx
       },
       toggle (toggle) {
-        this.isOpen = toggle
+        this.isOpenPurchaseWay = toggle
       },
       close (close) {
         this.isOpenList = close
@@ -134,7 +188,7 @@
     overflow: hidden;
     margin-top: 40px;
     width: 100%;
-    max-width: 1350px;
+    // max-width: 1350px;
     height: 500px;
     background-color: rgba(0, 0, 0, 0.65);
     display: flex;
@@ -165,7 +219,7 @@
     }
   }
   .class_detail {
-    max-width: 1350px;
+    // max-width: 1350px;
   }
 }
 
@@ -185,6 +239,15 @@
   display: none;
   @media (max-width: 1024px) {
     display: block;
+  }
+}
+
+.teacher {
+  background-repeat: no-repeat;
+  background-image: url('~@/assets/img/background_top_02.jpg');
+  background-size: contain;
+  @media (max-width: 768px) {
+    background-image: none;
   }
 }
 </style>

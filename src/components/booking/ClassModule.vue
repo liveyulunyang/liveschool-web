@@ -1,6 +1,6 @@
 <template>
   <div class="ClassModule overflow-hidden relative h-full flex-col justify-between web bg-library shadow-lg">
-    <a class="cursor-pointer">
+    <a class="cursor-pointer" @click="checkRouter">
       <div class="outer overflow-hidden">
         <div class="inner mx-auto absolute w-full h-full">
 
@@ -73,6 +73,15 @@ export default {
     }
   },
   methods: {
+    checkRouter () {
+      if (this.$route.params.type === 'talk') {
+        this.$router.push({name: 'class_Detail', params: { id: '1' } })
+      } else if (this.$route.params.type === 'class') {
+        this.$router.push({name: 'classPreview', params: { id: '1' } })
+      } else if (this.$route.params.type === 'teacher') {
+        this.$router.push({name: 'classPreviewTeacher', params: { id: '1' } })
+      }
+    }
   }
 }
 </script>

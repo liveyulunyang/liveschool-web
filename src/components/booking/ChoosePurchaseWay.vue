@@ -4,8 +4,11 @@
 
     <div class="popup fixed w-full max-w-4xl">
 
-      <div class="bg-blue-main-dark w-full py-3">
+      <div class="bg-blue-main-dark w-full py-3 flex justify-between items-center px-3">
+        <span></span>
         <h2 class="text-white text-2xl">選擇購買方式</h2>
+        <a @click="close" class="text-white cursor-pointer text-xl block py-1 px-3">
+          <i class="fas fa-times"></i></a>
       </div>
       <div class="px-3 md:px-8 py-6">
         <div class="mb-4 flex">

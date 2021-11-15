@@ -1,5 +1,6 @@
 <template>
   <div class="z-50">
+    <SupplementLearning v-if="isOpen" v-on:toggle="toggle" />
     <a class="clostBtn flex justify-end items-center text-white py-2 px-3 lg:hidden cursor-pointer" @click="close">關閉視窗<i class="far fa-times-circle text-2xl ml-2"></i></a>
     <ul id="accordion" class="accordion text-left">
       <li class="" v-for="n in 10" :key="n" :class="{ open: n === seletedIdx }">
@@ -14,7 +15,7 @@
               </a>
               <span class="flex items-center justify-center text-white">
                 <a class="btn-main mx-1 w-6 h-6 rounded-full flex items-center justify-center text-xs cursor-pointer"><i class="fas fa-download"></i></a>
-                <a class="btn-main mx-1 w-6 h-6 rounded-full flex items-center justify-center text-xs cursor-pointer"><i class="far fa-file-alt"></i></a>
+                <a class="btn-main mx-1 w-6 h-6 rounded-full flex items-center justify-center text-xs cursor-pointer" @click="isOpen = true"><i class="far fa-file-alt"></i></a>
               </span>
             </div>
             <span class="text-white">11:11</span>
@@ -23,18 +24,23 @@
           <li><a href="#" class="flex justify-between items-center relative"><i class="fas fa-lock text-sm hidden"></i><span>五大基本句型—不及物動詞</span><span>11:11</span></a></li> -->
         </ul>
       </li>
-    </ul>
+    </ul> = true
   </div>
 </template>
 
 <script>
+  import SupplementLearning from '@/components/booking/SupplementLearning'
   export default {
     name: "VideoJsList",
     // props: ['type','content'],
     data () {
       return {
-        seletedIdx: 1
+        seletedIdx: 1,
+        isOpen: false
       }
+    },
+    components: {
+      SupplementLearning
     },
     computed: {
     },
@@ -44,6 +50,9 @@
       close () {
         let self = this
         self.$emit('close', false)
+      },
+      toggle (close) {
+        this.isOpen = close
       }
     }
   }

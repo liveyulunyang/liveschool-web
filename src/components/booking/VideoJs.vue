@@ -1,48 +1,21 @@
 <template>
-  <!-- <div class='player'>
-    <video class="video-screen w-full h-full" preload='auto'
-    :src="url"
-    type='video/mp4' :poster="postercard"
-      msallowfullscreen webkitallowfullscreen mozallowfullscreen allowfullscreen>
-      Sorry, your browser doesn't support HTML5 video playback.
-    </video>
-    <div class='controls active flex-col lg:flex-row px-3'>
-      <input type="range" class='time-bar lg:hidden' value='0' min='0' max=''>
-      <div class="flex w-full justify-between">
-      <div class="flex items-center">
-        <button class='backward text-2xl text-white'>
-          <i class="fas fa-step-backward"></i>
-        </button>
-        <button class='play start text-2xl text-white'>
-          <i class="fas fa-play"></i>
-        </button>
-      </div>
-        <input type="range" class='time-bar hidden lg:block' value='0' min='0' max=''>
-        <time class='time whitespace-no-wrap'>00:00 | 00:00</time>
-
-        <button class='fullscreen-button text-3xl text-white'>
-          <i class="fas fa-expand"></i>
-        </button>
-      </div>
-    </div>
-  </div> -->
   <div class='player'>
     <video class="video-screen mt-0 h-full" preload='auto' :src="url"
     type='video/mp4' :poster="postercard" msallowfullscreen webkitallowfullscreen mozallowfullscreen allowfullscreen>
       Sorry, your browser doesn't support HTML5 video playback.
     </video>
-    <div class='controls active'>
-        <button class='backward text-2xl text-white'>
-          <i class="fas fa-step-backward"></i>
-        </button>
-        <button class='play start text-2xl text-white'>
-          <i class="fas fa-play" v-if="!isPlay"></i>
-          <i class="fas fa-pause" v-else></i>
-        </button>
+    <div class='controls active w-full px-3'>
+      <button class='backward text-lg text-white text-center'>
+        <i class="fas fa-step-backward"></i>
+      </button>
+      <button class='play start text-lg text-white text-center'>
+        <i class="fas fa-play" v-if="!isPlay"></i>
+        <i class="fas fa-pause" v-else></i>
+      </button>
       <input type="range" class='volume-bar hidden' value='70' min='0' max='100'>
       <input type="range" class='time-bar' value='0' min='0' max=''>
-      <time class='time'>N/A</time>
-      <button class='fullscreen-button text-3xl text-white'>
+      <time class='time hidden lg:block'>N/A</time>
+      <button class='fullscreen-button text-2xl text-white text-center'>
         <i class="fas fa-expand"></i>
       </button>
     </div>
@@ -165,7 +138,7 @@
         }
 
         function backforward () {
-          timeBar.value = 0
+          video.currentTime = 0
         }
 
         function playVideo(e) {
@@ -340,7 +313,7 @@ input[type=range]::-webkit-slider-thumb {
 }
 
 input[type=range]::-moz-range-thumb {
-  background: rgb(0, 174, 255);
+  background: #FF4040;
   border: none;
   border-radius: 0;
   cursor: pointer;
