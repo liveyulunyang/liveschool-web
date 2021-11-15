@@ -27,7 +27,7 @@
     </div>
   </div> -->
   <div class='player'>
-    <video class="video-screen" preload='auto' :src="url"
+    <video class="video-screen mt-0 h-full" preload='auto' :src="url"
     type='video/mp4' :poster="postercard" msallowfullscreen webkitallowfullscreen mozallowfullscreen allowfullscreen>
       Sorry, your browser doesn't support HTML5 video playback.
     </video>
@@ -46,7 +46,7 @@
         <i class="fas fa-expand"></i>
       </button>
     </div>
-  <input class='file-chooser' type='file'>
+    <input class='file-chooser invisible hidden' type='file'>
   </div>
 </template>
 
@@ -380,7 +380,7 @@ option {
 .player {
   margin: 0 auto;
   margin-bottom: 0;
-  height: 100%;
+  // height: 100%;
   &:hover {
     .control {
       transform: translateY(0%) !important;
