@@ -11,7 +11,7 @@
         <!-- </div> -->
       </div>
       <div>
-        <button class="btn-red py-3 px-12 rounded text-lg whitespace-no-wrap text-center font-bold text-white" @click="isOpen = true">
+        <button class="btn-red py-3 px-12 rounded text-lg whitespace-no-wrap text-center font-bold text-white hidden lg:block" @click="isOpen = true">
           購買課程
         </button>
         <!-- <ChoosePurchaseWay v-if="isOpen" v-on:toggle="toggle" /> -->
@@ -21,9 +21,12 @@
       <div class="relative w-full h-max-video">
         <div class="video-player flex items-stretch mx-auto" id="preview">
           <VideoJs class="VideoJs" />
-          <List class="item-list-container" :class="{ open: isOpenList }" v-on:close="close" />
+          <List class="item-list-container" :class="{ openList: isOpenList }" v-on:close="close" />
         </div>
-        <div class="list-toggle py-2 bg-gray-btn text-white font-bold tracking-wider cursor-pointer" @click="isOpenList = true">單元一覽</div>
+        <div class="list-toggle py-2 bg-gray-btn text-white font-bold tracking-wider cursor-pointer mb-4" @click="isOpenList = true">單元一覽</div>
+        <button class="btn-red py-3 w-full rounded text-lg whitespace-no-wrap text-center font-bold text-white lg:hidden" @click="isOpen = true">
+          購買課程
+        </button>
       </div>
     </div>
     <!-- <div>
@@ -158,13 +161,13 @@
 }
 
 @media (max-width: 1024px) {
-  .item-list-container.open {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
+  .item-list-container.openList {
+    display: block !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    height: 100% !important;
+    width: 100% !important;
   }
 }
 
