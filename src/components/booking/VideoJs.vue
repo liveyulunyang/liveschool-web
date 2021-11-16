@@ -1,23 +1,29 @@
 <template>
   <div class="player" ref="player">
     <video class="video-screen mt-0 h-full" preload="auto" :src="url" ref="video"
-    type="video/mp4" :poster="postercard" msallowfullscreen webkitallowfullscreen mozallowfullscreen allowfullscreen>
+      type="video/mp4" :poster="postercard" msallowfullscreen webkitallowfullscreen mozallowfullscreen allowfullscreen>
       Sorry, your browser doesn"t support HTML5 video playback.
     </video>
-    <div class="controls active w-full px-3" ref="controls">
-      <button class="backward text-lg text-white text-center" ref="backwardBtn">
-        <i class="fas fa-step-backward"></i>
-      </button>
-      <button class="play start text-lg text-white text-center" ref="playBtn">
-        <i class="fas fa-play" v-if="!isPlay"></i>
-        <i class="fas fa-pause" v-else></i>
-      </button>
-      <input type="range" class="volume-bar hidden" value="70" min="0" max="100" ref="volumeBar">
-      <input type="range" class="time-bar" value="0" min="0" max="" ref="timeBar">
-      <time class="time hidden lg:block" ref="time">N/A</time>
-      <button class="fullscreen-button text-2xl text-white text-center" ref="fullscreenBtn">
-        <i class="fas fa-expand"></i>
-      </button>
+    <div class="controls active w-full flex-col" ref="controls">
+      <div class="flex w-full justify-center lg:hidden">
+        <input type="range" class="time-bar w-11/12" value="0" min="0" max="" ref="timeBar">
+      </div>
+      <div class="flex items-center w-full justify-around">
+        <div class="flex items-center">
+          <button class="backward text-lg text-white text-center mx-2" ref="backwardBtn">
+            <i class="fas fa-step-backward"></i>
+          </button>
+          <button class="play start text-lg text-white text-center  mx-2" ref="playBtn">
+            <i class="fas fa-play" v-if="!isPlay"></i>
+            <i class="fas fa-pause" v-else></i>
+          </button>
+        </div>
+        <input type="range" class="time-bar hidden lg:block" value="0" min="0" max="" ref="timeBar">
+        <time class="time whitespace-no-wrap" ref="time">00:00 / 00:00</time>
+        <button class="fullscreen-button text-2xl text-white text-center mx-2" ref="fullscreenBtn">
+          <i class="fas fa-expand"></i>
+        </button>
+      </div>
     </div>
     <input class="file-chooser invisible hidden" type="file" ref="fileChooser">
   </div>
@@ -53,8 +59,7 @@
               player = self.$refs.player,
               timeCounter = self.$refs.time,
               timeBar = self.$refs.timeBar,
-              video = self.$refs.video,
-              volumeSlider = self.$refs.volumeBar
+              video = self.$refs.video
 
         let isMouseDown     = false,
             timeTotal       = 0,
@@ -68,20 +73,17 @@
               skip(e);
               break;
             case 'ArrowUp':
-            case 'ArrowDown':
-              adjustVolume(e);
-              break;
             case ' ':
               playVideo(e);
               break;
           }
-          showUI();
+          showUI()
         }
 
         function showUI () {
           if (uiTimeout) clearTimeout(uiTimeout);
-          controls.classList.add('active');
-          video.style.cursor = 'default';
+          controls.classList.add('active')
+          video.style.cursor = 'default'
         }
 
         function hideUI () {
@@ -154,25 +156,6 @@
           }
         }
 
-        function adjustVolume(e) {
-          if (e.type === 'mousemove' && !isMouseDown) return;
-          if (e.which === 1 ) return video.volume = volumeSlider.value / 100;
-
-          e.preventDefault();
-          if (e.key === 'ArrowUp' || e.wheelDelta > 0) {
-              video.volume = video.volume + .1 >= 1 ? 1 : video.volume + .1;
-              volumeSlider.value = video.volume * 100;
-              return;
-          }
-          if (e.key === 'ArrowDown' || e.wheelDelta < 0) {
-              video.volume = video.volume - .1 <= 0 ? 0 : video.volume - .1;
-              volumeSlider.value = video.volume * 100;
-              return;
-          }
-
-          video.volume = volumeSlider.value / 100;
-        }
-
         function skip(e) {
           e.preventDefault();
           switch(e.key) {
@@ -236,51 +219,46 @@
             timeCounter.innerText = `0:00 / ${timeTotal}`;
             updateCurrentTime();
           }
-          video.volume = volumeSlider.value / 100;isMouseDown
           setVideoSize()
         }
 
         setVideoData()
 
-        controls.addEventListener('mousemove', () => { showUI(), hideUI() });
+        controls.addEventListener('mousemove', () => { showUI(), hideUI() })
         controls.addEventListener('mouseout', hideUI);
 
-        controls.childNodes.forEach(control => control.addEventListener('mousedown', onMouseDown));
+        controls.childNodes.forEach(control => control.addEventListener('mousedown', onMouseDown))
         controls.childNodes.forEach(control => control.addEventListener('mouseup', onMouseUp));
-        controls.childNodes.forEach(control => control.addEventListener('touchstart', onMouseDown));
-        controls.childNodes.forEach(control => control.addEventListener('touchend', onMouseUp));
+        controls.childNodes.forEach(control => control.addEventListener('touchstart', onMouseDown))
+        controls.childNodes.forEach(control => control.addEventListener('touchend', onMouseUp))
 
-        fileChooser.addEventListener('change', selectVideoFile);
+        fileChooser.addEventListener('change', selectVideoFile)
 
-        fullscreen.addEventListener('click', toggleFullScreen);
+        fullscreen.addEventListener('click', toggleFullScreen)
 
         playButton.addEventListener('click', playVideo)
         backwarButton.addEventListener('click', backforward)
 
-        player.addEventListener('fullscreenchange', setVideoSize);
-        player.addEventListener('msfullscreenchange', setVideoSize);
+        player.addEventListener('fullscreenchange', setVideoSize)
+        player.addEventListener('msfullscreenchange', setVideoSize)
 
         timeBar.addEventListener('change', updatetimeBar);
-        timeBar.addEventListener('mousemove', updatetimeBar);
+        timeBar.addEventListener('mousemove', updatetimeBar)
 
-        video.addEventListener('mouseup', playVideo);
-        video.addEventListener('touchend', playVideo);
-        video.addEventListener('loadedmetadata', setVideoData);
-        video.addEventListener('play', updatePlayState);
-        video.addEventListener('pause', updatePlayState);
-        video.addEventListener('timeupdate', updateCurrentTime);
+        video.addEventListener('mouseup', playVideo)
+        video.addEventListener('touchend', playVideo)
+        video.addEventListener('loadedmetadata', setVideoData)
+        video.addEventListener('play', updatePlayState)
+        video.addEventListener('pause', updatePlayState)
+        video.addEventListener('timeupdate', updateCurrentTime)
         video.addEventListener('mouseout', hideUI);
         video.addEventListener('dblclick', toggleFullScreen);
-        video.addEventListener('mousemove', () => { showUI(), hideUI() });
+        video.addEventListener('mousemove', () => { showUI(), hideUI() })
 
-        volumeSlider.addEventListener('change', adjustVolume);
-        volumeSlider.addEventListener('mousemove', adjustVolume);
-        volumeSlider.addEventListener('wheel', adjustVolume);
-
-        window.addEventListener('keydown', onKeyDown);
-        window.addEventListener('keyup', hideUI);
-        window.addEventListener('resize', setVideoSize);
-        window.addEventListener('mouseup', onMouseUp);
+        window.addEventListener('keydown', onKeyDown)
+        window.addEventListener('keyup', hideUI)
+        window.addEventListener('resize', setVideoSize)
+        window.addEventListener('mouseup', onMouseUp)
       }
     }
   }
@@ -353,9 +331,37 @@ option {
   margin: 0 auto;
   margin-bottom: 0;
   // height: 100%;
+  .controls {
+    // * {
+    //   opacity: .9;
+    //   transition: opacity .2s;
+    // }
+    background: rgba(0, 0, 0, 0.5);
+    border-top: 5px solid rgba(0, 0, 0, 0.02);
+    border-bottom: 5px solid rgba(0, 0, 0, 0);
+    display: flex;
+    height: 70px;
+    justify-content: space-around;
+    opacity: 0;
+    margin: 0;
+    transition-property: opacity, visibility;
+    transform: translateY(70px);
+    visibility: hidden;
+    width: 100%;
+    align-items: center;
+    transition: 0.4s;
+    @media (max-width: 1024px) {
+      transform: translateY(-70px);
+    }
+    // &:hover {
+    //   * {
+    //     opacity: 1;
+    //   }
+    // }
+  }
   &:hover {
-    .control {
-      transform: translateY(0%) !important;
+    .controls {
+      transform: translateY(-70px);
     }
   }
 }
@@ -384,45 +390,25 @@ option {
   width: 100%;
 }
 
-.controls {
-  background: rgba(0, 0, 0, 0.5);
-  border-top: 5px solid rgba(0, 0, 0, 0.02);
-  border-bottom: 5px solid rgba(0, 0, 0, 0);
-  display: flex;
-  height: 70px;
-  justify-content: space-around;
-  opacity: 0;
-  margin: 0;
-  transition: .5s;
-  transition-property: opacity, visibility;
-  transform: translateY(-69px);
-  visibility: hidden;
-  width: 100%;
-  align-items: center;
-  transition: 0.2s;
-}
-
-.controls * {
-  opacity: .7;
-  transition: opacity .3s;
-}
-
+// button
 .controls.active {
   opacity: 1;
   visibility: visible;
 }
 
 .fullscreen-button {
+  transition: 0.2s;
+  &:hover {
+    transform: scale(1.2);
+  }
   &:focus {
     outline: none;
+    transform: scale(1.2);
   }
 }
 
 .play {
   align-self: center;
-  // height: 40px;
-  // margin: 0 20px;
-  // width: 20px;
   &:focus {
     outline: none;
   }
@@ -450,11 +436,6 @@ option {
   background: #333333;
 }
 
-.volume-bar {
-  margin: 0 20px;
-  width: 80px;
-}
-
 .time-bar {
   width: 60%;
 }
@@ -468,27 +449,8 @@ option {
   opacity: .9;
 }
 
-.speed {
-  align-self: center;
-  color: white;
-  font-weight: bold;
-  opacity: .9;
-  margin-right: 5px;
-  width: 50px;
-}
-
 ::-webkit-media-controls {
-  display:none;
-}
-
-@media (hover: hover) {
-  .controls *:hover {
-    opacity: .9;
-  }
-
-  .fullscreen-button:active {
-    transform: scale(1.2);
-  }
+  display: none;
 }
 
 @media only screen and (max-width: 900px) {
@@ -521,14 +483,6 @@ option {
 
   .time-bar {
     width: 100%;
-  }
-
-  .volume-bar {
-    max-width: 10%;
-  }
-
-  .speed {
-    display: none;
   }
 
   .file-chooser {

@@ -11,7 +11,7 @@
 
       </div>
       <div class="flex items-center flex-wrap">
-        <p v-if="$route.name === 'classPreviewTeacher'" class="lg:mx-2 text-class-red-02">欲報名課程請洽Live互動美語全台分校主任或撥打(02)7730-9567</p>
+        <p v-if="$route.name === 'classPreviewTeacher'" class="lg:mx-2 text-class-red-02 font-semibold">欲報名課程請洽Live互動美語全台分校主任或撥打(02)7730-9567</p>
         <button  v-if="$route.name === 'classPreview'" class="btn-red py-3 px-12 rounded text-lg whitespace-no-wrap text-center font-bold text-white hidden lg:block" @click="isOpenPurchaseWay = true">
           購買課程
         </button>

@@ -2,13 +2,13 @@
   <header class="bg-white flex justify-between px-2 lg:px-20 border-b-2 border-gray-900 border-solid h-20">
     <Nav class="md:hidden" mode="mobile" :menu-list-item="roleMenu"></Nav>
     <router-link class="flex items-center" to="/">
-      <img alt="logo" src="@/assets/logo.png" class="w-24 md:w-48 h-auto" v-if="$route.name !== 'bookingClass'">
-      <span class="mt-4 ml-3 hidden md:block" v-if="$route.name !== 'bookingClass'">遠距教學平台</span>
+      <img alt="logo" src="@/assets/logo.png" class="w-24 md:w-48 h-auto" v-if="$route.name !== 'bookingClass' && $route.name !== 'classPreview' && $route.name !== 'classPreviewTeacher'">
+      <span class="mt-4 ml-3 hidden md:block" v-if="$route.name !== 'bookingClass' && $route.name !== 'classPreview' && $route.name !== 'classPreviewTeacher'">遠距教學平台</span>
     </router-link>
-    <router-link class="flex items-center" to="/" v-if="$route.name === 'bookingClass'">
-      <img alt="logo" src="@/assets/logo_class.png" class="w-24 md:w-48 h-auto" v-if="$route.params.type === 'class'">
-      <img alt="logo" src="@/assets/logo_talk.png" class="w-24 md:w-48 h-auto" v-if="$route.params.type === 'talk'">
-      <img alt="logo" src="@/assets/logo_teacher.png" class="w-24 md:w-48 h-auto" v-if="$route.params.type === 'teacher'">
+    <router-link class="flex items-center" to="/" v-if="$route.name === 'bookingClass' || $route.name === 'classPreview' || $route.name === 'classPreviewTeacher'">
+      <img alt="logo" src="@/assets/logo_class.png" class="w-24 md:w-48 h-auto" v-if="$route.params.type === 'class' || $route.name === 'classPreview'">
+      <img alt="logo" src="@/assets/logo_talk.png" class="w-24 md:w-48 h-auto" v-if="$route.params.type === 'talk' || $route.name === 'bookingClass'">
+      <img alt="logo" src="@/assets/logo_teacher.png" class="w-24 md:w-48 h-auto" v-if="$route.params.type === 'teacher' || $route.name === 'classPreviewTeacher'">
     </router-link>
     <div class="flex items-center">
       <div v-if="!$store.state.auth.authorized" class="flex items-center">
