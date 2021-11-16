@@ -1,12 +1,14 @@
-<template id="index-banner">
-  <swiper :options="bannerOption" class="swiper" v-if="bannerData">
-    <swiper-slide v-for="item in bannerData" :key="item.image_url" class="w-full">
-      <a :href="item.url" target="_blank" class="cursor-pointer block" >
-        <img :src="item.image_url" class="object-contain w-full h-auto" :alt="item.name">
-      </a>
-    </swiper-slide>
-    <div class="swiper-pagination" slot="pagination"></div>
-  </swiper>
+<template >
+  <div id="index-banner">
+    <swiper :options="bannerOption" class="swiper" v-if="bannerData">
+      <swiper-slide v-for="item in bannerData" :key="item.image_url" class="w-full">
+        <a :href="item.url" target="_blank" class="cursor-pointer block" >
+          <img :src="item.image_url" class="object-contain w-full h-auto" :alt="item.name">
+        </a>
+      </swiper-slide>
+      <div class="swiper-pagination" slot="pagination"></div>
+    </swiper>
+  </div>
 </template>
 
 <script>
@@ -47,7 +49,7 @@ export default {
 </script>
 
 <style lang="scss">
-// #index-banner {
+#index-banner {
   .swiper-container {
     // overflow: visible !important;
     // overflow-y: hidden;
@@ -71,6 +73,18 @@ export default {
   .swiper-pagination-bullet-active {
     background: #2D9AA9;
   }
-// }
+  .swiper-slide-prev {
+    transition: .3s;
+    filter: opacity(.3);
+    -webkit-filter: opacity(.3);
+    margin: 0;
+  }
+  .swiper-slide-next {
+    transition: .3s;
+    filter: opacity(.3);
+    -webkit-filter: opacity(.3);
+    margin: 0;
+  }
+}
 
 </style>

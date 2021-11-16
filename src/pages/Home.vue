@@ -102,10 +102,7 @@
         </div>
 
         <div class="w-full h-full">
-          <video controls width="100%">
-
-            <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.webm"
-                    type="video/webm">
+          <video controls width="100%" poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg">
 
             <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4"
                     type="video/mp4">
