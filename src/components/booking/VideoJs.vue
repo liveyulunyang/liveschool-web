@@ -1,25 +1,25 @@
 <template>
-  <div class='player'>
-    <video class="video-screen mt-0 h-full" preload='auto' :src="url"
-    type='video/mp4' :poster="postercard" msallowfullscreen webkitallowfullscreen mozallowfullscreen allowfullscreen>
-      Sorry, your browser doesn't support HTML5 video playback.
+  <div class="player">
+    <video class="video-screen mt-0 h-full" preload="auto" :src="url"
+    type="video/mp4" :poster="postercard" msallowfullscreen webkitallowfullscreen mozallowfullscreen allowfullscreen>
+      Sorry, your browser doesn"t support HTML5 video playback.
     </video>
-    <div class='controls active w-full px-3'>
-      <button class='backward text-lg text-white text-center'>
+    <div class="controls active w-full px-3">
+      <button class="backward text-lg text-white text-center">
         <i class="fas fa-step-backward"></i>
       </button>
-      <button class='play start text-lg text-white text-center'>
+      <button class="play start text-lg text-white text-center">
         <i class="fas fa-play" v-if="!isPlay"></i>
         <i class="fas fa-pause" v-else></i>
       </button>
-      <input type="range" class='volume-bar hidden' value='70' min='0' max='100'>
-      <input type="range" class='time-bar' value='0' min='0' max=''>
-      <time class='time hidden lg:block'>N/A</time>
-      <button class='fullscreen-button text-2xl text-white text-center'>
+      <input type="range" class="volume-bar hidden" value="70" min="0" max="100">
+      <input type="range" class="time-bar" value="0" min="0" max="">
+      <time class="time hidden lg:block">N/A</time>
+      <button class="fullscreen-button text-2xl text-white text-center">
         <i class="fas fa-expand"></i>
       </button>
     </div>
-    <input class='file-chooser invisible hidden' type='file'>
+    <input class="file-chooser invisible hidden" type="file">
   </div>
 </template>
 

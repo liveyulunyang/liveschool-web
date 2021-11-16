@@ -10,24 +10,30 @@
         <h2 class="text-2xl font-bold text-left">老師希望你別再說錯的 英語易混淆字！</h2>
 
       </div>
-      <div>
-        <button class="btn-red py-3 px-12 rounded text-lg whitespace-no-wrap text-center font-bold text-white hidden lg:block" @click="isOpenPurchaseWay = true">
+      <div class="flex items-center flex-wrap">
+        <p v-if="$route.name === 'classPreviewTeacher'" class="lg:mx-2 text-class-red-02">欲報名課程請洽Live互動美語全台分校主任或撥打(02)7730-9567</p>
+        <button  v-if="$route.name === 'classPreview'" class="btn-red py-3 px-12 rounded text-lg whitespace-no-wrap text-center font-bold text-white hidden lg:block" @click="isOpenPurchaseWay = true">
           購買課程
+        </button>
+        <button  v-if="$route.name === 'classPreviewTeacher'" class="btn-red py-3 px-12 rounded text-lg whitespace-no-wrap text-center font-bold text-white hidden lg:block">
+          點我查詢分校
         </button>
         <ChoosePurchaseWay v-if="isOpenPurchaseWay" v-on:toggle="toggle" />
       </div>
     </div>
     <div class="">
       <div class="relative w-full h-max-video">
-        <div class="video-player flex items-stretch mx-auto" id="preview">
+        <div class="video-player flex items-stretch mx-auto" id="preview" :class="{ isTeacher: $route.name === 'classPreviewTeacher' }">
           <VideoJs class="VideoJs" />
-          <List class="item-list-container" :class="{ openList: isOpenList }" v-on:close="close" />
+          <List class="item-list-container" :class="{ openList: isOpenList }" v-on:close="close" v-if="$route.name === 'classPreview'" />
         </div>
         <div class="list-toggle py-2 bg-gray-btn text-white font-bold tracking-wider cursor-pointer mb-4" @click="isOpenList = true">單元一覽</div>
-        <button class="btn-red py-3 w-full rounded text-lg whitespace-no-wrap text-center font-bold text-white lg:hidden" @click="isOpenPurchaseWay = true">
+        <button v-if="$route.name === 'classPreview'" class="btn-red py-3 w-full rounded text-lg whitespace-no-wrap text-center font-bold text-white lg:hidden" @click="isOpenPurchaseWay = true">
           購買課程
         </button>
-
+        <button v-if="$route.name === 'classPreviewTeacher'" class="btn-red py-3 w-full rounded text-lg whitespace-no-wrap text-center font-bold text-white lg:hidden">
+          點我查詢分校
+        </button>
         <div class="class_detail mt-10 mx-auto">
           <TabComponent :tag="tag" :tagArr="tagArr" v-on:tagIdx="tagIdx" />
           <div class="bg-white w-full">
@@ -152,6 +158,10 @@
       }
     },
     computed: {
+      routeName () {
+        return this.$route.name
+      },
+
       tagArr () {
         if (this.$route.name === 'classPreview') {
           return [
@@ -233,7 +243,14 @@
     width: 100% !important;
   }
 }
-
+.isTeacher {
+  .VideoJs {
+    width: 100% !important;
+    @media (max-width: 1024px) {
+      width: 100%;
+    }
+  }
+}
 
 .list-toggle {
   display: none;
