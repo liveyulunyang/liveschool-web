@@ -1,25 +1,25 @@
 <template>
-  <div class="player">
-    <video class="video-screen mt-0 h-full" preload="auto" :src="url"
+  <div class="player" ref="player">
+    <video class="video-screen mt-0 h-full" preload="auto" :src="url" ref="video"
     type="video/mp4" :poster="postercard" msallowfullscreen webkitallowfullscreen mozallowfullscreen allowfullscreen>
       Sorry, your browser doesn"t support HTML5 video playback.
     </video>
-    <div class="controls active w-full px-3">
-      <button class="backward text-lg text-white text-center">
+    <div class="controls active w-full px-3" ref="controls">
+      <button class="backward text-lg text-white text-center" ref="backwardBtn">
         <i class="fas fa-step-backward"></i>
       </button>
-      <button class="play start text-lg text-white text-center">
+      <button class="play start text-lg text-white text-center" ref="playBtn">
         <i class="fas fa-play" v-if="!isPlay"></i>
         <i class="fas fa-pause" v-else></i>
       </button>
-      <input type="range" class="volume-bar hidden" value="70" min="0" max="100">
-      <input type="range" class="time-bar" value="0" min="0" max="">
-      <time class="time hidden lg:block">N/A</time>
-      <button class="fullscreen-button text-2xl text-white text-center">
+      <input type="range" class="volume-bar hidden" value="70" min="0" max="100" ref="volumeBar">
+      <input type="range" class="time-bar" value="0" min="0" max="" ref="timeBar">
+      <time class="time hidden lg:block" ref="time">N/A</time>
+      <button class="fullscreen-button text-2xl text-white text-center" ref="fullscreenBtn">
         <i class="fas fa-expand"></i>
       </button>
     </div>
-    <input class="file-chooser invisible hidden" type="file">
+    <input class="file-chooser invisible hidden" type="file" ref="fileChooser">
   </div>
 </template>
 
@@ -45,21 +45,21 @@
     methods: {
       videoPlayer () {
         let self = this
-        const controls     = document.querySelector('.controls'),
-              fileChooser  = document.querySelector('.file-chooser'),
-              fullscreen   = document.querySelector('.fullscreen-button'),
-              playButton   = document.querySelector('.play'),
-              player       = document.querySelector('.player'),
-              speedSelect  = document.querySelector('select'),
-              timeCounter  = document.querySelector('time'),
-              timeBar      = document.querySelector('.time-bar'),
-              video        = document.querySelector('video'),
-              volumeSlider = document.querySelector('.volume-bar');
+        const controls = self.$refs.controls,
+              fileChooser = self.$refs.fileChooser,
+              fullscreen = self.$refs.fullscreenBtn,
+              playButton = self.$refs.playBtn,
+              backwarButton = self.$refs.backwardBtn,
+              player = self.$refs.player,
+              timeCounter = self.$refs.time,
+              timeBar = self.$refs.timeBar,
+              video = self.$refs.video,
+              volumeSlider = self.$refs.volumeBar
 
         let isMouseDown     = false,
             timeTotal       = 0,
             uiTimeout       = '',
-            videoStatus     = 'paused';
+            videoStatus     = 'paused'
 
         function onKeyDown(e) {
           switch(e.key) {
@@ -78,28 +78,28 @@
           showUI();
         }
 
-        function showUI() {
+        function showUI () {
           if (uiTimeout) clearTimeout(uiTimeout);
           controls.classList.add('active');
           video.style.cursor = 'default';
         }
 
-        function hideUI() {
+        function hideUI () {
           if (uiTimeout) clearTimeout(uiTimeout);
           if (video.paused) return;
 
           uiTimeout = setTimeout(() => {
             controls.classList.remove('active');
             setTimeout(() => video.style.cursor = 'none', 1000);
-          }, 2000);
+          }, 2000)
         }
 
-        function onMouseDown() {
+        function onMouseDown () {
           isMouseDown = true;
           showUI();
         }
 
-        function onMouseUp() {
+        function onMouseUp () {
           isMouseDown = false;
           if (videoStatus === 'paused') return;
 
@@ -110,9 +110,9 @@
         function updatePlayState() {
           video.paused ?
             (playButton.classList.add('start'), playButton.classList.remove('pause')) :
-            (playButton.classList.add('pause'), playButton.classList.remove('start'));
+            (playButton.classList.add('pause'), playButton.classList.remove('start'))
 
-          video.paused ? showUI() : hideUI();
+          video.paused ? showUI() : hideUI()
           video.paused ? self.isPlay = false : self.isPlay = true
         }
 
@@ -134,7 +134,7 @@
           timeCounter.innerText = `${minutes}:${seconds} / ${timeTotal}`;
           if (isMouseDown) return;
 
-          timeBar.value = video.currentTime;
+          timeBar.value = video.currentTime
         }
 
         function backforward () {
@@ -237,10 +237,10 @@
             updateCurrentTime();
           }
           video.volume = volumeSlider.value / 100;isMouseDown
-          setVideoSize();
+          setVideoSize()
         }
 
-        setVideoData();
+        setVideoData()
 
         controls.addEventListener('mousemove', () => { showUI(), hideUI() });
         controls.addEventListener('mouseout', hideUI);
@@ -254,12 +254,11 @@
 
         fullscreen.addEventListener('click', toggleFullScreen);
 
-        playButton.addEventListener('click', playVideo);
+        playButton.addEventListener('click', playVideo)
+        backwarButton.addEventListener('click', backforward)
 
         player.addEventListener('fullscreenchange', setVideoSize);
         player.addEventListener('msfullscreenchange', setVideoSize);
-
-        speedSelect.addEventListener('click', () => video.playbackRate = speedSelect.value);
 
         timeBar.addEventListener('change', updatetimeBar);
         timeBar.addEventListener('mousemove', updatetimeBar);
