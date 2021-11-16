@@ -4,7 +4,7 @@
   <Title :title="'新增會議'" />
 
   <section class="w-full mt-2 min-h-screen px-3 lg:px-6 py-4">
-    <div class="flex justify-between">
+    <div class="flex">
       <!-- <ul class="flex cursor-pointer text-sm">
         <li class="py-2 mr-1">
           <button @click="$router.push({ name: 'meeting' })" class="px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
@@ -140,6 +140,9 @@
         </div>
 
       </form>
+      <div v-if="tag === 1">
+        <drag_meeting />
+      </div>
       <!-- <form action="javascript:void(0);" class="text-NotoSansRegular textColorblack mx-auto" v-if="tag === 1">
 
         <div class="w-full bg-white py-2 lg:py-3 flex flex-col justify-between leading-normal mb-1">
@@ -400,20 +403,25 @@
   import 'vue2-datepicker/index.css';
   import NoData from '@/components/NoData'
   import Title from '@/components/Title'
+  import TabComponent from '@/components/Tab'
+    import drag_meeting from '@/components/modules/drag_meeting'
   export default {
     name: 'AddMeeting',
     components: {
       DatePicker,
       NoData,
-      Title
+      Title,
+      TabComponent,
+      drag_meeting
     },
     data () {
       return {
         isData: true,
 
-        tag: 0,
+        tag: 1,
         tagArr: [
-          { name: '會議基本資料', role: '' }
+          { name: '會議基本資料', role: '' },
+          { name: '會議通知名單', role: '' }
         ],
 
         time: null,

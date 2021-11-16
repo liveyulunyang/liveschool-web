@@ -33,14 +33,16 @@ const i18n = new VueI18n({
     'cn': require('@/i18n/cn.json')
   }
 })
-import VueAwesomeSwiper from 'vue-awesome-swiper'
+// import VueAwesomeSwiper from 'vue-awesome-swiper'
 
-import 'swiper/dist/css/swiper.css'
+// import 'swiper/dist/css/swiper.css'
 import Video from 'video.js'
 import 'video.js/dist/video-js.css'
 Vue.prototype.$video = Video
+// Vue.use(VueAwesomeSwiper)
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
 Vue.use(VueAwesomeSwiper)
-
 Vue.config.productionTip = false
 
 delete Icon.Default.prototype._getIconUrl

@@ -169,32 +169,34 @@
                       <input disabled class="w-full bg-drabya-gray border-gray-500 appearance-none border p-4 font-light leading-tight focus:outline-none focus:shadow-outline" type="text" name="text" id="" placeholder="">
                     </div>
                   </div>
+
                   <div class="mb-4">
-                    <label class="block text-md mb-2 text-left" for="text">新增點數</label>
+                    <label class="block text-md mb-2 text-left" for="reason">新增點數</label>
+                    <input class="w-full bg-drabya-gray border-gray-500 appearance-none border p-4 font-light leading-tight focus:outline-none focus:shadow-outline" type="text" name="reason" id="" placeholder="">
+                  </div>
+                  <div class="mb-4">
+                    <label class="block text-md mb-2 text-left" for="text">異動原因</label>
                     <div class="flex flex-wrap">
                       <div class="w-full md:w-1/5 px-2">
                         <div class="relative text-sm h-full">
                           <select class="h-full block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="invoice"
                             >
-                            <option value="">一般點數</option>
+                            <option value="">分校申請</option>
+                            <option value="">其他</option>
                           </select>
                           <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
                             <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                           </div>
                         </div>
                       </div>
-                      <input class="w-full md:w-4/5 bg-drabya-gray border-gray-500 appearance-none border p-4 font-light leading-tight focus:outline-none focus:shadow-outline" type="text" name="text" id="" placeholder="">
+                      <input disabled class="w-full md:w-4/5 bg-drabya-gray border-gray-500 appearance-none border p-4 font-light leading-tight focus:outline-none focus:shadow-outline" type="text" name="text" id="" placeholder="">
                     </div>
-                  </div>
-                  <div class="mb-4">
-                    <label class="block text-md mb-2 text-left" for="reason">異動原因</label>
-                    <input class="w-full bg-drabya-gray border-gray-500 appearance-none border p-4 font-light leading-tight focus:outline-none focus:shadow-outline" type="text" name="reason" id="" placeholder="">
                   </div>
                 </form>
               </div>
               <div v-if="tag === 3">
                 <div class="flex items-center mb-4 flex-wrap bg-white py-2 lg:p-4">
-                  <FilterModal :showItems="showItems" />
+                  <FilterModal :showItems="transactionRecord" />
                 </div>
                 <Table :columns="tableList.columns"
                   :actions="tableList.actions"
@@ -228,6 +230,12 @@
       return {
         tag: 0,
         showItems: {
+          isExportBtn: true,
+          timePeriod: true,
+          sync: true
+        },
+        transactionRecord: {
+          searchOnlyInput: true,
           isExportBtn: true,
           timePeriod: true,
           sync: true

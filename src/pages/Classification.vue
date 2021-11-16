@@ -7,11 +7,14 @@
     <section class="w-full mt-2 min-h-screen px-3 lg:px-6 py-4">
       <div class="flex justify-between mb-4">
         <ul class='flex cursor-pointer text-sm'>
-          <!-- <li class='py-2 mr-1'>
-            <Button @click="$router.back(-1)" class="px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
+          <li class='py-2 mr-1'>
+            <button @click="$router.back(-1)" class="px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
               <i class="fas fa-chevron-left mr-1"></i>回上層
-            </Button>
-          </li> -->
+            </button>
+          </li>
+          <li>
+            <FilterModal :showItems="showItems" />
+          </li>
         </ul>
 
         <ul class='flex cursor-pointer text-sm'>
@@ -58,22 +61,52 @@
 
           <div class="w-full flex flex-wrap leading-normal mb-1" v-if="selectedFirst !== null && selectedSecond !== null && selectedThird === null">
             <div class="w-full px-3 py-5 md:flex mb-6 bg-white shadow-md hover:bg-gray-300" v-for="(item, index) in ClassifyData[0].items[0].items" :key="index">
-              <div class="md:w-9/12 md:pt-2 px-3">
-                <p class="text-left tracking-wide text-2xl mb-2 md:mb-0 font-bold">
+              <div class="md:w-8/12 md:pt-2 px-3 flex justify-start">
+              <!-- edit -->
+              <input type="text" :value="item.name" class="tracking-wide text-2xl mb-2 md:mb-0 font-bold border w-full">
+                <!-- <p class="text-left tracking-wide text-2xl mb-2 md:mb-0 font-bold">
                   {{ item.name }}
-                </p>
+                </p> -->
               </div>
-              <div class="w-full md:w-3/12 flex items-center justify-end md:pl-2">
-                <button class="bg-gray-900 text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1">
-                  <i class="fas fa-folder-open"></i>
+              <!-- edit -->
+              <div class="w-full md:w-4/12 flex items-center justify-end lg:pl-3">
+                <div class="w-full md:flex">
+                  <div class="w-full md:w-4/12 flex items-center">
+                    <label class="control control--checkbox">台灣站
+                      <input type="checkbox" checked="checked" :disabled="isDisabled" />
+                      <div class="control__indicator"></div>
+                    </label>
+                  </div>
+                  <div class="w-full md:w-4/12 flex items-center">
+                    <label class="control control--checkbox">企業站
+                      <input type="checkbox" checked="checked"  :disabled="isDisabled"/>
+                      <div class="control__indicator"></div>
+                    </label>
+                  </div>
+                  <div class="w-full md:w-4/12 flex items-center">
+                    <label class="control control--checkbox">大陸站
+                      <input type="checkbox" checked="checked"  :disabled="isDisabled"/>
+                      <div class="control__indicator"></div>
+                    </label>
+                  </div>
+                </div>
+                <button class="btn-main text-white py-2 px-3 rounded text-sm whitespace-no-wrap">
+                  <i class="fas fa-check mr-1"></i> 儲存
                 </button>
-                <button class="bg-gray-900 text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1">
-                  <i class="fas fa-edit"></i>
-                </button>
-                <button class="bg-gray-900 text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1">
+                <button class="btn-main text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1">
                   <i class="fas fa-trash-alt"></i>
                 </button>
               </div>
+              <!-- <div class="w-full md:w-3/12 flex items-center justify-end md:pl-2">
+                <span class="px-2 py-1 border border-gray-900 rounded mx-1">台灣站</span>
+                <span class="px-2 py-1 border border-gray-900 rounded mx-1">大陸站</span>
+                <button class="btn-main text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1">
+                  <i class="fas fa-folder-open"></i>
+                </button>
+                <button class="btn-main text-white py-2 px-3 rounded text-sm whitespace-no-wrap mx-1">
+                  <i class="fas fa-edit"></i>
+                </button>
+              </div> -->
             </div>
 
           </div>
@@ -90,11 +123,13 @@
 /* eslint-disable no-console */
   import NoData from '@/components/NoData'
   import Title from '@/components/Title'
+  import FilterModal from '@/components/FilterModal'
   export default {
     name: "Classification",
     components: {
       NoData,
-      Title
+      Title,
+      FilterModal
     },
     data () {
       return {
@@ -102,6 +137,12 @@
         selectedFirst: null,
         selectedSecond: null,
         selectedThird: null,
+
+        showItems: {
+          branch: true,
+          searchOnlyInput: true,
+          sync: true
+        },
 
         ClassifyData: [
           { id: 0,

@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="mx-auto overflow-hidden m-0 p-0 w-full h-auto">
+  <div id="app" class="mx-auto overflow-hidden m-0 p-0">
     <router-view></router-view>
   </div>
 </template>

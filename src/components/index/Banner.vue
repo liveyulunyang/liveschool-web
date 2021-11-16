@@ -1,8 +1,8 @@
 <template >
-  <div id="index-banner">
-    <swiper :options="bannerOption" class="swiper" v-if="bannerData">
-      <swiper-slide v-for="item in bannerData" :key="item.image_url" class="w-full">
-        <a :href="item.url" target="_blank" class="cursor-pointer block" >
+  <div class="slider-banner relative mx-auto">
+    <swiper :options="bannerOption" class="swiper w-full" v-if="bannerData">
+      <swiper-slide v-for="item in bannerData" :key="item.image_url">
+        <a :href="item.url" target="_blank" class="cursor-pointer img" >
           <img :src="item.image_url" class="object-contain w-full h-auto" :alt="item.name">
         </a>
       </swiper-slide>
@@ -23,25 +23,43 @@ export default {
   data () {
     return {
       bannerOption: {
-        slidesPerView: 1,
         preloadImages: true,
         updateOnImagesReady: true,
         autoplay: {
           delay: 5000
         },
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true
-        },
+        slidesPerView: 2,
         centeredSlides: true,
         watchOverflow: true,
         loop: true,
         effect: 'slide',
-        autoHeight: true
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true
+        },
+        breakpoints: {
+          1440: {
+            autoplay: {
+              delay: 5000
+            },
+            slidesPerView: 1.5,
+            loop: true
+          },
+          1024: {
+            autoplay: {
+              delay: 5000
+            },
+            slidesPerView: 1,
+            loop: true
+          }
+        }
       }
     }
   },
   computed: {
+    screenW () {
+      return window.screen.width
+    }
   },
   mounted() {
   }
@@ -49,7 +67,15 @@ export default {
 </script>
 
 <style lang="scss">
-#index-banner {
+.slider-banner {
+  max-width: 1920px;
+  width: 100%;
+  @media (maz-width: 1024px) {
+    max-width: 1024px;
+  }
+  @media (maz-width: 768px) {
+    max-width: 768px;
+  }
   .swiper-container {
     // overflow: visible !important;
     // overflow-y: hidden;

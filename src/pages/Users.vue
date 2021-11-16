@@ -205,6 +205,22 @@
             }
           })
         }
+      },
+
+      async delDisable() {
+        let self = this
+        self.$swal.fire({
+          title: '此帳號還有點數尚未使用，無法刪除',
+          confirmButtonText: '確認',
+          customClass: {
+            popup: 'py-10',
+            title: 'font-bold text-2xl text-black mb-4',
+            htmlContainer: 'text-sm',
+            actions: 'btns',
+            confirmButton: 'btn btn-confirm',
+            cancelButton: 'btn btn-cancel'
+          }
+        })
       }
     }
   }
