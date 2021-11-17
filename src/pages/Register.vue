@@ -63,7 +63,7 @@
                 <span class="text-red-600">*</span>行動電話
               </label>
               <div class="w-full md:w-10/12 xl:w-11/12 flex justify-between">
-                <input class="w-1/12 mr-2 appearance-none block text-sm border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-900" spellcheck="false"
+                <input class="w-1/4 lg:w-1/12 mr-2 appearance-none block text-sm border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-900" spellcheck="false"
                   id="mobile_area" type="text" placeholder="886">
                 <input class="flex-1 appearance-none block text-sm border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-900" spellcheck="false"
                   id="mobile" type="text" placeholder="請輸入有效的手機號碼，完成驗證能收到系統通知">

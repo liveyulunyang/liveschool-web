@@ -3,7 +3,7 @@
     <SupplementLearning v-if="isOpen" v-on:toggle="toggle" />
     <a class="clostBtn flex justify-end items-center text-white py-2 px-3 lg:hidden cursor-pointer" @click="close">關閉視窗<i class="far fa-times-circle text-2xl ml-2"></i></a>
     <ul id="accordion" class="accordion text-left">
-      <li class="" v-for="n in 10" :key="n" :class="{ open: n === seletedIdx }">
+      <li class="" v-for="n in 20" :key="n" :class="{ open: n === seletedIdx }">
         <div class="link" @click="seletedIdx = n"><span class="font-light mr-2 text-gray-light-0">Chapter {{n}}</span><span class=" font-bold">八大詞類五大句型</span><i class="fa fa-chevron-down"></i></div>
         <ul class="submenu" :class="{ block: n === seletedIdx }">
           <li class="flex justify-between items-center px-3" v-for="k in 3" :key="k">

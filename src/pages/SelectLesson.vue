@@ -1,6 +1,6 @@
 <template>
-  <main class="flex items-center p-6">
-    <div class="flex w-full max-w-7xl mx-auto">
+  <main class="flex p-6">
+    <div class="md:flex w-full container">
       <router-link :to="{ name: 'bookingClass', params: { type: 'talk' } }" target="_blank" class="w-1/3 p-5 cursor-pointer"><img alt="" src="@/assets/img/digital/btn_talk.png" class="object-contain mx-auto transform hover:scale-105 shadow-lg"></router-link>
       <router-link :to="{ name: 'bookingClass', params: { type: 'class' } }" target="_blank" class="w-1/3 p-5 cursor-pointer"><img alt="" src="@/assets/img/digital/btn_class.png" class="object-contain mx-auto transform hover:scale-105 shadow-lg"></router-link>
       <router-link :to="{ name: 'bookingClass', params: { type: 'teacher' } }" target="_blank" class="w-1/3 p-5 cursor-pointer"><img alt="" src="@/assets/img/digital/btn_teacher.png" class="object-contain mx-auto transform hover:scale-105 shadow-lg"></router-link>

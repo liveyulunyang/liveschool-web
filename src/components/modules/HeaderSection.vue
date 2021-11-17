@@ -2,11 +2,11 @@
   <header class="bg-white flex justify-between px-2 lg:px-20 border-b-2 border-gray-900 border-solid h-20">
     <Nav class="md:hidden" mode="mobile" :menu-list-item="roleMenu"></Nav>
     <router-link class="flex items-center" to="/">
-      <img alt="logo" src="@/assets/logo.png" class="w-24 md:w-48 h-auto" v-if="$route.name !== 'bookingClass' && $route.name !== 'classPreview' && $route.name !== 'classPreviewTeacher' && $route.name !== 'class_Detail'">
-      <span class="mt-4 ml-3 hidden md:block" v-if="$route.name !== 'bookingClass' && $route.name !== 'classPreview' && $route.name !== 'classPreviewTeacher' && $route.name !== 'class_Detail'">遠距教學平台</span>
+      <img alt="logo" src="@/assets/logo.png" class="w-24 md:w-48 h-auto" v-if="$route.name !== 'bookingClass' && $route.name !== 'classPreview' && $route.name !== 'classPreviewTeacher' && $route.name !== 'classPreviewTalk'">
+      <span class="mt-4 ml-3 hidden md:block" v-if="$route.name !== 'bookingClass' && $route.name !== 'classPreview' && $route.name !== 'classPreviewTeacher' && $route.name !== 'classPreviewTalk'">遠距教學平台</span>
     </router-link>
-    <router-link class="flex items-center" to="/" v-if="$route.name === 'bookingClass' || $route.name === 'classPreview' || $route.name === 'classPreviewTeacher' || $route.name === 'class_Detail'">
-      <img alt="logo" src="@/assets/logo_talk.png" class="w-24 md:w-48 h-auto" v-if="$route.params.type === 'talk' || $route.name === 'class_Detail'">
+    <router-link class="flex items-center" to="/" v-if="$route.name === 'bookingClass' || $route.name === 'classPreview' || $route.name === 'classPreviewTeacher' || $route.name === 'classPreviewTalk'">
+      <img alt="logo" src="@/assets/logo_talk.png" class="w-24 md:w-48 h-auto" v-if="$route.params.type === 'talk' || $route.name === 'classPreviewTalk'">
       <img alt="logo" src="@/assets/logo_class.png" class="w-24 md:w-48 h-auto" v-if="$route.params.type === 'class' || $route.name === 'classPreview'">
       <img alt="logo" src="@/assets/logo_teacher.png" class="w-24 md:w-48 h-auto" v-if="$route.params.type === 'teacher' || $route.name === 'classPreviewTeacher'">
     </router-link>

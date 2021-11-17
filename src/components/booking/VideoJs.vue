@@ -1,6 +1,6 @@
 <template>
   <div class="player" ref="player">
-    <video class="video-screen mt-0 h-full" preload="auto" :src="url" ref="video"
+    <video class="video-screen mt-0 h-full" preload="auto" :src="url" ref="video" @click.prevent="playVideo"
       type="video/mp4" :poster="postercard" msallowfullscreen webkitallowfullscreen mozallowfullscreen allowfullscreen>
       Sorry, your browser doesn"t support HTML5 video playback.
     </video>
@@ -10,17 +10,17 @@
       </div>
       <div class="flex items-center w-full justify-around">
         <div class="flex items-center">
-          <button class="backward text-lg text-white text-center mx-2" ref="backwardBtn">
+          <button class="backward text-lg text-white text-center mx-2" ref="backwardBtn" @click.prevent="backforward">
             <i class="fas fa-step-backward"></i>
           </button>
-          <button class="play start text-lg text-white text-center  mx-2" ref="playBtn">
+          <button class="play start text-lg text-white text-center  mx-2" ref="playBtn" @click.prevent="playVideo">
             <i class="fas fa-play" v-if="!isPlay"></i>
             <i class="fas fa-pause" v-else></i>
           </button>
         </div>
         <input type="range" class="time-bar hidden lg:block" value="0" min="0" max="" ref="timeBar">
-        <time class="time whitespace-no-wrap" ref="time">00:00 / 00:00</time>
-        <button class="fullscreen-button text-2xl text-white text-center mx-2" ref="fullscreenBtn">
+        <time class="time whitespace-no-wrap" ref="time">00:00 / {{ timeAll }}</time>
+        <button class="fullscreen-button text-2xl text-white text-center mx-2" ref="fullscreenBtn" @click="toggleFullScreen">
           <i class="fas fa-expand"></i>
         </button>
       </div>
@@ -34,7 +34,9 @@
     name: "VideoJs",
     data () {
       return {
-        isPlay: false
+        isPlay: false,
+        throughTime: null,
+        timeAll: null
       }
     },
     computed: {
@@ -46,220 +48,306 @@
       }
     },
     mounted () {
-      this.videoPlayer()
+      this.$refs.video.oncanplay = () => {
+          this.setVideoData()
+      }
     },
     methods: {
-      videoPlayer () {
+      setVideoData () {
         let self = this
-        const controls = self.$refs.controls,
-              fileChooser = self.$refs.fileChooser,
-              fullscreen = self.$refs.fullscreenBtn,
-              playButton = self.$refs.playBtn,
-              backwarButton = self.$refs.backwardBtn,
-              player = self.$refs.player,
-              timeCounter = self.$refs.time,
-              timeBar = self.$refs.timeBar,
-              video = self.$refs.video
+        let video = self.$refs.video
+        let timeBar = self.$refs.timeBar
+        let timeCounter = self.$refs.time
 
-        let isMouseDown     = false,
-            timeTotal       = 0,
-            uiTimeout       = '',
-            videoStatus     = 'paused'
+        let seconds = Math.floor(video.duration % 60)
+        let minutes = Math.floor(video.duration / 60)
+        seconds = seconds >= 10 ? seconds : '0' + seconds
+        let timeTotal = `${minutes}:${seconds}`
+        timeBar.max = video.duration
+        timeCounter.innerText = `0:00 / ${timeTotal}`
+        self.timeAll = `${minutes}:${seconds}`
 
-        function onKeyDown(e) {
-          switch(e.key) {
-            case 'ArrowLeft':
-            case 'ArrowRight':
-              skip(e);
-              break;
-            case 'ArrowUp':
-            case ' ':
-              playVideo(e);
-              break;
-          }
-          showUI()
+        self.updateCurrentTime()
+
+      },
+      updateCurrentTime() {
+        let self = this
+        let video = self.$refs.video
+        let timeBar = self.$refs.timeBar
+        let timeCounter = self.$refs.time
+        let seconds = Math.floor(video.currentTime % 60);
+        let minutes = Math.floor(video.currentTime / 60);
+        seconds = seconds >= 10 ? seconds : '0' + seconds;
+        timeCounter.innerText = `${minutes}:${seconds} / ${self.timeAll}`
+        // if (isMouseDown) return
+
+        timeBar.value = video.currentTime
+      },
+      playVideo() {
+        let self = this
+        let video = self.$refs.video
+        console.log(video)
+        if (!video.readyState >= 2) return
+
+        if (video.paused) {
+          video.play()
+          self.isPlay = true
+          // videoStatus = 'playing'
+        } else {
+          video.pause()
+          self.isPlay = false
+          // videoStatus = 'paused'
         }
+      },
+      backforward () {
+        let self = this
+        let video = self.$refs.video
+        video.currentTime = 0
+      },
+      toggleFullScreen () {
+        let self = this
+        let player = self.$refs.player
+        player.requestFullscreen ? player.requestFullscreen() :
+          player.mozRequestFullscreen ? player.mozRequestFullscreen() :
+          player.webkitRequestFullscreen ? player.webkitRequestFullscreen() :
+          player.msRequestFullscreen ? player.msRequestFullscreen() :
+          console.error('fullscreen is not available');
 
-        function showUI () {
-          if (uiTimeout) clearTimeout(uiTimeout);
-          controls.classList.add('active')
-          video.style.cursor = 'default'
+        document.exitFullscreen ? document.exitFullscreen() :
+          document.mozExitFullscreen ? document.mozExitFullscreen() :
+          document.webkitExitFullscreen ? document.webkitExitFullscreen() :
+          document.msExitFullscreen ? document.msExitFullscreen() :
+          console.error('cannot exit fullscreen mode');
+
+        setVideoSize();
+      },
+
+      setVideoSize() {
+        let self = this
+        let player = self.$refs.player
+        let video = self.$refs.video
+        const aspectRatio = video.offsetWidth / video.offsetHeight;
+        const d = document;
+        controls.style.width = player.offsetWidth + 'px';
+        if (video.offsetHeight >= player.clientHeight) {
+          video.style.width = window.innerHeight * aspectRatio + 'px';
+        } else {
+          video.style.width = player.offsetWidth + 'px';
         }
-
-        function hideUI () {
-          if (uiTimeout) clearTimeout(uiTimeout);
-          if (video.paused) return;
-
-          uiTimeout = setTimeout(() => {
-            controls.classList.remove('active');
-            setTimeout(() => video.style.cursor = 'none', 1000);
-          }, 2000)
-        }
-
-        function onMouseDown () {
-          isMouseDown = true;
-          showUI();
-        }
-
-        function onMouseUp () {
-          isMouseDown = false;
-          if (videoStatus === 'paused') return;
-
-          hideUI();
-          video.play();
-        }
-
-        function updatePlayState() {
-          video.paused ?
-            (playButton.classList.add('start'), playButton.classList.remove('pause')) :
-            (playButton.classList.add('pause'), playButton.classList.remove('start'))
-
-          video.paused ? showUI() : hideUI()
-          video.paused ? self.isPlay = false : self.isPlay = true
-        }
-
-        const updatetimeBar = (e) => {
-          if (!isMouseDown && e.type === 'mousemove') return;
-
-          video.currentTime = timeBar.value;
-          if (!isMouseDown) return;
-
-          video.pause();
-          showUI();
-          hideUI();
-        }
-
-        function updateCurrentTime() {
-          let seconds = Math.floor(video.currentTime % 60);
-          let minutes = Math.floor(video.currentTime / 60);
-          seconds = seconds >= 10 ? seconds : '0' + seconds;
-          timeCounter.innerText = `${minutes}:${seconds} / ${timeTotal}`;
-          if (isMouseDown) return;
-
-          timeBar.value = video.currentTime
-        }
-
-        function backforward () {
-          video.currentTime = 0
-        }
-
-        function playVideo(e) {
-          e.preventDefault();
-          if (!video.readyState >= 2) return;
-
-          if (video.paused) {
-            video.play();
-            videoStatus = 'playing';
-          } else {
-            video.pause()
-            videoStatus = 'paused';
-          }
-        }
-
-        function skip(e) {
-          e.preventDefault();
-          switch(e.key) {
-            case 'ArrowLeft':
-              video.currentTime -= 10;
-              break;
-            case 'ArrowRight':
-              video.currentTime += 10;
-              break;
-          }
-          timeBar.value = video.currentTime;
-        }
-
-        function toggleFullScreen () {
-          player.requestFullscreen ? player.requestFullscreen() :
-            player.mozRequestFullscreen ? player.mozRequestFullscreen() :
-            player.webkitRequestFullscreen ? player.webkitRequestFullscreen() :
-            player.msRequestFullscreen ? player.msRequestFullscreen() :
-            console.error('fullscreen is not available');
-
-          document.exitFullscreen ? document.exitFullscreen() :
-            document.mozExitFullscreen ? document.mozExitFullscreen() :
-            document.webkitExitFullscreen ? document.webkitExitFullscreen() :
-            document.msExitFullscreen ? document.msExitFullscreen() :
-            console.error('cannot exit fullscreen mode');
-
-          setVideoSize();
-        }
-
-        function selectVideoFile() {
-          const file = this.url;
-          const fileUrl = URL.createObjectURL(file)
-          video.type = file.type;
-          video.src = fileUrl + '#t=.5';
-          video.poster = '';
-          video.play();
-          videoStatus = 'playing';
-          setTimeout(() => setVideoData(), 50);
-        }
-
-        function setVideoSize() {
-          const aspectRatio = video.offsetWidth / video.offsetHeight;
-          const d = document;
-          controls.style.width = player.offsetWidth + 'px';
-          if (video.offsetHeight >= player.clientHeight) {
-            video.style.width = window.innerHeight * aspectRatio + 'px';
-          } else {
-            video.style.width = player.offsetWidth + 'px';
-          }
-          const margin = (player.offsetHeight - video.offsetHeight) / 2 + 'px';
-          video.style.marginTop = margin;
-        }
-
-        function setVideoData() {
-          if (video.readyState) {
-            let seconds = Math.floor(video.duration % 60);
-            let minutes = Math.floor(video.duration / 60);
-            seconds = seconds >= 10 ? seconds : '0' + seconds;
-            timeTotal = `${minutes}:${seconds}`;
-            timeBar.max = video.duration;
-            timeCounter.innerText = `0:00 / ${timeTotal}`;
-            updateCurrentTime();
-          }
-          setVideoSize()
-        }
-
-        setVideoData()
-
-        controls.addEventListener('mousemove', () => { showUI(), hideUI() })
-        controls.addEventListener('mouseout', hideUI);
-
-        controls.childNodes.forEach(control => control.addEventListener('mousedown', onMouseDown))
-        controls.childNodes.forEach(control => control.addEventListener('mouseup', onMouseUp));
-        controls.childNodes.forEach(control => control.addEventListener('touchstart', onMouseDown))
-        controls.childNodes.forEach(control => control.addEventListener('touchend', onMouseUp))
-
-        fileChooser.addEventListener('change', selectVideoFile)
-
-        fullscreen.addEventListener('click', toggleFullScreen)
-
-        playButton.addEventListener('click', playVideo)
-        backwarButton.addEventListener('click', backforward)
-
-        player.addEventListener('fullscreenchange', setVideoSize)
-        player.addEventListener('msfullscreenchange', setVideoSize)
-
-        timeBar.addEventListener('change', updatetimeBar);
-        timeBar.addEventListener('mousemove', updatetimeBar)
-
-        video.addEventListener('mouseup', playVideo)
-        video.addEventListener('touchend', playVideo)
-        video.addEventListener('loadedmetadata', setVideoData)
-        video.addEventListener('play', updatePlayState)
-        video.addEventListener('pause', updatePlayState)
-        video.addEventListener('timeupdate', updateCurrentTime)
-        video.addEventListener('mouseout', hideUI);
-        video.addEventListener('dblclick', toggleFullScreen);
-        video.addEventListener('mousemove', () => { showUI(), hideUI() })
-
-        window.addEventListener('keydown', onKeyDown)
-        window.addEventListener('keyup', hideUI)
-        window.addEventListener('resize', setVideoSize)
-        window.addEventListener('mouseup', onMouseUp)
+        const margin = (player.offsetHeight - video.offsetHeight) / 2 + 'px';
+        video.style.marginTop = margin;
       }
+      // videoPlayer () {
+      //   let self = this
+      //   const controls = self.$refs.controls,
+      //         fileChooser = self.$refs.fileChooser,
+      //         fullscreen = self.$refs.fullscreenBtn,
+      //         playButton = self.$refs.playBtn,
+      //         backwarButton = self.$refs.backwardBtn,
+      //         player = self.$refs.player,
+      //         timeCounter = self.$refs.time,
+      //         timeBar = self.$refs.timeBar,
+      //         video = self.$refs.video
+
+      //   let isMouseDown     = false,
+      //       timeTotal       = 0,
+      //       uiTimeout       = '',
+      //       videoStatus     = 'paused'
+
+      //   function onKeyDown(e) {
+      //     switch(e.key) {
+      //       case 'ArrowLeft':
+      //       case 'ArrowRight':
+      //         skip(e);
+      //         break;
+      //       case 'ArrowUp':
+      //       case ' ':
+      //         playVideo(e);
+      //         break;
+      //     }
+      //     showUI()
+      //   }
+
+      //   function showUI () {
+      //     if (uiTimeout) clearTimeout(uiTimeout);
+      //     controls.classList.add('active')
+      //     video.style.cursor = 'default'
+      //   }
+
+      //   function hideUI () {
+      //     if (uiTimeout) clearTimeout(uiTimeout);
+      //     if (video.paused) return;
+
+      //     uiTimeout = setTimeout(() => {
+      //       controls.classList.remove('active');
+      //       setTimeout(() => video.style.cursor = 'none', 1000);
+      //     }, 2000)
+      //   }
+
+      //   function onMouseDown () {
+      //     isMouseDown = true;
+      //     showUI();
+      //   }
+
+      //   function onMouseUp () {
+      //     isMouseDown = false;
+      //     if (videoStatus === 'paused') return;
+
+      //     hideUI();
+      //     video.play();
+      //   }
+
+      //   function updatePlayState() {
+      //     video.paused ?
+      //       (playButton.classList.add('start'), playButton.classList.remove('pause')) :
+      //       (playButton.classList.add('pause'), playButton.classList.remove('start'))
+
+      //     video.paused ? showUI() : hideUI()
+      //     video.paused ? self.isPlay = false : self.isPlay = true
+      //   }
+
+      //   const updatetimeBar = (e) => {
+      //     if (!isMouseDown && e.type === 'mousemove') return;
+
+      //     video.currentTime = timeBar.value;
+      //     if (!isMouseDown) return;
+
+      //     video.pause();
+      //     showUI();
+      //     hideUI();
+      //   }
+
+      //   function updateCurrentTime() {
+      //     let seconds = Math.floor(video.currentTime % 60);
+      //     let minutes = Math.floor(video.currentTime / 60);
+      //     seconds = seconds >= 10 ? seconds : '0' + seconds;
+      //     timeCounter.innerText = `${minutes}:${seconds} / ${timeTotal}`;
+      //     if (isMouseDown) return;
+
+      //     timeBar.value = video.currentTime
+      //   }
+
+      //   function backforward () {
+      //     video.currentTime = 0
+      //   }
+
+      //   function playVideo(e) {
+      //     e.preventDefault();
+      //     if (!video.readyState >= 2) return;
+
+      //     if (video.paused) {
+      //       video.play();
+      //       videoStatus = 'playing';
+      //     } else {
+      //       video.pause()
+      //       videoStatus = 'paused';
+      //     }
+      //   }
+
+      //   function skip(e) {
+      //     e.preventDefault();
+      //     switch(e.key) {
+      //       case 'ArrowLeft':
+      //         video.currentTime -= 10;
+      //         break;
+      //       case 'ArrowRight':
+      //         video.currentTime += 10;
+      //         break;
+      //     }
+      //     timeBar.value = video.currentTime;
+      //   }
+
+      //   function toggleFullScreen () {
+      //     player.requestFullscreen ? player.requestFullscreen() :
+      //       player.mozRequestFullscreen ? player.mozRequestFullscreen() :
+      //       player.webkitRequestFullscreen ? player.webkitRequestFullscreen() :
+      //       player.msRequestFullscreen ? player.msRequestFullscreen() :
+      //       console.error('fullscreen is not available');
+
+      //     document.exitFullscreen ? document.exitFullscreen() :
+      //       document.mozExitFullscreen ? document.mozExitFullscreen() :
+      //       document.webkitExitFullscreen ? document.webkitExitFullscreen() :
+      //       document.msExitFullscreen ? document.msExitFullscreen() :
+      //       console.error('cannot exit fullscreen mode');
+
+      //     setVideoSize();
+      //   }
+
+      //   function selectVideoFile() {
+      //     const file = this.url;
+      //     const fileUrl = URL.createObjectURL(file)
+      //     video.type = file.type;
+      //     video.src = fileUrl + '#t=.5';
+      //     video.poster = '';
+      //     video.play();
+      //     videoStatus = 'playing';
+      //     setTimeout(() => setVideoData(), 50);
+      //   }
+
+      //   function setVideoSize() {
+      //     const aspectRatio = video.offsetWidth / video.offsetHeight;
+      //     const d = document;
+      //     controls.style.width = player.offsetWidth + 'px';
+      //     if (video.offsetHeight >= player.clientHeight) {
+      //       video.style.width = window.innerHeight * aspectRatio + 'px';
+      //     } else {
+      //       video.style.width = player.offsetWidth + 'px';
+      //     }
+      //     const margin = (player.offsetHeight - video.offsetHeight) / 2 + 'px';
+      //     video.style.marginTop = margin;
+      //   }
+
+      //   function setVideoData() {
+      //     if (video.readyState) {
+      //       let seconds = Math.floor(video.duration % 60);
+      //       let minutes = Math.floor(video.duration / 60);
+      //       seconds = seconds >= 10 ? seconds : '0' + seconds;
+      //       timeTotal = `${minutes}:${seconds}`;
+      //       timeBar.max = video.duration;
+      //       timeCounter.innerText = `0:00 / ${timeTotal}`;
+      //       updateCurrentTime();
+      //     }
+      //     setVideoSize()
+      //   }
+
+      //   setVideoData()
+
+      //   controls.addEventListener('mousemove', () => { showUI(), hideUI() })
+      //   controls.addEventListener('mouseout', hideUI);
+
+      //   controls.childNodes.forEach(control => control.addEventListener('mousedown', onMouseDown))
+      //   controls.childNodes.forEach(control => control.addEventListener('mouseup', onMouseUp));
+      //   controls.childNodes.forEach(control => control.addEventListener('touchstart', onMouseDown))
+      //   controls.childNodes.forEach(control => control.addEventListener('touchend', onMouseUp))
+
+      //   fileChooser.addEventListener('change', selectVideoFile)
+
+      //   fullscreen.addEventListener('click', toggleFullScreen)
+
+      //   playButton.addEventListener('click', playVideo)
+      //   backwarButton.addEventListener('click', backforward)
+
+      //   player.addEventListener('fullscreenchange', setVideoSize)
+      //   player.addEventListener('msfullscreenchange', setVideoSize)
+
+      //   timeBar.addEventListener('change', updatetimeBar);
+      //   timeBar.addEventListener('mousemove', updatetimeBar)
+
+      //   video.addEventListener('mouseup', playVideo)
+      //   video.addEventListener('touchend', playVideo)
+      //   video.addEventListener('loadedmetadata', setVideoData)
+      //   video.addEventListener('play', updatePlayState)
+      //   video.addEventListener('pause', updatePlayState)
+      //   video.addEventListener('timeupdate', updateCurrentTime)
+      //   video.addEventListener('mouseout', hideUI);
+      //   video.addEventListener('dblclick', toggleFullScreen);
+      //   video.addEventListener('mousemove', () => { showUI(), hideUI() })
+
+      //   window.addEventListener('keydown', onKeyDown)
+      //   window.addEventListener('keyup', hideUI)
+      //   window.addEventListener('resize', setVideoSize)
+      //   window.addEventListener('mouseup', onMouseUp)
+      // }
     }
   }
 </script>

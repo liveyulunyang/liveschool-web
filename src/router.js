@@ -273,8 +273,8 @@ const router = new Router({
         },
         {
           path: '/booking_class/talk/:id',
-          name: 'class_Detail',
-          component: () => import('@/pages/booking/ClassDetail.vue')
+          name: 'classPreviewTalk',
+          component: () => import('@/pages/booking/ClassPreview.vue')
         },
         {
           path: '/booking_class/class/:id',

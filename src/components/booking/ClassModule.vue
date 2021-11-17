@@ -2,56 +2,61 @@
   <div class="ClassModule overflow-hidden relative h-full flex-col justify-between web bg-library shadow-lg">
     <a class="cursor-pointer" @click="checkRouter">
       <div class="outer overflow-hidden">
+        <div class="flag absolute top-0 text-white z-50 bg-second-red px-2 py-2 text-xl font-semibold">
+          <span>3點</span>
+        </div>
         <div class="inner mx-auto absolute w-full h-full">
-
           <img
             class="w-full h-full block object-cover"
             src="@/assets/img/home/class.png"
           >
-
         </div>
 
+      </div>
+
+      <div class="flex-grow flex flex-col justify-between py-4 px-3">
+        <div class="w-full flex flex-col justify-between leading-normal">
+          <div class="tag flex text-white text-xs mb-4">
+            <span class="px-2 py-1 bg-class-purple-01 mx-1 rounded">親子教養</span>
+            <span class="px-2 py-1 bg-class-purple-02 mx-1 rounded">單字應用</span>
+          </div>
+
+          <div class="flex justify-between mb-2 font-bold" v-if="classType === 'talk'">
+            <p class="text-main">2021.11.28</p>
+            <p class="text-class-red-02">16:00~16:40</p>
+          </div>
+
+          <div class="itemName mb-2">
+            <div class="title text-left tracking-wider">
+              <p class="text-class-red-02 font-bold text-lg" v-if="classType === 'teacher'">每週一堂，每堂90分鐘，每期10堂課</p>
+              <h5 class="whitespace-pre-wrap font-bold mb-1 text-2xl">老師希望你別再說錯的 英語易混淆字！</h5>
+              <h6 class="whitespace-pre-wrap">精準剖析多益文法考點！</h6>
+            </div>
+            <div class="book">
+              <hr class="my-3">
+              <div class="flex justify-between mb-2 font-bold items-center">
+                <p class="text-main" v-if="classType === 'teacher'">同學 5/30 人</p>
+                <p class="text-main" v-if="classType === 'talk'">名額：６　正取：6　備取﹕0</p>
+                <div v-if="classType === 'class'" class="text-left">
+                  <p class="text-main">課時 788 分鐘</p>
+                  <p class="text-main">同學 888 人</p>
+                </div>
+                <!-- <button class="btn-red py-3 px-6 rounded text-lg whitespace-no-wrap text-center font-bold text-white" v-if="classType === 'talk' || classType === 'class'">
+                  預約
+                </button> -->
+                <button class="bg-class-blue py-3 px-6 rounded text-lg whitespace-no-wrap text-center font-bold text-white" v-if="classType === 'talk' || classType === 'class'">
+                  候補
+                </button>
+                <button class="btn-red py-3 px-6 rounded text-lg whitespace-no-wrap text-center font-bold text-white" v-if="classType === 'teacher'">
+                  3,450 元
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
       </div>
     </a>
-    <div class="flex-grow flex flex-col justify-between py-4 px-3">
-      <div class="w-full flex flex-col justify-between leading-normal">
-        <div class="tag flex text-white text-xs mb-4">
-          <span class="px-2 py-1 bg-class-purple-01 mx-1 rounded">親子教養</span>
-          <span class="px-2 py-1 bg-class-purple-02 mx-1 rounded">單字應用</span>
-        </div>
-
-        <div class="flex justify-between mb-2 font-bold" v-if="classType === 'talk'">
-          <p class="text-main">2021.11.28</p>
-          <p class="text-class-red-02">16:00~16:40</p>
-        </div>
-
-        <div class="itemName mb-2">
-          <div class="title text-left tracking-wider">
-            <p class="text-class-red-02 font-bold text-lg" v-if="classType === 'teacher'">每週一堂，每堂90分鐘，每期10堂課</p>
-            <h5 class="whitespace-pre-wrap font-bold mb-1 text-2xl">老師希望你別再說錯的 英語易混淆字！</h5>
-            <h6 class="whitespace-pre-wrap">精準剖析多益文法考點！</h6>
-          </div>
-          <div class="book">
-            <hr class="my-3">
-            <div class="flex justify-between mb-2 font-bold items-center">
-              <p class="text-main" v-if="classType === 'talk' || classType === 'teacher'">同學 4/6 人</p>
-              <div v-if="classType === 'class'" class="text-left">
-                <p class="text-main">課時 788 分鐘</p>
-                <p class="text-main">同學 888 人</p>
-              </div>
-              <button class="btn-red py-3 px-6 rounded text-lg whitespace-no-wrap text-center font-bold text-white" v-if="classType === 'talk' || classType === 'class'">
-                3點
-              </button>
-              <button class="btn-red py-3 px-6 rounded text-lg whitespace-no-wrap text-center font-bold text-white" v-if="classType === 'teacher'">
-                3,450 元
-              </button>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </template>
 <script>
@@ -75,7 +80,7 @@ export default {
   methods: {
     checkRouter () {
       if (this.$route.params.type === 'talk') {
-        this.$router.push({name: 'class_Detail', params: { id: '1' } })
+        this.$router.push({name: 'classPreviewTalk', params: { id: '1' } })
       } else if (this.$route.params.type === 'class') {
         this.$router.push({name: 'classPreview', params: { id: '1' } })
       } else if (this.$route.params.type === 'teacher') {
@@ -106,6 +111,32 @@ export default {
       width: 100%;
       background:white;
       display: block;
+      .flag {
+        position: relative;
+        left: 5%;
+        &:before {
+          position: absolute;
+          right: 0;
+          bottom: -13px;
+          content: "";
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 13px 0px 0 24px;
+          border-color: #FC5649 transparent transparent transparent;
+        }
+        &:after {
+          position: absolute;
+          left: 0;
+          bottom: -13px;
+          content: "";
+          width: 0;
+          height: 0;
+          border-style: solid;
+          border-width: 13px 24px 0 0px;
+          border-color: #FC5649 transparent transparent transparent;
+        }
+      }
       &:after {
         content: "";
         display: block;
