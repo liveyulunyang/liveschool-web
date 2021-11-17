@@ -12,8 +12,8 @@
     </router-link>
     <div class="flex items-center">
       <div v-if="!$store.state.auth.authorized" class="flex items-center">
-        <a class="hidden md:block cursor-pointer px-3 py-2 text-main font-bold mr-3" href="https://docs.google.com/forms/d/e/1FAIpQLSfw_Q9scdFhVp5iNFO8exubkbloQGILu3rbdsnmMFANnFqHDA/viewform" target="_blank">合作開課</a>
-        <a class="block cursor-pointer border-2 rounded-xl px-3 py-2 text-main font-bold border-main" @click="$emit('toggleLogin', true)">登入 / 免費註冊</a>
+        <a class="hidden md:block cursor-pointer px-3 py-2 text-main font-bold mr-3" href="https://docs.google.com/forms/d/e/1FAIpQLSfw_Q9scdFhVp5iNFO8exubkbloQGILu3rbdsnmMFANnFqHDA/viewform" target="_blank">{{ $t('cooperative') }}</a>
+        <a class="block cursor-pointer border-2 rounded-xl px-3 py-2 text-main font-bold border-main" @click="$emit('toggleLogin', true)">{{ $t('login') }}</a>
       </div>
       <div class="dropdown" v-if="$store.state.auth.authorized">
         <button class="dropbtn focus:outline-none font-bold" @click="isOpenUser = !isOpenUser">Hi! Peggy<i class="fas fa-sort-down ml-2"></i></button>
@@ -21,7 +21,7 @@
 
           <router-link :to="{ name: 'account' }">帳號資料</router-link>
           <router-link :to="{ name: 'learn_record_student' }">查詢紀錄</router-link>
-          <a href="#base">登出</a>
+          <a href="#base">{{ $t('logout') }}</a>
         </div>
       </div>
       <button @click="toggleSideBar" v-if="$store.state.auth.authorized"

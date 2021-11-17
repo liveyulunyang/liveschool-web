@@ -28,7 +28,7 @@ export default {
         autoplay: {
           delay: 5000
         },
-        slidesPerView: 2,
+        slidesPerView: 1,
         centeredSlides: true,
         watchOverflow: true,
         loop: true,

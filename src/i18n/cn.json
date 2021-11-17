@@ -3,5 +3,8 @@
   "SiteGuide": "网站指南",
   "QA": "常见问题",
   "Manual": "操作手册",
-  "downloads": "软件下载"
+  "downloads": "软件下载",
+  "login": "登入 / 免费注册",
+  "logout": "登出",
+  "cooperative": "合作开课"
 }

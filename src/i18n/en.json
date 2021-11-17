@@ -3,5 +3,8 @@
   "SiteGuide": "Site Guide",
   "QA": "Q & A",
   "Manual": "Manual",
-  "Downloads": "Downloads"
+  "Downloads": "Downloads",
+  "login": "Login / Register",
+  "logout": "logout",
+  "cooperative": "Cooperation"
 }
