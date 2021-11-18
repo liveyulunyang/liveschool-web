@@ -6,7 +6,7 @@
     </video>
     <div class="controls active w-full flex-col" ref="controls">
       <div class="flex w-full justify-center lg:hidden">
-        <input type="range" class="time-bar w-11/12" value="0" min="0" max="" ref="timeBar">
+        <input type="range" class="time-bar w-11/12" value="0" min="0" max="" ref="timeBar" @change="updatetimeBar">
       </div>
       <div class="flex items-center w-full justify-around">
         <div class="flex items-center">
@@ -18,8 +18,8 @@
             <i class="fas fa-pause" v-else></i>
           </button>
         </div>
-        <input type="range" class="time-bar hidden lg:block" value="0" min="0" max="" ref="timeBar">
-        <time class="time whitespace-no-wrap" ref="time">00:00 / {{ timeAll }}</time>
+        <input type="range" class="time-bar hidden lg:block" value="0" min="0" max="" ref="timeBar" @change="updatetimeBar">
+        <time class="time whitespace-no-wrap" ref="time">{{ throughTime }} / {{ timeAll }}</time>
         <button class="fullscreen-button text-2xl text-white text-center mx-2" ref="fullscreenBtn" @click="toggleFullScreen">
           <i class="fas fa-expand"></i>
         </button>
@@ -36,7 +36,11 @@
       return {
         isPlay: false,
         throughTime: null,
-        timeAll: null
+        timeAll: null,
+
+        setIntervalTime: null,
+
+        isMouseDown: false
       }
     },
     computed: {
@@ -49,10 +53,25 @@
     },
     mounted () {
       this.$refs.video.oncanplay = () => {
-          this.setVideoData()
+        this.setVideoData()
+        // window.addEventListener('keydown', this.onKeyDown())
       }
     },
+    beforeDestroy () {
+        clearInterval(this.setIntervalTime)
+    },
     methods: {
+      timer () {
+        let self = this
+        self.setIntervalTime = setInterval(() => {
+          self.updateCurrentTime()
+        }, 500)
+      },
+      stopTime () {
+        if (this.setIntervalTime) {
+          clearInterval(this.setIntervalTime)
+        }
+      },
       setVideoData () {
         let self = this
         let video = self.$refs.video
@@ -70,7 +89,7 @@
         self.updateCurrentTime()
 
       },
-      updateCurrentTime() {
+      updateCurrentTime () {
         let self = this
         let video = self.$refs.video
         let timeBar = self.$refs.timeBar
@@ -79,24 +98,23 @@
         let minutes = Math.floor(video.currentTime / 60);
         seconds = seconds >= 10 ? seconds : '0' + seconds;
         timeCounter.innerText = `${minutes}:${seconds} / ${self.timeAll}`
-        // if (isMouseDown) return
 
         timeBar.value = video.currentTime
+        self.throughTime = `${minutes}`
       },
       playVideo() {
         let self = this
         let video = self.$refs.video
-        console.log(video)
         if (!video.readyState >= 2) return
 
         if (video.paused) {
           video.play()
           self.isPlay = true
-          // videoStatus = 'playing'
+          this.timer()
         } else {
           video.pause()
           self.isPlay = false
-          // videoStatus = 'paused'
+          self.stopTime()
         }
       },
       backforward () {
@@ -136,6 +154,56 @@
         }
         const margin = (player.offsetHeight - video.offsetHeight) / 2 + 'px';
         video.style.marginTop = margin;
+      },
+      updatetimeBar () {
+        let self = this
+        let video = self.$refs.video
+        let timeBar = self.$refs.timeBar
+
+        video.currentTime = timeBar.value
+
+        // if (!isMouseDown && e.type === 'mousemove') return
+      },
+      onKeyDown (e) {
+        console.log(e)
+        // switch(e.key) {
+        //   case 'ArrowLeft':
+        //   case 'ArrowRight':
+        //     skip(e)
+        //     break
+        //   case 'ArrowUp':
+        //   case ' ':
+        //     playVideo(e)
+        //     break;
+        // }
+      },
+      skip (e) {
+        let self = this
+        e.preventDefault()
+        let timeBar = self.$refs.timeBar
+        switch(e.key) {
+          case 'ArrowLeft':
+            video.currentTime -= 10
+            break;
+          case 'ArrowRight':
+            video.currentTime += 10
+            break;
+        }
+        timeBar.value = video.currentTime
+      },
+
+      onMouseDown () {
+        this.isMouseDown = true
+        showUI()
+      },
+
+      onMouseUp () {
+        let self = this
+        let video = self.$refs.video
+        this.isMouseDown = false
+        if (!this.isPlay) return
+
+        video.play()
       }
       // videoPlayer () {
       //   let self = this

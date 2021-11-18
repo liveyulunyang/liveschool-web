@@ -31,12 +31,15 @@
           <VideoJs class="VideoJs" />
           <List class="item-list-container" :class="{ openList: isOpenList }" v-on:close="close" v-if="$route.name === 'classPreview'" />
         </div>
-        <div class="list-toggle py-2 bg-gray-btn text-white font-bold tracking-wider cursor-pointer mb-4" @click="isOpenList = true">單元一覽</div>
+        <div class="list-toggle py-2 bg-gray-btn text-white font-bold tracking-wider cursor-pointer mb-4" @click="isOpenList = true"  v-if="$route.name === 'classPreview'">單元一覽</div>
         <button v-if="$route.name === 'classPreview'" class="btn-red py-3 w-full rounded text-lg whitespace-no-wrap text-center font-bold text-white lg:hidden" @click="isOpenPurchaseWay = true">
           購買課程
         </button>
         <button v-if="$route.name === 'classPreviewTeacher'" class="btn-red py-3 w-full rounded text-lg whitespace-no-wrap text-center font-bold text-white lg:hidden">
           點我查詢分校
+        </button>
+        <button v-if="$route.name === 'classPreviewTalk'" class="btn-red py-3 w-full rounded text-lg whitespace-no-wrap text-center font-bold text-white lg:hidden">
+          我要預約
         </button>
       </div>
       <div class="class_detail mt-10 mx-auto">
@@ -206,7 +209,7 @@
     width: 100%;
     // max-width: 1350px;
     height: 500px;
-    background-color: rgba(0, 0, 0, 0.65);
+    background-color: rgba(0, 0, 0, 0.9);
     display: flex;
     transition: height 0.3s ease 0s;
     @media (max-width: 1024px) {
@@ -251,10 +254,10 @@
 }
 .isTeacher {
   .VideoJs {
-    width: 100% !important;
-    @media (max-width: 1024px) {
-      width: 100%;
-    }
+    // width: 100% !important;
+    // @media (max-width: 1024px) {
+    //   width: 100%;
+    // }
   }
 }
 
