@@ -472,9 +472,9 @@
           <div class="w-full lg:w-1/3 flex px-4 items-center mb-2 lg:mb-0">
             <label for="" class="whitespace-no-wrap w-1/3 px-2">課程時間從</label>
             <div class="w-2/3 flex items-center">
-              <date-picker v-model="value3" type="time" placeholder="Select time"></date-picker>
+              <date-picker v-model="value3" type="time" placeholder="Select time" :input-class="'mx-input py-5'"></date-picker>
               <span class="mx-2">到</span>
-              <date-picker v-model="value4" type="time" placeholder="Select time"></date-picker>
+              <date-picker v-model="value4" type="time" placeholder="Select time" :input-class="'mx-input py-5'"></date-picker>
             </div>
           </div>
           <div class="w-full lg:w-1/3 flex px-4 items-center">

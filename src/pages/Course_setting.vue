@@ -89,25 +89,12 @@
                     <div class="bg-gray-400 py-3">星期一</div>
                   </div>
                   <div class="w-full md:flex-1 px-3 flex items-center py-3">
-                    <label for="" class="mr-2 whitespace-no-wrap">開課時段</label>
-                      <div class="relative text-sm w-full">
-                        <select class="block appearance-none w-full border border-gray-500 py-2 px-16 leading-tight focus:outline-none bg-white focus:border-gray-900" id="role" name="role"
-                          >
-                          <option value="">上午</option>
-                          <option value="">下午</option>
-                        </select>
-                        <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
-                          <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                        </div>
-                      </div>
-                  </div>
-                  <div class="w-full md:flex-1 px-3 flex items-center py-3">
                     <label for="" class="mr-2 whitespace-no-wrap">開始時間</label>
-                    <date-picker v-model="value1" type="time" placeholder="Select time" class="w-full"></date-picker>
+                    <date-picker v-model="value1" type="time" placeholder="Select time" class="w-full" :input-class="'mx-input py-5'"></date-picker>
                   </div>
                   <div class="w-full md:flex-1 px-3 flex items-center py-3">
                     <label for="" class="mr-2 whitespace-no-wrap">結束時段</label>
-                    <date-picker v-model="value1" type="time" placeholder="Select time" class="w-full"></date-picker>
+                    <date-picker v-model="value1" type="time" placeholder="Select time" class="w-full" :input-class="'mx-input py-5'"></date-picker>
                   </div>
                 </div>
               </div>

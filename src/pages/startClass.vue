@@ -82,7 +82,7 @@
     },
     computed: {
       progressCalc () {
-          return ('width:' + Math.round(this.currentPage / this.pageCount * 10000) / 100.00 + '%')
+        return ('width:' + Math.round(this.currentPage / this.pageCount * 10000) / 100.00 + '%')
       }
     },
     mounted () {

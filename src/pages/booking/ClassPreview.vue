@@ -136,8 +136,6 @@
         </div>
       </div>
     </div>
-
-
   </main>
 </template>
 
@@ -207,7 +205,6 @@
     overflow: hidden;
     margin-top: 40px;
     width: 100%;
-    // max-width: 1350px;
     height: 500px;
     background-color: rgba(0, 0, 0, 0.9);
     display: flex;
@@ -272,6 +269,7 @@
   background-repeat: no-repeat;
   background-image: url('~@/assets/img/background_top_02.jpg');
   background-size: contain;
+  margin: 0 auto;
   @media (max-width: 768px) {
     background-image: none;
   }

@@ -34,7 +34,7 @@
             </button>
           </td>
           <td data-th="執行動作">
-            <!-- <button class="bg-gray-900 mx-1 text-white py-2 px-3 rounded h-full text-sm focus:outline-none"
+            <!-- <button class="btn-main mx-1 text-white py-2 px-3 rounded h-full text-sm focus:outline-none"
             >
             Create
             </button> -->
@@ -88,11 +88,11 @@
                 </div>
                 <div class="w-full md:flex-1 flex items-center px-1">
                   <button
-                    class="bg-gray-900 mx-1 text-white py-1 px-6 rounded h-full text-sm">
+                    class="btn-main mx-1 text-white py-1 px-6 rounded h-full text-sm">
                     Copy
                   </button>
                   <button
-                  class="bg-gray-900 mx-1 text-white py-1 px-4 rounded h-full text-sm"
+                  class="btn-main mx-1 text-white py-1 px-4 rounded h-full text-sm"
                   >
                   <i class="fas fa-arrow-right"></i>
                   </button>
@@ -109,11 +109,11 @@
                 </div>
                 <div class="w-full md:flex-1 flex items-center px-1">
                   <button
-                    class="bg-gray-900 mx-1 text-white py-1 px-6 rounded h-full text-sm">
+                    class="btn-main mx-1 text-white py-1 px-6 rounded h-full text-sm">
                     Copy
                   </button>
                   <button
-                  class="bg-gray-900 mx-1 text-white py-1 px-4 rounded h-full text-sm"
+                  class="btn-main mx-1 text-white py-1 px-4 rounded h-full text-sm"
                   >
                   <i class="fas fa-arrow-right"></i>
                   </button>
@@ -130,7 +130,7 @@
                 </div>
                 <div class="w-full md:flex-1 flex items-center px-1">
                   <button
-                    class="bg-gray-900 mx-1 text-white py-1 px-6 rounded h-full text-sm">
+                    class="btn-main mx-1 text-white py-1 px-6 rounded h-full text-sm">
                     Copy
                   </button>
                 </div>
@@ -146,7 +146,7 @@
                 </div>
                 <div class="w-full md:flex-1 flex items-center px-1">
                   <button
-                    class="bg-gray-900 mx-1 text-white py-1 px-6 rounded h-full text-sm">
+                    class="btn-main mx-1 text-white py-1 px-6 rounded h-full text-sm">
                     Copy
                   </button>
                 </div>

@@ -161,9 +161,9 @@
         <!-- <BookingModal :showfirstModal="showfirstModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" /> -->
       </div>
     </div>
-    <div class="bg-white h-full py-5 relative shadow-lg form-right hidden lg:block" :class="{ formOpen: isShowForm }">
-      <div class="absolute bg-white booking-btn px-3 py-2 text-sm cursor-pointer whitespace-no-wrap" @click="isShowForm = !isShowForm">
-        <i class="fas fa-arrow-right mr-1"></i>預約資料預覽
+    <div class="bg-white h-full py-5 shadow-lg form-right relative right-menu" :class="{ formOpen: isShowForm }">
+      <div class="absolute bg-white booking-btn px-3 py-3 text-sm cursor-pointer whitespace-no-wrap flex items-center" @click="isShowForm = !isShowForm">
+        <i class="fas fa-arrow-right mr-1"></i><span class="font-semibold hidden lg:block">預約資料預覽</span>
       </div>
       <form>
         <div class="h-screen-form overflow-y-scroll overflow-x-hidden mb-4 border-b whitespace-no-wrap">
@@ -347,6 +347,9 @@ import Title from '@/components/Title'
   .booking-btn {
     left: -124px;
     top: 20px;
+    @media (max-width: 1023px) {
+      left: -40px;
+    }
   }
   nav {
     ul {
@@ -435,8 +438,11 @@ import Title from '@/components/Title'
     a {
       display: block !important;
     }
+    @media (max-width: 1024px) {
+      width: 75%;
+      position: fixed !important;
+      right: 0;
+    }
   }
-
 }
-
 </style>

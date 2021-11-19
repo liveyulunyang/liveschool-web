@@ -55,7 +55,7 @@
             </draggable>
           </div>
 
-          <rawDisplayer class="col-3" :value="bannerList" title="List" />
+          <!-- <rawDisplayer class="w-3/12" :value="bannerList" title="List" /> -->
         </div>
       </section>
       <section v-if="tag === 1">

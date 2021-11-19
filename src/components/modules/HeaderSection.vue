@@ -11,6 +11,10 @@
       <img alt="logo" src="@/assets/logo_teacher.png" class="w-24 md:w-48 h-auto" v-if="$route.params.type === 'teacher' || $route.name === 'classPreviewTeacher'">
     </router-link>
     <div class="flex items-center">
+      <div class="lg:flex text-xs hidden mr-3">
+        <a class="px-2 py-2 cursor-pointer bg-gray-700 text-white rounded-lg mx-1">預約管理模式</a>
+        <a class="px-2 py-2 cursor-pointer bg-gray-700 text-white rounded-lg mx-1">個人學習模式</a>
+      </div>
       <div v-if="!$store.state.auth.authorized" class="flex items-center">
         <a class="hidden md:block cursor-pointer px-3 py-2 text-main font-bold mr-3" href="https://docs.google.com/forms/d/e/1FAIpQLSfw_Q9scdFhVp5iNFO8exubkbloQGILu3rbdsnmMFANnFqHDA/viewform" target="_blank">{{ $t('cooperative') }}</a>
         <a class="block cursor-pointer border-2 rounded-xl px-3 py-2 text-main font-bold border-main" @click="$emit('toggleLogin', true)">{{ $t('login') }}</a>
@@ -81,7 +85,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .dropdown{
   position: relative;
   display: inline-block;
@@ -118,7 +122,7 @@ export default {
     display: block;
   }
 
-  // .dropdown 
+  // .dropdown
 
   .show {display: block;}
 }

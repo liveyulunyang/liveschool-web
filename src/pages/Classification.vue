@@ -1,10 +1,11 @@
 
 <template>
 	<main class="flex flex-wrap p-3 xl:p-6">
+    <section class="w-full min-h-screen">
+      <div class="mb-4">
     <Title v-if="selectedFirst === null && selectedSecond === null && selectedThird === null" :title="'分類管理'" />
     <Title v-if="(selectedFirst !== null && selectedSecond === null && selectedThird === null) || selectedFirst !== null && selectedSecond !== null && selectedThird === null" :title="'課程分類管理'" />
-
-    <section class="w-full mt-2 min-h-screen px-3 lg:px-6 py-4">
+      </div>
       <div class="flex justify-between mb-4">
         <ul class='flex cursor-pointer text-sm'>
           <li class='py-2 mr-1'>

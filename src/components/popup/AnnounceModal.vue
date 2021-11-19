@@ -25,7 +25,7 @@
             上架時間
           </label>
           <div class="w-full">
-            <date-picker v-model="value1" type="datetime" placeholder="Select datetime"></date-picker>
+            <date-picker v-model="value1" type="datetime" placeholder="Select datetime" :input-class="'mx-input py-5'"></date-picker>
           </div>
         </div>
         <div class="w-full px-3 mb-2 md:mb-4">
@@ -33,7 +33,7 @@
             下架時間
           </label>
           <div class="w-full">
-            <date-picker v-model="value2" type="datetime" placeholder="Select datetime"></date-picker>
+            <date-picker v-model="value2" type="datetime" placeholder="Select datetime" :input-class="'mx-input py-5'"></date-picker>
           </div>
         </div>
         <div class="w-full px-3 mb-2 md:mb-4">

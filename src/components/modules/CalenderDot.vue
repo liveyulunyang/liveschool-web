@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="bg-white">
     <v-calendar id="calender-dots" :class="{ isFull: isFullWidth }"
       :from-date="new Date()"
       :attributes="attributes"

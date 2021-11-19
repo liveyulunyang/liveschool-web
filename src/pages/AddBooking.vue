@@ -7,7 +7,7 @@
           </div>
         </div>
       <div class="flex w-full mb-4">
-        <a @click="$router.back(-1)" class="px-4 py-2 bg-gray-900 text-white text-sm rounded whitespace-no-wrap hidden lg:block">
+        <a @click="$router.back(-1)" class="px-4 py-2 btn-main text-white text-sm rounded whitespace-no-wrap hidden lg:block">
           <i class="fas fa-chevron-left mr-1"></i>取消
         </a>
         <nav class="font-bold w-full">
@@ -41,7 +41,7 @@
               <div class="control__indicator"></div>
             </label>
 
-            <button @click="step = 1" class="mx-4 px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
+            <button @click="step = 1" class="mx-4 px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
               下一步
             </button>
           </div>
@@ -68,11 +68,11 @@
             </div>
           </div>
           <div class="flex justify-center items-center">
-            <button @click="step = 0" class="mx-4 px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
+            <button @click="step = 0" class="mx-4 px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
               上一步
             </button>
 
-            <button @click="step = 2" class="mx-4 px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
+            <button @click="step = 2" class="mx-4 px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
               下一步
             </button>
           </div>
@@ -126,7 +126,7 @@
                     >
                     <i class="far fa-folder-open"></i>
                   </button>
-                  <button class="ml-2 xl:ml-6 px-3 py-1 bg-gray-900 text-white hover:bg-gray-700 text-sm rounded whitespace-no-wrap">
+                  <button class="ml-2 xl:ml-6 px-3 py-1 btn-main text-white hover:bg-gray-700 text-sm rounded whitespace-no-wrap">
                     選擇
                   </button>
                 </div>
@@ -134,11 +134,11 @@
             </div>
           </div>
           <div class="flex justify-center items-center">
-            <button @click="step = 1" class="mx-4 px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
+            <button @click="step = 1" class="mx-4 px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
               上一步
             </button>
 
-            <button @click="step = 3" class="mx-4 px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
+            <button @click="step = 3" class="mx-4 px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
               下一步
             </button>
           </div>
@@ -146,23 +146,23 @@
         <div v-if="step === 3">
 
           <div class="flex">
-            <div class="bg-white py-8 px-4 md:px-8 leading-loose flex flex-col justify-between">
-              <div>
+            <div class="bg-white py-8 px-4 md:px-8 leading-loose flex flex-col justify-between w-full lg:w-auto">
+              <div class="mb-4 lg:mb-0">
                 <h6 class="text-xl font-bold">選擇可預約時段</h6>
                 <p class="text-base">請先選擇課程時段</p>
                 <CalenderDot />
               </div>
               <div class="flex justify-center items-center">
-                <button @click="step = 2" class="mx-4 px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
+                <button @click="step = 2" class="mx-4 px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
                   上一步
                 </button>
 
-                <button @click="step = 4" class="mx-4 px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
+                <button @click="step = 4" class="mx-4 px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
                   下一步
                 </button>
               </div>
             </div>
-            <div class="px-2 w-full hidden lg:block">
+            <div class="px-2 w-full hidden lg:block bg-white">
               <FullCalendar :options="calendarOptions" />
               <!-- <Calender :Calendertype="'week'" /> -->
             </div>
@@ -172,11 +172,11 @@
         <div v-if="step === 4">
           <Drag class="mb-4" />
           <div class="flex justify-center items-center">
-            <button @click="step = 3" class="mx-4 px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
+            <button @click="step = 3" class="mx-4 px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
               上一步
             </button>
 
-            <button @click="step = 5" class="mx-4 px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
+            <button @click="step = 5" class="mx-4 px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
               下一步
             </button>
           </div>
@@ -208,11 +208,11 @@
             </div>
           </div>
           <div class="flex justify-center items-center">
-            <button @click="step = 4" class="mx-4 px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
+            <button @click="step = 4" class="mx-4 px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
               上一步
             </button>
 
-            <button @click="openModal" class="mx-4 px-4 py-2 bg-gray-600 text-white  text-sm rounded whitespace-no-wrap">
+            <button @click="openModal" class="mx-4 px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
               下一步
             </button>
           </div>
@@ -220,9 +220,9 @@
 
       </div>
     </div>
-    <div class="bg-white h-full py-5 relative shadow-lg form-right hidden lg:block" :class="{ formOpen: isShowForm }">
-      <div class="absolute bg-white booking-btn px-3 py-2 text-sm cursor-pointer whitespace-no-wrap" @click="isShowForm = !isShowForm">
-        <i class="fas fa-arrow-right mr-1"></i>預約資料預覽
+    <div class="bg-white h-full py-5 shadow-lg form-right relative right-menu" :class="{ formOpen: isShowForm }">
+      <div class="absolute bg-white booking-btn px-3 py-3 text-sm cursor-pointer whitespace-no-wrap flex items-center" @click="isShowForm = !isShowForm">
+        <i class="fas fa-arrow-right mr-1"></i><span class="font-semibold hidden lg:block">預約資料預覽</span>
       </div>
       <form>
         <div class="h-screen-form overflow-y-scroll overflow-x-hidden mb-4 border-b whitespace-no-wrap">
@@ -359,11 +359,11 @@
           </div>
         </div>
         <!-- <div class="w-full px-3 mb-2 md:mb-4 flex justify-end">
-          <a class="px-4 py-2 bg-gray-900 m-1 cursor-pointer text-white" @click="close()"><i class="fas fa-times mr-1"></i>駁回</a>
-          <a class="px-4 py-2 bg-gray-900 m-1 cursor-pointer text-white" @click="close()"><i class="fas fa-check mr-1"></i>通過</a>
+          <a class="px-4 py-2 btn-main m-1 cursor-pointer text-white" @click="close()"><i class="fas fa-times mr-1"></i>駁回</a>
+          <a class="px-4 py-2 btn-main m-1 cursor-pointer text-white" @click="close()"><i class="fas fa-check mr-1"></i>通過</a>
         </div> -->
         <div class="w-full px-3 mb-2 md:mb-4 flex justify-center">
-          <a class="px-4 py-2 bg-gray-900 m-1 cursor-pointer text-white block w-full" @click="addBooking()"><i class="fas fa-check mr-1"></i>送出</a>
+          <a class="px-4 py-2 btn-main m-1 cursor-pointer text-white block w-full" @click="addBooking()"><i class="fas fa-check mr-1"></i>送出</a>
         </div>
       </form>
     </div>
@@ -449,6 +449,9 @@ import Title from '@/components/Title'
   .booking-btn {
     left: -124px;
     top: 20px;
+    @media (max-width: 1023px) {
+      left: -40px;
+    }
   }
   nav {
     ul {
@@ -526,7 +529,6 @@ import Title from '@/components/Title'
   }
   .form-right {
     width: 0;
-    // transform: translateX(100%);
     transition: .3s;
     a {
       display: none !important;
@@ -537,8 +539,12 @@ import Title from '@/components/Title'
     a {
       display: block !important;
     }
+    @media (max-width: 1024px) {
+      width: 75%;
+      position: fixed !important;
+      right: 0;
+    }
   }
-
 }
 
 </style>

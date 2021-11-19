@@ -1,5 +1,5 @@
 <template>
-  <div id="calendar-simple">
+  <div id="calendar-simple" class="bg-white">
     <calendar-view
       :displayPeriodUom="Calendertype"
       :displayPeriodCount="1"

@@ -385,7 +385,7 @@
           </div>
         </div>
         <div class="md:flex mt-3 md:mb-4 w-full lg:pt-6 justify-end px-2">
-          <button class="button-main py-3 px-8 md:px-12 rounded w-full md:w-1/5 text-sm whitespace-no-wrap">
+          <button class="btn-main py-3 px-8 md:px-12 rounded w-full md:w-1/5 text-sm whitespace-no-wrap text-white">
             建立
           </button>
         </div>
