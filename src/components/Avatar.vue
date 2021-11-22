@@ -1,85 +1,35 @@
 <template>
-    <div class="c-avatar">
-        <template v-if="!img">
-            <i class="fas fa-user-circle text-2xl text-black-3"></i>
-        </template>
-        <!-- <template v-if="type === 'simple'">
-            <div class="c-avatar__picture relative">
-                <span v-if="notify" class="absolute top-0 right-0 h-4 w-4 rounded-full bg-white text-xs text-black-3 shadow">{{ notify.text }}</span>
-                <img v-if="img" :src="img.src" :alt="img.alt" class="rounded-full" :class="imgClass" />
-                <span v-else class="block bg-primary-light rounded-full" :class="avatarClass"></span>
-            </div>
-        </template>
-        <template v-else-if="type === 'nav'">
-            <div class="c-avatar__picture w-8 mr-3 relative">
-                <span v-if="notify" class="absolute top-0 right-8 h-1 w-1 rounded-full bg-white">{{ notify.text }}</span>
-                <img class="rounded" :src="img.src" :alt="img.alt" :class="imgClass" />
-            </div>
-            <div class="c-avatar__content flex flex-col items-start">
-                <p class="text-sm">Welcome</p>
-                <p class="text-gray-1 text-sm">{{ name }}</p>
-            </div>
-        </template>
-        <template v-else-if="type === 'vertical'">
-            <div class="c-avatar__picture relative">
-                <span v-if="notify" class="absolute top-0 right-8 h-1 w-1 rounded-full bg-white">{{ notify.text }}</span>
-                <img :src="img.src" :alt="img.alt" :class="imgClass" />
-            </div>
-            <div class="c-avatar__content">
-                <p>{{ name }}</p>
-                <p>{{ professionnalFunction }}</p>
-            </div>
-        </template>
-        <template v-else-if="type === 'horizontal'">
-            <div class="c-avatar__picture relative">
-                <span v-if="notify" class="absolute top-0 right-8 h-1 w-1 rounded-full bg-white">{{ notify.text }}</span>
-                <img :src="img.src" :alt="img.alt" :class="imgClass" />
-            </div>
-            <div class="c-avatar__content">
-                <p>{{ name }}</p>
-                <p>{{ professionnalFunction }}</p>
-            </div>
-        </template> -->
+  <div class="Avatar md:mr-4 relative mb-3 md:mb-0">
+    <div class="mugShot-img">
+      <img :src="img_url" alt="" class="object-contain block">
     </div>
+    <a class="absolute right-0 bottom-0 bg-gray-700 rounded-full p-2 border border-white w-10 h-10 text-center cursor-pointer">
+      <i class="fas fa-redo-alt text-white"></i>
+    </a>
+  </div>
 </template>
 
 <script>
-    export default {
-        name: "Avatar",
-        props: {
-            // type: { type: String },
-            img: { type: Object },
-            // imgClass: { type: String },
-            // name: { type: String },
-            // professionnalFunction: { type: String },
-            // size: { type: Number },
-            // notify: { type: Object }
-        },
-        data () {
-            return {
-                // avatarClass: ''
-            }
-        },
-        mounted() {
-            // switch (this.type) {
-            //     case 'nav':
-            //         this.avatarClass = 'flex items-center w-40';
-            //         break;
-            //     case 'horizontal':
-            //         this.avatarClass = 'flex items-center';
-            //         break;
-            //     case 'vertical':
-            //         this.avatarClass = 'flex flex-col';
-            //         break;
-            // }
+  export default {
+    name: "Avatar",
 
-            // if (this.size) {
-            //   this.avatarClass += ' w-' + this.size + ' h-' + this.size;
-            // }
-        }
+    props: {
+      img_url: {
+        type: String,
+        default: require('@/assets/img/teacherDefault.svg')
+      }
+    },
+
+    computed: {
     }
+  }
 </script>
 
 <style scoped>
-
+  .mugShot-img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
 </style>

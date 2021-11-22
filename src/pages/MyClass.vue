@@ -3,173 +3,102 @@
     <div class="flex items-start">
       <!-- 主任 -->
       <div class="flex flex-col w-full" v-if="$store.state.auth.userRole === 'director'">
-
+        <div class="flex flex-wrap items-stretch py-3 student-basic-info mb-2" v-if="!$store.state.auth.reserveMode">
+          <div class="md:flex-none py-4 text-white font-bold flex items-center justify-center md:border-r-2 px-3 w-full md:w-2/6">
+            <div class="mx-2">
+              <Avatar />
+            </div>
+            <div class="ml-2 text-left">
+              <h6 class="text-2xl">Steve Jobs</h6>
+              <h6 class="text-3xl">賈伯斯</h6>
+            </div>
+          </div>
+          <div class="md:flex-1 text-white font-bold md:border-r-2 flex flex-col justify-center w-1/2 md:w-auto py-4 md:py-0">
+            <h6 class="text-base lg:text-lg">累積上課時數</h6>
+            <p class="text-2xl lg:text-3xl">1:05:20</p>
+          </div>
+          <div class="md:flex-1 text-white font-bold md:border-r-2 flex flex-col justify-center w-1/2 md:w-auto py-4 md:py-0">
+            <h6 class="text-base lg:text-lg">累積完成課程數</h6>
+            <p class="text-2xl lg:text-3xl">20</p>
+          </div>
+          <div class="md:flex-1 text-white font-bold flex flex-col justify-center w-1/2 md:w-auto py-4 md:py-0">
+            <h6 class="text-base lg:text-lg">剩餘點數</h6>
+            <p class="text-2xl lg:text-3xl">8</p>
+          </div>
+        </div>
         <div class="mb-4 flex justify-between flex-wrap">
           <div class="flex justify-between flex-col">
-            <Title :title="'我的課程'" />
+            <Title :title="'我的分校預約課程'" v-if="$store.state.auth.reserveMode" />
+            <Title :title="'我的課程'" v-if="!$store.state.auth.reserveMode" />
             <div class="menu-bar flex items-center mb-2 flex-wrap">
               <div class="flex items-center">
                 <a @click="isCalender = true" class="block px-1 py-1 btn-toggle cursor-pointer" :class="{ isType: isCalender }"><i class="fas fa-border-all text-4xl"></i></a>
                 <a @click="isCalender = false" class="block px-1 py-1 btn-toggle cursor-pointer" :class="{ isType: !isCalender }"><i class="fas fa-list-alt text-4xl"></i></a>
               </div>
-              <div class="radio flex items-center flex-1 justify-between sm:justify-start" id="radio-myclass">
-                <section style="background: none; border: none; box-shadow: none;" class="flex items-center mx-2">
-                  <div class="roundedOne booking">
-                    <input type="checkbox" value="None" id="booking" name="check" checked="">
-                    <label for="booking"></label>
-                  </div>
-                  <span class="text-sm ml-1 whitespace-no-wrap md:hidden">預約</span>
-                  <span class="text-sm ml-1 whitespace-no-wrap hidden md:block">LiveTalk單堂預約</span>
-                </section>
-                <section style="background: none; border: none; box-shadow: none;" class="flex items-center mx-2">
-                  <div class="roundedOne finish">
-                    <input type="checkbox" value="None" id="finish" name="check" checked="">
-                    <label for="finish"></label>
-                  </div>
-                  <span class="text-sm ml-1 whitespace-no-wrap md:hidden">已結束</span>
-                  <span class="text-sm ml-1 whitespace-no-wrap hidden md:block">已結束課程</span>
-                </section>
-              </div>
-              <!-- <div class="flex items-center flex-1 justify-between sm:justify-start">
+              <div class="radio flex items-center flex-1 justify-between sm:justify-start" id="radio-myclass" v-if="$store.state.auth.reserveMode">
                 <section style="background: none; border: none; box-shadow: none;" class="flex items-center mx-2">
                   <div class="roundedOne personal">
                     <input type="checkbox" value="None" id="personal" name="check" checked="">
                     <label for="personal"></label>
                   </div>
-                  <span class="text-sm ml-1 whitespace-no-wrap md:hidden">個人</span>
-                  <span class="text-sm ml-1 whitespace-no-wrap hidden md:block">個人課程</span>
-                </section>
-                <section style="background: none; border: none; box-shadow: none;" class="flex items-center mx-2">
-                  <div class="roundedOne booking">
-                    <input type="checkbox" value="None" id="booking" name="check" checked="">
-                    <label for="booking"></label>
-                  </div>
                   <span class="text-sm ml-1 whitespace-no-wrap md:hidden">預約</span>
-                  <span class="text-sm ml-1 whitespace-no-wrap hidden md:block">分校預約課程</span>
+                  <span class="text-sm ml-1 whitespace-no-wrap hidden md:block">LiveTalk 單堂預約</span>
                 </section>
                 <section style="background: none; border: none; box-shadow: none;" class="flex items-center mx-2">
                   <div class="roundedOne finish">
                     <input type="checkbox" value="None" id="finish" name="check" checked="">
                     <label for="finish"></label>
                   </div>
-                  <span class="text-sm ml-1 whitespace-no-wrap md:hidden">已結束</span>
-                  <span class="text-sm ml-1 whitespace-no-wrap hidden md:block">已結束課程</span>
+                  <span class="text-sm ml-1 whitespace-no-wrap md:hidden">系列報名</span>
+                  <span class="text-sm ml-1 whitespace-no-wrap hidden md:block">LiveTeacher 系列報名</span>
                 </section>
-              </div> -->
-              <div class="flex items-center text-xs flex-wrap" v-if="!isCalender">
+              </div>
+              <div class="radio flex items-center flex-1 justify-between sm:justify-start" id="radio-myclass" v-if="!$store.state.auth.reserveMode">
+                <section style="background: none; border: none; box-shadow: none;" class="flex items-center mx-2">
+                  <div class="roundedOne personal">
+                    <input type="checkbox" value="None" id="personal" name="check" checked="">
+                    <label for="personal"></label>
+                  </div>
+                  <span class="text-sm ml-1 whitespace-no-wrap md:hidden">預約</span>
+                  <span class="text-sm ml-1 whitespace-no-wrap hidden md:block">LiveTalk</span>
+                </section>
+                <section style="background: none; border: none; box-shadow: none;" class="flex items-center mx-2">
+                  <div class="roundedOne booking">
+                    <input type="checkbox" value="None" id="booking" name="check" checked="">
+                    <label for="booking"></label>
+                  </div>
+                  <span class="text-sm ml-1 whitespace-no-wrap md:hidden">系列報名</span>
+                  <span class="text-sm ml-1 whitespace-no-wrap hidden md:block">LiveClass</span>
+                </section>
+                <section style="background: none; border: none; box-shadow: none;" class="flex items-center mx-2">
+                  <div class="roundedOne finish">
+                    <input type="checkbox" value="None" id="finish" name="check" checked="">
+                    <label for="finish"></label>
+                  </div>
+                  <span class="text-sm ml-1 whitespace-no-wrap md:hidden">系列報名</span>
+                  <span class="text-sm ml-1 whitespace-no-wrap hidden md:block">LiveTeacher</span>
+                </section>
+              </div>
+              <div class="flex items-center text-xs flex-wrap" v-if="!isCalender && !$store.state.auth.reserveMode">
                 <FilterModal :showItems="showItems" />
               </div>
             </div>
           </div>
-          <div>
-            <router-link :to="{ name: 'account' }" class="block bg-gray-600 text-white px-24 py-2 rounded-lg cursor-pointer">
+          <div v-if="$store.state.auth.reserveMode">
+            <router-link :to="{ name: 'account' }" class="block bg-blue-main-dark text-white px-24 py-2 rounded-lg cursor-pointer">
               <h3>剩餘點數</h3>
               <p class="text-3xl font-bold mb-0">255</p>
             </router-link>
-            <p class="text-sm">即將於<span class="text-red-500 mx-1 font-bold">2021.09.07</span>過期<span class="text-red-500 mx-1 font-bold">50</span>點</p>
+            <p class="text-sm mt-1">即將於<span class="text-red-500 mx-1 font-bold">2021.09.07</span>過期<span class="text-red-500 mx-1 font-bold">50</span>點</p>
           </div>
         </div>
         <div class="content">
-          <!-- <div class="menu-bar flex items-center mb-2 flex-wrap">
-            <div class="flex items-center">
-              <a @click="isCalender = true" class="block px-1 py-1 btn-toggle cursor-pointer" :class="{ isType: isCalender }"><i class="fas fa-border-all text-4xl"></i></a>
-              <a @click="isCalender = false" class="block px-1 py-1 btn-toggle cursor-pointer" :class="{ isType: !isCalender }"><i class="fas fa-list-alt text-4xl"></i></a>
-            </div>
-            <div class="flex items-center flex-1 justify-between sm:justify-start">
-              <section style="background: none; border: none; box-shadow: none;" class="flex items-center mx-2">
-                <div class="roundedOne personal">
-                  <input type="checkbox" value="None" id="personal" name="check" checked="">
-                  <label for="personal"></label>
-                </div>
-                <span class="text-sm ml-1 whitespace-no-wrap md:hidden">個人</span>
-                <span class="text-sm ml-1 whitespace-no-wrap hidden md:block">個人課程</span>
-              </section>
-              <section style="background: none; border: none; box-shadow: none;" class="flex items-center mx-2">
-                <div class="roundedOne booking">
-                  <input type="checkbox" value="None" id="booking" name="check" checked="">
-                  <label for="booking"></label>
-                </div>
-                <span class="text-sm ml-1 whitespace-no-wrap md:hidden">預約</span>
-                <span class="text-sm ml-1 whitespace-no-wrap hidden md:block">分校預約課程</span>
-              </section>
-              <section style="background: none; border: none; box-shadow: none;" class="flex items-center mx-2">
-                <div class="roundedOne finish">
-                  <input type="checkbox" value="None" id="finish" name="check" checked="">
-                  <label for="finish"></label>
-                </div>
-                <span class="text-sm ml-1 whitespace-no-wrap md:hidden">已結束</span>
-                <span class="text-sm ml-1 whitespace-no-wrap hidden md:block">已結束課程</span>
-              </section>
-            </div>
-            <div class="flex items-center text-xs flex-wrap" v-if="!isCalender">
-              <div class="mx-1">
-                <date-picker
-                  v-model="periodTime"
-                  type="date" range placeholder="選擇時間區間"
-                  :input-class="'mx-input text-xs'"></date-picker>
-              </div>
-              <div class="relative w-auto mx-1">
-                <select class="block appearance-none w-full py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="maxNum"
-                  >
-                  <option value="31">課程狀態</option>
-                </select>
-                <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
-                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                </div>
-              </div>
-              <div class="relative w-auto mx-1">
-                <select class="block appearance-none w-full py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="maxNum"
-                  >
-                  <option value="31">選擇搜尋欄位</option>
-                </select>
-                <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
-                  <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                </div>
-              </div>
-              <div class="flex bg-white">
-                <input type="text" placeholder="輸入關鍵字搜尋" name="search" class="py-2 px-2 border-0 focus:outline-none w-32">
-                <button type="submit" class="px-2"><i class="fa fa-search"></i></button>
-              </div>
-              <a href="" class="block ml-1">
-                <img src="@/assets/img/icons/re.svg" alt="" class="w-8">
-              </a>
-            </div>
-          </div> -->
-
           <div v-if="isCalender">
             <Calender class="hidden md:block" />
             <div class="md:hidden">
               <CalenderDot class="mb-4" />
-              <div class="mb-4 w-full flex justify-between items-center">
-                <!-- <div class="relative text-sm w-full sm:w-auto">
-                  <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="invoice"
-                  >
-                    <option value="s">課程狀態</option>
-                  </select>
-                    <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
-                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                  </div>
-                </div>
-                <div class="relative text-sm hidden sm:block w-full sm:w-auto">
-                  <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="invoice"
-                  >
-                    <option value="">選擇搜尋欄位</option>
-                  </select>
-                    <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
-                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                  </div>
-                </div>
-                <div class="mx-1 bg-white hidden sm:flex">
-                  <input type="text" placeholder="Search.." name="search" class="py-2 px-2 border-0 focus:outline-none">
-                  <button type="submit" class="px-2"><i class="fa fa-search"></i></button>
-                </div>
-                <div class="hidden sm:block">
-                  <a href="" class="block">
-                    <img src="@/assets/img/icons/re.svg" alt="" class="w-8">
-                  </a>
-                </div> -->
+              <div class="mb-4 w-full flex justify-between items-center" v-if="!$store.state.auth.reserveMode">
                 <FilterModal :showItems="showItems" />
-
               </div>
               <div class="w-full flex flex-wrap items-center border-l-3 border-gray-900 bg-white py-2 pr-3 mb-2" v-for="n in 5" :key="n">
                 <div class="w-7/12 sm:flex">
@@ -219,7 +148,7 @@
         <div class="flex flex-wrap items-stretch py-3 student-basic-info">
           <div class="md:flex-none py-4 text-white font-bold flex items-center justify-center md:border-r-2 px-3 w-full md:w-2/6">
             <div class="mx-2">
-              <img src="@/assets/img/vector.svg" alt="" class="block object-contain w-32">
+              <Avatar />
             </div>
             <div class="ml-2 text-left">
               <h6 class="text-2xl">Steve Jobs</h6>
@@ -557,6 +486,7 @@ import MyClassCommentModal from '@/components/popup/MyClassCommentModal'
 import CourseRecordModal from '@/components/popup/CourseRecordModal'
 import Pagination from "@/components/modules/Pagination"
 import Title from '@/components/Title'
+import Avatar from '@/components/Avatar'
 // import NoData from '@/components/NoData'
   export default {
     name: "MyClass",
@@ -569,7 +499,8 @@ import Title from '@/components/Title'
       MyClassCommentModal,
       Pagination,
       CourseRecordModal,
-      Title
+      Title,
+      Avatar
       // NoData
     },
     data () {

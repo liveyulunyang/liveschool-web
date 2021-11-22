@@ -11,9 +11,9 @@
       <img alt="logo" src="@/assets/logo_teacher.png" class="w-24 md:w-48 h-auto" v-if="$route.params.type === 'teacher' || $route.name === 'classPreviewTeacher'">
     </router-link>
     <div class="flex items-center">
-      <div class="lg:flex text-xs hidden mr-3">
-        <a class="px-2 py-2 cursor-pointer bg-gray-700 text-white rounded-lg mx-1">預約管理模式</a>
-        <a class="px-2 py-2 cursor-pointer bg-gray-700 text-white rounded-lg mx-1">個人學習模式</a>
+      <div class="text-xs hidden lg:flex mr-3" v-if="userRole === 'director'">
+        <a class="px-2 py-2 cursor-pointer rounded mx-1 btn-mode" :class="{ active: $store.state.auth.reserveMode }" @click="setMode(true)">預約管理模式</a>
+        <a class="px-2 py-2 cursor-pointer rounded mx-1 btn-mode" :class="{ active: !$store.state.auth.reserveMode }" @click="setMode(false)">個人學習模式</a>
       </div>
       <div v-if="!$store.state.auth.authorized" class="flex items-center">
         <a class="hidden md:block cursor-pointer px-3 py-2 text-main font-bold mr-3" href="https://docs.google.com/forms/d/e/1FAIpQLSfw_Q9scdFhVp5iNFO8exubkbloQGILu3rbdsnmMFANnFqHDA/viewform" target="_blank">{{ $t('cooperative') }}</a>
@@ -80,6 +80,9 @@ export default {
     toggleSideBar () {
       let self = this
       self.$emit('toggleSideBar', false)
+    },
+    setMode (val) {
+      this.$store.dispatch('setMode', val)
     }
   }
 }
@@ -126,5 +129,16 @@ export default {
 
   .show {display: block;}
 }
-
+.btn-mode {
+  color: #999999;
+  transition: .2s;
+  &:hover {
+    background: #0F455C;
+    color: white;
+  }
+}
+.btn-mode.active {
+  background: #0F455C;
+  color: white;
+}
 </style>

@@ -8,12 +8,14 @@ export default new Vuex.Store({
     lang: 'zh',
     auth: {
       authorized: true,
-      userRole: 'admin', // admin director supervise student teacher
+      userRole: 'director', // admin director supervise student teacher
+      reserveMode: false,
       user: null
     }
   },
   getters: {
     userRole: state => state.auth.userRole,
+    reserveMode: state => state.auth.reserveMode,
     lang: state => state.lang
   },
   actions: {
@@ -22,6 +24,9 @@ export default new Vuex.Store({
     },
     setLang: ({ commit }, data) => {
       commit('SETLANG', data)
+    },
+    setMode: ({ commit }, data) => {
+      commit('SETMODE', data)
     }
   },
   mutations: {
@@ -30,6 +35,9 @@ export default new Vuex.Store({
     },
     SETLANG (state, value) {
       state.lang = value
+    },
+    SETMODE (state, data) {
+      state.auth.reserveMode = data
     }
   }
 })

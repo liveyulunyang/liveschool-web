@@ -238,7 +238,7 @@
               url: "/index_manage"
             }
           ],
-          directorList: [
+          directorListReserve: [
             {
               icon: "fas fa-users",
               title: "學生管理",
@@ -258,6 +258,18 @@
               icon: "far fa-calendar-alt",
               title: "我的課程",
               url: "/myClass"
+            }
+          ],
+          directorListBook: [
+            {
+              icon: "far fa-calendar-alt",
+              title: "我的課程",
+              url: "/myClass"
+            },
+            {
+              icon: "fas fa-chart-line",
+              title: "能力剖面圖",
+              url: "/sectional_drawing"
             }
           ],
           superviseList: [
@@ -311,6 +323,7 @@
       computed: {
         ...mapGetters([
           'userRole',
+          'reserveMode',
           'lang'
         ]),
         lang: {
@@ -322,8 +335,10 @@
         roleMenu () {
           if (this.userRole === 'admin') {
             return this.adminList
-          } else if (this.userRole === 'director') {
-              return this.directorList
+          } else if (this.userRole === 'director' && this.reserveMode) {
+              return this.directorListReserve
+            } else if (this.userRole === 'director' && !this.reserveMode) {
+              return this.directorListBook
             } else if (this.userRole === 'supervise') {
               return this.superviseList
             } else if (this.userRole === 'student') {
