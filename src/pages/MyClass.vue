@@ -84,7 +84,7 @@
               </div>
             </div>
           </div>
-          <div v-if="$store.state.auth.reserveMode">
+          <div v-if="$store.state.auth.reserveMode" class="w-full md:w-auto">
             <router-link :to="{ name: 'account' }" class="block bg-blue-main-dark text-white px-24 py-2 rounded-lg cursor-pointer">
               <h3>剩餘點數</h3>
               <p class="text-3xl font-bold mb-0">255</p>
@@ -125,14 +125,14 @@
             </div> -->
             <div class="flex items-center justify-center flex-wrap">
               <div class="bg-white px-2 py-2 hover:shadow-lg transition duration-500 w-full flex borderGreen mb-3 border-l-4 borderGreen flex-col md:flex-row"  v-for="n in 5" :key="n">
-                <div class="md:w-1/12 p-1"><img src="@/assets/img/classImg.png" alt="" class="mx-auto object-contain max-w-full"></div>
-                <div class="md:w-1/12 p-1 flex items-center justify-center"><p>2021-06-22<br/>22:00-23:00</p></div>
-                <div class="md:w-1/12 p-1 flex items-center justify-center"><p>Wednesday<br/>星期三</p></div>
-                <div class="md:w-1/12 p-1 flex items-center justify-center"><p>Peggy</p></div>
-                <div class="md:w-1/12 p-1 flex items-center justify-center"><p>生活英語</p></div>
-                <div class="md:w-1/12 p-1 flex items-center justify-center"><p>兒童生活英語</p></div>
-                <div class="md:w-1/12 p-1 flex items-center justify-center"><p>B1 U1-U3 Class 2</p></div>
-                <div class="md:w-5/12 p-1 flex items-center justify-center md:justify-end">
+                <div class="lg:w-1/12 p-1"><img src="@/assets/img/classImg.png" alt="" class="mx-auto object-contain max-w-full"></div>
+                <div class="lg:w-1/12 p-1 flex items-center justify-center"><p>2021-06-22<br/>22:00-23:00</p></div>
+                <div class="lg:w-1/12 p-1 flex items-center justify-center"><p>Wednesday<br/>星期三</p></div>
+                <div class="lg:w-1/12 p-1 flex items-center justify-center"><p>Peggy</p></div>
+                <div class="lg:w-1/12 p-1 flex items-center justify-center"><p>生活英語</p></div>
+                <div class="lg:w-1/12 p-1 flex items-center justify-center"><p>兒童生活英語</p></div>
+                <div class="lg:w-1/12 p-1 flex items-center justify-center"><p>B1 U1-U3 Class 2</p></div>
+                <div class="lg:w-5/12 p-1 flex items-center justify-center lg:justify-end">
                   <a class="mx-1 table-btn-actions rounded table-btn-actions cursor-pointer"><i class="fas fa-folder-open"></i></a>
                   <a href="" class="border px-2 py-1 ml-8 rounded">課程準備中</a>
                   <!-- <a href="" class="border px-2 py-1">前往上課</a> -->
@@ -332,14 +332,14 @@
               <MyClassCommentModal :showfirstModal="showCommentModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" />
               <div class="flex items-center justify-center flex-wrap">
                 <div class="bg-white px-2 py-2 hover:shadow-lg transition duration-500 w-full flex borderGreen mb-3 border-l-4 borderGreen flex-col md:flex-row"  v-for="n in 5" :key="n">
-                  <div class="md:w-1/12 p-1"><img src="@/assets/img/classImg.png" alt="" class="mx-auto object-contain max-w-full"></div>
-                  <div class="md:w-1/12 p-1 flex items-center justify-center"><p>2021-06-22<br/>22:00-23:00</p></div>
-                  <div class="md:w-1/12 p-1 flex items-center justify-center"><p>Wednesday<br/>星期三</p></div>
-                  <div class="md:w-1/12 p-1 flex items-center justify-center"><p>Peggy</p></div>
-                  <div class="md:w-1/12 p-1 flex items-center justify-center"><p>生活英語</p></div>
-                  <div class="md:w-1/12 p-1 flex items-center justify-center"><p>兒童生活英語</p></div>
-                  <div class="md:w-1/12 p-1 flex items-center justify-center"><p>B1 U1-U3 Class 2</p></div>
-                  <div class="md:w-5/12 p-1 flex items-center justify-center md:justify-end">
+                  <div class="lg:w-1/12 p-1"><img src="@/assets/img/classImg.png" alt="" class="mx-auto object-contain max-w-full"></div>
+                  <div class="lg:w-1/12 p-1 flex items-center justify-center"><p>2021-06-22<br/>22:00-23:00</p></div>
+                  <div class="lg:w-1/12 p-1 flex items-center justify-center"><p>Wednesday<br/>星期三</p></div>
+                  <div class="lg:w-1/12 p-1 flex items-center justify-center"><p>Peggy</p></div>
+                  <div class="lg:w-1/12 p-1 flex items-center justify-center"><p>生活英語</p></div>
+                  <div class="lg:w-1/12 p-1 flex items-center justify-center"><p>兒童生活英語</p></div>
+                  <div class="lg:w-1/12 p-1 flex items-center justify-center"><p>B1 U1-U3 Class 2</p></div>
+                  <div class="lg:w-5/12 p-1 flex items-center justify-center lg:justify-end">
                     <a @click="showCommentModal = true" class="border px-2 py-1 text-gray-600 mr-2 rounded border-gray-600 cursor-pointer"><i class="fas fa-clipboard-list"></i></a>
                     <a class="border px-2 py-1 text-gray-600 mr-2 rounded border-gray-600 cursor-pointer"><i class="fas fa-film"></i></a>
                     <a @click="showDetailModal = true" class="mx-1 table-btn-actions rounded table-btn-actions cursor-pointer"><i class="fas fa-folder-open"></i></a>
