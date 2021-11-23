@@ -1,9 +1,9 @@
 <template>
   <div class="relative w-full h-screen bg-gray-800">
 
-    <fullscreen :fullscreen.sync="fullscreen">
+    <fullscreen :fullscreen.sync="fullscreen" v-if="fileUrl">
       <div class="container">
-        <pdf :src="src" :page="currentPage" @num-pages="pageCount = $event" @page-loaded="currentPage = $event" ref="myPdfComponent"></pdf>
+        <pdf :src="fileUrl" :page="currentPage" @num-pages="pageCount = $event" @page-loaded="currentPage = $event" ref="myPdfComponent"></pdf>
       </div>
     </fullscreen>
 
@@ -70,7 +70,7 @@
     },
     data () {
       return {
-        src: '/test.pdf',
+        fileUrl: '/test.pdf',
         currentPage: 1,
         pageCount: 0,
         isShowMenu: false,

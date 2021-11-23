@@ -22,6 +22,9 @@ Vue.use(VCalendar)
 Vue.use(VueSweetalert2)
 
 import VueI18n from 'vue-i18n'
+import VTooltip from 'v-tooltip'
+
+Vue.use(VTooltip)
 Vue.use(VueI18n)
 let locale = 'zh'
 
