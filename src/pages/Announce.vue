@@ -7,21 +7,37 @@
           </div>
         </div>
         <div class="content">
-          <div class="flex justify-end items-center mb-4">
+          <div class="flex justify-between items-center mb-4" v-if="$route.params.mode === 'read'">
+            <button @click="openModal(true)" class="px-4 py-2 btn-main text-white text-sm mx-1 rounded whitespace-no-wrap">
+              <i class="fas fa-check mr-1"></i> 全部已讀
+            </button>
+            <button @click="openModal(true)" class="px-4 py-2 btn-green text-white text-sm mx-1 rounded whitespace-no-wrap">
+              <i class="fas fa-trash-alt mr-1"></i> 刪除全部已讀
+            </button>
+          </div>
+          <div class="flex justify-end items-center mb-4" v-if="$route.params.mode === 'edit'">
             <button @click="openModal(true)" class="px-4 py-2 btn-red text-white text-sm mx-1 rounded whitespace-no-wrap">
               <i class="fas fa-plus mr-1"></i> 新增公告
             </button>
           </div>
 
-          <div class="flex flex-wrap bg-white py-6 px-6 mb-4 hover:bg-gray-300 shadow-lg" v-for="n in 5" :key="n">
+          <div class="flex flex-wrap bg-white py-6 px-6 mb-4 hover:bg-gray-300 shadow-lg border-class-red" v-for="n in 5" :key="n" :class="{ 'border-2': n === 1 }">
             <div class="w-full md:w-3/4 text-left mb-3 md:mb-0">
-              <h3 class="text-2xl md:text-3xl font-bold">ZOOM版本更新下載 通知</h3>
+              <h3 class="text-2xl md:text-3xl" :class="{ 'font-medium': n === 3 }">ZOOM版本更新下載 通知</h3>
               <p class="text-xl bar text-gray-800">
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Accusantium incidunt quidem ut totam ab inventore distinctio quas similique asperiores suscipit, fugit nobis atque consequuntur eos est nisi sit, molestiae nesciunt nemo reprehenderit omnis in tenetur ducimus id. Temporibus incidunt enim error, nobis veritatis sed modi iste dicta fugiat a eum?
               </p>
             </div>
             <div class="w-full md:w-1/4 flex flex-col justify-center items-end">
-              <div class="flex mb-4 order-2 md:order-1">
+              <div class="flex mb-4 order-2 md:order-1 items-center"  v-if="$route.params.mode === 'read'">
+                <p class="text-gray-700 mr-1" :class="{ 'font-medium': n === 3 }">已讀</p>
+                <button @click="del()"
+                  class="mx-1 table-btn-actions rounded"
+                  >
+                  <i class="far fa-trash-alt"></i>
+                </button>
+              </div>
+              <div class="flex mb-4 order-2 md:order-1"  v-if="$route.params.mode === 'edit'">
                 <button @click="openModal(false)"
                   class="mx-1 table-btn-actions rounded"
                   >
@@ -38,7 +54,7 @@
                   <i class="far fa-trash-alt"></i>
                 </button>
               </div>
-              <div class="text-lg md:text-xl text-gray-600 font-semibold order-1 md:order-2 mb-3 md:mb-0">
+              <div class="text-lg md:text-xl text-gray-600 order-1 md:order-2 mb-3 md:mb-0">
                 <p>2021.09.06  10:06:57</p>
               </div>
             </div>
@@ -143,5 +159,7 @@
     -webkit-box-orient: vertical;
     white-space: normal;
   }
-
+  h3, p {
+    font-weight: 700;
+  }
 </style>

@@ -21,8 +21,8 @@
           firstName: "Anna",
           lastName: "Black",
           professionnalFunction: "Sr. Customer Manager"
-        },
-        isOpenSideBar: false
+        }
+        // isOpenSideBar: false
       }
     },
     mounted () {
@@ -52,11 +52,11 @@
       }
     },
     methods: {
-      openSideBar () {
-        this.isOpenSideBar = !this.isOpenSideBar
-      },
+      // openSideBar () {
+      //   // this.isOpenSideBar = !this.isOpenSideBar
+      // },
       outside () {
-        this.isOpenSideBar = false
+        // this.isOpenSideBar = false
         this.isOpenUser = false
       },
       setRole (event) {

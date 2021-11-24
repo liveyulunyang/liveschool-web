@@ -31,6 +31,7 @@
               <p class="text-class-red-02 font-bold text-lg" v-if="classType === 'teacher'">每週一堂，每堂90分鐘，每期10堂課</p>
               <h5 class="whitespace-pre-wrap font-bold mb-1 text-2xl">老師希望你別再說錯的 英語易混淆字！</h5>
               <h6 class="whitespace-pre-wrap">精準剖析多益文法考點！</h6>
+              <p class="text-class-red-02 font-bold text-lg mt-1" v-if="classType === 'class'">限期優惠8點，原價11點</p>
             </div>
             <div class="book">
               <hr class="my-3">

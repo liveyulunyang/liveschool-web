@@ -22,11 +22,39 @@ export default new Vuex.Store({
     setRole: (context, data) => {
       context.commit('SETROLE', data)
     },
+
+    // 設定語言
     setLang: ({ commit }, data) => {
       commit('SETLANG', data)
     },
+
+    // 主任模式
     setMode: ({ commit }, data) => {
       commit('SETMODE', data)
+    },
+
+    login: async ({ commit, dispatch }, user) => {
+      await axios.post('/login', {
+        'email': user.account,
+        'password': user.password
+      })
+      .then(response => {
+        commit('LOGIN', response.data)
+        dispatch('getProfile')
+        // VueCookie.set('token', response.data.access_token)
+      })
+      .catch(error => {
+        if (error.response.status === 401) {
+        }
+      })
+    },
+    logout: async ({ commit }) => {
+      await axios.post('/logout')
+        .then(() => {
+          commit('LOGOUT')
+        }).catch(() => {
+          commit('LOGOUT')
+        })
     }
   },
   mutations: {
@@ -38,6 +66,16 @@ export default new Vuex.Store({
     },
     SETMODE (state, data) {
       state.auth.reserveMode = data
+    },
+
+    LOGIN (state) {
+      state.auth.authorized = true
+    },
+    LOGOUT (state) {
+      state.auth.authorized = false
+      state.auth.user = {}
+      state.auth.userRole = ''
+      // VueCookie.delete('token')
     }
   }
 })

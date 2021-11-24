@@ -110,6 +110,17 @@
               </div>
             </div>
 
+            <!-- 優惠資訊 -->
+            <div class="w-full px-3 mb-2 md:mb-4 md:flex">
+              <label class="md:pt-2 md:w-1/5 tracking-wide text-sm mb-2" for="mobile">
+                優惠資訊
+              </label>
+              <div class="w-full md:w-4/5">
+                <input class="w-full appearance-none block text-sm border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-900" spellcheck="false"
+                  id="mobile" type="phone" placeholder="請輸入文字">
+              </div>
+            </div>
+
             <!-- 課程分類 -->
             <div class="w-full px-3 mb-2 md:mb-4 md:flex">
               <label class="md:pt-2 md:w-1/5 tracking-wide text-sm mb-2" for="address">

@@ -186,7 +186,7 @@ const router = new Router({
           component: () => import('@/pages/Serial_number.vue')
         },
         {
-          path: '/announce',
+          path: '/announce/:mode?',
           name: 'announce',
           component: () => import('@/pages/Announce.vue')
         },

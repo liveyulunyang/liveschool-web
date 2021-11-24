@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-white flex justify-between px-2 lg:px-20 border-b-2 border-gray-900 border-solid h-20">
+  <header class="bg-white flex justify-between px-2 lg:px-20 border-b-2 border-gray-900 border-solid h-20 z-50">
     <Nav class="md:hidden" mode="mobile" :menu-list-item="roleMenu"></Nav>
     <router-link class="flex items-center" to="/">
       <img alt="logo" src="@/assets/logo.png" class="w-24 md:w-48 h-auto" v-if="$route.name !== 'bookingClass' && $route.name !== 'classPreview' && $route.name !== 'classPreviewTeacher' && $route.name !== 'classPreviewTalk'">
@@ -25,11 +25,11 @@
 
           <router-link :to="{ name: 'account' }">帳號資料</router-link>
           <router-link :to="{ name: 'learn_record_student' }">查詢紀錄</router-link>
-          <a href="#base">{{ $t('logout') }}</a>
+          <router-link to="/">{{ $t('logout') }}</router-link>
         </div>
       </div>
-      <button @click="toggleSideBar" v-if="$store.state.auth.authorized"
-          class="mx-2 relative text-gray-1 hover:text-primary-normal focus:outline-none"
+      <router-link :to="{ path: '/announce/read' }" v-if="$store.state.auth.authorized"
+          class="mx-2 relative text-gray-1 hover:text-primary-normal focus:outline-none block cursor-pointer"
           round>
         <span class="absolute top-0 right-0 h-2 w-2 rounded-full bg-red-999"></span>
         <!-- <svg xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +40,7 @@
         <use xlink:href="#c-icon-bell"></use>
         </svg> -->
         <i class="fas fa-bell text-3xl text-main"></i>
-      </button>
+      </router-link>
     </div>
   </header>
 </template>
@@ -75,12 +75,12 @@ export default {
   methods: {
     outside () {
       // this.isOpenSideBar = false
-      // this.isOpenUser = false
+      this.isOpenUser = false
     },
-    toggleSideBar () {
-      let self = this
-      self.$emit('toggleSideBar', false)
-    },
+    // toggleSideBar () {
+    //   let self = this
+    //   self.$emit('toggleSideBar', false)
+    // },
     setMode (val) {
       this.$store.dispatch('setMode', val)
     }

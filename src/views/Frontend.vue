@@ -1,5 +1,5 @@
 <template>
-  <main class="flex items-start" id="Front">
+  <main class="flex items-start overflow-hidden" id="Front">
     <Applaud v-if="isShowApplaud" />
     <Cheer v-if="isShowCheer" />
     <DingDong  v-if="isShowDingDong" />

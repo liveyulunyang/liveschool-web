@@ -1,31 +1,31 @@
 <template>
 <div>
-<div id="backView" class="min-h-screen overflow-auto">
-  <Nav class="hidden md:block" :menu-list-item="roleMenu" v-if="$store.state.auth.authorized"></Nav>
+  <div id="backView" class="min-h-screen overflow-auto">
+    <Nav class="hidden md:block" :menu-list-item="roleMenu" v-if="$store.state.auth.authorized"></Nav>
 
-  <HeaderSection :roleMenu="roleMenu" v-on:toggleLogin="toggleLogin" v-on:toggleSideBar="toggleSideBar" />
-  <Login v-if="isOpenLogin" v-on:toggleLogin="toggleLogin" />
+    <HeaderSection :roleMenu="roleMenu" v-on:toggleLogin="toggleLogin" />
+    <Login v-if="isOpenLogin" v-on:toggleLogin="toggleLogin" />
 
-  <router-view class="min-h-full" @click.native="outside" />
-  <SideBar :is-visible="isOpenSideBar" @click="outside"></SideBar>
+    <router-view class="min-h-full" @click.native="outside" />
+    <!-- <SideBar :is-visible="isOpenSideBar" @click="outside"></SideBar> -->
 
-  <div class="fixed bottom-0 right-0 z-40 cursor-pointer">
-    <div class="relative w-auto mx-1">
-      <select class="block appearance-none py-3 px-4 pr-8 rounded leading-tight focus:outline-none border" id="setRole"
-        @change="setRole($event)" v-model="$store.state.auth.userRole">
-        <option value="admin">管理者</option>
-        <option value="director">主任</option>
-        <option value="student">學生</option>
-        <option value="supervise">督導</option>
-        <option value="teacher">老師</option>
-      </select>
-      <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
-        <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+    <div class="fixed bottom-0 right-0 z-40 cursor-pointer">
+      <div class="relative w-auto mx-1">
+        <select class="block appearance-none py-3 px-4 pr-8 rounded leading-tight focus:outline-none border" id="setRole"
+          @change="setRole($event)" v-model="$store.state.auth.userRole">
+          <option value="admin">管理者</option>
+          <option value="director">主任</option>
+          <option value="student">學生</option>
+          <option value="supervise">督導</option>
+          <option value="teacher">老師</option>
+        </select>
+        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
+          <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+        </div>
       </div>
     </div>
-  </div>
 
-</div>
+  </div>
   <footer class="bg-gray-900 w-full text-white py-12 px-3 md:px-0 text-center md:text-left">
     <div class="container mx-auto flex flex-wrap justify-between">
       <div class="flex flex-wrap w-full md:w-auto mb-12 md:mb-0">
@@ -58,7 +58,7 @@
 
 <script>
   import Nav from '@/components/Nav'
-  import SideBar from "@/components/SideBar"
+  // import SideBar from "@/components/SideBar"
   import HeaderSection from "@/components/modules/HeaderSection"
   import Login from "@/components/popup/Login"
   import { mapGetters } from 'vuex'
@@ -67,7 +67,7 @@
     data () {
       return {
         isOpenLogin: false,
-          // isOpenUser: false,
+          isOpenUser: false,
           menuListItems: [
             {
               icon: "fas fa-users",
@@ -132,7 +132,7 @@
             {
               icon: "fas fa-bell",
               title: "公告",
-              url: "/announce",
+              url: "/announce/edit",
               role: ['admin']
             },
             {
@@ -220,7 +220,7 @@
             {
               icon: "fas fa-bell",
               title: "公告",
-              url: "/announce"
+              url: "/announce/edit"
             },
             {
               icon: "fas fa-briefcase",
@@ -297,23 +297,15 @@
               title: "我的課程",
               url: "/myClass"
             }
-          ],
-          // user: {
-          //   img: {
-          //     src: require('@/assets/img/avatar.png'),
-          //     alt: 'avatar'
-          //   },
-          //   firstName: "Anna",
-          //   lastName: "Black",
-          //   professionnalFunction: "Sr. Customer Manager"
-          // },
-          isOpenSideBar: false
+          ]
+
+          // isOpenSideBar: false
       }
     },
     components: {
       HeaderSection,
       Nav,
-      SideBar,
+      // SideBar,
       Login
     },
     mounted () {
@@ -355,11 +347,11 @@
         }
       },
       methods: {
-        openSideBar () {
-          this.isOpenSideBar = !this.isOpenSideBar
-        },
+        // openSideBar () {
+        //   this.isOpenSideBar = !this.isOpenSideBar
+        // },
         outside () {
-          this.isOpenSideBar = false
+          // this.isOpenSideBar = false
           this.isOpenUser = false
         },
         setRole (event) {
@@ -371,11 +363,11 @@
         },
         toggleLogin (toggleLogin) {
           this.isOpenLogin = toggleLogin
-        },
-        toggleSideBar (toggleSideBar) {
-          console.log(toggleSideBar)
-          this.isOpenSideBar = !this.isOpenSideBar
         }
+        // toggleSideBar (toggleSideBar) {
+        //   console.log(toggleSideBar)
+        //   this.isOpenSideBar = !this.isOpenSideBar
+        // }
       }
   }
 </script>
