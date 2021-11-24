@@ -197,10 +197,10 @@
               </div> -->
             </div>
 
-            <!-- 點數 -->
+            <!-- 課程點數 -->
             <div class="w-full px-3 mb-2 md:mb-4 md:flex">
               <label class="md:pt-2 md:w-1/5 tracking-wide text-sm mb-2" for="name">
-                點數
+                課程點數
               </label>
               <input class="md:w-4/5 appearance-none border-gray-500 focus:border-gray-900 block w-full  text-sm border rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
                 id="name" type="text" placeholder="">
@@ -472,7 +472,7 @@
       return {
         isData: true,
 
-        tag: 1,
+        tag: 0,
         tagArr: [
           { name: '課程基本資料', role: '' },
           { name: '課程章節', role: '' }

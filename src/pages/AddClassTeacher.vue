@@ -34,42 +34,31 @@
         <div class="w-full bg-white py-2 lg:p-4 flex flex-col justify-between leading-normal">
           <div class="flex flex-wrap textColorblack">
 
-            <!-- 課程類型 -->
+            <!-- 課程分類 -->
             <div class="w-full px-3 mb-2 md:mb-4 md:flex">
-              <label class="md:pt-2 md:w-1/5 tracking-wide text-sm mb-2" for="email">
-                課程類型
+              <label class="md:pt-2 md:w-1/5 tracking-wide text-sm mb-2" for="address">
+                課程分類
               </label>
-              <div>
-              </div>
-              <div class="w-full md:w-4/5 flex items-center flex-wrap lg:flex-no-wrap">
-
-                <div class="relative text-sm w-full lg:w-1/4 lg:pr-1">
+              <div class="w-full md:w-4/5 md:flex">
+                <div class="relative text-sm w-full md:w-48 md:mr-2">
                   <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="invoice"
                     >
-                    <option value="31">一般口說課程</option>
+                    <option value="31">課程主題</option>
                   </select>
                   <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
                     <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
                   </div>
                 </div>
-
-                <input class="w-full lg:w-auto lg:flex-1 appearance-none block text-sm border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-900" spellcheck="false"
-                  id="email" type="email" placeholder="">
-
-                <div class="w-full lg:w-32 flex items-center justify-center lg:pl-2 mt-1 md:mt-0">
-                  <button class="button-verified py-3 rounded w-full text-sm whitespace-no-wrap px-1">
-                    <!-- <i class="far fa-check-square mr-1 lg:mr-2 text-lg lg:text-xl"></i> -->
-                    <i class="fas fa-square mr-1 lg:mr-2 text-lg lg:text-xl"></i>
-                    公開課程
-                  </button>
+                <div class="relative text-sm w-full md:w-48">
+                  <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="invoice"
+                    >
+                    <option value="31">主題分類</option>
+                  </select>
+                  <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
+                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                  </div>
                 </div>
               </div>
-              <!-- <div class="w-full md:w-1/5 flex items-center justify-center md:pl-2">
-                <button class="button-verified py-3 rounded w-full text-sm whitespace-no-wrap">
-                  <i class="far fa-check-square mr-2"></i>
-                  <i class="fas fa-square"></i>
-                  公開課程</button>
-              </div> -->
             </div>
 
             <!-- 封面 -->
@@ -106,6 +95,17 @@
               </div>
             </div>
 
+            <!-- 日期說明 -->
+            <div class="w-full px-3 mb-2 md:mb-4 md:flex">
+              <label class="md:pt-2 md:w-1/5 tracking-wide text-sm mb-2" for="mobile">
+                日期說明
+              </label>
+              <div class="w-full md:w-4/5">
+                <input class="w-full appearance-none block text-sm border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-900" spellcheck="false"
+                  id="mobile" type="phone" placeholder="請輸入文字">
+              </div>
+            </div>
+
             <!-- 副標說明 -->
             <div class="w-full px-3 mb-2 md:mb-4 md:flex">
               <label class="md:pt-2 md:w-1/5 tracking-wide text-sm mb-2" for="mobile">
@@ -128,32 +128,18 @@
               </div>
             </div>
 
-            <!-- 課程分類 -->
+            <!-- 介紹影片 -->
             <div class="w-full px-3 mb-2 md:mb-4 md:flex">
-              <label class="md:pt-2 md:w-1/5 tracking-wide text-sm mb-2" for="address">
-                課程分類
+              <label class="md:pt-2 md:w-1/5 tracking-wide text-sm mb-2" for="mobile">
+                介紹影片
               </label>
-              <div class="w-full md:w-4/5 md:flex">
-                <div class="relative text-sm w-full md:w-48 md:mr-2">
-                  <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="invoice"
-                    >
-                    <option value="31">課程主題</option>
-                  </select>
-                  <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
-                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                  </div>
-                </div>
-                <div class="relative text-sm w-full md:w-48">
-                  <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="invoice"
-                    >
-                    <option value="31">主題分類</option>
-                  </select>
-                  <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
-                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                  </div>
-                </div>
+              <div class="w-full md:w-4/5">
+                <input class="w-full appearance-none block text-sm border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-900" spellcheck="false"
+                  id="mobile" type="phone" placeholder="請輸入url">
               </div>
             </div>
+
+
 
             <!-- 課程大綱 -->
             <div class="w-full px-3 mb-2 md:mb-4 md:flex">
@@ -162,18 +148,6 @@
               </label>
               <div class="w-full md:w-4/5">
                 <textarea id="experience" placeholder="請輸入課程大綱"
-                  class=" py-3 px-4 w-full p-1 resize border border-gray-500 rounded focus:border-gray-700 focus:shadow-none focus:outline-none text-sm">
-                </textarea>
-              </div>
-            </div>
-
-            <!-- 課程目標 -->
-            <div class="w-full px-3 mb-2 md:mb-4 md:flex">
-              <label class="md:pt-2 md:w-1/5 tracking-wide text-sm mb-2" for="experience">
-                課程目標
-              </label>
-              <div class="w-full md:w-4/5">
-                <textarea id="experience" placeholder="請輸入課程目標"
                   class=" py-3 px-4 w-full p-1 resize border border-gray-500 rounded focus:border-gray-700 focus:shadow-none focus:outline-none text-sm">
                 </textarea>
               </div>
@@ -274,74 +248,37 @@
               </div>
             </div>
 
-            <!-- 課程日期 -->
-            <div class="md:flex w-full mb-2 md:mb-4 flex-wrap">
-              <div class="w-full md:w-1/3 px-2 md:flex">
-                <label class="md:pt-2 md:w-1/3 tracking-wide text-sm mb-2" for="address">
-                  課程日期
+            <div class="flex w-full mb-2 md:mb-4 flex-wrap">
+              <!-- 課程費用 -->
+              <div class="w-1/2 md:w-1/3 px-3 flex">
+                <label class="md:w-1/3 md:pt-2 tracking-wide text-sm mb-2 whitespace-no-wrap" for="address">
+                  課程費用
                 </label>
                 <div class="w-full md:w-2/3 md:flex">
-                  <date-picker
-                    v-model="time"
-                    format="YYYY-MM-DD"
-                    type="date"
-                    placeholder="Select date"
-                    input-class="mx-input py-2"
-                  ></date-picker>
+                  <input type="text" id="tentacles" name="tentacles" class="border rounded"
+                        min="1" max="100" value="1">
                 </div>
               </div>
-              <div class="w-full md:w-1/3 px-2 md:flex">
-                <label class="md:pt-2 md:w-1/3 tracking-wide text-sm mb-2 whitespace-no-wrap" for="address">
-                  課程時間從
+              <!-- 教材費用 -->
+              <div class="w-1/2 md:w-1/3 px-3 flex">
+                <label class="md:w-1/3 md:pt-2 tracking-wide text-sm mb-2 whitespace-no-wrap" for="address">
+                  教材費用
                 </label>
                 <div class="w-full md:w-2/3 md:flex">
-                  <date-picker
-                    v-model="value1"
-                    :time-picker-options="{
-                      start: '06:00',
-                      step: '00:60',
-                      end: '23:00',
-                    }"
-                    format="hh:mm a"
-                    type="time"
-                    placeholder="hh:mm a"
-                    input-class="mx-input py-2"
-                  ></date-picker>
+                  <input type="text" id="tentacles" name="tentacles" class="border rounded"
+                        min="1" max="100" value="1">
                 </div>
               </div>
-              <div class="w-full md:w-1/3 px-2 md:flex">
-                <label class="md:pt-2 md:w-1/5 tracking-wide text-sm mb-2 whitespace-no-wrap" for="address">
-                  到
+              <!-- 課程狀態 -->
+              <div class="w-1/2 md:w-1/3 px-3 flex">
+                <label class="md:pt-2 md:w-1/5 tracking-wide text-sm mb-2" for="address">
+                  課程狀態
                 </label>
                 <div class="w-full md:w-4/5 md:flex">
-                  <date-picker
-                    v-model="value2"
-                    :time-picker-options="{
-                      start: '06:00',
-                      step: '00:60',
-                      end: '23:00',
-                    }"
-                    format="hh:mm a"
-                    type="time"
-                    placeholder="hh:mm a"
-                    input-class="mx-input py-2"
-                  ></date-picker>
-                </div>
-              </div>
-            </div>
-
-            <!-- 費用類型 -->
-            <div class="md:flex w-full mb-2 md:mb-4">
-              <!-- 費用類型 -->
-              <div class="w-full md:w-1/3 px-3 md:flex mb-4 md:mb-0">
-                <label class="md:pt-2 md:w-1/3 tracking-wide text-sm mb-2" for="address">
-                  費用類型
-                </label>
-                <div class="w-full md:w-2/3 md:flex">
                   <div class="relative text-sm w-full md:w-48 md:mr-2">
                     <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="invoice"
                       >
-                      <option value="31">一般點數</option>
+                      <option value="31">草稿</option>
                     </select>
                     <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
                       <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
@@ -349,57 +286,9 @@
                   </div>
                 </div>
               </div>
-
-              <!-- 點數 -->
-              <div class="w-1/2 md:w-1/3 px-3 flex">
-                <label class="md:w-1/3 md:pt-2 tracking-wide text-sm mb-2 whitespace-no-wrap" for="address">
-                  點數
-                </label>
-                <div class="w-full md:w-2/3 md:flex">
-                  <input type="number" id="tentacles" name="tentacles" class="border rounded"
-                        min="1" max="100" value="1">
-                </div>
-              </div>
             </div>
 
-            <!-- 站別 -->
-            <div class="w-full px-3 mb-2 md:mb-4 md:flex">
-              <label class="md:pt-2 md:w-1/5 tracking-wide text-sm mb-2" for="name">
-                上架站別
-              </label>
-              <div class="w-full md:w-2/5 flex items-center">
-                <button class="button-verified py-3 rounded w-full text-sm whitespace-no-wrap mx-1">
-                  <!-- <i class="far fa-check-square mr-2"></i> -->
-                  <i class="fas fa-square"></i>
-                  台灣站</button>
-                <button class="button-verified py-3 rounded w-full text-sm whitespace-no-wrap mx-1">
-                  <!-- <i class="far fa-check-square mr-2"></i> -->
-                  <i class="fas fa-square"></i>
-                  企業站</button>
-                <button class="button-verified py-3 rounded w-full text-sm whitespace-no-wrap mx-1">
-                  <!-- <i class="far fa-check-square mr-2"></i> -->
-                  <i class="fas fa-square"></i>
-                  大陸站</button>
-              </div>
-            </div>
 
-            <!-- 課程狀態 -->
-            <div class="w-full px-3 mb-2 md:mb-4 md:flex">
-              <label class="md:pt-2 md:w-1/5 tracking-wide text-sm mb-2" for="address">
-                課程狀態
-              </label>
-              <div class="w-full md:w-4/5 md:flex">
-                <div class="relative text-sm w-full md:w-48 md:mr-2">
-                  <select class="block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="invoice"
-                    >
-                    <option value="31">草稿</option>
-                  </select>
-                  <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
-                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
         <div class="md:flex mt-3 md:mb-4 w-full lg:pt-6 justify-end px-2">
@@ -541,7 +430,7 @@
       return {
         isData: true,
 
-        tag: 2,
+        tag: 0,
         tagArr: [
           { name: '課程基本資料', role: '' },
           { name: '堂數設定', role: '' },

@@ -174,7 +174,7 @@
             },
             {
               icon: "fas fa-comments",
-              title: "課程管理",
+              title: "Live Talk",
               url: "/courses_talk"
             },
             {
