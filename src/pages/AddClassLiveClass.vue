@@ -6,7 +6,7 @@
   <section class="w-full mt-2 min-h-screen px-3 lg:px-6 py-4">
     <div class="flex items-center">
       <div class="mr-1">
-        <button @click="$router.back(-1)" class="px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
+        <button @click="$router.back(-1)" class="px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
           <i class="fas fa-chevron-left mr-1"></i>返回
         </button>
       </div>
@@ -255,7 +255,7 @@
                 </div>
               </div>
               <div class="w-full md:w-3/12 flex items-center justify-center md:pl-2">
-                <button class="bg-gray-900 text-white py-2 px-2 rounded text-sm whitespace-no-wrap md:mx-1">
+                <button class="button-verified text-white py-2 px-2 rounded text-sm whitespace-no-wrap md:mx-1">
                   <i class="fas fa-check mr-1"></i>儲存
                 </button>
                 <button class="button-verified py-2 px-2 rounded text-sm whitespace-no-wrap md:mx-1">
@@ -526,7 +526,7 @@
     padding: 6px 12px;
     cursor: pointer;
     color: white;
-    background: #4D4D4D;
+    background: #0F455C;
     border-radius: 8px;
   }
   .mx-datepicker {

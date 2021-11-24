@@ -4,23 +4,13 @@
   <Title :title="'新增LiveTalk課程'" />
 
   <section class="w-full mt-2 min-h-screen px-3 lg:px-6 py-4">
-    <div class="flex justify-between">
-      <!-- <ul class="flex cursor-pointer text-sm">
-        <li class="py-2 mr-1">
-          <button @click="$router.back(-1)" class="px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
-            <i class="fas fa-chevron-left mr-1"></i>返回
-          </button>
-        </li>
-        <li class="py-2 px-6 tag flex items-center justify-center mx-1" :class="{ tagAct: tag === 0 }" @click="tag = 0">課程基本資料</li>
-      </ul> -->
+    <div class="flex items-center">
+      <div class="mr-1">
+        <button @click="$router.back(-1)" class="px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
+          <i class="fas fa-chevron-left mr-1"></i>返回
+        </button>
+      </div>
       <TabComponent :tag="tag" :tagArr="tagArr" v-on:tagIdx="tagIdx" />
-      <!-- <ul class="flex cursor-pointer text-sm" v-if="tag === 1">
-        <li class="py-2 mr-1">
-          <Button @click="$router.back(-1)" class="px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
-            <i class="fas fa-plus"></i>新增章節
-          </Button>
-        </li>
-      </ul> -->
     </div>
     <div v-if="isData">
       <form action="javascript:void(0);" class="text-NotoSansRegular textColorblack mx-auto" v-if="tag === 0">
@@ -727,7 +717,7 @@
   }
 </script>
 <style src='vue-multiselect/dist/vue-multiselect.min.css'></style>
-<style>
+<style scoped>
   #fileInput {
     display: none !important;
   }
@@ -754,7 +744,7 @@
     padding: 6px 12px;
     cursor: pointer;
     color: white;
-    background: #4D4D4D;
+    background: #0F455C;
     border-radius: 8px;
   }
   .mx-datepicker {

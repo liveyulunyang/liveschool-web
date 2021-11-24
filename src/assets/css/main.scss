@@ -12,8 +12,11 @@
   color: white;
 }
 .button-verified {
-  background: #808080;
+  background: #0F455C;
   color: white;
+  &:hover {
+    background: #011F2C;
+  }
 }
 
 /* background */
