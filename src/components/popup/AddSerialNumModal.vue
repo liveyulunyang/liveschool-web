@@ -22,7 +22,7 @@
       </div>
       <div class="w-full px-3 mb-2 md:mb-4 flex justify-end">
         <a class="px-4 py-2 bg-gray-700 m-1 cursor-pointer text-white" @click="close()"><i class="fas fa-times mr-1"></i>取消</a>
-        <a class="px-4 py-2 bg-gray-900 m-1 cursor-pointer text-white" @click="close()"><i class="fas fa-check mr-1"></i>建立</a>
+        <a class="px-4 py-2 btn-main m-1 cursor-pointer text-white" @click="close()"><i class="fas fa-check mr-1"></i>建立</a>
       </div>
     </form>
   </Modal>

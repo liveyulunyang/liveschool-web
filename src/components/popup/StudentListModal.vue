@@ -1,5 +1,5 @@
 <template>
-    <Modal :based-on="showfirstModal" :title="''" :modalClass="'modal-outer bg-gray-300 pb-4 head-bg'" @close="$emit('closeModal', false)">
+    <Modal :based-on="showfirstModal" :title="''" :modalClass="'modal-outer bg-blue-main-light pb-4 head-bg'" @close="$emit('closeModal', false)">
       <div class="flex justify-between items-center">
         <FilterModal :showItems="showItems" />
         <div class="flex items-center">

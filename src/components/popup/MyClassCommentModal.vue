@@ -1,5 +1,5 @@
 <template>
-    <Modal :based-on="showfirstModal" :title="''" :modalClass="'modal-outer pb-4 leading-loose font-bold bg-gray-300'" @close="$emit('closeModal', false)">
+    <Modal :based-on="showfirstModal" :title="''" :modalClass="'modal-outer pb-4 leading-loose font-bold bg-blue-main-light student-w'" @close="$emit('closeModal', false)">
       <div>
         <Table
           :columns="tableList.columns"
@@ -11,7 +11,7 @@
           <template slot="actionsBtn">
             <td data-th="老師評語">
                 <button
-                  class="text-sm btn-main mx-1 text-white bg-gray-900 px-2 py-2 rounded"
+                  class="text-sm btn-main mx-1 text-white btn-main px-2 py-2 rounded"
                   >
                   <i class="far fa-star mr-1"></i>老師評語
                 </button>
@@ -22,7 +22,7 @@
       <div class="bg-white p-2">
         <h3>日期: 2021-03-08<span class="mx-2"></span>
           課名: Test01</h3>
-        <h5 class="bg-gray-400 py-1">一、老師教學 Teacher's Teaching</h5>
+        <h5 class="bg-blue-main-light py-1">一、老師教學 Teacher's Teaching</h5>
         <div class="flex flex-wrap leading-loose py-2" v-for="n in 3" :key="n">
           <div class="w-full md:w-2/3 flex">
             <span class="mr-1">{{ n }}.</span>
@@ -36,7 +36,7 @@
           </div>
         </div>
 
-        <h5 class="bg-gray-400 py-1">二、學生學習 Student's Learning</h5>
+        <h5 class="bg-blue-main-light py-1">二、學生學習 Student's Learning</h5>
         <div class="flex flex-wrap leading-loose py-2" v-for="n in 3" :key="n">
           <div class="w-full md:w-2/3 flex">
             <span class="mr-1">{{ n }}.</span>
@@ -50,7 +50,7 @@
           </div>
         </div>
 
-        <div class="w-full px-3 mt-2">
+        <div class="w-full px-3 mt-2 mb-3">
           <label class="w-full font-bold text-sm mb-2 px-2" for="problem">
             其他意見(comment)
           </label>
@@ -61,7 +61,7 @@
           </div>
         </div>
         <div class="w-full px-3 mb-2 md:mb-4 flex justify-center">
-          <a class="px-4 py-2 bg-gray-900 m-1 cursor-pointer text-white">儲存</a>
+          <a class="px-4 py-1 btn-main m-1 cursor-pointer text-white rounded">儲存</a>
         </div>
       </div>
   </Modal>

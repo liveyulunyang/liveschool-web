@@ -1,6 +1,6 @@
 <template>
   <div id="startClass">
-    <Modal :based-on="showfirstModal" :modalClass="'modal-outer bg-gray-300 max-w-modal'" @close="$emit('closeModal', false)">
+    <Modal :based-on="showfirstModal" :modalClass="'modal-outer bg-blue-main-light max-w-modal'" @close="$emit('closeModal', false)">
       <div class="p-6">
         <div class="bg-white py-6 px-4 flex justify-between items-center mb-5">
           <h3 class="text-xl font-bold">課程互動講義(含課程講義)</h3>

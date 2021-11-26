@@ -2,7 +2,7 @@
     <Modal :based-on="showfirstModal" :title="'老師評語'" :modalClass="'modal-outer pb-4 leading-loose font-bold main-w'" @close="$emit('closeModal', false)">
       <h3>日期: 2021-03-08 課名: Test01</h3>
       <h4 class="mb-3">學生: Peggy&emsp;教師：佩姬/Peggy</h4>
-      <h5 class="bg-gray-400 py-1 text-lg">一、老師教學 Teacher's teaching</h5>
+      <h5 class="bg-blue-main-light py-1 text-lg">一、老師教學 Teacher's teaching</h5>
       <div class="flex flex-wrap leading-loose py-2" v-for="n in 5" :key="n">
         <div class="w-full md:w-4/5 flex text-lg">
           <span class="mr-1">{{ n }}.</span>
@@ -15,7 +15,7 @@
           <span class="mr-1 opacity-0 md:hidden">{{ n }}.</span><i class="fas fa-star text-gray-800 mr-1" v-for="n in 4" :key="n"></i><i class="fas fa-star text-gray-400 mr-1" v-for="n in 1" :key="n"></i>
         </div>
       </div>
-      <h5 class="bg-gray-400 py-1 text-lg">一、學生學習 Student's Learning</h5>
+      <h5 class="bg-blue-main-light py-1 text-lg">一、學生學習 Student's Learning</h5>
       <div class="flex flex-wrap leading-loose py-2" v-for="n in 5" :key="n">
         <div class="w-full md:w-4/5 flex text-lg">
           <span class="mr-1">{{ n }}.</span>

@@ -1,5 +1,5 @@
 <template>
-    <Modal :based-on="showfirstModal" :title="'課程紀錄'" :modalClass="'modal-outer bg-gray-300 pb-4 main-w'" @close="$emit('closeModal', false)">
+    <Modal :based-on="showfirstModal" :title="'課程紀錄'" :modalClass="'modal-outer bg-blue-main-light pb-4 main-w'" @close="$emit('closeModal', false)">
       <FilterModal :showItems="showItems" />
       <div class="h-table">
         <Table

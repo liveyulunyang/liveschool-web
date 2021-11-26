@@ -65,12 +65,12 @@
         </div>
         <div class="w-full px-3 mb-2 md:mb-4 flex justify-center">
           <a class="px-4 py-2 bg-gray-600 m-1 cursor-pointer text-white" @click="close()"><i class="fas fa-times mr-1"></i>取消</a>
-          <a class="px-4 py-2 bg-gray-900 m-1 cursor-pointer text-white" @click="close()"><i class="fas fa-check mr-1"></i>發布</a>
+          <a class="px-4 py-2 btn-main m-1 cursor-pointer text-white" @click="close()"><i class="fas fa-check mr-1"></i>發布</a>
         </div>
       </form>
     </Modal>
-    <Modal :based-on="showfirstModal" :modalClass="'modal-outer'" @close="$emit('closeModal', false)" v-if="!isEdit">
-      <div class="py-4 px-4 bg-gray-300">
+    <Modal :based-on="showfirstModal" :modalClass="'modal-outer student-w'" @close="$emit('closeModal', false)" v-if="!isEdit">
+      <div class="py-4 px-4 bg-blue-main-light">
         <h3 class="text-4xl font-bold ">ZOOM版本更新下載 通知</h3>
       </div>
         <div class="py-4 px-4">
@@ -79,7 +79,7 @@
           </div>
         </div>
       <div class="w-full px-3 mb-2 md:mb-4 flex justify-center">
-        <a class="px-16 py-2 bg-gray-800 m-1 cursor-pointer text-white" @click="close()">OK</a>
+        <a class="px-16 py-2 btn-main m-1 cursor-pointer text-white" @click="close()">OK</a>
       </div>
     </Modal>
   </div>

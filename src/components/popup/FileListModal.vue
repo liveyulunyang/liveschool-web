@@ -1,5 +1,5 @@
 <template>
-    <Modal :based-on="showfirstModal" :title="''" :modalClass="'modal-outer bg-gray-300 pb-4 main-w'" @close="$emit('closeModal', false)">
+    <Modal :based-on="showfirstModal" :title="''" :modalClass="'modal-outer bg-blue-main-light pb-4 main-w'" @close="$emit('closeModal', false)">
       <h2 class="text-center text-2xl font-bold">檔案清單</h2>
       <div class="flex items-center">
         <button class="px-4 py-2 btn-red text-white text-sm mx-1 rounded whitespace-no-wrap">
