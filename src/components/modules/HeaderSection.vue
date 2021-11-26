@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-white flex justify-between px-2 lg:px-20 border-b-2 border-gray-900 border-solid h-20 z-50">
+  <header class="bg-white flex justify-between px-2 lg:px-16 border-b-2 border-gray-900 border-solid h-20 z-50">
     <Nav class="md:hidden" mode="mobile" :menu-list-item="roleMenu"></Nav>
     <router-link class="flex items-center" to="/">
       <img alt="logo" src="@/assets/logo.png" class="w-24 md:w-48 h-auto" v-if="$route.name !== 'bookingClass' && $route.name !== 'classPreview' && $route.name !== 'classPreviewTeacher' && $route.name !== 'classPreviewTalk'">

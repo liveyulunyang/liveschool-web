@@ -28,7 +28,7 @@ export default {
         autoplay: {
           delay: 5000
         },
-        slidesPerView: 1,
+        slidesPerView: 2,
         centeredSlides: true,
         watchOverflow: true,
         loop: true,
@@ -68,30 +68,19 @@ export default {
 
 <style lang="scss">
 .slider-banner {
-  max-width: 1920px;
-  width: 100%;
-  @media (maz-width: 1024px) {
-    max-width: 1024px;
-  }
-  @media (maz-width: 768px) {
-    max-width: 768px;
-  }
   .swiper-container {
-    // overflow: visible !important;
-    // overflow-y: hidden;
   }
   .swiper-pagination {
     z-index: 99;
   }
   .swiper-pagination {
-    // bottom: -40px !important;
   }
   .swiper-pagination-bullet {
     opacity: 1;
     background: #91DAE4;
     width: 20px;
     height: 20px;
-    @media (min-width: 768px) {
+    @media (max-width: 768px) {
       width: 15px;
       height: 15px;
     }

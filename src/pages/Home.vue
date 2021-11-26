@@ -1,5 +1,5 @@
 <template>
-  <main id="index">
+  <main id="index" class="overflow-hidden">
     <!-- fixed-btn -->
     <div class="fixed-btn fixed z-50">
       <div class="fixed-btn-arrow">
@@ -40,7 +40,6 @@
           <img src="@/assets/img/home/btn_home_Teacher_on.png" class="on cursor-pointer">
         </a>
       </div>
-      <!-- <div class="h-3 w-full absolute bg-class-red"   :class="{[`bg-class-red`]: type === 'talk', [`bg-class-blue`]: type === 'class', [`bg-class-yellow`]: type === 'teacher' }"></div> -->
     </section>
     <!-- 課程介紹/最新消息/熱門課程 -->
     <section ref="intro" id="intro" class="py-16 text-main px-2" :class="{ talk: type === 'talk', class: type === 'class', teacher: type === 'teacher'}">
@@ -53,7 +52,7 @@
               <p class="text-2xl font-light">Course Introduction</p>
             </div>
           </div>
-          <img src="@/assets/img/home/pic_home_introduce.png" class="block shadow-lg">
+          <img src="@/assets/img/home/pic_home_introduce.png" class="shadow-lg object-contain">
         </div>
 
         <div class="py-8">
@@ -62,7 +61,7 @@
             <h4 class="text-2xl sm:text-3xl md:text-4xl font-bold mr-2">最新消息</h4>
             <p class="text-2xl font-light">News</p>
           </div>
-          <img src="@/assets/img/home/pic_home_news.png" class="block shadow-lg">
+          <img src="@/assets/img/home/pic_home_news.png" class="shadow-lg object-contain">
         </div>
 
         <div class="py-8">

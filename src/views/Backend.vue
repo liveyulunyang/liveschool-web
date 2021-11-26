@@ -312,63 +312,63 @@
     },
     updated () {
     },
-      computed: {
-        ...mapGetters([
-          'userRole',
-          'reserveMode',
-          'lang'
-        ]),
-        lang: {
-          get () {
-            return this.$store.state.lang
-          },
-          set () {}
+    computed: {
+      ...mapGetters([
+        'userRole',
+        'reserveMode',
+        'lang'
+      ]),
+      lang: {
+        get () {
+          return this.$store.state.lang
         },
-        roleMenu () {
-          if (this.userRole === 'admin') {
-            return this.adminList
-          } else if (this.userRole === 'director' && this.reserveMode) {
-              return this.directorListReserve
-            } else if (this.userRole === 'director' && !this.reserveMode) {
-              return this.directorListBook
-            } else if (this.userRole === 'supervise') {
-              return this.superviseList
-            } else if (this.userRole === 'student') {
-              return this.studentList
-            } else if (this.userRole === 'teacher') {
-              return this.teacherList
-            } else {
-              return this.adminList
-            }
-          // var filterEmpty = this.menuListItems.filter((item, index, array) => {
-          //   return item.role.indexOf(this.userRole) > -1
-          // })
-          // return filterEmpty
-        }
+        set () {}
       },
-      methods: {
-        // openSideBar () {
-        //   this.isOpenSideBar = !this.isOpenSideBar
-        // },
-        outside () {
-          // this.isOpenSideBar = false
-          this.isOpenUser = false
-        },
-        setRole (event) {
-          this.$store.dispatch('setRole', event.target.value)
-        },
-        setLang (lang) {
-          this.$store.dispatch('setLang', lang)
-          this.$i18n.locale = lang
-        },
-        toggleLogin (toggleLogin) {
-          this.isOpenLogin = toggleLogin
-        }
-        // toggleSideBar (toggleSideBar) {
-        //   console.log(toggleSideBar)
-        //   this.isOpenSideBar = !this.isOpenSideBar
-        // }
+      roleMenu () {
+        if (this.userRole === 'admin') {
+          return this.adminList
+        } else if (this.userRole === 'director' && this.reserveMode) {
+            return this.directorListReserve
+          } else if (this.userRole === 'director' && !this.reserveMode) {
+            return this.directorListBook
+          } else if (this.userRole === 'supervise') {
+            return this.superviseList
+          } else if (this.userRole === 'student') {
+            return this.studentList
+          } else if (this.userRole === 'teacher') {
+            return this.teacherList
+          } else {
+            return this.adminList
+          }
+        // var filterEmpty = this.menuListItems.filter((item, index, array) => {
+        //   return item.role.indexOf(this.userRole) > -1
+        // })
+        // return filterEmpty
       }
+    },
+    methods: {
+      // openSideBar () {
+      //   this.isOpenSideBar = !this.isOpenSideBar
+      // },
+      outside () {
+        // this.isOpenSideBar = false
+        this.isOpenUser = false
+      },
+      setRole (event) {
+        this.$store.dispatch('setRole', event.target.value)
+      },
+      setLang (lang) {
+        this.$store.dispatch('setLang', lang)
+        this.$i18n.locale = lang
+      },
+      toggleLogin (toggleLogin) {
+        this.isOpenLogin = toggleLogin
+      }
+      // toggleSideBar (toggleSideBar) {
+      //   console.log(toggleSideBar)
+      //   this.isOpenSideBar = !this.isOpenSideBar
+      // }
+    }
   }
 </script>
 

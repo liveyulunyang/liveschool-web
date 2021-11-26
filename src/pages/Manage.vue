@@ -269,7 +269,7 @@
         </div>
       </div>
       <div class="md:flex mt-3 md:mb-4 w-full lg:pt-6 justify-end px-2">
-        <button class="button-main py-3 px-8 md:px-12 rounded w-full md:w-1/5 text-sm whitespace-no-wrap">
+        <button class="btn-main text-white py-3 px-8 md:px-12 rounded w-full md:w-1/5 text-sm whitespace-no-wrap">
           建立
         </button>
       </div>
@@ -279,10 +279,10 @@
     <section v-if="tag === 1" class="w-full bg-white min-h-screen p-2 md:p-3 lg:p-6 max-w-8xl mx-auto">
       <div class="flex flex-wrap">
         <div class="w-full flex flex-wrap mb-6 lg:mb-8" v-for="(item, index) in teachingTime" :key="index">
-          <div class="bg-gray-400 py-2 w-full lg:w-auto lg:px-24 leading-loose flex items-center justify-center mb-3 lg:mb-0">
+          <div class="bg-blue-main-light py-2 w-full lg:w-auto lg:px-24 leading-loose flex items-center justify-center mb-3 lg:mb-0">
             <p class="text-center">{{ item.title }}</p>
           </div>
-          <div class="w-full lg:flex-1 mb-3 lg:mb-0">
+          <!-- <div class="w-full lg:flex-1 mb-3 lg:mb-0">
             <div class="w-full px-3 md:flex">
               <label class="md:pt-2 md:text-sm md:w-1/3 tracking-wide text-sm mb-2 font-bold" for="name">
                 開課時段
@@ -298,7 +298,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
           <div class="w-full lg:flex-1 mb-3 lg:mb-0">
             <div class="w-full px-3 md:flex">
               <label class="md:pt-2 md:text-sm md:w-1/3 tracking-wide text-sm mb-2 font-bold" for="name">
@@ -341,7 +341,7 @@
 
       </div>
       <div class="md:flex mt-3 md:mb-4 w-full lg:pt-6 justify-end px-2">
-        <button class="button-main py-3 px-8 md:px-12 rounded w-full md:w-1/5 text-sm whitespace-no-wrap">
+        <button class="btn-main text-white py-3 px-8 md:px-12 rounded w-full md:w-1/5 text-sm whitespace-no-wrap">
           <i class="fas fa-check mr-1"></i>儲存
         </button>
       </div>
@@ -521,14 +521,6 @@
 #manage {
   .mx-input {
     height: 43px;
-  }
-  .tag {
-    background: #CCCCCC;
-    color: #808080;
-  }
-  .tagAct {
-    background: white;
-    color: black;
   }
   .mugShot-img {
     width: 160px;
