@@ -22,7 +22,7 @@
               pointBorderColor: '#fff',
               pointHoverBackgroundColor: '#fff',
               pointHoverBorderColor: 'rgba(179,181,198,1)',
-              data: [65, 59, 90, 81, 56]
+              data: [99, 88, 90, 88, 99]
             }
           ]
         },

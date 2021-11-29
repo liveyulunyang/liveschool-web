@@ -17,7 +17,7 @@
           <img alt="" src="@/assets/logo.png" class="w-32 object-contain mx-auto">
         </div>
         <div class="py-2 px-3">
-          <div class="studentList bg-white p-1">
+          <div class="studentList bg-white p-1 scroll-bar">
             <div class=" w-full flex justify-between items-center text-gray-900 p-2 py-3 h-12" v-for="(item, index) in student" :key="index">
               <div class="flex items-center text-base">
                 <img src="@/assets/img/frontend/pic_student_head.png" alt="" class="object-contain w-6 mr-2">
@@ -90,13 +90,13 @@
                   <a class="btn-main text-white px-3 py-1 block text-center rounded cursor-pointer mb-4" @click="shakeDice">開始</a>
 
                   <div>
-                    <img src="@/assets/img/frontend/ani_01_ok.gif" alt="" class="object-contain" v-if="diceNum === null">
-                    <img src="@/assets/img/frontend/ani_02_01_ok.gif" alt="" class="object-contain" v-if="diceNum === 1">
-                    <img src="@/assets/img/frontend/ani_02_02_ok.gif" alt="" class="object-contain" v-if="diceNum === 2">
-                    <img src="@/assets/img/frontend/ani_02_03_ok.gif" alt="" class="object-contain" v-if="diceNum === 3">
-                    <img src="@/assets/img/frontend/ani_02_04_ok.gif" alt="" class="object-contain" v-if="diceNum === 4">
-                    <img src="@/assets/img/frontend/ani_02_05_ok.gif" alt="" class="object-contain" v-if="diceNum === 5">
-                    <img src="@/assets/img/frontend/ani_02_06_ok.gif" alt="" class="object-contain" v-if="diceNum === 6">
+                    <img :src="require('@/assets/img/frontend/ani_01_ok.gif') + '?' + new Date().getTime()" alt="" class="object-contain" v-if="diceNum === null">
+                    <img :src="require('@/assets/img/frontend/ani_02_01_ok.gif') + '?' + new Date().getTime()" alt="" class="object-contain" v-if="diceNum === 1">
+                    <img :src="require('@/assets/img/frontend/ani_02_02_ok.gif') + '?' + new Date().getTime()" alt="" class="object-contain" v-if="diceNum === 2">
+                    <img :src="require('@/assets/img/frontend/ani_02_03_ok.gif') + '?' + new Date().getTime()" alt="" class="object-contain" v-if="diceNum === 3">
+                    <img :src="require('@/assets/img/frontend/ani_02_04_ok.gif') + '?' + new Date().getTime()" alt="" class="object-contain" v-if="diceNum === 4">
+                    <img :src="require('@/assets/img/frontend/ani_02_05_ok.gif') + '?' + new Date().getTime()" alt="" class="object-contain" v-if="diceNum === 5">
+                    <img :src="require('@/assets/img/frontend/ani_02_06_ok.gif') + '?' + new Date().getTime()" alt="" class="object-contain" v-if="diceNum === 6">
                   </div>
                 </div>
 
@@ -117,9 +117,9 @@
                 </div>
 
                 <div class="px-3">
-                  <img src="@/assets/img/frontend/ani_03_ok.gif" alt="" class="object-contain" v-if="isCountDown === null">
-                  <img src="@/assets/img/frontend/ANI_04_ok.gif" alt="" class="object-contain" v-if="isCountDown === true">
-                  <img src="@/assets/img/frontend/ANI_05_ok.gif" alt="" class="object-contain" v-if="isCountDown === false">
+                  <img :src="require('@/assets/img/frontend/ani_03_ok.gif') + '?' + new Date().getTime()" alt="" class="object-contain" v-if="isCountDown === null">
+                  <img :src="require('@/assets/img/frontend/ANI_04_ok.gif') + '?' + new Date().getTime()" alt="" class="object-contain" v-if="isCountDown === true">
+                  <img :src="require('@/assets/img/frontend/ANI_05_ok.gif') + '?' + new Date().getTime()" alt="" class="object-contain" v-if="isCountDown === false">
                 </div>
               </div>
               <div class="" v-if="gameIdx === 3">
@@ -330,12 +330,12 @@ export default {
       let self = this
       var timeArray = [Number(self.min), Number(self.sec)]
       var m = timeArray[0]
-      var s = this.checkSecond((timeArray[1] - 1))
+      var s = self.checkSecond((timeArray[1] - 1))
       if (s == 59){
         m = m - 1
       }
       if (m < 0) {
-        clearTimeout(this.timer)
+        clearTimeout(self.timer)
         return
       }
 

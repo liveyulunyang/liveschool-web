@@ -1,5 +1,5 @@
 <template>
-  <div id="app" class="mx-auto overflow-hidden m-0 p-0">
+  <div id="app" class="mx-auto overflow-hidden m-0 p-0 scroll-bar">
     <router-view></router-view>
   </div>
 </template>
@@ -67,5 +67,4 @@
 </script>
 
 <style>
-
 </style>

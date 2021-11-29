@@ -222,3 +222,19 @@
     }
   }
 }
+
+// scroll-bar
+.scroll-bar::-webkit-scrollbar {
+  width: 5px !important;
+}
+.scroll-bar::-webkit-scrollbar-track {
+  background-color: #CCD2E3 !important;
+}
+
+.scroll-bar::-webkit-scrollbar-thumb {
+  background: #191C1F !important;
+
+}
+.scroll-bar::-webkit-scrollbar-corner {
+  background: #191C1F !important;
+}

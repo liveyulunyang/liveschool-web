@@ -273,7 +273,7 @@
         classification: '',
         branch: '',
         classType: '',
-        timePeriod: null,
+        timePeriod: [new Date(2021, 8, 29), new Date()],
         approvalStatus: '',
         searchType: '',
         searchWord: '',
