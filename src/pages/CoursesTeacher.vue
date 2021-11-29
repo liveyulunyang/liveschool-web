@@ -5,11 +5,7 @@
         <div class="flex">
           <Title :title="'LiveTeacher課程管理'" />
         </div>
-        <div class="flex text-xs flex-wrap">
-          <h5 class="mr-3 whitespace-no-wrap">上線中<span class="bg-white rounded-lg px-2 py-1 mx-1">999</span>課</h5>
-          <h5 class="mr-3 whitespace-no-wrap">草稿<span class="bg-white rounded-lg px-2 py-1 mx-1">915</span>課</h5>
-          <h5 class="mr-3 whitespace-no-wrap">結束<span class="bg-white rounded-lg px-2 py-1 mx-1">9</span>課</h5>
-        </div>
+        <UserNum :userNum="userNum" />
       </div>
       <div class="flex items-center justify-between w-full flex-wrap lg:flex-no-wrap mb-4">
         <FilterModal :showItems="showItems" />
@@ -81,6 +77,7 @@
   import 'vue2-datepicker/index.css'
   import CommentModal from '@/components/popup/CourseModel'
   import Title from '@/components/Title'
+  import UserNum from '@/components/UserNum'
   export default {
     name: 'CoursesTeacher',
     components: {
@@ -88,7 +85,8 @@
       FilterModal,
       Pagination,
       CommentModal,
-      Title
+      Title,
+      UserNum
     },
     props: [
       'props'
@@ -133,7 +131,12 @@
               status: '已上線'
             }
           ]
-        }
+        },
+        userNum: [
+          { role: '上線中', num: 99, unit: '課' },
+          { role: '草稿', num: 99, unit: '課' },
+          { role: '結束', num: 99, unit: '課' }
+        ]
       }
     },
     computed: {

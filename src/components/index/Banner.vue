@@ -28,7 +28,7 @@ export default {
         autoplay: {
           delay: 5000
         },
-        slidesPerView: 2,
+        slidesPerView: 1.5,
         centeredSlides: true,
         watchOverflow: true,
         loop: true,
@@ -38,13 +38,6 @@ export default {
           clickable: true
         },
         breakpoints: {
-          1440: {
-            autoplay: {
-              delay: 5000
-            },
-            slidesPerView: 1.5,
-            loop: true
-          },
           1024: {
             autoplay: {
               delay: 5000

@@ -1,13 +1,26 @@
 <template>
   <main class="flex items-start p-6">
     <div class="flex flex-col w-full">
-        <div class="mb-4 flex justify-between items-center flex-wrap">
+        <div class="mb-4 flex justify-between items-start flex-wrap">
           <div class="flex">
             <Title :title="'公告管理'" />
           </div>
+          <div class="flex justify-between items-center" v-if="$route.params.mode === 'read'">
+            <button @click="openModal(true)" class="px-4 py-2 btn-main text-white text-sm mx-1 rounded whitespace-no-wrap">
+              <i class="fas fa-check mr-1"></i> 全部已讀
+            </button>
+            <button @click="openModal(true)" class="px-4 py-2 btn-green text-white text-sm mx-1 rounded whitespace-no-wrap">
+              <i class="fas fa-trash-alt mr-1"></i> 刪除全部已讀
+            </button>
+          </div>
+          <div class="flex justify-end items-center" v-if="$route.params.mode === 'edit'">
+            <button @click="openModal(true)" class="px-4 py-2 btn-red text-white text-sm mx-1 rounded whitespace-no-wrap">
+              <i class="fas fa-plus mr-1"></i> 新增公告
+            </button>
+          </div>
         </div>
         <div class="content">
-          <div class="flex justify-between items-center mb-4" v-if="$route.params.mode === 'read'">
+          <!-- <div class="flex justify-between items-center mb-4" v-if="$route.params.mode === 'read'">
             <button @click="openModal(true)" class="px-4 py-2 btn-main text-white text-sm mx-1 rounded whitespace-no-wrap">
               <i class="fas fa-check mr-1"></i> 全部已讀
             </button>
@@ -19,7 +32,7 @@
             <button @click="openModal(true)" class="px-4 py-2 btn-red text-white text-sm mx-1 rounded whitespace-no-wrap">
               <i class="fas fa-plus mr-1"></i> 新增公告
             </button>
-          </div>
+          </div> -->
 
           <div class="flex flex-wrap bg-white py-6 px-6 mb-4 hover:bg-gray-300 shadow-lg border-class-red" v-for="n in 5" :key="n" :class="{ 'border-2': n === 1 }">
             <div class="w-full md:w-3/4 text-left mb-3 md:mb-0">

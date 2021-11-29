@@ -5,12 +5,7 @@
         <div class="flex">
           <Title :title="'LiveTalk課程管理'" />
         </div>
-        <div class="flex text-xs flex-wrap">
-          <h5 class="mr-3 whitespace-no-wrap">已結束<span class="bg-white rounded-lg px-2 py-1 mx-1">999</span>課</h5>
-          <h5 class="mr-3 whitespace-no-wrap">已取消<span class="bg-white rounded-lg px-2 py-1 mx-1">915</span>課</h5>
-          <h5 class="mr-3 whitespace-no-wrap">進行中<span class="bg-white rounded-lg px-2 py-1 mx-1">9</span>課</h5>
-          <h5 class="mr-3 whitespace-no-wrap">未結束<span class="bg-white rounded-lg px-2 py-1 mx-1">99</span>課</h5>
-        </div>
+        <UserNum :userNum="userNum" />
       </div>
       <div class="flex items-center justify-between w-full flex-wrap lg:flex-no-wrap mb-4">
         <FilterModal :showItems="showItems" />
@@ -122,6 +117,7 @@
   import StudentListModal from '@/components/popup/StudentListModal'
   import FileListModal from '@/components/popup/FileListModal'
   import Title from '@/components/Title'
+  import UserNum from '@/components/UserNum'
   export default {
     name: 'CoursesTalk',
     components: {
@@ -131,7 +127,8 @@
       CommentModal,
       StudentListModal,
       Title,
-      FileListModal
+      FileListModal,
+      UserNum
     },
     props: [
       'props'
@@ -213,7 +210,14 @@
               status: '準備中'
             }
           ]
-        }
+        },
+
+        userNum: [
+          { role: '已結束', num: 99, unit: '課' },
+          { role: '已取消', num: 99, unit: '課' },
+          { role: '進行中', num: 99, unit: '課' },
+          { role: '未結束', num: 99, unit: '課' }
+        ]
       }
     },
     computed: {

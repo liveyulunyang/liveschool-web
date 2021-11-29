@@ -10,7 +10,7 @@
         <div class="flex items-center justify-between w-full flex-wrap lg:flex-no-wrap mb-4">
           <div class="flex items-center justify-start flex-wrap lg:flex-no-wrap">
             <div class="mr-1 mb-1 lg:mb-0">
-              <router-link :to="{ name: 'learn_record' }"  class="px-4 py-2 bg-gray-900 text-white  text-sm rounded whitespace-no-wrap">
+              <router-link :to="{ name: 'learn_record' }"  class="px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
                 <i class="fas fa-chevron-left mr-1"></i>返回
               </router-link>
             </div>

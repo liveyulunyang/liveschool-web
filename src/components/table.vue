@@ -1,7 +1,7 @@
 <template>
   <div class="c-table">
     <TeacherInfoModal :showfirstModal="showfirstModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" />
-    <table class="rwd-table w-full mb-2 border-separate text-sm">
+    <table class="rwd-table w-full mb-2 text-sm">
       <tbody>
         <tr>
           <slot name="AdmissionStatus"></slot>
@@ -127,7 +127,7 @@
 }
 
 @media screen and (max-width: 1025px) {
-  .rwd-table { border-spacing: 0 0rem !important; }
+  // .rwd-table { border-spacing: 0 0rem !important; }
   .rwd-table tr:nth-child(2) {
     border-top: none;
   }

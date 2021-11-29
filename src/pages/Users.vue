@@ -5,13 +5,14 @@
         <div class="flex">
           <Title :title="'使用者管理'" />
         </div>
-        <div class="flex text-xs flex-wrap">
-          <h5 class="mr-3 whitespace-no-wrap">管理者<span class="bg-white rounded-lg px-2 py-1 mx-1">2</span>人</h5>
-          <h5 class="mr-3 whitespace-no-wrap">主任 / HR<span class="bg-white rounded-lg px-2 py-1 mx-1">915</span>人</h5>
-          <h5 class="mr-3 whitespace-no-wrap">督導<span class="bg-white rounded-lg px-2 py-1 mx-1">9</span>人</h5>
-          <h5 class="mr-3 whitespace-no-wrap">老師<span class="bg-white rounded-lg px-2 py-1 mx-1">99</span>人</h5>
-          <h5 class="whitespace-no-wrap">學生<span class="bg-white rounded-lg px-2 py-1 mx-1">9999</span>人</h5>
-        </div>
+        <UserNum :userNum="userNum" />
+        <!-- <div class="flex text-xs flex-wrap">
+          <h5 class="mr-3 whitespace-no-wrap mb-2">管理者<span class="bg-white rounded-lg px-2 py-1 mx-1">2</span>人</h5>
+          <h5 class="mr-3 whitespace-no-wrap mb-2">主任 / HR<span class="bg-white rounded-lg px-2 py-1 mx-1">915</span>人</h5>
+          <h5 class="mr-3 whitespace-no-wrap mb-2">督導<span class="bg-white rounded-lg px-2 py-1 mx-1">9</span>人</h5>
+          <h5 class="mr-3 whitespace-no-wrap mb-2">老師<span class="bg-white rounded-lg px-2 py-1 mx-1">99</span>人</h5>
+          <h5 class="whitespace-no-wrap mb-2">學生<span class="bg-white rounded-lg px-2 py-1 mx-1">9999</span>人</h5>
+        </div> -->
       </div>
       <div class="flex items-center w-full flex-wrap lg:flex-no-wrap mb-4">
         <FilterModal :showItems="showItems" />
@@ -64,19 +65,28 @@
   import Pagination from "@/components/modules/Pagination"
   import FilterModal from '@/components/FilterModal'
   import Title from '@/components/Title'
+  import UserNum from '@/components/UserNum'
   export default {
     name: "User",
     components: {
       Table,
       Pagination,
       FilterModal,
-      Title
+      Title,
+      UserNum
     },
     props: [
       'props'
     ],
     data () {
       return {
+        userNum: [
+          { role: '管理者', num: 99, unit: '人' },
+          { role: '主任 / HR', num: 99, unit: '人' },
+          { role: '督導', num: 99, unit: '人' },
+          { role: '老師', num: 99, unit: '人' },
+          { role: '學生', num: 99, unit: '人' }
+        ],
         showItems: {
           role: true,
           listStatus: false,

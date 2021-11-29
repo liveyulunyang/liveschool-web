@@ -2,25 +2,25 @@
   <main class="flex items-start p-6">
     <StudentsModal :showfirstModal="showfirstModal" v-on:closeModal="closeModal" :isDisabled="true" :title="''" v-on:submit="submit" />
     <div class="flex flex-col w-full">
-        <div class="mb-4 flex justify-between items-center flex-wrap">
-          <div class="flex items-center">
-            <Title :title="'主任預約紀錄'" />
-            <span>ALEX/ALEX WU(test@gmail.com)</span>
-          </div>
+      <div class="mb-4 flex justify-between items-center flex-wrap">
+        <div class="flex items-center">
+          <Title :title="'主任預約紀錄'" />
+          <span>ALEX/ALEX WU(test@gmail.com)</span>
         </div>
-        <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row mb-4">
-          <div class="flex items-center justify-start flex-wrap">
-            <div class="mr-1">
-              <router-link :to="{ name: 'branch' }"  class="px-4 py-2 bg-white  text-sm rounded whitespace-no-wrap border border-gray-500">
-                <i class="fas fa-chevron-left mr-1"></i>返回
-              </router-link>
-            </div>
-            <FilterModal :showItems="showItems" />
+      </div>
+      <div class="md:flex items-center md:justify-between w-full flex-wrap mb-4">
+        <div class="flex items-center justify-start flex-wrap md:flex-no-wrap">
+          <div class="mr-1 mb-2 md:mb-0">
+            <router-link :to="{ name: 'branch' }"  class="px-4 py-2 btn-main text-white text-sm rounded whitespace-no-wrap border border-gray-500">
+              <i class="fas fa-chevron-left mr-1"></i>返回
+            </router-link>
           </div>
-          <div>
-            <ExportBtn />
-          </div>
+          <FilterModal :showItems="showItems" />
         </div>
+        <div class="w-full md:w-auto flex justify-end">
+          <ExportBtn />
+        </div>
+      </div>
       <div class="flex flex-wrap">
         <!-- 統計 -->
         <div class="w-full md:w-2/5 xl:w-1/6 px-2 mb-4 md:mb-0">
