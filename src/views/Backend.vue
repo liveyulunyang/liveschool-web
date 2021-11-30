@@ -9,7 +9,7 @@
     <router-view class="min-h-full" @click.native="outside" />
     <!-- <SideBar :is-visible="isOpenSideBar" @click="outside"></SideBar> -->
 
-    <div class="fixed bottom-0 right-0 z-40 cursor-pointer">
+    <div class="fixed bottom-0 right-0 z-40 cursor-pointer" v-if="$store.state.auth.authorized">
       <div class="relative w-auto mx-1">
         <select class="block appearance-none py-3 px-4 pr-8 rounded leading-tight focus:outline-none border" id="setRole"
           @change="setRole($event)" v-model="$store.state.auth.userRole">
