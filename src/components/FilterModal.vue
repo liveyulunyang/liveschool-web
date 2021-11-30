@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full flex flex-wrap items-center text-sm" id="filterBtn">
+  <div class="flex flex-wrap items-center text-sm" id="filterBtn">
     <!-- 狀態 -->
     <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.progressStatus">
       <div class="relative w-full">
@@ -273,7 +273,7 @@
         classification: '',
         branch: '',
         classType: '',
-        timePeriod: [new Date(2021, 8, 29), new Date()],
+        timePeriod: [new Date(), new Date()],
         approvalStatus: '',
         searchType: '',
         searchWord: '',

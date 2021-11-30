@@ -58,11 +58,10 @@
             <section class="w-full lg:w-1/2 px-2 mb-4 lg:mb-0">
               <div class="bg-white px-4 py-5 rounded-lg shadow-lg">
                 <div class="flex justify-between items-start mb-5 flex-wrap md:flex-no-wrap">
-                  <div class="mr-2">
-                    <p class="text-left font-bold text-xl whitespace-no-wrap">成長曲線圖</p>
-                    <p class="text-left font-bold text-gray-500 whitespace-no-wrap">近10堂課程積分</p>
+                  <div class="">
+                    <p class="text-left font-bold text-xl whitespace-no-wrap">學習成長折線圖</p>
                   </div>
-                  <FilterModal :showItems="showItems" />
+                    <FilterModal :showItems="showItems" />
                 </div>
                 <line-chart :chartdata="dataLinear" :options="lineOptions" />
               </div>
@@ -153,8 +152,8 @@
           datasets: [
             {
               label: '',
-              borderColor: '#2E5BFF',
-              pointBackgroundColor: '#2E5BFF',
+              borderColor: '#0094D8',
+              pointBackgroundColor: '#0094D8',
               fill: true,
               lineTension: 0,
               data: [
@@ -208,7 +207,7 @@
           scales: {
             yAxes: [{
               gridLines: {
-                color: "#B0BAC9",
+                color: "#0094D8",
                 borderDash: [3, 3]
               },
               ticks: {

@@ -164,10 +164,18 @@ import jump from 'jump.js'
     },
     computed: {
     },
+    beforeMount () {
+      this.checkAuth()
+    },
     mounted () {
       this.getBanner()
     },
     methods: {
+      checkAuth () {
+        if (this.$store.state.auth.authorized) {
+          this.$router.push({ name: 'Users' })
+        }
+      },
       getBanner () {
         let self = this
         axios.get('https://api.liveabc.com/v1/ad/IndexBanner')
