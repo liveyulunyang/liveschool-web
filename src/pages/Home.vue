@@ -22,9 +22,9 @@
     <IndexBanner :bannerData="bannerData" />
     <!-- 課程種類 -->
     <section id="classType" class="bg-blue-main-dark overflow-hidden">
-      <div class="text-white tracking-widest py-16 lg:py-24">
-        <h3 class="text-3xl md:text-4xl font-semibold">課程種類</h3>
-        <h3 class="text-3xl font-light">Course type</h3>
+      <div class="text-white tracking-widest py-16 lg:py-24 text-center">
+        <h3 class="text-3xl lg:text-3xl md:text-4xl font-semibold">課程種類</h3>
+        <h3 class="text-2xl lg:text-3xl font-light">Course type</h3>
       </div>
       <div class="classType-items flex w-full justify-center container">
         <a class="mx-1 md:mx-3 classType-items-talk classType-items-card" :class="{ active: type === 'talk' }"  @click="type = 'talk'">
@@ -42,13 +42,13 @@
       </div>
     </section>
     <!-- 課程介紹/最新消息/熱門課程 -->
-    <section ref="intro" id="intro" class="py-16 text-main px-2" :class="{ talk: type === 'talk', class: type === 'class', teacher: type === 'teacher'}">
+    <section ref="intro" id="intro" class="py-6 lg:py-16 text-main px-2" :class="{ talk: type === 'talk', class: type === 'class', teacher: type === 'teacher'}">
       <div class="container">
         <div class="py-8">
           <div class="flex flex-col justify-start md:flex-row md:items-center mb-6 md:justify-between">
             <div class="flex items-center">
               <img src="@/assets/img/home/icon_home_bulleted.png" class="block mr-2">
-              <h4 class="text-2xl sm:text-3xl md:text-4xl font-bold mr-2">課程介紹</h4>
+              <h4 class="text-2xl lg:text-3xl md:text-4xl font-bold mr-2">課程介紹</h4>
               <p class="text-2xl font-light">Course Introduction</p>
             </div>
           </div>
@@ -58,7 +58,7 @@
         <div class="py-8">
           <div class="flex items-center mb-6">
             <img src="@/assets/img/home/icon_home_bulleted.png" class="block mr-2">
-            <h4 class="text-2xl sm:text-3xl md:text-4xl font-bold mr-2">最新消息</h4>
+            <h4 class="text-2xl lgm:text-3xl md:text-4xl font-bold mr-2">最新消息</h4>
             <p class="text-2xl font-light">News</p>
           </div>
           <img src="@/assets/img/home/pic_home_news.png" class="shadow-lg object-contain">
@@ -66,9 +66,9 @@
 
         <div class="py-8">
           <div class="flex flex-col justify-start md:flex-row md:items-center mb-6 md:justify-between">
-            <div class="flex items-center">
+            <div class="flex items-center mb-3 lg:mb-0">
               <img src="@/assets/img/home/icon_home_bulleted.png" class="block mr-2">
-              <h4 class="text-2xl sm:text-3xl md:text-4xl font-bold mr-2">熱門課程</h4>
+              <h4 class="text-2xl lg:text-3xl md:text-4xl font-bold mr-2">熱門課程</h4>
               <p class="text-2xl font-light">Popular courses</p>
             </div>
 
@@ -81,23 +81,23 @@
     <!-- 如何上課 -->
     <section ref="howtoclass" id="howtoclass" class="bg-blue-main-dark overflow-hidden py-16 lg:py-24">
       <div class="container px-2">
-        <div class="text-white tracking-widest mb-16">
-          <h3 class="text-3xl md:text-4xl font-semibold">如何上課</h3>
-          <h3 class="text-3xl font-light mb-12">Course Introduction</h3>
-          <p class="text-2xl font-light">使用ZOOM雲端視訊會議系統進行上課，建議使用者在上課前，預先下載ZOOM軟體; 若是未先下載，在進入課堂時，系統會導引至下載頁面，幫助使用者下載並安裝。</p>
+        <div class="text-white tracking-widest mb-16 text-center">
+          <h3 class="text-3xl lg:text-4xl font-semibold">如何上課</h3>
+          <h3 class="text-2xl lg:text-3xl font-light mb-12">Course Introduction</h3>
+          <p class="text-xl lg:text-2xl font-light">使用ZOOM雲端視訊會議系統進行上課，建議使用者在上課前，預先下載ZOOM軟體; 若是未先下載，在進入課堂時，系統會導引至下載頁面，幫助使用者下載並安裝。</p>
         </div>
 
         <div class="flex justify-center">
-          <a class="block cursor-pointer rounded-xl px-6 py-3 text-main font-bold bg-white text-3xl hover:shadow-xl text-main tracking-wider">軟體下載</a>
+          <a class="block cursor-pointer rounded-xl px-6 py-3 text-main font-bold bg-white text-2xl lg:text-3xl hover:shadow-xl text-main tracking-wider">軟體下載</a>
         </div>
       </div>
     </section>
     <!-- 成功見證 -->
     <section ref="successWitness" id="successWitness" class="overflow-hidden py-16 lg:py-24">
       <div class="container px-2">
-        <div class="text-white tracking-widest mb-16">
-          <h3 class="text-3xl md:text-4xl font-semibold text-main">成功見證</h3>
-          <h3 class="text-3xl font-light mb-12 text-main">Success Witness</h3>
+        <div class="text-white tracking-widest mb-16 text-center">
+          <h3 class="text-3xl lg:text-3xl md:text-4xl font-semibold text-main">成功見證</h3>
+          <h3 class="text-2xl lg:text-3xl font-light mb-12 text-main">Success Witness</h3>
         </div>
 
         <div class="w-full h-full">
@@ -114,9 +114,9 @@
     <!-- 專業師資 -->
     <section id="professional_teachers" class="overflow-hidden py-16 lg:py-24">
       <div class="container">
-        <div class="text-white tracking-widest mb-16">
-          <h3 class="text-3xl md:text-4xl font-semibold text-main">專業師資</h3>
-          <h3 class="text-3xl font-light mb-12 text-main">Professional teachers</h3>
+        <div class="text-white tracking-widest mb-16 text-center">
+          <h3 class="text-3xl lg:text-4xl font-semibold text-main">專業師資</h3>
+          <h3 class="text-2xl lg:text-3xl font-light mb-12 text-main">Professional teachers</h3>
         </div>
 
         <div class="px-2">
@@ -130,12 +130,12 @@
     <!-- 開啟你更多不同可能性的美好未來 -->
     <section id="login_free" class="bg-blue-main-dark overflow-hidden py-40">
       <div class="container">
-        <div class="text-white tracking-widest mb-16">
-          <h3 class="text-4xl font-semibold">開啟你更多不同可能性的美好未來</h3>
+        <div class="text-white tracking-widest mb-16 text-center">
+          <h3 class="text-2xl lg:text-4xl font-semibold">開啟你更多不同可能性的美好未來</h3>
         </div>
 
         <div class="flex justify-center">
-          <a class="block cursor-pointer rounded-xl px-6 py-3 text-main font-bold bg-white text-3xl hover:shadow-xl text-main tracking-wider">登入 / 免費註冊</a>
+          <a class="block cursor-pointer rounded-xl px-6 py-3 text-main font-bold bg-white text-2xl lg:text-3xl hover:shadow-xl text-main tracking-wider">登入 / 免費註冊</a>
         </div>
       </div>
 
@@ -207,6 +207,7 @@ import jump from 'jump.js'
 </script>
 <style lang="scss" scoped>
   #index{
+    background: #DEECF0;
     .fixed-btn {
       right: .8em;
       top: 50%;

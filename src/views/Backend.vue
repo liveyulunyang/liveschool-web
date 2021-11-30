@@ -26,33 +26,6 @@
     </div>
 
   </div>
-  <footer class="bg-gray-900 w-full text-white py-12 px-3 md:px-0 text-center md:text-left">
-    <div class="container mx-auto flex flex-wrap justify-between">
-      <div class="flex flex-wrap w-full md:w-auto mb-12 md:mb-0">
-        <div class="px-4 w-1/3 md:w-auto">
-          <h6 class="text-lg mb-6">Live School</h6>
-          <a href="">{{ $t('teachers') }}</a>
-        </div>
-        <div class="px-4 w-1/3 md:w-auto">
-          <h6 class="text-lg mb-6">{{ $t('SiteGuide') }}</h6>
-          <a href="" class="block mb-3">{{ $t('QA') }}</a>
-          <a href="" class="block mb-3">{{ $t('Manual') }}</a>
-          <a href="" class="block">{{ $t('downloads') }}</a>
-        </div>
-        <div class="px-4 w-1/3 md:w-auto">
-          <h6 class="text-lg mb-6">切換語言</h6>
-          <a @click="setLang('en')" class="block mb-3 cursor-pointer">English</a>
-          <a @click="setLang('zh')" class="block mb-3 cursor-pointer">繁體中文</a>
-          <a @click="setLang('cn')" class="block cursor-pointer">简体中文</a>
-        </div>
-      </div>
-      <div class="w-full md:w-auto flex flex-col items-center md:flex-none md:items-start">
-        <p><img src="@/assets/logo_liveabc.png" alt="" class="mb-3"></p>
-        <p class="mb-3">school@liveabc.com</p>
-        <p>客服專線：02-7730-9567、02-2528-0958</p>
-      </div>
-    </div>
-  </footer>
 </div>
 </template>
 

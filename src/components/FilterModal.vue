@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap items-center text-sm" id="filterBtn">
+  <div class="flex flex-wrap items-center text-sm z-0" id="filterBtn">
     <!-- 狀態 -->
     <div class="w-full md:w-1/2 lg:w-auto p-1" v-if="showItems.progressStatus">
       <div class="relative w-full">
@@ -312,8 +312,11 @@
 <style lang="scss">
   #filterBtn {
     .mx-datepicker-range {
-      width: 100%;
+      width: 240px !important;
       height: 43px !important;
+      @media (max-width: 768px) {
+        width: 100% !important;
+      }
     }
     .mx-input-wrapper {
       .mx-input {

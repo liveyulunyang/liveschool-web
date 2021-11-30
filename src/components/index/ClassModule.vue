@@ -23,7 +23,7 @@
 
           <div class="itemName mb-2">
             <div class="title text-left tracking-wider">
-              <h5 class="whitespace-pre-wrap font-bold mb-1 text-2xl">老師希望你別再說錯的 英語易混淆字！</h5>
+              <h5 class="whitespace-pre-wrap font-bold mb-1 text-xl lg:text-2xl">老師希望你別再說錯的 英語易混淆字！</h5>
               <h6 class="whitespace-pre-wrap">精準剖析多益文法考點！</h6>
             </div>
           </div>

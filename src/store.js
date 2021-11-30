@@ -7,8 +7,8 @@ export default new Vuex.Store({
   state: {
     lang: 'zh',
     auth: {
-      authorized: false,
-      userRole: 'director', // admin director supervise student teacher
+      authorized: false, // true false
+      userRole: 'admin', // admin director supervise student teacher
       reserveMode: false,
       user: null
     }

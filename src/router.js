@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-
+import Footer from './components/modules/FooterSection.vue'
 Vue.use(Router)
 
 const router = new Router({
@@ -31,7 +31,8 @@ const router = new Router({
       path: '/',
       name: '',
       components: {
-        default: () => import('@/views/Backend.vue')
+        default: () => import('@/views/Backend.vue'),
+        footer: Footer
       },
       children: [
         {

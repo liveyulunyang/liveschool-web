@@ -1,6 +1,7 @@
 <template>
   <div id="app" class="mx-auto overflow-hidden m-0 p-0 scroll-bar">
     <router-view></router-view>
+    <router-view name="footer"></router-view>
   </div>
 </template>
 

@@ -10,9 +10,9 @@
           <i class="fas fa-volume-up text-white"></i>
         </a>
       </div>
-      <div class="text-main">
-        <h4 class="text-3xl font-bold mb-3">Bradley</h4>
-        <h4 class="text-2xl font-semibold">專業中師</h4>
+      <div class="text-main text-center font-bold">
+        <h4 class="text-xl lg:text-2xl font-bold mb-1">Bradley</h4>
+        <h4 class="text-xl lg:text-2xl font-semibold">專業中師</h4>
       </div>
     </swiper-slide>
   </swiper>
@@ -85,8 +85,8 @@ export default {
     .mugShot {
         width: 100%;
         height: 100%;
-        max-width: 260px;
-        max-height: 260px;
+        max-width: 250px;
+        max-height: 250px;
       .mugShot-img {
         border-radius: 50%;
         overflow: hidden;
@@ -96,8 +96,15 @@ export default {
         bottom: 2%;
         width: 70px;
         height: 70px;
+        @media (max-width: 1024px) {
+          width: 60px;
+          height: 60px;
+        }
         .fa-volume-up {
           font-size: 30px;
+          @media (max-width: 1024px) {
+            font-size: 24px;
+          }
         }
       }
     }
