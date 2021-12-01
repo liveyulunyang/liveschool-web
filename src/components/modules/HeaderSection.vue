@@ -1,7 +1,7 @@
 <template>
   <header class="bg-white flex justify-between px-2 lg:px-16 border-b-2 border-gray-900 border-solid h-20 z-50">
     <Nav class="md:hidden" mode="mobile" :menu-list-item="roleMenu"></Nav>
-    <router-link class="flex items-center" to="/">
+    <router-link :to="{ name: logoRouter }" class="flex items-center cursor-pointer">
       <img alt="logo" src="@/assets/logo.png" class="w-24 md:w-48 h-auto" v-if="$route.name !== 'bookingClass' && $route.name !== 'classPreview' && $route.name !== 'classPreviewTeacher' && $route.name !== 'classPreviewTalk'">
       <span class="mt-4 ml-3 hidden md:block" v-if="$route.name !== 'bookingClass' && $route.name !== 'classPreview' && $route.name !== 'classPreviewTeacher' && $route.name !== 'classPreviewTalk'">遠距教學平台</span>
     </router-link>
@@ -15,20 +15,20 @@
         <a class="px-2 py-2 cursor-pointer rounded mx-1 btn-mode" :class="{ active: $store.state.auth.reserveMode }" @click="setMode(true)">預約管理模式</a>
         <a class="px-2 py-2 cursor-pointer rounded mx-1 btn-mode" :class="{ active: !$store.state.auth.reserveMode }" @click="setMode(false)">個人學習模式</a>
       </div>
-      <div v-if="!$store.state.auth.authorized" class="flex items-center">
+      <div v-if="!authorized" class="flex items-center">
         <a class="hidden md:block cursor-pointer px-3 py-2 text-main font-bold mr-3" href="https://docs.google.com/forms/d/e/1FAIpQLSfw_Q9scdFhVp5iNFO8exubkbloQGILu3rbdsnmMFANnFqHDA/viewform" target="_blank">{{ $t('cooperative') }}</a>
         <a class="block cursor-pointer border-2 rounded-xl px-3 py-2 text-main font-bold border-main" @click="$emit('toggleLogin', true)">{{ $t('login') }}</a>
       </div>
-      <div class="dropdown" v-if="$store.state.auth.authorized">
+      <div class="dropdown" v-if="authorized">
         <button class="dropbtn focus:outline-none font-bold" @click="isOpenUser = !isOpenUser">Hi! Peggy<i class="fas fa-sort-down ml-2"></i></button>
         <div id="myDropdown" class="dropdown-content font-bold" :class=" { hidden: !isOpenUser }">
 
           <router-link :to="{ name: 'account' }">帳號資料</router-link>
           <router-link :to="{ name: 'learn_record_student' }">查詢紀錄</router-link>
-          <router-link to="/">{{ $t('logout') }}</router-link>
+          <a @click="logout" class="cursor-pointer">{{ $t('logout') }}</a>
         </div>
       </div>
-      <router-link :to="{ path: '/announce/read' }" v-if="$store.state.auth.authorized"
+      <router-link :to="{ path: '/announce/read' }" v-if="authorized"
           class="mx-2 relative text-gray-1 hover:text-primary-normal focus:outline-none block cursor-pointer"
           round>
         <span class="absolute top-0 right-0 h-2 w-2 rounded-full bg-red-999"></span>
@@ -69,20 +69,49 @@ export default {
   computed: {
     ...mapGetters([
       'userRole',
-      'lang'
-    ])
+      'lang',
+      'authorized'
+    ]),
+    logoRouter () {
+      let self = this
+      if (self.authorized) {
+        if (self.userRole === 'admin') {
+          return 'Users'
+        } else if (self.userRole === 'director' && self.reserveMode) {
+          return 'myClass'
+            // self.$router.push({ name: 'myClass' })
+          } else if (self.userRole === 'director' && !self.reserveMode) {
+            return 'myClass'
+            // self.$router.push({ name: 'myClass' })
+          } else if (self.userRole === 'supervise') {
+            return 'branch'
+            // self.$router.push({ name: 'branch' })
+          } else if (self.userRole === 'student') {
+            return 'myClass'
+            // self.$router.push({ name: 'myClass' })
+          } else if (self.userRole === 'teacher') {
+            return 'myClass'
+            // self.$router.push({ name: 'myClass' })
+          } else {
+            return 'home'
+            // self.$router.push({ name: 'Users' })
+          }
+      } else {
+        return 'home'
+        // self.$router.push({ name: 'index' })
+      }
+    }
   },
   methods: {
     outside () {
-      // this.isOpenSideBar = false
       this.isOpenUser = false
     },
-    // toggleSideBar () {
-    //   let self = this
-    //   self.$emit('toggleSideBar', false)
-    // },
     setMode (val) {
       this.$store.dispatch('setMode', val)
+    },
+    async logout () {
+      await this.$store.dispatch('logout')
+      this.$router.push({ path: '/' })
     }
   }
 }

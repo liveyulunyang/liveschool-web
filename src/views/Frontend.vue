@@ -66,7 +66,7 @@
               <div v-if="gameIdx === 0" class="flex flex-col w-full">
                 <div class="flex py-4 px-1 border-b-2 border-black">
                   <div class="w-3/4 flex items-center px-2 text-black font-bold">
-                    <span>抽</span>
+                    <span>{{ $t('draw') }}</span>
                     <input v-model="selectNum" type="number" min="1" :max="student.length - 1" class="border w-full mx-2 border-black rounded text-center">
                     <span>人</span>
                   </div>
@@ -85,9 +85,9 @@
                   </div>
                 </div>
               </div>
-              <div class="" v-if="gameIdx === 1">
+              <div v-if="gameIdx === 1">
                 <div class="w-full py-4 px-3">
-                  <a class="btn-main text-white px-3 py-1 block text-center rounded cursor-pointer mb-4" @click="shakeDice">開始</a>
+                  <a class="btn-main text-white px-3 py-1 block text-center rounded cursor-pointer mb-4" @click="shakeDice">{{ $t('start') }}</a>
 
                   <div>
                     <img :src="require('@/assets/img/frontend/ani_01_ok.gif') + '?' + new Date().getTime()" alt="" class="object-contain" v-if="diceNum === null">
@@ -101,10 +101,10 @@
                 </div>
 
               </div>
-              <div class="" v-if="gameIdx === 2">
+              <div v-if="gameIdx === 2">
                 <div class="flex py-4 px-1 border-b-2 border-black">
                   <div class="w-3/4 flex items-center px-2 text-black font-bold whitespace-no-wrap">
-                    <span class="">倒數</span>
+                    <span class="">{{ $t('reciprocal') }}</span>
                     <input :disable="isCountDown === true" type="text" class="border w-12 mx-2 border-black rounded text-center" v-model="min">
                     <span class="">:</span>
                     <input :disable="isCountDown === true" type="text" class="border w-12 mx-2 border-black rounded text-center" v-model="sec">
@@ -124,9 +124,9 @@
               </div>
               <div class="" v-if="gameIdx === 3">
                 <div class="w-full py-4 px-3">
-                  <a class="btn-main text-white px-3 py-1 block text-center rounded cursor-pointer mb-4" @click="openApplaud">拍手</a>
-                  <a class="btn-main text-white px-3 py-1 block text-center rounded cursor-pointer mb-4" @click="openCheer">歡呼</a>
-                  <a class="btn-main text-white px-3 py-1 block text-center rounded cursor-pointer" @click="openDingDong">讚</a>
+                  <a class="btn-main text-white px-3 py-1 block text-center rounded cursor-pointer mb-4" @click="openApplaud">{{ $t('clap') }}</a>
+                  <a class="btn-main text-white px-3 py-1 block text-center rounded cursor-pointer mb-4" @click="openCheer">{{ $t('cheer') }}</a>
+                  <a class="btn-main text-white px-3 py-1 block text-center rounded cursor-pointer" @click="openDingDong">{{ $t('great') }}</a>
                 </div>
               </div>
             </div>

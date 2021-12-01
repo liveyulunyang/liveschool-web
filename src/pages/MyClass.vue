@@ -3,25 +3,25 @@
     <div class="flex items-start">
       <!-- 主任 -->
       <div class="flex flex-col w-full" v-if="$store.state.auth.userRole === 'director'">
-        <div class="flex flex-wrap items-stretch py-3 student-basic-info mb-2" v-if="!$store.state.auth.reserveMode">
-          <div class="md:flex-none py-4 text-white font-bold flex items-center justify-center md:border-r-2 px-3 w-full md:w-2/6">
+        <div class="flex flex-wrap items-stretch py-3 student-basic-info mb-3" v-if="!$store.state.auth.reserveMode">
+          <div class="lg:flex-none py-4 text-white font-bold flex items-center justify-center lg:border-r-2 px-3 w-full lg:w-2/6">
             <div class="mx-2">
               <Avatar />
             </div>
             <div class="ml-2 text-left">
-              <h6 class="text-2xl">Steve Jobs</h6>
-              <h6 class="text-3xl">賈伯斯</h6>
+              <h6 class="text-lg lg:text-2xl">Steve Jobs</h6>
+              <h6 class="text-lg lg:text-2xl">賈伯斯</h6>
             </div>
           </div>
-          <div class="md:flex-1 text-white font-bold md:border-r-2 flex flex-col justify-center w-1/2 md:w-auto py-4 md:py-0">
+          <div class="lg:flex-1 text-white font-bold lg:border-r-2 flex flex-col justify-center w-1/2 lg:w-auto py-4 lg:py-0">
             <h6 class="text-base lg:text-lg">累積上課時數</h6>
             <p class="text-2xl lg:text-3xl">1:05:20</p>
           </div>
-          <div class="md:flex-1 text-white font-bold md:border-r-2 flex flex-col justify-center w-1/2 md:w-auto py-4 md:py-0">
+          <div class="lg:flex-1 text-white font-bold lg:border-r-2 flex flex-col justify-center w-1/2 lg:w-auto py-4 lg:py-0">
             <h6 class="text-base lg:text-lg">累積完成課程數</h6>
             <p class="text-2xl lg:text-3xl">20</p>
           </div>
-          <div class="md:flex-1 text-white font-bold flex flex-col justify-center w-1/2 md:w-auto py-4 md:py-0">
+          <div class="lg:flex-1 text-white font-bold flex flex-col justify-center w-1/2 lg:w-auto py-4 lg:py-0">
             <h6 class="text-base lg:text-lg">剩餘點數</h6>
             <p class="text-2xl lg:text-3xl">8</p>
           </div>
@@ -145,29 +145,29 @@
       </div>
       <!-- 學生 -->
       <div class="student flex flex-col w-full" v-if="$store.state.auth.userRole === 'student'">
-        <div class="flex flex-wrap items-stretch py-3 student-basic-info">
-          <div class="md:flex-none py-4 text-white font-bold flex items-center justify-center md:border-r-2 px-3 w-full md:w-2/6">
+        <div class="flex flex-wrap items-stretch py-3 student-basic-info mb-3">
+          <div class="lg:flex-none py-4 text-white font-bold flex items-center justify-center lg:border-r-2 px-3 w-full lg:w-2/6">
             <div class="mx-2">
               <Avatar />
             </div>
             <div class="ml-2 text-left">
-              <h6 class="text-2xl">Steve Jobs</h6>
-              <h6 class="text-3xl">賈伯斯</h6>
+              <h6 class="text-lg lg:text-2xl">Steve Jobs</h6>
+              <h6 class="text-lg lg:text-2xl">賈伯斯</h6>
             </div>
           </div>
-          <div class="md:flex-1 text-white font-bold md:border-r-2 flex flex-col justify-center w-1/2 md:w-auto py-4 md:py-0">
+          <div class="lg:flex-1 text-white font-bold lg:border-r-2 flex flex-col justify-center w-1/2 lg:w-auto py-4 lg:py-0">
             <h6 class="text-base lg:text-lg">累積上課時數</h6>
             <p class="text-2xl lg:text-3xl">1:05:20</p>
           </div>
-          <div class="md:flex-1 text-white font-bold md:border-r-2 flex flex-col justify-center w-1/2 md:w-auto py-4 md:py-0">
+          <div class="lg:flex-1 text-white font-bold lg:border-r-2 flex flex-col justify-center w-1/2 lg:w-auto py-4 lg:py-0">
             <h6 class="text-base lg:text-lg">累積完成課程數</h6>
             <p class="text-2xl lg:text-3xl">20</p>
           </div>
-          <!-- <div class="md:flex-1 bg-gray-600 text-white font-bold md:border-r-2 flex flex-col justify-center w-1/2 md:w-auto py-4 md:py-0">
+          <!-- <div class="lg:flex-1 bg-gray-600 text-white font-bold lg:border-r-2 flex flex-col justify-center w-1/2 lg:w-auto py-4 lg:py-0">
             <h6 class="text-base lg:text-lg">取得證書數</h6>
             <p class="text-2xl lg:text-3xl">3</p>
           </div> -->
-          <div class="md:flex-1 text-white font-bold flex flex-col justify-center w-1/2 md:w-auto py-4 md:py-0">
+          <div class="lg:flex-1 text-white font-bold flex flex-col justify-center w-1/2 lg:w-auto py-4 lg:py-0">
             <h6 class="text-base lg:text-lg">剩餘點數</h6>
             <p class="text-2xl lg:text-3xl">8</p>
           </div>

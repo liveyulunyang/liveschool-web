@@ -1,15 +1,18 @@
 <template>
   <div id="app" class="mx-auto overflow-hidden m-0 p-0 scroll-bar">
+    <BookLoading v-if="$store.state.isLoading" />
     <router-view></router-view>
     <router-view name="footer"></router-view>
   </div>
 </template>
 
 <script>
+import BookLoading from '@/components/modules/BookLoading'
   import { mapGetters } from 'vuex'
   export default {
     name: 'app',
     components: {
+      BookLoading
     },
     data () {
       return {
@@ -31,31 +34,9 @@
     computed: {
       ...mapGetters([
         'userRole'
-      ]),
-      roleMenu () {
-        if (this.userRole === 'admin') {
-          return this.adminList
-        } else if (this.userRole === 'director') {
-            return this.directorList
-          } else if (this.userRole === 'supervise') {
-            return this.superviseList
-          } else if (this.userRole === 'student') {
-            return this.studentList
-          } else if (this.userRole === 'teacher') {
-            return this.teacherList
-          } else {
-            return this.adminList
-          }
-        // var filterEmpty = this.menuListItems.filter((item, index, array) => {
-        //   return item.role.indexOf(this.userRole) > -1
-        // })
-        // return filterEmpty
-      }
+      ])
     },
     methods: {
-      // openSideBar () {
-      //   // this.isOpenSideBar = !this.isOpenSideBar
-      // },
       outside () {
         // this.isOpenSideBar = false
         this.isOpenUser = false

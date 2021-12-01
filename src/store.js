@@ -7,18 +7,27 @@ export default new Vuex.Store({
   state: {
     lang: 'zh',
     auth: {
-      authorized: false, // true false
+      authorized: true, // true false
       userRole: 'admin', // admin director supervise student teacher
       reserveMode: false,
       user: null
-    }
+    },
+    isLoading: false
   },
+
   getters: {
+    authorized: state => state.auth.authorized,
     userRole: state => state.auth.userRole,
     reserveMode: state => state.auth.reserveMode,
-    lang: state => state.lang
+    lang: state => state.lang,
+    isLoading: state => state.isLoading
   },
+
   actions: {
+    isLoading: (context, data) => {
+      context.commit('ISLOADING', data)
+    },
+
     setRole: (context, data) => {
       context.commit('SETROLE', data)
     },
@@ -48,16 +57,21 @@ export default new Vuex.Store({
         }
       })
     },
+
     logout: async ({ commit }) => {
-      await axios.post('/logout')
-        .then(() => {
-          commit('LOGOUT')
-        }).catch(() => {
-          commit('LOGOUT')
-        })
+      commit('LOGOUT')
+      // await axios.post('/logout')
+      //   .then(() => {
+      //     commit('LOGOUT')
+      //   }).catch(() => {
+      //     commit('LOGOUT')
+      //   })
     }
   },
   mutations: {
+    ISLOADING (state, data) {
+      state.isLoading = data
+    },
     SETROLE (state, data) {
       state.auth.userRole = data
     },

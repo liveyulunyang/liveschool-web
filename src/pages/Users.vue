@@ -231,6 +231,10 @@
             cancelButton: 'btn btn-cancel'
           }
         })
+      },
+
+      getData () {
+        this.$store.dispatch('isLoading', true)
       }
     }
   }
@@ -246,10 +250,8 @@
     .mx-input {
       height: 42px !important;
     }
-
     .multiselect {
       width: fit-content !important;
     }
   }
-
 </style>

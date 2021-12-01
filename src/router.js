@@ -8,16 +8,12 @@ const router = new Router({
   base: process.env.BASE_URL,
   linkExactActiveClass: 'is-active',
   routes: [
-    // {
-    //   path: '/',
-    //   name: 'home',
-    //   component: () => import('@/views/Backend.vue')
-    // },
     {
       path: '/liveTalk',
       name: 'liveTalkFrontView',
       components: {
-        default: () => import('@/views/Frontend.vue')
+        default: () => import('@/views/Frontend.vue'),
+        footer: Footer
       },
       children: [
         {

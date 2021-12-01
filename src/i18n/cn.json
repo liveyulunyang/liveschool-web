@@ -6,5 +6,12 @@
   "downloads": "软件下载",
   "login": "登入 / 免费注册",
   "logout": "登出",
-  "cooperative": "合作开课"
+  "cooperative": "合作开课",
+
+  "start": "开始",
+  "clap": "拍手",
+  "cheer": "欢呼",
+  "great": "赞",
+  "reciprocal": "倒数",
+  "draw": "抽"
 }

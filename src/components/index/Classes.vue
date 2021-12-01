@@ -61,9 +61,23 @@ export default {
   .slider-classes {
     .swiper-button-next-banner {
       right: -3em !important;
+      background-image: url('~@/assets/img/home/arrow_right.png');
+      background-size: contain;
+      background-size: 15px 30px;
+      background-position: center;
+      // width: 6vw;
+      height: 100%;
+      transform: translateY(-50%);
     }
     .swiper-button-prev-banner {
       left: -3em !important;
+      background-image: url('~@/assets/img/home/arrow_left.png');
+      background-size: contain;
+      background-size: 15px 30px;
+      background-position: center;
+      // width: 6vw;
+      height: 100%;
+      transform: translateY(-50%);
     }
   }
 </style>

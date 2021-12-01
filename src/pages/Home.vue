@@ -3,18 +3,18 @@
     <!-- fixed-btn -->
     <div class="fixed-btn fixed z-50">
       <div class="fixed-btn-arrow">
-        <img src="@/assets/img/home/btn_arrow_left.png" class="cursor-pointer left">
-        <img src="@/assets/img/home/btn_arrow_right.png" class="cursor-pointer right">
+        <img src="@/assets/img/home/btn_arrow_left.png" class="cursor-pointer left h-24 md:h-auto">
+        <img src="@/assets/img/home/btn_arrow_right.png" class="cursor-pointer right h-24 md:h-auto">
       </div>
       <div class="absolute fixed-btn-items">
         <a @click="jump('intro')">
-          <img src="@/assets/img/home/btn_01.png" class="cursor-pointer">
+          <img src="@/assets/img/home/btn_01.png" class="cursor-pointer h-24 md:h-auto">
         </a>
         <a @click="jump('howtoclass')">
-          <img src="@/assets/img/home/btn_02.png" class="cursor-pointer">
+          <img src="@/assets/img/home/btn_02.png" class="cursor-pointer h-24 md:h-auto">
         </a>
         <a @click="jump('successWitness')">
-          <img src="@/assets/img/home/btn_03.png" class="cursor-pointer">
+          <img src="@/assets/img/home/btn_03.png" class="cursor-pointer h-24 md:h-auto">
         </a>
       </div>
     </div>
@@ -23,7 +23,7 @@
     <!-- 課程種類 -->
     <section id="classType" class="bg-blue-main-dark overflow-hidden">
       <div class="text-white tracking-widest py-16 lg:py-24 text-center">
-        <h3 class="text-3xl lg:text-3xl md:text-4xl font-semibold">課程種類</h3>
+        <h3 class="text-2xl lg:text-3xl md:text-4xl font-semibold">課程種類</h3>
         <h3 class="text-2xl lg:text-3xl font-light">Course type</h3>
       </div>
       <div class="classType-items flex w-full justify-center container">
@@ -82,7 +82,7 @@
     <section ref="howtoclass" id="howtoclass" class="bg-blue-main-dark overflow-hidden py-16 lg:py-24">
       <div class="container px-2">
         <div class="text-white tracking-widest mb-16 text-center">
-          <h3 class="text-3xl lg:text-4xl font-semibold">如何上課</h3>
+          <h3 class="text-2xl lg:text-3xl font-semibold">如何上課</h3>
           <h3 class="text-2xl lg:text-3xl font-light mb-12">Course Introduction</h3>
           <p class="text-xl lg:text-2xl font-light">使用ZOOM雲端視訊會議系統進行上課，建議使用者在上課前，預先下載ZOOM軟體; 若是未先下載，在進入課堂時，系統會導引至下載頁面，幫助使用者下載並安裝。</p>
         </div>
@@ -96,7 +96,7 @@
     <section ref="successWitness" id="successWitness" class="overflow-hidden py-16 lg:py-24">
       <div class="container px-2">
         <div class="text-white tracking-widest mb-16 text-center">
-          <h3 class="text-3xl lg:text-3xl md:text-4xl font-semibold text-main">成功見證</h3>
+          <h3 class="text-2xl lg:text-3xl md:text-4xl font-semibold text-main">成功見證</h3>
           <h3 class="text-2xl lg:text-3xl font-light mb-12 text-main">Success Witness</h3>
         </div>
 
@@ -115,7 +115,7 @@
     <section id="professional_teachers" class="overflow-hidden py-16 lg:py-24">
       <div class="container">
         <div class="text-white tracking-widest mb-16 text-center">
-          <h3 class="text-3xl lg:text-4xl font-semibold text-main">專業師資</h3>
+          <h3 class="text-2xl lg:text-3xl font-semibold text-main">專業師資</h3>
           <h3 class="text-2xl lg:text-3xl font-light mb-12 text-main">Professional teachers</h3>
         </div>
 
@@ -211,6 +211,9 @@ import jump from 'jump.js'
     .fixed-btn {
       right: .8em;
       top: 50%;
+      @media (max-width: 768px) {
+        right: .2em;
+      }
       .right {
         display: none;
       }

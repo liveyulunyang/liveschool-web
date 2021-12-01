@@ -87,7 +87,7 @@
   }
 
   .c-nav__menu.is-mobile {
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
@@ -97,6 +97,21 @@
     transition: opacity .15s ease, transform .3s ease;
     opacity: 1;
     transform: translateX(0);
+    overflow-y: scroll;
+  }
+  .c-nav__menu.is-mobile::-webkit-scrollbar {
+    width: 5px !important;
+  }
+  .c-nav__menu.is-mobile::-webkit-scrollbar-track {
+    background-color: #CCD2E3 !important;
+  }
+
+  .c-nav__menu.is-mobile::-webkit-scrollbar-thumb {
+    background: #191C1F !important;
+
+  }
+  .c-nav__menu.is-mobile::-webkit-scrollbar-corner {
+    background: #191C1F !important;
   }
   .c-nav.is-closed .c-nav__menu.is-mobile {
     opacity: 0;

@@ -6,5 +6,12 @@
   "Downloads": "Downloads",
   "login": "Login / Register",
   "logout": "logout",
-  "cooperative": "Cooperation"
+  "cooperative": "Cooperation",
+
+  "start": "start",
+  "clap": "Clap",
+  "cheer": "Cheer",
+  "great": "Great",
+  "reciprocal": "Count",
+  "draw": "Draw"
 }
