@@ -13,9 +13,9 @@
           <h5 class="whitespace-no-wrap">學生<span class="bg-white rounded-lg px-2 py-1 mx-1">9999</span>人</h5>
         </div>
       </div>
-      <div class="flex items-center justify-between w-full lg:flex-row mb-4 flex-wrap lg:flex-no-wrap">
-        <router-link :to="{ name: 'Users' }"  class="px-4 py-2 bg-gray-900 text-white hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
-          <i class="fas fa-chevron-left"></i>返回
+      <div class="flex items-center w-full lg:flex-row mb-4 flex-wrap lg:flex-no-wrap">
+        <router-link :to="{ name: 'Users' }"  class="px-4 py-2 btn-main text-white hover:bg-gray-600 text-sm rounded whitespace-no-wrap">
+          <i class="fas fa-chevron-left"></i>{{ $t('return') }}
         </router-link>
         <FilterModal :showItems="showItems" />
       </div>

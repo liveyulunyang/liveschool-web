@@ -11,7 +11,7 @@
           <div class="flex items-center justify-start flex-wrap lg:flex-no-wrap">
             <div class="mr-1">
               <router-link :to="{ name: 'learn_record' }"  class="px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
-                <i class="fas fa-chevron-left mr-1"></i>返回
+                <i class="fas fa-chevron-left mr-1"></i>{{ $t('return') }}
               </router-link>
             </div>
             <FilterModal :showItems="showItems" />

@@ -12,7 +12,7 @@
         <div class="flex items-center justify-start flex-wrap md:flex-no-wrap">
           <div class="mr-1 mb-2 md:mb-0">
             <router-link :to="{ name: 'branch' }"  class="px-4 py-2 btn-main text-white text-sm rounded whitespace-no-wrap border border-gray-500">
-              <i class="fas fa-chevron-left mr-1"></i>返回
+              <i class="fas fa-chevron-left mr-1"></i>{{ $t('return') }} $t('return') }}
             </router-link>
           </div>
           <FilterModal :showItems="showItems" />

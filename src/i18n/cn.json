@@ -13,5 +13,10 @@
   "cheer": "欢呼",
   "great": "赞",
   "reciprocal": "倒数",
-  "draw": "抽"
+  "draw": "抽",
+
+  "account": "帐号资料",
+  "checkoutRecord": "查询纪录",
+
+  "return": "返回"
 }

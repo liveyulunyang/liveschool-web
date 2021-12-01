@@ -6,10 +6,10 @@
             <Title :title="'公告管理'" />
           </div>
           <div class="flex justify-between items-center" v-if="$route.params.mode === 'read'">
-            <button @click="openModal(true)" class="px-4 py-2 btn-main text-white text-sm mx-1 rounded whitespace-no-wrap">
+            <button @click="setAllMsgSeen" class="px-4 py-2 btn-main text-white text-sm mx-1 rounded whitespace-no-wrap">
               <i class="fas fa-check mr-1"></i> 全部已讀
             </button>
-            <button @click="openModal(true)" class="px-4 py-2 btn-green text-white text-sm mx-1 rounded whitespace-no-wrap">
+            <button @click="delSeenAllMsg" class="px-4 py-2 btn-green text-white text-sm mx-1 rounded whitespace-no-wrap">
               <i class="fas fa-trash-alt mr-1"></i> 刪除全部已讀
             </button>
           </div>
@@ -110,52 +110,69 @@
         this.showfirstModal = closeModal
       },
       del () {
-        // this.$swal.fire({
-        //   title: '確認要刪除此筆資料?',
-        //   icon: 'warning',
-        //   showCancelButton: true,
-        //   confirmButtonColor: '#3085d6',
-        //   cancelButtonColor: '#d33',
-        //   confirmButtonText: '刪除',
-        //   cancelButtonText: '取消'
-        // }).then((result) => {
-        //   if (result.isConfirmed) {
-        //     this.$swal.fire(
-        //       'Deleted!',
-        //       'Your file has been deleted.',
-        //       'success'
-        //     )
-        //   }
-        // })
-      this.$swal.fire({
-        title: '確認要刪除此筆資料?',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonText: '刪除',
-        cancelButtonText: '取消',
-        customClass: {
-          title: 'font-bold text-2xl text-black',
-          actions: 'btns',
-          confirmButton: 'btn btn-confirm',
-          cancelButton: 'btn btn-cancel'
-        }
-      }).then((result) => {
-        if (result.isConfirmed) {
-          this.$swal.fire({
-            icon: 'success',
-            title: '刪除成功!',
-            text: '您所選擇的檔案已刪除',
-            confirmButtonColor: '#808080',
-            confirmButtonText: 'OK',
-            customClass: {
-              title: 'font-bold text-2xl text-black',
-              htmlContainer: 'text-sm',
-              actions: 'btns',
-              confirmButton: 'px-10'
-            }
-          })
-        }
-      })
+        let self = this
+        self.$swal.fire({
+          title: '確認要刪除此筆資料?',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: '刪除',
+          cancelButtonText: '取消',
+          customClass: {
+            title: 'font-bold text-2xl text-black',
+            actions: 'btns',
+            confirmButton: 'btn btn-confirm',
+            cancelButton: 'btn btn-cancel'
+          }
+        }).then((result) => {
+          if (result.isConfirmed) {
+            self.$swal.fire({
+              icon: 'success',
+              title: '刪除成功!',
+              text: '您所選擇的檔案已刪除',
+              confirmButtonColor: '#808080',
+              confirmButtonText: 'OK',
+              customClass: {
+                title: 'font-bold text-2xl text-black',
+                htmlContainer: 'text-sm',
+                actions: 'btns',
+                confirmButton: 'px-10'
+              }
+            })
+          }
+        })
+      },
+      setAllMsgSeen () {},
+      delSeenAllMsg () {
+        let self = this
+        self.$swal.fire({
+          title: '確認要刪除全部已讀資料?',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: '刪除',
+          cancelButtonText: '取消',
+          customClass: {
+            title: 'font-bold text-2xl text-black',
+            actions: 'btns',
+            confirmButton: 'btn btn-confirm',
+            cancelButton: 'btn btn-cancel'
+          }
+        }).then((result) => {
+          if (result.isConfirmed) {
+            self.$swal.fire({
+              icon: 'success',
+              title: '刪除成功!',
+              text: '您所選擇的檔案已刪除',
+              confirmButtonColor: '#808080',
+              confirmButtonText: 'OK',
+              customClass: {
+                title: 'font-bold text-2xl text-black',
+                htmlContainer: 'text-sm',
+                actions: 'btns',
+                confirmButton: 'px-10'
+              }
+            })
+          }
+        })
       }
     }
   }

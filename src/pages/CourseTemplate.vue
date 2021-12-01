@@ -9,7 +9,7 @@
         <div class="flex items-center justify-between w-full flex-wrap flex-col lg:flex-row">
           <div class="flex items-center justify-start flex-wrap">
             <button @click="$router.back(-1)" class="mr-3 px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
-              <i class="fas fa-chevron-left mr-1"></i>返回
+              <i class="fas fa-chevron-left mr-1"></i>{{ $t('return') }}
             </button>
             <FilterModal :showItems="showItems" />
           </div>

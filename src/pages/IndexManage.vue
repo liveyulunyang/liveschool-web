@@ -6,7 +6,7 @@
       </div>
       <div class="flex justify-between items-center">
         <TabComponent :tag="tag" :tagArr="tagArr" v-on:tagIdx="tagIdx" />
-        <button class="px-4 py-2 btn-red text-white  text-sm rounded whitespace-no-wrap" v-if="tag === 0">
+        <button class="px-4 py-2 btn-red text-white  text-sm rounded whitespace-no-wrap" v-if="tag === 0" @click="addBanner()">
           <i class="fas fa-plus mr-1"></i>新增banner
         </button>
       </div>
@@ -193,16 +193,6 @@
         this.tag = tagIdx
       },
 
-      add: function() {
-        this.list.push({ name: "Juan " + id, id: id++ });
-      },
-      replace: function() {
-        this.list = [{ name: "Edgard", id: id++ }];
-      },
-      checkMove: function(e) {
-        window.console.log("Future index: " + e.draggedContext.futureIndex);
-      },
-
       del(id) {
         console.log(id)
         this.$swal.fire({
@@ -234,6 +224,10 @@
             })
           }
         })
+      },
+
+      addBanner () {
+        this.$router.push({ name: 'AddBanner' })
       }
     }
   }

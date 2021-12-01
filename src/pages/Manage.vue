@@ -4,10 +4,10 @@
     <Title v-if="$route.name === 'account_add'" :title="'新增帳號'" />
     <Title v-if="$route.name === 'account_edit'" :title="'編輯帳號資料'" />
 
-    <div class="flex w-full mt-8 items-center">
+    <div class="flex w-full mt-4 items-center">
       <div class="mr-6">
         <Button @click="$router.back(-1)" class="px-4 py-2 btn-main text-white  text-sm mx-1 rounded whitespace-no-wrap">
-          <i class="fas fa-chevron-left mr-1"></i>返回
+          <i class="fas fa-chevron-left mr-1"></i>{{ $t('return') }}
         </Button>
       </div>
       <div class="flex items-center mr-2 w-2/5 lg:w-auto">

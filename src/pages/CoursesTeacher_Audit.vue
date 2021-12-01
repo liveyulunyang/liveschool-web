@@ -9,7 +9,7 @@
       </div>
       <div class="flex justify-between items-center w-full flex-wrap mb-4">
         <button @click="$router.back(-1)" class="px-4 py-2 btn-main text-white text-sm rounded whitespace-no-wrap w-full lg:w-auto">
-          <i class="fas fa-chevron-left mr-1"></i>返回
+          <i class="fas fa-chevron-left mr-1"></i>{{ $t('return') }}
         </button>
         <div class="flex items-center flex-wrap w-full lg:w-11/12 justify-between px-2 bg-white text-sm shadow-md">
           <div class="flex w-full lg:flex-1 p-2 bg-white">

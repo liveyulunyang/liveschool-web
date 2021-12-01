@@ -8,7 +8,7 @@
       <div class="flex">
         <div class="py-2 mr-1">
           <button @click="$router.back(-1)" class="px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
-            <i class="fas fa-chevron-left mr-1"></i>返回
+            <i class="fas fa-chevron-left mr-1"></i>{{ $t('return') }}
           </button>
         </div>
         <TabComponent :tag="tag" :tagArr="tagArr" v-on:tagIdx="tagIdx" />

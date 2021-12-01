@@ -8,7 +8,7 @@
         <ul class='flex cursor-pointer text-sm items-center'>
           <li class='py-2 mr-1'>
             <Button @click="$router.back(-1)" class="px-4 py-2 btn-main text-white  text-sm rounded whitespace-no-wrap">
-              <i class="fas fa-chevron-left mr-1"></i>返回
+              <i class="fas fa-chevron-left mr-1"></i>{{ $t('return') }}
             </Button>
           </li>
           <li class='ml-2'>

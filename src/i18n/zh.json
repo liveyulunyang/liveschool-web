@@ -8,10 +8,15 @@
   "logout": "登出",
   "cooperative": "合作開課",
 
-  "start": "开始",
+  "start": "開始",
   "clap": "拍手",
   "cheer": "歡呼",
   "great": "讚",
   "reciprocal": "倒數",
-  "draw": "抽"
+  "draw": "抽",
+
+  "account": "帳號資料",
+  "checkoutRecord": "查詢紀錄",
+
+  "return": "返回"
 }

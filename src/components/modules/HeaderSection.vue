@@ -21,10 +21,10 @@
       </div>
       <div class="dropdown" v-if="authorized">
         <button class="dropbtn focus:outline-none font-bold" @click="isOpenUser = !isOpenUser">Hi! Peggy<i class="fas fa-sort-down ml-2"></i></button>
-        <div id="myDropdown" class="dropdown-content font-bold" :class=" { hidden: !isOpenUser }">
+        <div id="myDropdown" class="dropdown-content font-bold" :class=" { hidden: !isOpenUser }" v-click-outside="hide">
 
-          <router-link :to="{ name: 'account' }">帳號資料</router-link>
-          <router-link :to="{ name: 'learn_record_student' }">查詢紀錄</router-link>
+          <router-link :to="{ name: 'account' }">{{ $t('account') }}</router-link>
+          <router-link :to="{ name: 'learn_record_student' }">{{ $t('checkoutRecord') }}</router-link>
           <a @click="logout" class="cursor-pointer">{{ $t('logout') }}</a>
         </div>
       </div>
@@ -45,6 +45,7 @@
   </header>
 </template>
 <script>
+import ClickOutside from 'vue-click-outside'
 import Nav from '@/components/Nav'
 import { mapGetters } from 'vuex'
 export default {
@@ -62,7 +63,9 @@ export default {
       type: Array
     }
   },
-
+  directives: {
+    ClickOutside
+  },
   components: {
     Nav
   },
@@ -102,16 +105,19 @@ export default {
       }
     }
   },
+  mounted () {
+    this.popupItem = this.$el
+  },
   methods: {
-    outside () {
-      this.isOpenUser = false
-    },
     setMode (val) {
       this.$store.dispatch('setMode', val)
     },
     async logout () {
       await this.$store.dispatch('logout')
       this.$router.push({ path: '/' })
+    },
+    hide () {
+      this.isOpenUser = false
     }
   }
 }

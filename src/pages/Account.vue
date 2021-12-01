@@ -121,10 +121,10 @@
                     </div>
                   </div>
                   <div class="md:flex mt-3 md:mb-4 w-full lg:pt-6 justify-end px-6">
-                    <button class="button-main py-2 px-6 rounded text-sm whitespace-no-wrap mx-1">
+                    <button class="btn-main text-white py-2 px-6 rounded text-sm whitespace-no-wrap mx-1">
                       取消修改
                     </button>
-                    <button class="button-main py-2 px-6 rounded text-sm whitespace-no-wrap mx-1">
+                    <button class="btn-main text-white py-2 px-6 rounded text-sm whitespace-no-wrap mx-1">
                       <i class="fas fa-check mr-1"></i>更新
                     </button>
                   </div>

@@ -14,7 +14,7 @@
           <h5 class="whitespace-no-wrap mb-2">學生<span class="bg-white rounded-lg px-2 py-1 mx-1">9999</span>人</h5>
         </div> -->
       </div>
-      <div class="flex items-center w-full flex-wrap lg:flex-no-wrap mb-4">
+      <div class="flex items-center w-full flex-wrap lg:flex-no-wrap mb-4 lg:justify-between">
         <FilterModal :showItems="showItems" />
         <div class="flex justify-end items-center">
           <button @click="toRecyle" class="px-4 py-2 btn-green text-white text-sm mx-1 rounded whitespace-no-wrap">

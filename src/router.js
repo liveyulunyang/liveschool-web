@@ -262,6 +262,11 @@ const router = new Router({
           name: 'IndexManage',
           component: () => import('@/pages/IndexManage.vue')
         },
+        {
+          path: '/ads/add',
+          name: 'AddBanner',
+          component: () => import('@/pages/AddBanner.vue')
+        },
         // 學生預約
         {
           path: '/booking_class/:type',

@@ -13,5 +13,10 @@
   "cheer": "Cheer",
   "great": "Great",
   "reciprocal": "Count",
-  "draw": "Draw"
+  "draw": "Draw",
+
+  "account": "Account",
+  "checkoutRecord": "Query Record",
+
+  "return": "Return"
 }
