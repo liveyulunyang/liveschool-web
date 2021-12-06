@@ -17,9 +17,10 @@
             <FilterModal :showItems="showItems" />
           </div>
           <div>
-            <a class="px-4 py-3 btn-blue text-white  text-sm mx-1 rounded whitespace-no-wrap">
+            <!-- <a class="px-4 py-3 btn-blue text-white  text-sm mx-1 rounded whitespace-no-wrap">
               <i class="fas fa-arrow-down mr-1"></i>匯出資料
-            </a>
+            </a> -->
+            <ExportBtn />
           </div>
         </div>
       <div class="flex flex-wrap">
@@ -147,6 +148,7 @@ import FilterModal from '@/components/FilterModal'
 import CommentContentModal from '@/components/popup/CommentContentModal'
 import CalenderModel from '@/components/popup/CalenderModel'
 import Title from '@/components/Title'
+import ExportBtn from '@/components/modules/ExportBtn'
   export default {
     name: "Learn_record",
     components: {
@@ -154,7 +156,8 @@ import Title from '@/components/Title'
       FilterModal,
       CommentContentModal,
       CalenderModel,
-      Title
+      Title,
+      ExportBtn
     },
     data () {
       return {

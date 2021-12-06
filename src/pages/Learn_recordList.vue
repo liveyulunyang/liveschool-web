@@ -31,6 +31,7 @@
             </td>
           </template>
         </Table>
+        <Pagination />
     </div>
   </main>
 </template>
@@ -41,13 +42,15 @@ import 'vue2-datepicker/index.css'
 import FilterModal from '@/components/FilterModal'
 import ExportBtn from '@/components/modules/ExportBtn'
 import Title from '@/components/Title'
+import Pagination from "@/components/modules/Pagination"
   export default {
     name: "Learn_record",
     components: {
       Table,
       FilterModal,
       ExportBtn,
-      Title
+      Title,
+      Pagination
     },
     props: [
       'props'

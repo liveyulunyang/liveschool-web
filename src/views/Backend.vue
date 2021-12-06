@@ -75,7 +75,7 @@
             {
               icon: "fas fa-history",
               title: "學習紀錄",
-              url: "/learn_record"
+              url: "/learn_record/list"
             },
             {
               icon: "fas fa-id-card",
@@ -183,6 +183,13 @@
       // SideBar,
       Login
     },
+    watch: {
+      '$store.state.auth.authorized' (oldVal, newVal) {
+        if (newVal === false) {
+          this.$router.push({ name: 'home' })
+        }
+      }
+    },
     mounted () {
     },
     updated () {
@@ -222,11 +229,7 @@
       }
     },
     methods: {
-      // openSideBar () {
-      //   this.isOpenSideBar = !this.isOpenSideBar
-      // },
       outside () {
-        // this.isOpenSideBar = false
         this.isOpenUser = false
       },
       setRole (event) {
@@ -239,10 +242,6 @@
       toggleLogin (toggleLogin) {
         this.isOpenLogin = toggleLogin
       }
-      // toggleSideBar (toggleSideBar) {
-      //   console.log(toggleSideBar)
-      //   this.isOpenSideBar = !this.isOpenSideBar
-      // }
     }
   }
 </script>

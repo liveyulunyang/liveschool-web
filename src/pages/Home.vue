@@ -178,9 +178,13 @@ import jump from 'jump.js'
       },
       getBanner () {
         let self = this
+        self.$store.dispatch('isLoading', true)
         axios.get('https://api.liveabc.com/v1/ad/IndexBanner')
           .then((response) => {
             self.bannerData = response.data
+          })
+          .then((response) => {
+            self.$store.dispatch('isLoading', false)
           })
       },
       jump (val) {

@@ -4,7 +4,7 @@
         <div class="mb-4 flex justify-between items-center flex-wrap">
           <div class="flex items-center">
             <Title :title="'老師授課紀錄'" />
-            <span>測試學生(test@gmail.com)</span>
+            <span>ALEX/ALEX WU(alex_teacherdemo88@liveabc.com)</span>
           </div>
         </div>
         <div class="flex items-center justify-between w-full flex-wrap lg:flex-no-wrap mb-4">
@@ -17,9 +17,10 @@
             <FilterModal :showItems="showItems" />
           </div>
           <div>
-            <a class="px-4 py-3 btn-blue text-white text-sm mx-1 rounded whitespace-no-wrap">
+            <!-- <a class="px-4 py-3 btn-blue text-white text-sm mx-1 rounded whitespace-no-wrap">
               <i class="fas fa-arrow-down mr-1"></i>匯出資料
-            </a>
+            </a> -->
+            <ExportBtn />
           </div>
         </div>
       <div class="flex flex-wrap">
@@ -38,21 +39,21 @@
             </div>
             <div class="w-full flex py-2 border-b border-gray-800">
               <div class="w-1/2 text-left">
-                <p>出席率</p>
+                <p>堂數(50分鐘為一單位)</p>
               </div>
               <div class="w-1/2 text-right">
-                <p>100%</p>
+                <p>100堂</p>
               </div>
             </div>
             <div class="w-full flex py-2 border-b border-gray-800">
               <div class="w-1/2 text-left">
-                <p>總分鐘數</p>
+                <p>平均問卷分數</p>
               </div>
               <div class="w-1/2 text-right">
                 <p>8分鐘</p>
               </div>
             </div>
-            <div class="w-full flex py-2 border-b border-gray-800">
+            <!-- <div class="w-full flex py-2 border-b border-gray-800">
               <div class="w-1/2 text-left">
                 <p>平均分鐘數</p>
               </div>
@@ -67,7 +68,7 @@
               <div class="w-1/2 text-right">
                 <p>8點</p>
               </div>
-            </div>
+            </div> -->
           </div>
           <div class="bg-white font-bold px-4 py-5">
             <h6 class=" text-left text-lg mb-2">分類統計</h6>
@@ -150,6 +151,7 @@ import FilterModal from '@/components/FilterModal'
 import CommentContentModal from '@/components/popup/CommentContentModal'
 import CalenderModel from '@/components/popup/CalenderModel'
 import Title from '@/components/Title'
+import ExportBtn from '@/components/modules/ExportBtn'
   export default {
     name: "Learn_record",
     components: {
@@ -157,7 +159,8 @@ import Title from '@/components/Title'
       FilterModal,
       CommentContentModal,
       CalenderModel,
-      Title
+      Title,
+      ExportBtn
     },
     data () {
       return {
@@ -165,15 +168,8 @@ import Title from '@/components/Title'
         showDetailModal: false,
 
         showItems: {
-          role: false,
-          listStatus: false,
-          classTopic: true,
-          classification: true,
-          branch: false,
-          classType: false,
-          timePeriod: true,
-          search: false,
-          sync: false
+          classType: true,
+          timePeriod: true
         },
 
         tableList: {

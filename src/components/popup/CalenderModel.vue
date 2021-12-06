@@ -62,6 +62,10 @@
           <i class="fas fa-film"></i>
         </button>
       </div>
+      <div class="w-full mb-4 px-3 py-2 flex justify-end" v-if="$route.name === 'myClass' && $store.state.auth.userRole === 'teacher'">
+        <startClassModal :showfirstModal="showClassModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" />
+        <a @click="showClassModal = true" class="border px-3 py-2 btn-main text-white cursor-pointer rounded text-xl tracking-wider">前往上課<i class="fas fa-arrow-right ml-1"></i></a>
+      </div>
     </div>
   </Modal>
 </template>
@@ -69,11 +73,13 @@
 import Modal from '@kouts/vue-modal'
 import '@kouts/vue-modal/dist/vue-modal.css'
 import MugShot from '@/components/MugShot'
+import startClassModal from '@/components/popup/startClassModal'
 export default {
   name: 'CalenderModel',
 
   data () {
     return {
+      showClassModal: false
     }
   },
 
@@ -86,7 +92,8 @@ export default {
 
   components: {
     Modal,
-    MugShot
+    MugShot,
+    startClassModal
   },
   computed: {
   },
@@ -94,7 +101,11 @@ export default {
     close () {
       let self = this
       self.$emit('closeModal', false)
-    }
+    },
+    closeModal (closeModal) {
+      this.showClassModal = closeModal
+    },
+    submit () {}
   }
 }
 </script>

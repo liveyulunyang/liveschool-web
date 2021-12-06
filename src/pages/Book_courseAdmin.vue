@@ -36,6 +36,7 @@
             </td>
           </template>
       </Table>
+      <Pagination />
       <CommentModal :showfirstModal="showfirstModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" />
       <!-- <CommentModal :showfirstModal="showfirstModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" /> -->
     </div>
@@ -47,13 +48,15 @@
   import FilterModal from '@/components/FilterModal'
   import CommentModal from '@/components/popup/BookingModal'
   import Title from '@/components/Title'
+  import Pagination from "@/components/modules/Pagination"
   export default {
     name: "Book_course",
     components: {
       Table,
       FilterModal,
       CommentModal,
-      Title
+      Title,
+      Pagination
     },
     data () {
       return {

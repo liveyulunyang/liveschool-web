@@ -228,7 +228,8 @@
 
       addBanner () {
         this.$router.push({ name: 'AddBanner' })
-      }
+      },
+      checkMove () {}
     }
   }
 </script>

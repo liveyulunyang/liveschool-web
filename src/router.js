@@ -138,9 +138,9 @@ const router = new Router({
           component: () => import('@/pages/Classification.vue')
         },
         {
-          path: '/learn_record',
-          name: 'learn_record',
-          component: () => import('@/pages/Learn_record.vue')
+          path: '/learn_record/list',
+          name: 'learn_record_list',
+          component: () => import('@/pages/Learn_recordList.vue')
         },
         {
           path: '/learn_record/student',

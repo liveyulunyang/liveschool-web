@@ -43,19 +43,20 @@ export default new Vuex.Store({
     },
 
     login: async ({ commit, dispatch }, user) => {
-      await axios.post('/login', {
-        'email': user.account,
-        'password': user.password
-      })
-      .then(response => {
-        commit('LOGIN', response.data)
-        dispatch('getProfile')
-        // VueCookie.set('token', response.data.access_token)
-      })
-      .catch(error => {
-        if (error.response.status === 401) {
-        }
-      })
+      commit('LOGIN')
+      // await axios.post('/login', {
+      //   'email': user.account,
+      //   'password': user.password
+      // })
+      // .then(response => {
+      //   commit('LOGIN', response.data)
+      //   dispatch('getProfile')
+      //   // VueCookie.set('token', response.data.access_token)
+      // })
+      // .catch(error => {
+      //   if (error.response.status === 401) {
+      //   }
+      // })
     },
 
     logout: async ({ commit }) => {
@@ -88,7 +89,8 @@ export default new Vuex.Store({
     LOGOUT (state) {
       state.auth.authorized = false
       state.auth.user = {}
-      state.auth.userRole = ''
+      // state.auth.userRole = ''
+      state.auth.userRole = 'admim'
       // VueCookie.delete('token')
     }
   }

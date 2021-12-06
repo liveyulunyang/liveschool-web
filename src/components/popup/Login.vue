@@ -7,9 +7,9 @@
         <div class="w-full md:w-1/2 bg-white">
           <form class="p-10  rounded flex justify-center items-center flex-col w-full">
             <h3 class="mb-5 text-3xl uppercase text-main font-bold">登入</h3>
-            <input type="email" name="email" class="mb-5 p-3 w-full focus:border-purple-700 rounded border-2 outline-none" autocomplete="off" placeholder="Email" required>
-            <input type="password" name="password" class="mb-5 p-3 w-full focus:border-purple-700 rounded border-2 outline-none" autocomplete="off" placeholder="Password" required>
-            <button class="btn-main text-white font-bold py-2 rounded w-full" id="login"><span>登入</span></button>
+            <input v-model="account" type="email" name="email" class="mb-5 p-3 w-full focus:border-purple-700 rounded border-2 outline-none" autocomplete="off" placeholder="Email" required>
+            <input v-model="password" type="password" name="password" class="mb-5 p-3 w-full focus:border-purple-700 rounded border-2 outline-none" autocomplete="off" placeholder="Password" required>
+            <button class="btn-main text-white font-bold py-2 rounded w-full" id="login" @click="loginAdmin"><span>登入</span></button>
 
             <div class="flex justify-between w-full mt-6">
               <div class="flex items-start mb-6">
@@ -36,11 +36,14 @@
   </div>
 </template>
 <script>
+import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'Login',
 
   data () {
     return {
+      account: null,
+      password: null
     }
   },
 
@@ -50,11 +53,28 @@ export default {
   components: {
   },
   computed: {
+    ...mapGetters([
+      'authorized',
+      'userRole'
+    ])
   },
   methods: {
+    ...mapActions({
+      dologin: 'login'
+    }),
     close () {
       let self = this
       self.$emit('toggleLogin', false)
+    },
+    async loginAdmin () {
+      let self = this
+
+      await self.dologin({ account: self.account, password: self.password })
+      if (self.authorized) {
+        self.$router.push({ name: 'Users' })
+        self.close()
+      } else {
+      }
     }
   }
 }

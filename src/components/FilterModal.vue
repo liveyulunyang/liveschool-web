@@ -273,12 +273,14 @@
         classification: '',
         branch: '',
         classType: '',
-        timePeriod: [new Date(), new Date()],
+        timePeriod: [new Date(new Date().setMonth(new Date().getMonth() - 3)), new Date()],
         approvalStatus: '',
         searchType: '',
         searchWord: '',
         teacherCountry: ''
       }
+    },
+    computed: {
     },
     methods: {
       onChange () {
