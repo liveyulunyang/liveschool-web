@@ -265,9 +265,17 @@
               </button>
             </div>
           </div>
-
+          <div class="w-full px-3 mb-2 md:mb-4 md:flex">
+            <label class="md:pt-2 md:text-sm md:w-1/5 tracking-wide text-sm" for="password">
+              備注
+            </label>
+            <input class="md:w-4/5 appearance-none block w-full  text-sm border border-gray-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-900"
+              id="text" type="text" placeholder="" maxlength="30"
+              autocomplete="old-password" name="text">
+          </div>
         </div>
       </div>
+
       <div class="md:flex mt-3 md:mb-4 w-full lg:pt-6 justify-end px-2">
         <button class="btn-main text-white py-3 px-8 md:px-12 rounded w-full md:w-1/5 text-sm whitespace-no-wrap">
           建立
@@ -412,7 +420,7 @@
     },
     data () {
       return {
-        tag: 2,
+        tag: 0,
         tagArr: [
           { name: '基本資料', role: '' },
           { name: '授課時間', role: '' },

@@ -215,7 +215,7 @@ import jump from 'jump.js'
     .fixed-btn {
       right: .8em;
       top: 50%;
-      @media (max-width: 768px) {
+      @media (max-width: 1024px) {
         right: .2em;
       }
       .right {
@@ -256,8 +256,8 @@ import jump from 'jump.js'
       background-image: url('~@/assets/img/home/background_home_01.png');
       background-repeat: no-repeat;
       background-size: cover;
-      @media (max-width: 768px) {
-        background-position: bottom;
+      @media (max-width: 1024px) {
+        // background-position: bottom;
         background-size: contain;
       }
       .classType-items {
@@ -284,9 +284,10 @@ import jump from 'jump.js'
     #howtoclass {
       background-image: url('~@/assets/img/home/background_home_02.png');
       background-repeat: no-repeat;
-      background-size: contain;
-      @media (max-width: 768px) {
+      background-size: cover;
+      @media (max-width: 1024px) {
         background-position: bottom;
+        background-size: contain;
       }
     }
     #successWitness {
@@ -294,12 +295,15 @@ import jump from 'jump.js'
       background-image: url('~@/assets/img/home/background_home_03.png');
       background-repeat: no-repeat;
       background-size: cover;
+      @media (max-width: 1024px) {
+        background-size: contain;
+      }
     }
     #login_free {
       background-image: url('~@/assets/img/home/background_home_04.png');
       background-repeat: no-repeat;
       background-size: cover;
-      @media (max-width: 768px) {
+      @media (max-width: 1024px) {
         background-position: bottom;
         background-size: contain;
       }

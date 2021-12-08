@@ -287,6 +287,28 @@ const router = new Router({
           path: '/booking_class/teacher/:id',
           name: 'classPreviewTeacher',
           component: () => import('@/pages/booking/ClassPreview.vue')
+        },
+
+        // company
+        {
+          path: '/teachers',
+          name: 'teachers',
+          component: () => import('@/pages/company/teachers.vue')
+        },
+        {
+          path: '/manual',
+          name: 'manual',
+          component: () => import('@/pages/company/manual.vue')
+        },
+        {
+          path: '/qa',
+          name: 'qa',
+          component: () => import('@/pages/company/qa.vue')
+        },
+        {
+          path: '/software',
+          name: 'software',
+          component: () => import('@/pages/company/software.vue')
         }
       ]
     }

@@ -130,7 +130,7 @@
     },
     methods: {
       addClass () {
-        this.$router.push({ name: 'addTalkClass' })
+        this.$router.push({ name: 'addTalkClass', params: { status: 'add' } })
       },
       toPreview () {
         console.log('d')

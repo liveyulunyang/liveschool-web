@@ -2,8 +2,9 @@
   <main class="flex items-start p-6">
     <div class="flex flex-col w-full">
         <div class="mb-4 flex justify-between items-center flex-wrap">
-          <div class="flex">
+          <div class="md:flex items-center">
             <Title :title="'點數管理'" />
+            <p v-if="$store.state.auth.userRole !== 'admin'" class="md:ml-3">rex@gmail.com</p>
           </div>
         </div>
         <div class="content">
@@ -12,9 +13,8 @@
               <TabComponent :tag="tag" :tagArr="tagArr" v-on:tagIdx="tagIdx" />
             </div>
 
-            <div class="w-full flex flex-col justify-between leading-normal">
-
-              <div v-if="tag === 0 && $store.state.auth.userRole === 'admin'" class="bg-white py-2 lg:p-4">
+            <div class="w-full flex flex-col justify-between leading-normal" v-if="$store.state.auth.userRole === 'admin'">
+              <div v-if="tag === 0" class="bg-white py-2 lg:p-4">
                 <FilterModal :showItems="showItems" />
                 <!-- <div class="flex items-center mb-4 flex-wrap">
                   <div class="mr-1">
@@ -142,7 +142,7 @@
                   </div>
                 </form>
               </div>
-              <div v-if="(tag === 2 && $store.state.auth.userRole === 'admin')" class="bg-white py-2 lg:p-4">
+              <div v-if="tag === 2" class="bg-white py-2 lg:p-4">
                 <form>
                   <div class="mb-4">
                     <label class="block text-md mb-2 text-left" for="email">帳號</label>
@@ -189,6 +189,80 @@
                 </form>
               </div>
               <div v-if="tag === 3">
+                <div class="flex items-center mb-4 flex-wrap bg-white py-2 lg:p-4">
+                  <FilterModal :showItems="transactionRecord" />
+                </div>
+                <Table :columns="tableList.columns"
+                  :actions="tableList.actions"
+                  :data="tableList.datas">
+                </Table>
+              </div>
+            </div>
+            <div class="w-full flex flex-col justify-between leading-normal" v-else>
+              <div v-if="tag === 0" class="bg-white py-2 lg:p-4">
+                <form>
+                  <div class="mb-4">
+                    <label class="block text-md mb-2 text-left" for="email">轉出帳號</label>
+                    <input class="w-full bg-drabya-gray border-gray-500 appearance-none border p-4 font-light leading-tight focus:outline-none focus:shadow-outline" type="email" name="email" id="" placeholder="">
+                  </div>
+                  <div class="mb-4">
+                    <label class="block text-md mb-2 text-left" for="text">轉出帳號或現有點數</label>
+                    <div class="flex items-center mb-4">
+                      <div class="px-2 h-full">
+                        <input value="一般點數" disabled class="w-full bg-drabya-gray border-gray-500 appearance-none border p-4 font-light leading-tight focus:outline-none focus:shadow-outline" type="text" name="text" id="" placeholder="">
+                      </div>
+                      <input disabled class="w-full bg-drabya-gray border-gray-500 appearance-none border p-4 font-light leading-tight focus:outline-none focus:shadow-outline" type="text" name="text" id="" placeholder="">
+                    </div>
+                    <div class="flex items-center">
+                      <div class="px-2 h-full">
+                        <input value="CTL點數" disabled class="w-full bg-drabya-gray border-gray-500 appearance-none border p-4 font-light leading-tight focus:outline-none focus:shadow-outline" type="text" name="text" id="" placeholder="">
+                      </div>
+                      <input disabled class="w-full bg-drabya-gray border-gray-500 appearance-none border p-4 font-light leading-tight focus:outline-none focus:shadow-outline" type="text" name="text" id="" placeholder="">
+                    </div>
+                  </div>
+                  <div class="mb-4">
+                    <label class="block text-md mb-2 text-left" for="text">轉出點數</label>
+                    <div class="flex flex-wrap">
+                      <div class="w-full md:w-1/5 px-2">
+                        <div class="relative text-sm h-full">
+                          <select class="h-full block appearance-none w-full border border-gray-500 py-3 px-4 pr-8 rounded leading-tight focus:outline-none bg-white focus:border-gray-900" id="invoice"
+                            >
+                            <option value="">一般點數</option>
+                          </select>
+                          <div class=" pointer-events-none absolute inset-y-0 right-0 flex items-center px-1 md:px-2">
+                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+                          </div>
+                        </div>
+                      </div>
+                      <input class="w-full md:w-4/5 bg-drabya-gray border-gray-500 appearance-none border p-4 font-light leading-tight focus:outline-none focus:shadow-outline" type="text" name="text" id="" placeholder="">
+                    </div>
+                  </div>
+                  <div class="mb-4">
+                    <label class="block text-md mb-2 text-left" for="reason">異動原因</label>
+                    <input class="w-full bg-drabya-gray border-gray-500 appearance-none border p-4 font-light leading-tight focus:outline-none focus:shadow-outline" type="text" name="reason" id="" placeholder="">
+                  </div>
+                  <div class="mb-4">
+                    <label class="block text-md mb-2 text-left" for="emailRe">轉入帳號</label>
+                    <input class="w-full bg-drabya-gray border-gray-500 appearance-none border p-4 font-light leading-tight focus:outline-none focus:shadow-outline" type="email" name="emailRe" id="emailRe" placeholder="">
+                  </div>
+                  <div class="mb-4">
+                    <label class="block text-md mb-2 text-left" for="">轉入帳號或現有點數</label>
+                    <div class="flex items-center mb-4">
+                      <div class="px-2 h-full">
+                        <input value="一般點數" disabled class="w-full bg-drabya-gray border-gray-500 appearance-none border p-4 font-light leading-tight focus:outline-none focus:shadow-outline" type="text" id="" placeholder="">
+                      </div>
+                      <input disabled class="w-full bg-drabya-gray border-gray-500 appearance-none border p-4 font-light leading-tight focus:outline-none focus:shadow-outline" type="text" name="point" id="" placeholder="">
+                    </div>
+                    <div class="flex items-center">
+                      <div class="px-2 h-full">
+                        <input value="CTL點數" disabled class="w-full bg-drabya-gray border-gray-500 appearance-none border p-4 font-light leading-tight focus:outline-none focus:shadow-outline" type="text" id="" placeholder="">
+                      </div>
+                      <input disabled class="w-full bg-drabya-gray border-gray-500 appearance-none border p-4 font-light leading-tight focus:outline-none focus:shadow-outline" type="text" name="pointCTL" id="" placeholder="">
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div v-if="tag === 1">
                 <div class="flex items-center mb-4 flex-wrap bg-white py-2 lg:p-4">
                   <FilterModal :showItems="transactionRecord" />
                 </div>

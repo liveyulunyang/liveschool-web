@@ -9,7 +9,7 @@ export default new Vuex.Store({
     auth: {
       authorized: true, // true false
       userRole: 'admin', // admin director supervise student teacher
-      reserveMode: false,
+      reserveMode: true,
       user: null
     },
     isLoading: false
@@ -85,12 +85,13 @@ export default new Vuex.Store({
 
     LOGIN (state) {
       state.auth.authorized = true
+      state.auth.userRole = 'admin'
     },
     LOGOUT (state) {
       state.auth.authorized = false
       state.auth.user = {}
       // state.auth.userRole = ''
-      state.auth.userRole = 'admim'
+      state.auth.userRole = 'admin'
       // VueCookie.delete('token')
     }
   }
