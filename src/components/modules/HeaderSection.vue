@@ -16,8 +16,8 @@
         <a class="px-2 py-2 cursor-pointer rounded mx-1 btn-mode" :class="{ active: !$store.state.auth.reserveMode }" @click="setMode(false)">個人學習模式</a>
       </div>
       <div v-if="!authorized" class="flex items-center">
-        <a class="hidden md:block cursor-pointer px-3 py-2 text-main font-bold mr-3" href="https://docs.google.com/forms/d/e/1FAIpQLSfw_Q9scdFhVp5iNFO8exubkbloQGILu3rbdsnmMFANnFqHDA/viewform" target="_blank">{{ $t('cooperative') }}</a>
-        <a class="block cursor-pointer border-2 rounded-xl px-3 py-2 text-main font-bold border-main" @click="$emit('toggleLogin', true)">{{ $t('login') }}</a>
+        <!-- <a class="hidden md:block cursor-pointer px-3 py-2 text-main font-bold mr-3" href="https://docs.google.com/forms/d/e/1FAIpQLSfw_Q9scdFhVp5iNFO8exubkbloQGILu3rbdsnmMFANnFqHDA/viewform" target="_blank">{{ $t('cooperative') }}</a> -->
+        <a class="block cursor-pointer border-2 rounded-xl px-3 py-2 text-main font-bold border-main" @click="$store.dispatch('isLogining', true)">{{ $t('login') }}</a>
       </div>
       <div class="dropdown" v-if="authorized">
         <button class="dropbtn focus:outline-none font-bold" @click="isOpenUser = !isOpenUser">Hi! Peggy<i class="fas fa-sort-down ml-2"></i></button>

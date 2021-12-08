@@ -1,7 +1,7 @@
 <template>
   <nav class="c-nav bg-white" :class="{ 'is-closed': isClosed }">
     <div class="c-nav__header border-b-2 border-gray-900">
-      <button @click="isClosed = !isClosed" class="focus:outline-none">
+      <button @click="isClosed = !isClosed" class="focus:outline-none" :class="{ 'pointer-events-none': !$store.state.auth.authorized }">
         <svg xmlns="http://www.w3.org/2000/svg"
           xmlns:xlink="http://www.w3.org/1999/xlink"
           height="24" width="24">
@@ -13,7 +13,7 @@
       <ul>
         <li class="c-nav__menuitem" v-for="(item, index) in menuListItem" :key="index">
           <router-link :to="item.url"
-              :class="{ 'active': item.isActive }"
+              :class="{ 'active': item.isActive, 'disable': !$store.state.auth.authorized }"
               class="flex items-center py-4 px-6 text-blue-main-mid hover:border-l-3 hover:border-solid hover:border-primary-normal  hover:text-primary-normal">
             <i :class="item.icon"></i>
             <span class="ml-3 text-sm font-bold">{{ item.title }}</span>
@@ -120,14 +120,15 @@
   .c-nav__menuitem a {
     width: 100%;
     transition: border .10s linear,
-      width .25s cubic-bezier(0.4,0.0,0.2,1),
-      background-color .25s cubic-bezier(0.4,0.0,0.2,1),
-      color .25s cubic-bezier(0.4,0.0,0.2,1);
-      &:hover {
-        background: #91DAE4;
-        color: white;
-      }
+    width .25s cubic-bezier(0.4,0.0,0.2,1),
+    background-color .25s cubic-bezier(0.4,0.0,0.2,1),
+    color .25s cubic-bezier(0.4,0.0,0.2,1);
+    &:hover {
+      background: #91DAE4;
+      color: white;
+    }
   }
+
   .c-nav__menuitem a svg {
     width: 24px;
     height: 24px;
@@ -148,5 +149,21 @@
   }
   @media (min-width: 768px) {
     .c-nav__menuitem a { width: 215px; }
+  }
+
+  .c-nav__menuitem a.disable {
+    pointer-events: none !important;
+    background: #ffffff !important;
+    color: #91DAE4 !important;
+    border-left-width: 3px;
+    border-style: solid;
+    border-color: #ffffff;
+    background-color: #ffffff;
+    color: #0F455C;
+    cursor: default;
+    &:hover {
+      background: #ffffff !important;
+      color: #91DAE4 !important;
+    }
   }
 </style>

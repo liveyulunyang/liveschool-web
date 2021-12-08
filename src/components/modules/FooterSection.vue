@@ -4,13 +4,13 @@
       <div class="flex flex-wrap w-full md:w-auto mb-12 md:mb-0">
         <div class="px-4 w-1/3 md:w-auto">
           <h6 class="text-lg mb-6">Live School</h6>
-          <a href="">{{ $t('teachers') }}</a>
+          <router-link :to="{ name: 'software' }">{{ $t('teachers') }}</router-link>
         </div>
         <div class="px-4 w-1/3 md:w-auto">
           <h6 class="text-lg mb-6">{{ $t('SiteGuide') }}</h6>
-          <a href="" class="block mb-3">{{ $t('QA') }}</a>
-          <a href="" class="block mb-3">{{ $t('Manual') }}</a>
-          <a href="" class="block">{{ $t('downloads') }}</a>
+          <router-link :to="{ name: 'qa' }" class="block mb-3">{{ $t('QA') }}</router-link>
+          <router-link :to="{ name: 'manual' }" class="block mb-3">{{ $t('Manual') }}</router-link>
+          <router-link :to="{ name: 'software' }" class="block">{{ $t('downloads') }}</router-link>
         </div>
         <div class="px-4 w-1/3 md:w-auto">
           <h6 class="text-lg mb-6">切換語言</h6>

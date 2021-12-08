@@ -135,7 +135,7 @@
         </div>
 
         <div class="flex justify-center">
-          <a class="block cursor-pointer rounded-xl px-6 py-3 text-main font-bold bg-white text-2xl lg:text-3xl hover:shadow-xl text-main tracking-wider">登入 / 免費註冊</a>
+          <a @click="$store.dispatch('isLogining', true)" class="block cursor-pointer rounded-xl px-6 py-3 text-main font-bold bg-white text-2xl lg:text-3xl hover:shadow-xl text-main tracking-wider">登入 / 免費註冊</a>
         </div>
       </div>
 

@@ -64,7 +64,7 @@ export default {
     }),
     close () {
       let self = this
-      self.$emit('toggleLogin', false)
+      self.$store.dispatch('isLogining', false)
     },
     async loginAdmin () {
       let self = this

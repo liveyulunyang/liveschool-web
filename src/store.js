@@ -12,7 +12,9 @@ export default new Vuex.Store({
       reserveMode: true,
       user: null
     },
-    isLoading: false
+    // status
+    isLoading: false,
+    isOpenLogin: false
   },
 
   getters: {
@@ -26,6 +28,11 @@ export default new Vuex.Store({
   actions: {
     isLoading: (context, data) => {
       context.commit('ISLOADING', data)
+    },
+
+    isLogining: (context, data) => {
+      context.commit('ISLOGIN', data)
+      console.log(data)
     },
 
     setRole: (context, data) => {
@@ -72,6 +79,10 @@ export default new Vuex.Store({
   mutations: {
     ISLOADING (state, data) {
       state.isLoading = data
+    },
+    ISLOGIN (state, data) {
+      state.isOpenLogin = data
+      console.log(data)
     },
     SETROLE (state, data) {
       state.auth.userRole = data
