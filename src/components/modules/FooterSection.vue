@@ -4,7 +4,7 @@
       <div class="flex flex-wrap w-full md:w-auto mb-12 md:mb-0">
         <div class="px-4 w-1/3 md:w-auto">
           <h6 class="text-lg mb-6">Live School</h6>
-          <router-link :to="{ name: 'software' }">{{ $t('teachers') }}</router-link>
+          <router-link :to="{ name: 'teachers' }">{{ $t('teachers') }}</router-link>
         </div>
         <div class="px-4 w-1/3 md:w-auto">
           <h6 class="text-lg mb-6">{{ $t('SiteGuide') }}</h6>
