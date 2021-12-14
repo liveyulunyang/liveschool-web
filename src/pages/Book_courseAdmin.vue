@@ -36,7 +36,7 @@
             </td>
           </template>
       </Table>
-      <Pagination />
+      <Pagination v-on:pageChange="pageChange" :pagination="pagination" />
       <CommentModal :showfirstModal="showfirstModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" />
       <!-- <CommentModal :showfirstModal="showfirstModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" /> -->
     </div>
@@ -115,6 +115,12 @@
               status: '通過'
             }
           ]
+        },
+
+        // pagination
+        pagination: {
+          currentPage: 0,
+          length: 10
         }
       }
     },
@@ -139,6 +145,10 @@
       },
       submit (submit) {
         // this.$router.push({ name: submit })
+      },
+      pageChange (pageChange) {
+        let self = this
+        self.pagination.currentPage = pageChange
       }
       // edit() {
       //   console.log('edit manage');

@@ -2,23 +2,23 @@
   <div id="app" class="pagination m-6 flex justify-center">
     <div class="w-full mb-6 flex justify-center">
       <vue-ads-pagination
-        :page="page"
-        :itemsPerPage="10"
+        :page="pagination.currentPage"
+        :itemsPerPage="1"
         :max-visible-pages="3"
 
-        :totalItems="200"
-      >
+        :totalItems="pagination.length"
+        >
           <template
-              slot="buttons"
-              slot-scope="props"
+            slot="buttons"
+            slot-scope="props"
           >
           <vue-ads-page-button
             v-for="(button, key) in props.buttons"
             :key="key"
             v-bind="button"
             :class="{ 'vue-pagination-active pagination-btn': button.active }"
-            @page-change="page = button.page"
-            @range-change="start = button.start; end = button.end"
+            @page-change="pageChange(button)"
+            @range-change="rangeChange (button.start, button.end)"
           />
         </template>
       </vue-ads-pagination>
@@ -27,33 +27,38 @@
 </template>
 
 <script>
-import '@/../node_modules/@fortawesome/fontawesome-free/css/all.css';
-import '@/../node_modules/vue-ads-pagination/dist/vue-ads-pagination.css';
-
-import VueAdsPagination, { VueAdsPageButton } from 'vue-ads-pagination';
+import '@/../node_modules/@fortawesome/fontawesome-free/css/all.css'
+import '@/../node_modules/vue-ads-pagination/dist/vue-ads-pagination.css'
+import VueAdsPagination, { VueAdsPageButton } from 'vue-ads-pagination'
 
 export default {
     name: 'Pagination',
 
     components: {
-        VueAdsPagination,
-        VueAdsPageButton
+      VueAdsPagination,
+      VueAdsPageButton
+    },
+
+    props: {
+      pagination: {
+        type: Object
+      }
     },
 
     data () {
       return {
-        loading: false,
-        page: 0,
+        loading: false
       }
     },
-
     methods: {
-      pageChange (page) {
-        this.page = page
+      pageChange (button) {
+        let self = this
+        self.$emit('pageChange', button.page)
+        console.log(button)
       },
       rangeChange (start, end) {
         console.log(start, end)
-      },
+      }
     }
 }
 </script>

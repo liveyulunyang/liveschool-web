@@ -103,7 +103,7 @@
       </Table>
       <CommentModal :showfirstModal="showfirstModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" />
       <FileListModal :showfirstModal="showFileListModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" />
-      <Pagination />
+      <Pagination v-on:pageChange="pageChange" :pagination="pagination" />
     </div>
   </main>
 </template>
@@ -217,7 +217,13 @@
           { role: '已取消', num: 99, unit: '課' },
           { role: '進行中', num: 99, unit: '課' },
           { role: '未結束', num: 99, unit: '課' }
-        ]
+        ],
+
+        // pagination
+        pagination: {
+          currentPage: 0,
+          length: 10
+        }
       }
     },
     computed: {
@@ -297,6 +303,10 @@
       },
       openPeopleNumModal () {
         this.showStudentsListModal = true
+      },
+      pageChange (pageChange) {
+        let self = this
+        self.pagination.currentPage = pageChange
       }
     }
   }

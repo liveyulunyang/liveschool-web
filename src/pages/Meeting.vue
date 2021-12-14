@@ -70,7 +70,7 @@
             </td>
           </template>
       </Table>
-      <Pagination />
+      <Pagination v-on:pageChange="pageChange" :pagination="pagination" />
     </div>
   </main>
 </template>
@@ -130,6 +130,12 @@
               branch: '企業站'
             }
           ]
+        },
+
+        // pagination
+        pagination: {
+          currentPage: 0,
+          length: 10
         }
       }
     },
@@ -181,6 +187,10 @@
             })
           }
         })
+      },
+      pageChange (pageChange) {
+        let self = this
+        self.pagination.currentPage = pageChange
       }
     }
   }

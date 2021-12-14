@@ -73,7 +73,7 @@
             </div>
           </div>
 
-          <Pagination />
+          <Pagination v-on:pageChange="pageChange" :pagination="pagination" />
           <AnnounceModal :showfirstModal="showfirstModal" v-on:closeModal="closeModal" :isEdit="isEdit" />
         </div>
     </div>
@@ -96,7 +96,13 @@
     data () {
       return {
         isEdit: false,
-        showfirstModal: false
+        showfirstModal: false,
+
+        // pagination
+        pagination: {
+          currentPage: 0,
+          length: 10
+        }
       }
     },
     computed: {
@@ -173,6 +179,10 @@
             })
           }
         })
+      },
+      pageChange (pageChange) {
+        let self = this
+        self.pagination.currentPage = pageChange
       }
     }
   }

@@ -31,7 +31,7 @@
             </td>
           </template>
         </Table>
-        <Pagination />
+        <Pagination v-on:pageChange="pageChange" :pagination="pagination" />
     </div>
   </main>
 </template>
@@ -96,6 +96,12 @@ import Pagination from "@/components/modules/Pagination"
               director: 'peggy@gmail.com'
             }
           ]
+        },
+
+        // pagination
+        pagination: {
+          currentPage: 0,
+          length: 10
         }
       }
     },
@@ -105,6 +111,10 @@ import Pagination from "@/components/modules/Pagination"
       open() {
         console.log('open manage')
         this.$router.push({ name: 'learn_record_student' })
+      },
+      pageChange (pageChange) {
+        let self = this
+        self.pagination.currentPage = pageChange
       }
     }
   }

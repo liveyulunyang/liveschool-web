@@ -37,7 +37,7 @@
           </template>
       </Table>
       <AddSerialNumModal :showfirstModal="showfirstModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" />
-      <Pagination />
+      <Pagination v-on:pageChange="pageChange" :pagination="pagination" />
     </div>
   </main>
 </template>
@@ -95,6 +95,12 @@
               changeTime: '2020-05-06 15:00'
             }
           ]
+        },
+
+        // pagination
+        pagination: {
+          currentPage: 0,
+          length: 10
         }
       }
     },
@@ -147,6 +153,10 @@
       },
       submit (submit) {
         // this.$router.push({ name: submit })
+      },
+      pageChange (pageChange) {
+        let self = this
+        self.pagination.currentPage = pageChange
       }
     }
   }

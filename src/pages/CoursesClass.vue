@@ -40,7 +40,7 @@
           </template>
       </Table>
       <CommentModal :showfirstModal="showfirstModal" v-on:closeModal="closeModal" :isDisabled="true" :title="'預約資料預覽'" v-on:submit="submit" />
-      <Pagination />
+      <Pagination v-on:pageChange="pageChange" :pagination="pagination" />
     </div>
   </main>
 </template>
@@ -105,7 +105,13 @@
         userNum: [
           { role: '上線中', num: 99, unit: '課' },
           { role: '草稿', num: 99, unit: '課' }
-        ]
+        ],
+
+        // pagination
+        pagination: {
+          currentPage: 0,
+          length: 10
+        }
       }
     },
     computed: {
@@ -173,6 +179,10 @@
       },
       submit (submit) {
         // this.$router.push({ name: submit })
+      },
+      pageChange (pageChange) {
+        let self = this
+        self.pagination.currentPage = pageChange
       }
     }
   }

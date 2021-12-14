@@ -8,7 +8,7 @@
     </fullscreen>
 
     <div class="container max-h-screen">
-      <pdf src="/test.pdf" :page="currentPage" @num-pages="pageCount = $event" @page-loaded="currentPage = $event" ref="myPdfComponent"></pdf>
+      <pdf :src="fileUrl" :page="currentPage" @num-pages="pageCount = $event" @page-loaded="currentPage = $event" ref="myPdfComponent"></pdf>
     </div>
 
     <div class="absolute w-full left-0 bottom-0">

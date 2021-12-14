@@ -48,7 +48,7 @@
             </td>
           </template>
       </Table>
-      <Pagination />
+      <Pagination v-on:pageChange="pageChange" :pagination="pagination" />
     </div>
   </main>
 </template>
@@ -84,17 +84,6 @@
 
         tableList: {
           columns: [
-            // { name: 'id', label: '帳號(信箱)', required: true, sortable: true },
-            // { name: 'name', label: '姓名/英文姓名', required: true, sortable: true },
-            // { name: 'CTL', label: 'CTL帳號', required: true, sortable: true },
-            // { name: 'mobile', label: '行動電話', required: true, sortable: true },
-            // { name: 'point', label: '點數', required: true, sortable: false},
-            // { name: 'role', label: '角色', required: true, sortable: true },
-            // { name: 'source', label: '來源', required: true, sortable: true },
-            // { name: 'city', label: '縣市', required: true, sortable: true },
-            // { name: 'branch', label: '分校', required: true, sortable: true },
-            // { name: 'class', label: '班級', required: true, sortable: true },
-            // { name: 'time', label: '建立時間', required: true, sortable: true },
             { name: 'id', label: '分區/校名', required: true, sortable: true },
             { name: 'name', label: '校別', required: true, sortable: true },
             { name: 'CTL', label: '主任帳號', required: true, sortable: true },
@@ -137,6 +126,12 @@
               time: '=88'
             },
           ]
+        },
+
+        // pagination
+        pagination: {
+          currentPage: 0,
+          length: 10
         }
       }
     },
@@ -145,6 +140,10 @@
     methods: {
       toManage () {
         this.$router.push({ name: 'account_add' })
+      },
+      pageChange (pageChange) {
+        let self = this
+        self.pagination.currentPage = pageChange
       }
     }
   }

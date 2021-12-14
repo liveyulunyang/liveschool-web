@@ -470,7 +470,7 @@
           </div>
       </div>
     </div>
-    <Pagination />
+    <Pagination v-on:pageChange="pageChange" :pagination="pagination" />
   </main>
 </template>
 
@@ -525,6 +525,12 @@ import Avatar from '@/components/Avatar'
           timePeriod: true,
           search: true,
           sync: false
+        },
+
+        // pagination
+        pagination: {
+          currentPage: 0,
+          length: 10
         }
       }
     },
@@ -541,6 +547,10 @@ import Avatar from '@/components/Avatar'
       },
       submit (submit) {
         this.$router.push({ name: submit })
+      },
+      pageChange (pageChange) {
+        let self = this
+        self.pagination.currentPage = pageChange
       }
     }
   }

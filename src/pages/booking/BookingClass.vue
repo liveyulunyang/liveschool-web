@@ -6,7 +6,7 @@
         <ClassModual class="" />
       </div>
     </div>
-    <Pagination />
+    <Pagination v-on:pageChange="pageChange" :pagination="pagination" />
 
   </main>
 </template>
@@ -36,12 +36,22 @@ import Pagination from '@/components/modules/Pagination'
           searchOnlyInput: true,
           sync: true,
           approvalStatus: false
+        },
+
+        // pagination
+        pagination: {
+          currentPage: 0,
+          length: 10
         }
       }
     },
     computed: {
     },
     methods: {
+      pageChange (pageChange) {
+        let self = this
+        self.pagination.currentPage = pageChange
+      }
     }
   }
 </script>

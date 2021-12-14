@@ -40,7 +40,7 @@
             </td>
           </template>
       </Table>
-      <Pagination />
+      <Pagination v-on:pageChange="pageChange" :pagination="pagination" />
     </div>
   </main>
 </template>
@@ -100,6 +100,12 @@
               school: 'CTL校'
             }
           ]
+        },
+
+        // pagination
+        pagination: {
+          currentPage: 0,
+          length: 10
         }
       }
     },
@@ -148,6 +154,11 @@
             })
           }
         })
+      },
+
+      pageChange (pageChange) {
+        let self = this
+        self.pagination.currentPage = pageChange
       }
     }
   }

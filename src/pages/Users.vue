@@ -54,7 +54,7 @@
             </td>
           </template>
       </Table>
-      <Pagination />
+      <Pagination v-on:pageChange="pageChange" :pagination="pagination" />
     </div>
   </main>
 </template>
@@ -143,6 +143,12 @@
               time: '2020-11-30 09:59'
             }
           ]
+        },
+
+        // pagination
+        pagination: {
+          currentPage: 0,
+          length: 10
         }
       }
     },
@@ -235,6 +241,11 @@
 
       getData () {
         this.$store.dispatch('isLoading', true)
+      },
+
+      pageChange (pageChange) {
+        let self = this
+        self.pagination.currentPage = pageChange
       }
     }
   }

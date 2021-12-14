@@ -113,7 +113,7 @@
             v-on:openModal="openModal"
             >
           </Table>
-          <Pagination />
+          <Pagination v-on:pageChange="pageChange" :pagination="pagination" />
         </div>
       </div>
     </div>
@@ -180,6 +180,12 @@ import Title from '@/components/Title'
               classTime: '2021-06-22 22:00~23:00'
             }
           ]
+        },
+
+        // pagination
+        pagination: {
+          currentPage: 0,
+          length: 10
         }
       }
     },
@@ -194,6 +200,10 @@ import Title from '@/components/Title'
       closeModal (closeModal) {
         console.log(closeModal)
         this.showfirstModal = closeModal
+      },
+      pageChange (pageChange) {
+        let self = this
+        self.pagination.currentPage = pageChange
       }
     }
   }
