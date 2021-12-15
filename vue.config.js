@@ -7,6 +7,10 @@ module.exports = {
   // devServer: {
   //   https: true
   // },
+  publicPath: process.env.NODE_ENV === 'production'
+  ? '/liveschool-web/'
+  : '/',
+
   configureWebpack: config => {
     if (process.env.NODE_ENV !== 'production') return
     return {
