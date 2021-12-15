@@ -7,6 +7,8 @@
         </div>
       </div>
       <div class="content w-full">
+
+        <Pagination v-on:pageChange="pageChange" :pagination="pagination" />
       </div>
     </div>
   </main>
@@ -14,13 +16,19 @@
 
 <script>
 import Title from '@/components/Title'
+import Pagination from "@/components/modules/Pagination"
   export default {
     name: 'QA',
     components: {
-      Title
+      Title,
+      Pagination
     },
     data () {
       return {
+        pagination: {
+          currentPage: 0,
+          length: 10
+        }
       }
     },
     computed: {
